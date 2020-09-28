@@ -13,6 +13,8 @@
 export function alu(operand_a, operand_b, opcode, flags)
 {
     let result = 0;
+    if(!flags)
+        flags = [];
     switch(opcode)
     {
         case "ADD":

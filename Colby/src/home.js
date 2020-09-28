@@ -18,11 +18,8 @@ import {alu} from "./alu.js"
 //     });
 // });
 
-function help() {
-    alert("FUCK");
-}
 
-function compute() {
+export function compute() {
     const inst = document.getElementById("instruction").value;
     console.log(inst);
     let parse_val = inst.split(' ');
@@ -30,3 +27,5 @@ function compute() {
     console.log(result);
     document.getElementById("result").innerText = result +"";
 };
+
+window.compute = compute;
