@@ -13,7 +13,7 @@ http.createServer(function (request, response) {
     var extname = String(path.extname(filePath)).toLowerCase();
     var mimeTypes = {
         '.html': 'text/html',
-        '.js': 'text/javascript',
+        '.js': 'application/javascript',
         '.css': 'text/css',
         '.json': 'application/json',
         '.png': 'image/png',

@@ -1,3 +1,4 @@
+import {alu} from "./alu.js"
 // import $ from '/js/libs/jquery/dist/jquery.js'
 // $("btn").on(
 //     "click" ,function(){
@@ -16,6 +17,10 @@
 //     //    });        
 //     });
 // });
+
+function help() {
+    alert("FUCK");
+}
 
 function compute() {
     const inst = document.getElementById("instruction").value;
