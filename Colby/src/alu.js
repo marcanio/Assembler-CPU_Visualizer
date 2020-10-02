@@ -21,7 +21,7 @@ export function alu(operand_a, operand_b, opcode, flags)
             result = operand_a + operand_b;            
             break;
         case "SUB":
-            result = operand_a + operand_b;
+            result = operand_a - operand_b;
             break;
         case "SLT":
             result = operand_a < operand_b;
