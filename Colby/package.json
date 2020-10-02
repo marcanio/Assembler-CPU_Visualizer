@@ -12,7 +12,6 @@
   "author": "Colby McKinley",
   "license": "ISC",
   "dependencies": {
-    "browserify": "^16.5.2",
     "common-js": "^0.3.8",
     "esm": "^3.2.25",
     "http": "0.0.1-security",
