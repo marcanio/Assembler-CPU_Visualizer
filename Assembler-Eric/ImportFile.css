@@ -1,0 +1,42 @@
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    background: #333;
+  }
+  
+  #page-wrapper {
+    width: 600px;
+    background: #FFF;
+    padding: 1em;
+    margin: 1em auto;
+    min-height: 300px;
+    border-top: 5px solid #2342ce;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  }
+  
+  h1 {
+      margin-top: 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  #fileDisplayArea {
+    margin-top: 2em;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .button {
+    background-color: #2342ce;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
