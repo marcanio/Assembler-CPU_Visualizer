@@ -12,33 +12,33 @@
 
 export function alu(operand_a, operand_b, opcode, flags)
 {
-    let result = 0;
-    if(!flags)
-        flags = [];
-    switch(opcode)
-    {
-        case "ADD":
-            result = operand_a + operand_b;            
-            break;
-        case "SUB":
-            result = operand_a + operand_b;
-            break;
-        case "SLT":
-            result = operand_a < operand_b;
-            break;
-        case "OR":
-            result = operand_a | operand_b;
-            break;
-        case "AND":
-            result = operand_a & operand_b;
-            break;
-        case "NOR":
-            result = ~(operand_a & operand_b);
-            break;
-        default:
-            break;
-    }
-    flags[0] = result === 0;
-    return result;
-};
+	let result = 0;
+	if(!flags)
+		flags = [];
+	switch(opcode)
+	{
+	case "ADD":
+		result = operand_a + operand_b;            
+		break;
+	case "SUB":
+		result = operand_a - operand_b;
+		break;
+	case "SLT":
+		result = operand_a < operand_b;
+		break;
+	case "OR":
+		result = operand_a | operand_b;
+		break;
+	case "AND":
+		result = operand_a & operand_b;
+		break;
+	case "NOR":
+		result = ~(operand_a & operand_b);
+		break;
+	default:
+		break;
+	}
+	flags[0] = result === 0;
+	return result;
+}
 
