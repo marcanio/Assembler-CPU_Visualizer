@@ -41,10 +41,11 @@ export class multiplexer {
         else throw 'Invalid multiplexer state: ' + state;
     }
 
-    /** TODO document
-     * 
-     * @param {*} port 
-     * @param {*} value 
+    /**
+     * This function sets the input states of the multiplexer
+     * @param port: The input port to set the value of
+     * @param value: The value that should be set
+     * @author Bryce Snell
      */
     setSource(port, value) {
         if(0 <= port && port <= (this.size - 1)) {
@@ -53,8 +54,9 @@ export class multiplexer {
         else throw 'Invalid multiplexer port: ' + port;
     }
 
-    /** TODO document
-     * 
+    /**
+     * This function gets the current output of a multiplexer
+     * @author Bryce Snell
      */
     getOutput() {
         return this.sources[this.state];
