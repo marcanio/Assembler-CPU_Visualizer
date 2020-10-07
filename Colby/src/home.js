@@ -40,11 +40,7 @@ export function compute() {
     console.log(mux.getState());
     console.log(mux.setState(3));
     console.log(mux.getState());
- 
 
-
-
-    
 };
 
 window.compute = compute;

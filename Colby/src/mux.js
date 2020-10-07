@@ -9,9 +9,11 @@
 export class multiplexer {
     constructor(size) {
         this.state = null;
-
+        
         if(this.powerOfTwo(size) == true) this.size = size;
         else throw 'Multiplexer size is not a power of two';
+
+        this.sources = new Array(this.size);
     }
     
 
@@ -38,6 +40,26 @@ export class multiplexer {
         if(0 <= state && state <= (this.size - 1)) this.state = state;
         else throw 'Invalid multiplexer state: ' + state;
     }
+
+    /** TODO document
+     * 
+     * @param {*} port 
+     * @param {*} value 
+     */
+    setSource(port, value) {
+        if(0 <= port && port <= (this.size - 1)) {
+            this.sources[port] = value;
+        }   
+        else throw 'Invalid multiplexer port: ' + port;
+    }
+
+    /** TODO document
+     * 
+     */
+    getOutput() {
+        return this.sources[this.state];
+    }
+
 
     /**
      * This helper function checks if a number is a power of two
