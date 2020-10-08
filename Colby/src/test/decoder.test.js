@@ -38,3 +38,13 @@ test('Get output: 0x4', () => {
 test('Not power of two', () => {
     expect(new decoder(0x3)).toThrow();
 })
+
+test('Get output at location: 0', () => {
+    globalDecoder.setControl(0x0);
+    expect(globalDecoder.getOutputAtLocation(0)).toBe(1);
+})
+
+test('Get output at location: 1', () => {
+    globalDecoder.setControl(0x0);
+    expect(globalDecoder.getOutputAtLocation(1)).toBe(0);
+})

@@ -29,6 +29,18 @@ export class decoder {
         return this.outputs;
     }
 
+
+    /**
+     * This function returns the outputs at a location
+     * @since 1.0
+     * @returns: the current output value at a location
+     * @author Bryce Snell
+     * 
+    */
+    getOutputAtLocation(i) {
+        return this.outputs[i];
+    }
+
     /**
      * This function returns the outputs as a string
      * @since 1.0
