@@ -68,6 +68,15 @@ export function binToHex(s) {
 }
 
 export function padBin(n) {
+    let targetLength = 0;
+
+    if (n.length % 4 != 0) {
+        targetLength = n.length + (4 - n.length % 4);
+    }
+    else {
+        targetLength = n.length;
+    }
+
     n = n + '';
-    return n.length >= 4 ? n : new Array(4 - n.length + 1).join('0') + n;
+    return n.length == targetLength ? n : new Array(targetLength - n.length + 1).join('0') + n;
   }
