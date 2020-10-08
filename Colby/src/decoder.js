@@ -8,24 +8,36 @@
 
 export class decoder {
     constructor(outputSize) {
-        
-        if(this.powerOfTwo(outputSize) == true) this.controlSize = sqrt(size);
+    
+        if(this.powerOfTwo(outputSize) == true) {
+            this.outputSize = outputSize;
+        }
         else throw 'Decoder size is not a power of two';
 
-        this.control = new Array(this.controlSize);
         this.outputs = new Array(this.outputSize);
     }
     
 
     /**
-     * This function returns the outputs
+     * This function returns the outputs as an array
      * @since 1.0
-     * @returns: the current output values
+     * @returns: the current output values as an array
      * @author Bryce Snell
      * 
     */
     getOutput() {
         return this.outputs;
+    }
+
+    /**
+     * This function returns the outputs as a string
+     * @since 1.0
+     * @returns: the current output values as a string
+     * @author Bryce Snell
+     * 
+    */
+    getOutputString() {
+        return this.outputs.join('');
     }
 
 
@@ -37,11 +49,10 @@ export class decoder {
      * 
     */
     setControl(control) {
-        if(0 <= control && control <= (this.controlSize - 1)) {
+        let targetState = parseInt(control, 16);
 
-            targetState = parseInt(control, 16);
-
-            for(i=0; i < this.outputSize; i++) {
+        if(0 <= targetState && targetState <= (this.outputSize)) {
+            for(var i=0; i < this.outputSize; i++) {
 
                 if(i == targetState) {
                     this.outputs[i] = 1;
@@ -53,8 +64,9 @@ export class decoder {
             }
         }
 
-        else throw 'Invalid decoder control: ' + state;
+        else throw 'Invalid decoder control: ' + control;
     }
+
 
     /**
      * This helper function checks if a number is a power of two
