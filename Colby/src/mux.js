@@ -38,7 +38,7 @@ export class multiplexer {
     */
     setState(state) {
         if(0 <= state && state <= (this.size - 1)) this.state = state;
-        else throw 'Invalid multiplexer state: ' + state;
+        else throw new Error('Invalid multiplexer state: ' + state);
     }
 
     /**

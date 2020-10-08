@@ -4,6 +4,7 @@
  * @author Bryce Snell
  * 
 */
+import {decoder} from "./decoder.js"
 
 export class opCodeDecoder {
     constructor() {
@@ -32,7 +33,7 @@ export class opCodeDecoder {
         this.brge = 0;
         this.ry = 0;
         this.rx = 0;
-        this.addr = 0;
+        this.output = new Array(27);  // These are in order of those above, probably just use this
     }
     
 
@@ -52,10 +53,32 @@ export class opCodeDecoder {
             hexValues.push(+opCode.charAt(i));
         }
         
-        //TODO handle 4 to 16 decoder
+        decode0 = new decoder(16);  // 4 to 16 decoder
+        
+        decode0.setControl(hexValues[0])
+        decode0Value = decode0.getOutput();
+
+        if (decode0Value != 1 && decode0Value != 12 && decode0Value != 15) {
+            for(i=0; i<26; i++) {
+                if (i == decode0Value) {
+                    this.output[i] = 1;
+                }
+                
+                else {
+                    this.output[i] = 0;
+                }
+            }
+        }
+
+        else if (decode0Value == 1) {
+            decode1 = new decoder(4);
+
+        }
+
+
             // if needed use another decoder
 
-        //Set bits
+        // handle ry and rx
     }
 
     /**
@@ -81,5 +104,41 @@ export class opCodeDecoder {
         if (value == 0xD) return new Array() = [1,1,0,1];
         if (value == 0xE) return new Array() = [1,1,1,0];
         if (value == 0xF) return new Array() = [1,1,1,1];
+    }
+
+
+    /**
+     * 
+     * @param value: Hex value to shorten
+     * @param size: Final size (in bits)
+     * @return: hex value
+     */
+    hexReduce(value, size) {
+        binArray = this.parseHex(value);
+        
+        firstBitsZeroed = new Array();
+
+        for(i=0; i<size; i++) {
+            firstBitsZeroed.push(binArray[i]);
+        }
+
+        this.binFillZero(firstBitsZeroed, 4);
+
+        
+    }
+
+    binFillZero(binaryArray, finalSize) {
+        curSize = binaryArray.size()
+        newBinary = new Array(finalSize);
+
+        for(i=0; i < finalSize - curSize; i++) {
+            newBinary.push(0);    
+        } 
+
+        for(i=0; i < curSize; i++) {
+            newBinary.push(binaryArray[i]);
+        }
+
+        return newBinary;
     }
 };
