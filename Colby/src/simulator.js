@@ -108,14 +108,14 @@ window.addEventListener("load", function() {
 	const OPCODE_TPOS = [100, 30];
 
 
-	const MUX0_OFFSET = [700 , 250];
-	const MUX1_OFFSET = [1050, 250];
-	const MUX2_OFFSET = [1050, 550];
-	const MUX3_OFFSET = [1300, 250];
-	const MUX4_OFFSET = [950 , 150];
+	const MUX0_OFFSET = [900 , 650];
+	const MUX1_OFFSET = [1250, 600];
+	const MUX2_OFFSET = [1250, 850];
+	const MUX3_OFFSET = [1500, 1050];
+	const MUX4_OFFSET = [1150 , 150];
 
-	const ALU_OFFSET = [800, 100];
-	const FLAGS_OFFSET = [1100,200];
+	const ALU_OFFSET = [1000, 500];
+	const FLAGS_OFFSET = [1300, 500];
 	const CODE_MEM_OFFSET = [25, 25];
 	const OPCODE_DECODER_OFFSET = [500, 25];
 	const CONTROL_OFFSET = [900, 25];
