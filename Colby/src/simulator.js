@@ -104,7 +104,10 @@ window.addEventListener("load", function() {
 	const PC_UPDATE_POLYGON = [0,0, 200,0, 200,100, 0,100];
 
 
-	const MUX_ALU_WIRE = [];
+	const MUX_ALU_WIRE = [0, 0, 50, 0];
+	const ALU_RESULT_WIRE = [0, 0, 150, 0];
+	const IMEM_DECODER_WIRE = [0, 0, 125, 0];
+
 
 
 
@@ -129,6 +132,11 @@ window.addEventListener("load", function() {
 	const PC_UPDATE_OFFSET = [200, 1050];
 	const DATA_MEM_OFFSET = [1400, 900];
 
+	const MUX_ALU_WIRE_OFFSET = [950, 750];
+	const ALU_RESULT_WIRE_OFFSET = [1100, 650];
+	const IMEM_DECODER_WIRE_OFFSET = [375, 50];
+
+
 
 	const MUX_FALSE_TEXT = "0";
 	const MUX_TRUE_TEXT = "1";
@@ -142,6 +150,8 @@ window.addEventListener("load", function() {
 	const STYLE_ATTR = "style";
 	// TODO create id tags for all components
 	const MUX0_ID = "mux0";
+	const MUX0_FALSE_ID = "mux0_false";
+	const MUX0_TRUE_ID = "mux0_true";
 	const MUX1_ID = "mux1";
 	const MUX2_ID = "mux2";
 	const MUX3_ID = "mux3";
@@ -156,13 +166,13 @@ window.addEventListener("load", function() {
 
 	var mux0_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
 	mux0_false.attribute(STYLE_ATTR, TEXT_STYLE );
-	mux0_false.attribute(ID_ATTR, "mux0_false");
+	mux0_false.attribute(ID_ATTR, MUX0_FALSE_ID);
 	mux0_false.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
 
 
 	var mux0_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
 	mux0_true.attribute(STYLE_ATTR, TEXT_STYLE);
-	mux0_true.attribute(ID_ATTR, "mux0_true");
+	mux0_true.attribute(ID_ATTR, MUX0_TRUE_ID);
 	mux0_true.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
 
 
@@ -171,8 +181,11 @@ window.addEventListener("load", function() {
 	alu.attribute(ID_ATTR, ALU_ID);
 	alu.translate(ALU_OFFSET[0],ALU_OFFSET[1]);
 
-	var mux_alu_wire = new Polygon([50, 350, 100, 350]);
+	var mux_alu_wire = new Polygon(MUX_ALU_WIRE);
 	mux_alu_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	mux_alu_wire.attribute(ID_ATTR, "mux_alu_wire");
+	mux_alu_wire.translate(MUX_ALU_WIRE_OFFSET[0], MUX_ALU_WIRE_OFFSET[1]);
+
 
 	var flags = new Polygon(FLAGS_POLYGON);
 	flags.attribute(STYLE_ATTR, BLOCK_STYLE);
@@ -205,7 +218,7 @@ window.addEventListener("load", function() {
 	mux1_true.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
 
 	var mux2 = new Polygon([...MUX_POLYGON]);
-	mux2.attribute(STYLE_ATTR, "fill:white; stroke:black; stroke-width:2px;");
+	mux2.attribute(STYLE_ATTR, BLOCK_STYLE);
 	mux2.attribute(ID_ATTR, MUX2_ID);
 	mux2.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
 
@@ -296,6 +309,17 @@ window.addEventListener("load", function() {
 	dmem.attribute(ID_ATTR, "dmem");
 	dmem.translate(DATA_MEM_OFFSET[0], DATA_MEM_OFFSET[1]);
 
+	var alu_result_wire = new Polygon(ALU_RESULT_WIRE);
+	alu_result_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	alu_result_wire.attribute(ID_ATTR, "mux_alu_wire");
+	alu_result_wire.translate(ALU_RESULT_WIRE_OFFSET[0], ALU_RESULT_WIRE_OFFSET[1]);
+
+	var imem_decoder_wire = new Polygon(IMEM_DECODER_WIRE);
+	imem_decoder_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	imem_decoder_wire.attribute(ID_ATTR, "mux_alu_wire");
+	imem_decoder_wire.translate(IMEM_DECODER_WIRE_OFFSET[0], IMEM_DECODER_WIRE_OFFSET[1]);
+
+
 	var svg = document.getElementById("canvas");
 	//var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svg.appendChild(mux0.node);
@@ -327,6 +351,9 @@ window.addEventListener("load", function() {
 	svg.appendChild(pc_value.node);
 	svg.appendChild(pc_update.node);
 	svg.appendChild(dmem.node);
+	svg.appendChild(alu_result_wire.node);
+	svg.appendChild(imem_decoder_wire.node);
+
 
 
 });
