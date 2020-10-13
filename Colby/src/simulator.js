@@ -96,10 +96,15 @@ window.addEventListener("load", function() {
 	const ALU_POLYGON = [0,0, 100,75, 100,225, 0,300, 0,200, 25,150, 0,100 ];
 	const FLAGS_POLYGON = [0,0, 150,0, 150,100, 0,100];
 	const CODE_MEM_POLYGON = [0,0, 350,0, 350,450, 0,450];
+	const DATA_MEM_POLYGON = [0,0, 350,0, 350,450, 0,450];
 	const OPCODE_DECODER_POLYGON = [0,0, 200,0, 200,100, 0,100];
 	const CONTROL_POLYGON = [0,0, 550,0, 550,100, 0,100];
 	const REGISTER_FILE_POLYGON = [0,0, 350,0, 350,300, 0,300];
+	const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
+	const PC_UPDATE_POLYGON = [0,0, 200,0, 200,100, 0,100];
 
+
+	const MUX_ALU_WIRE = [];
 
 
 
@@ -111,8 +116,8 @@ window.addEventListener("load", function() {
 	const MUX0_OFFSET = [900 , 650];
 	const MUX1_OFFSET = [1250, 600];
 	const MUX2_OFFSET = [1250, 850];
-	const MUX3_OFFSET = [1500, 1050];
-	const MUX4_OFFSET = [1150 , 150];
+	const MUX3_OFFSET = [2000, 800];
+	const MUX4_OFFSET = [500 , 1050];
 
 	const ALU_OFFSET = [1000, 500];
 	const FLAGS_OFFSET = [1300, 500];
@@ -120,6 +125,9 @@ window.addEventListener("load", function() {
 	const OPCODE_DECODER_OFFSET = [500, 25];
 	const CONTROL_OFFSET = [900, 25];
 	const REGISTER_FILE_OFFSET = [500, 500];
+	const PC_VALUE_OFFSET = [700, 1050];
+	const PC_UPDATE_OFFSET = [200, 1050];
+	const DATA_MEM_OFFSET = [1400, 900];
 
 
 	const MUX_FALSE_TEXT = "0";
@@ -129,140 +137,164 @@ window.addEventListener("load", function() {
 
 	const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
 	const TEXT_STYLE = "font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-anchor:middle; fill:black;";
+
+	const ID_ATTR = "id";
+	const STYLE_ATTR = "style";
+	// TODO create id tags for all components
+	const MUX0_ID = "mux0";
+	const MUX1_ID = "mux1";
+	const MUX2_ID = "mux2";
+	const MUX3_ID = "mux3";
+	const ALU_ID = "alu";
+
+
 	// TODO mask this in a mux thing
 	var mux0 = new Polygon([...MUX_POLYGON]);
-	mux0.attribute("style", "fill:white; stroke:black; stroke-width:2px;");
-	mux0.attribute("id", "mux0");
+	mux0.attribute(STYLE_ATTR, BLOCK_STYLE);
+	mux0.attribute(ID_ATTR, MUX0_ID);
 	mux0.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
 
 	var mux0_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux0_false.attribute("style", TEXT_STYLE );
-	mux0_false.attribute("id", "mux0_false");
+	mux0_false.attribute(STYLE_ATTR, TEXT_STYLE );
+	mux0_false.attribute(ID_ATTR, "mux0_false");
 	mux0_false.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
 
 
 	var mux0_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux0_true.attribute("style", TEXT_STYLE);
-	mux0_true.attribute("id", "mux0_true");
+	mux0_true.attribute(STYLE_ATTR, TEXT_STYLE);
+	mux0_true.attribute(ID_ATTR, "mux0_true");
 	mux0_true.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
 
 
 	var alu = new Polygon(ALU_POLYGON);
-	alu.attribute("style", BLOCK_STYLE);
-	alu.attribute("id", "alu");
+	alu.attribute(STYLE_ATTR, BLOCK_STYLE);
+	alu.attribute(ID_ATTR, ALU_ID);
 	alu.translate(ALU_OFFSET[0],ALU_OFFSET[1]);
 
 	var mux_alu_wire = new Polygon([50, 350, 100, 350]);
-	mux_alu_wire.attribute("style", BLOCK_STYLE);
+	mux_alu_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
 
 	var flags = new Polygon(FLAGS_POLYGON);
-	flags.attribute("style", BLOCK_STYLE);
-	flags.attribute("id", "flags");
+	flags.attribute(STYLE_ATTR, BLOCK_STYLE);
+	flags.attribute(ID_ATTR, "flags");
 	flags.translate(FLAGS_OFFSET[0], FLAGS_OFFSET[1]);
 
 	var flag_text = new Text(70,30, "Flags");
-	flag_text.attribute("style", TEXT_STYLE);
+	flag_text.attribute(STYLE_ATTR, TEXT_STYLE);
 	flag_text.translate(FLAGS_OFFSET[0], FLAGS_OFFSET[1]);
 
 	// TODO spead these out to be 4 differnt text vals
 	var flag_value = new Text(70,70, "0000");
-	flag_value.attribute("style", TEXT_STYLE);
+	flag_value.attribute(STYLE_ATTR, TEXT_STYLE);
 	flag_value.translate(FLAGS_OFFSET[0], FLAGS_OFFSET[1]);
 
 	var mux1 = new Polygon([...MUX_POLYGON]);
-	mux1.attribute("style", BLOCK_STYLE);
-	mux1.attribute("id", "mux1");
+	mux1.attribute(STYLE_ATTR, BLOCK_STYLE);
+	mux1.attribute(ID_ATTR, MUX1_ID);
 	mux1.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
 
 	var mux1_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux1_false.attribute("style", TEXT_STYLE );
-	mux1_false.attribute("id", "mux1_false");
+	mux1_false.attribute(STYLE_ATTR, TEXT_STYLE );
+	mux1_false.attribute(ID_ATTR, "mux1_false");
 	mux1_false.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
 
 
 	var mux1_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux1_true.attribute("style", TEXT_STYLE);
-	mux1_true.attribute("id", "mux1_true");
+	mux1_true.attribute(STYLE_ATTR, TEXT_STYLE);
+	mux1_true.attribute(ID_ATTR, "mux1_true");
 	mux1_true.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
 
 	var mux2 = new Polygon([...MUX_POLYGON]);
-	mux2.attribute("style", "fill:white; stroke:black; stroke-width:2px;");
-	mux2.attribute("id", "mux2");
+	mux2.attribute(STYLE_ATTR, "fill:white; stroke:black; stroke-width:2px;");
+	mux2.attribute(ID_ATTR, MUX2_ID);
 	mux2.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
 
 	var mux2_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux2_false.attribute("style", TEXT_STYLE );
-	mux2_false.attribute("id", "mux2_false");
+	mux2_false.attribute(STYLE_ATTR, TEXT_STYLE );
+	mux2_false.attribute(ID_ATTR, "mux2_false");
 	mux2_false.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
 
 
 	var mux2_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux2_true.attribute("style", TEXT_STYLE);
-	mux2_true.attribute("id", "mux2_true");
+	mux2_true.attribute(STYLE_ATTR, TEXT_STYLE);
+	mux2_true.attribute(ID_ATTR, "mux2_true");
 	mux2_true.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
 
 
 	var mux3 = new Polygon([...MUX_POLYGON]);
-	mux3.attribute("style", BLOCK_STYLE);
-	mux3.attribute("id", "mux3");
+	mux3.attribute(STYLE_ATTR, BLOCK_STYLE);
+	mux3.attribute(ID_ATTR, MUX3_ID);
 	mux3.translate(MUX3_OFFSET[0], MUX3_OFFSET[1]);
 
 	var mux3_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux3_false.attribute("style", TEXT_STYLE );
-	mux3_false.attribute("id", "mux3_false");
+	mux3_false.attribute(STYLE_ATTR, TEXT_STYLE );
+	mux3_false.attribute(ID_ATTR, "mux3_false");
 	mux3_false.translate(MUX3_OFFSET[0], MUX3_OFFSET[1]);
 
 
 	var mux3_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux3_true.attribute("style", TEXT_STYLE);
-	mux3_true.attribute("id", "mux3_true");
+	mux3_true.attribute(STYLE_ATTR, TEXT_STYLE);
+	mux3_true.attribute(ID_ATTR, "mux3_true");
 	mux3_true.translate(MUX3_OFFSET[0], MUX3_OFFSET[1]);
 
 	var mux4 = new Polygon([...MUX_POLYGON]);
-	mux4.attribute("style", BLOCK_STYLE);
-	mux4.attribute("id", "mux4");
+	mux4.attribute(STYLE_ATTR, BLOCK_STYLE);
+	mux4.attribute(ID_ATTR, "mux4");
 	mux4.translate(MUX4_OFFSET[0], MUX4_OFFSET[1]);
 
 	var mux4_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux4_false.attribute("style", TEXT_STYLE );
-	mux4_false.attribute("id", "mux4_false");
+	mux4_false.attribute(STYLE_ATTR, TEXT_STYLE );
+	mux4_false.attribute(ID_ATTR, "mux4_false");
 	mux4_false.translate(MUX4_OFFSET[0], MUX4_OFFSET[1]);
 
 
 	var mux4_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux4_true.attribute("style", TEXT_STYLE);
-	mux4_true.attribute("id", "mux4_true");
+	mux4_true.attribute(STYLE_ATTR, TEXT_STYLE);
+	mux4_true.attribute(ID_ATTR, "mux4_true");
 	mux4_true.translate(MUX4_OFFSET[0], MUX4_OFFSET[1]);
 
 	var code_mem = new Polygon(CODE_MEM_POLYGON);
-	code_mem.attribute("style", BLOCK_STYLE);
-	code_mem.attribute("id", "code_mem");
+	code_mem.attribute(STYLE_ATTR, BLOCK_STYLE);
+	code_mem.attribute(ID_ATTR, "code_mem");
 	code_mem.translate(CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1]);
 
 	var opcode_decoder = new Polygon(OPCODE_DECODER_POLYGON);
-	opcode_decoder.attribute("style", BLOCK_STYLE);
-	opcode_decoder.attribute("id", "opcode_decoder");
+	opcode_decoder.attribute(STYLE_ATTR, BLOCK_STYLE);
+	opcode_decoder.attribute(ID_ATTR, "opcode_decoder");
 	opcode_decoder.translate(OPCODE_DECODER_OFFSET[0], OPCODE_DECODER_OFFSET[1]);
 
 	var opcode_text = new Text(OPCODE_TPOS[0],OPCODE_TPOS[1], OPCODE_TEXT);
-	opcode_text.attribute("style", TEXT_STYLE);
+	opcode_text.attribute(STYLE_ATTR, TEXT_STYLE);
 	opcode_text.translate(OPCODE_DECODER_OFFSET[0], OPCODE_DECODER_OFFSET[1]);
 
 	var control = new Polygon(CONTROL_POLYGON);
-	control.attribute("style", BLOCK_STYLE);
-	control.attribute("id", "control");
+	control.attribute(STYLE_ATTR, BLOCK_STYLE);
+	control.attribute(ID_ATTR, "control");
 	control.translate(CONTROL_OFFSET[0], CONTROL_OFFSET[1]);
 
 	var control_text = new Text(70,30, "Control");
-	control_text.attribute("style", TEXT_STYLE);
+	control_text.attribute(STYLE_ATTR, TEXT_STYLE);
 	control_text.translate(CONTROL_OFFSET[0], CONTROL_OFFSET[1]);
 
 	var reg_file = new Polygon(REGISTER_FILE_POLYGON);
-	reg_file.attribute("style", BLOCK_STYLE);
-	reg_file.attribute("id", "code_mem");
+	reg_file.attribute(STYLE_ATTR, BLOCK_STYLE);
+	reg_file.attribute(ID_ATTR, "code_mem");
 	reg_file.translate(REGISTER_FILE_OFFSET[0], REGISTER_FILE_OFFSET[1]);
 
+	var pc_value = new Polygon(PC_VALUE_POLYGON);
+	pc_value.attribute(STYLE_ATTR, BLOCK_STYLE);
+	pc_value.attribute(ID_ATTR, "pc_value");
+	pc_value.translate(PC_VALUE_OFFSET[0], PC_VALUE_OFFSET[1]);
 
+	var pc_update = new Polygon(PC_UPDATE_POLYGON);
+	pc_update.attribute(STYLE_ATTR, BLOCK_STYLE);
+	pc_update.attribute(ID_ATTR, "pc_value");
+	pc_update.translate(PC_UPDATE_OFFSET[0], PC_UPDATE_OFFSET[1]);
+
+	var dmem = new Polygon(DATA_MEM_POLYGON);
+	dmem.attribute(STYLE_ATTR, BLOCK_STYLE);
+	dmem.attribute(ID_ATTR, "dmem");
+	dmem.translate(DATA_MEM_OFFSET[0], DATA_MEM_OFFSET[1]);
 
 	var svg = document.getElementById("canvas");
 	//var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -292,7 +324,9 @@ window.addEventListener("load", function() {
 	svg.appendChild(control.node);
 	svg.appendChild(control_text.node);
 	svg.appendChild(reg_file.node);
-
+	svg.appendChild(pc_value.node);
+	svg.appendChild(pc_update.node);
+	svg.appendChild(dmem.node);
 
 
 });
