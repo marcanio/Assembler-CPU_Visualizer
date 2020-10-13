@@ -6,13 +6,15 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "lint": "eslint .",
+    "lint": "eslint \"**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Colby McKinley",
   "license": "ISC",
   "dependencies": {
+    "@types/jquery": "^3.5.1",
+    "cash-dom": "^8.1.0",
     "common-js": "^0.3.8",
     "esm": "^3.2.25",
     "http": "0.0.1-security",
