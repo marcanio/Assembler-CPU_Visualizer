@@ -13,13 +13,10 @@
   "author": "Colby McKinley",
   "license": "ISC",
   "dependencies": {
-    "@types/jquery": "^3.5.1",
-    "cash-dom": "^8.1.0",
     "common-js": "^0.3.8",
     "esm": "^3.2.25",
     "http": "0.0.1-security",
-    "http-server": "^0.12.3",
-    "jquery": "^3.5.1"
+    "http-server": "^0.12.3"
   },
   "devDependencies": {
     "eslint": "^7.10.0"
