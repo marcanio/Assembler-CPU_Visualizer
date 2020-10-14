@@ -101,7 +101,7 @@ window.addEventListener("load", function() {
 	const CONTROL_POLYGON = [0,0, 550,0, 550,100, 0,100];
 	const REGISTER_FILE_POLYGON = [0,0, 350,0, 350,300, 0,300];
 	const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
-	const PC_UPDATE_POLYGON = [0,0, 200,0, 200,100, 0,100];
+	const PC_UPDATE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 	const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,50, 0,40, 5,40];
 
 	const MUX_ALU_WIRE = [0, 0, 50, 0];
@@ -111,6 +111,9 @@ window.addEventListener("load", function() {
 	const ALU_FLAGS_WIRE = [0, 0, 200, -25];
 	const READ_A_WIRE = [0, 0, 150, 0];
 	const READ_B_WIRE = [0, 0, 50, 0];
+	const PC_UPDATE_MUX_WIRE = [0, 0, 100, 0];
+	const MUX_PC_VALUE_WIRE = [0, 0, 150, 0];
+
 
 
 
@@ -142,12 +145,16 @@ window.addEventListener("load", function() {
 	const ALU_FLAGS_WIRE_OFFSET = [1100, 600];
 	const READ_A_WIRE_OFFSET = [850, 550];
 	const READ_B_WIRE_OFFSET = [850, 700];
+	const PC_UPDATE_MUX_FALSE_WIRE_OFFSET = [400, 1100];
+	const PC_UPDATE_MUX_TRUE_WIRE_OFFSET = [400, 1175];
+	const MUX_PC_VALUE_WIRE_OFFSET = [550, 1150];
+
 
 
 	const CONTROL_ARROW_OFFSET = [900, 125];
 
 
-
+	const ARROW_DIST_BETWEEN = 28;
 
 
 	const MUX_FALSE_TEXT = "0";
@@ -156,6 +163,7 @@ window.addEventListener("load", function() {
 
 
 	const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
+	const WIRE_STYLE = "stroke:black; stroke-width:2px;";
 	const ARROW_STYLE = " fill:black; stroke:black; stroke-width:1px;";
 	const TEXT_STYLE = "font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-anchor:middle; fill:black;";
 
@@ -323,34 +331,51 @@ window.addEventListener("load", function() {
 	dmem.translate(DATA_MEM_OFFSET[0], DATA_MEM_OFFSET[1]);
 
 	var alu_result_wire = new Polygon(ALU_RESULT_WIRE);
-	alu_result_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	alu_result_wire.attribute(STYLE_ATTR, WIRE_STYLE);
 	alu_result_wire.attribute(ID_ATTR, "mux_alu_wire");
 	alu_result_wire.translate(ALU_RESULT_WIRE_OFFSET[0], ALU_RESULT_WIRE_OFFSET[1]);
 
 	var imem_decoder_wire = new Polygon(IMEM_DECODER_WIRE);
-	imem_decoder_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	imem_decoder_wire.attribute(STYLE_ATTR, WIRE_STYLE);
 	imem_decoder_wire.attribute(ID_ATTR, "alu_result_wire");
 	imem_decoder_wire.translate(IMEM_DECODER_WIRE_OFFSET[0], IMEM_DECODER_WIRE_OFFSET[1]);
 
 	var decoder_control_wire = new Polygon(OPCODE_DECODER_CONTROL_WIRE);
-	decoder_control_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	decoder_control_wire.attribute(STYLE_ATTR, WIRE_STYLE);
 	decoder_control_wire.attribute(ID_ATTR, "decoder_control_wire");
 	decoder_control_wire.translate(OPCODE_DECODER_CONTROL_WIRE_OFFSET[0], OPCODE_DECODER_CONTROL_WIRE_OFFSET[1]);
 	
 	var alu_flag_wire = new Polygon(ALU_FLAGS_WIRE);
-	alu_flag_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	alu_flag_wire.attribute(STYLE_ATTR, WIRE_STYLE);
 	alu_flag_wire.attribute(ID_ATTR, "alu_flag_wire");
 	alu_flag_wire.translate(ALU_FLAGS_WIRE_OFFSET[0], ALU_FLAGS_WIRE_OFFSET[1]);
 
 	var read_a_wire = new Polygon(READ_A_WIRE);
-	read_a_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	read_a_wire.attribute(STYLE_ATTR, WIRE_STYLE);
 	read_a_wire.attribute(ID_ATTR, "read_a_wire");
 	read_a_wire.translate(READ_A_WIRE_OFFSET[0], READ_A_WIRE_OFFSET[1]);
 
 	var read_b_wire = new Polygon(READ_B_WIRE);
-	read_b_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
+	read_b_wire.attribute(STYLE_ATTR, WIRE_STYLE);
 	read_b_wire.attribute(ID_ATTR, "read_b_wire");
 	read_b_wire.translate(READ_B_WIRE_OFFSET[0], READ_B_WIRE_OFFSET[1]);
+
+	var pc_update_true_wire = new Polygon([...PC_UPDATE_MUX_WIRE]);
+	pc_update_true_wire.attribute(STYLE_ATTR, WIRE_STYLE);
+	pc_update_true_wire.attribute(ID_ATTR, "pc_update_true_wire");
+	pc_update_true_wire.translate(PC_UPDATE_MUX_TRUE_WIRE_OFFSET[0], PC_UPDATE_MUX_TRUE_WIRE_OFFSET[1]);
+
+	var pc_update_false_wire = new Polygon([...PC_UPDATE_MUX_WIRE]);
+	pc_update_false_wire.attribute(STYLE_ATTR, WIRE_STYLE);
+	pc_update_false_wire.attribute(ID_ATTR, "pc_update_false_wire");
+	pc_update_false_wire.translate(PC_UPDATE_MUX_FALSE_WIRE_OFFSET[0], PC_UPDATE_MUX_FALSE_WIRE_OFFSET[1]);
+
+	var mux_pc_val_wire = new Polygon(MUX_PC_VALUE_WIRE);
+	mux_pc_val_wire.attribute(STYLE_ATTR, WIRE_STYLE);
+	mux_pc_val_wire.attribute(ID_ATTR, "mux_pc_val_wire");
+	mux_pc_val_wire.translate(MUX_PC_VALUE_WIRE_OFFSET[0], MUX_PC_VALUE_WIRE_OFFSET[1]);
+
+
 
 	var mux_c2 = new Polygon([...ARROW]);
 	mux_c2.attribute(STYLE_ATTR, ARROW_STYLE);
@@ -360,92 +385,92 @@ window.addEventListener("load", function() {
 	var control_c1 = new Polygon([...ARROW]);
 	control_c1.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c1.attribute(ID_ATTR, "control_c1");
-	control_c1.translate(CONTROL_ARROW_OFFSET[0] + 1 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c1.translate(CONTROL_ARROW_OFFSET[0] + 1 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c2 = new Polygon([...ARROW]);
 	control_c2.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c2.attribute(ID_ATTR, "control_c2");
-	control_c2.translate(CONTROL_ARROW_OFFSET[0] + 2 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c2.translate(CONTROL_ARROW_OFFSET[0] + 2 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c3 = new Polygon([...ARROW]);
 	control_c3.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c3.attribute(ID_ATTR, "control_c3");
-	control_c3.translate(CONTROL_ARROW_OFFSET[0] + 3 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c3.translate(CONTROL_ARROW_OFFSET[0] + 3 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c4 = new Polygon([...ARROW]);
 	control_c4.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c4.attribute(ID_ATTR, "control_c4");
-	control_c4.translate(CONTROL_ARROW_OFFSET[0] + 4 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c4.translate(CONTROL_ARROW_OFFSET[0] + 4 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c5 = new Polygon([...ARROW]);
 	control_c5.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c5.attribute(ID_ATTR, "control_c5");
-	control_c5.translate(CONTROL_ARROW_OFFSET[0] + 5 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c5.translate(CONTROL_ARROW_OFFSET[0] + 5 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c6 = new Polygon([...ARROW]);
 	control_c6.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c6.attribute(ID_ATTR, "control_c6");
-	control_c6.translate(CONTROL_ARROW_OFFSET[0] + 6 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c6.translate(CONTROL_ARROW_OFFSET[0] + 6 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c7 = new Polygon([...ARROW]);
 	control_c7.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c7.attribute(ID_ATTR, "control_c7");
-	control_c7.translate(CONTROL_ARROW_OFFSET[0] + 7 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c7.translate(CONTROL_ARROW_OFFSET[0] + 7 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c8 = new Polygon([...ARROW]);
 	control_c8.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c8.attribute(ID_ATTR, "control_c8");
-	control_c8.translate(CONTROL_ARROW_OFFSET[0] + 8 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c8.translate(CONTROL_ARROW_OFFSET[0] + 8 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c9 = new Polygon([...ARROW]);
 	control_c9.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c9.attribute(ID_ATTR, "control_c9");
-	control_c9.translate(CONTROL_ARROW_OFFSET[0] + 9 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c9.translate(CONTROL_ARROW_OFFSET[0] + 9 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c10 = new Polygon([...ARROW]);
 	control_c10.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c10.attribute(ID_ATTR, "control_c10");
-	control_c10.translate(CONTROL_ARROW_OFFSET[0] + 10 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c10.translate(CONTROL_ARROW_OFFSET[0] + 10 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c11 = new Polygon([...ARROW]);
 	control_c11.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c11.attribute(ID_ATTR, "control_c11");
-	control_c11.translate(CONTROL_ARROW_OFFSET[0] + 11 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c11.translate(CONTROL_ARROW_OFFSET[0] + 11 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c12 = new Polygon([...ARROW]);
 	control_c12.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c12.attribute(ID_ATTR, "control_c12");
-	control_c12.translate(CONTROL_ARROW_OFFSET[0] + 12 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c12.translate(CONTROL_ARROW_OFFSET[0] + 12 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c13 = new Polygon([...ARROW]);
 	control_c13.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c13.attribute(ID_ATTR, "control_c13");
-	control_c13.translate(CONTROL_ARROW_OFFSET[0] + 13 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c13.translate(CONTROL_ARROW_OFFSET[0] + 13 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c14 = new Polygon([...ARROW]);
 	control_c14.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c14.attribute(ID_ATTR, "control_c14");
-	control_c14.translate(CONTROL_ARROW_OFFSET[0] + 14 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c14.translate(CONTROL_ARROW_OFFSET[0] + 14 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c15 = new Polygon([...ARROW]);
 	control_c15.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c15.attribute(ID_ATTR, "control_c15");
-	control_c15.translate(CONTROL_ARROW_OFFSET[0] + 15 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c15.translate(CONTROL_ARROW_OFFSET[0] + 15 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c16 = new Polygon([...ARROW]);
 	control_c16.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c16.attribute(ID_ATTR, "control_c16");
-	control_c16.translate(CONTROL_ARROW_OFFSET[0] + 16 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c16.translate(CONTROL_ARROW_OFFSET[0] + 16 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c17 = new Polygon([...ARROW]);
 	control_c17.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c17.attribute(ID_ATTR, "control_c17");
-	control_c17.translate(CONTROL_ARROW_OFFSET[0] + 17 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c17.translate(CONTROL_ARROW_OFFSET[0] + 17 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 	var control_c18 = new Polygon([...ARROW]);
 	control_c18.attribute(STYLE_ATTR, ARROW_STYLE);
 	control_c18.attribute(ID_ATTR, "control_c18");
-	control_c18.translate(CONTROL_ARROW_OFFSET[0] + 18 * 27, CONTROL_ARROW_OFFSET[1]);
+	control_c18.translate(CONTROL_ARROW_OFFSET[0] + 18 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
 
 
 	var svg = document.getElementById("canvas");
@@ -485,6 +510,9 @@ window.addEventListener("load", function() {
 	svg.appendChild(alu_flag_wire.node);
 	svg.appendChild(read_a_wire.node);
 	svg.appendChild(read_b_wire.node);
+	svg.appendChild(pc_update_false_wire.node);
+	svg.appendChild(pc_update_true_wire.node);
+	svg.appendChild(mux_pc_val_wire.node);
 	svg.appendChild(mux_c2.node);
 	svg.appendChild(control_c1.node);
 	svg.appendChild(control_c2.node);
