@@ -4,391 +4,143 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "pin_name1",
+					"name" : "ADD",
 					"strict" : false
 				},
 				{
-					"name" : "pin_name2",
+					"name" : "ADDI",
 					"strict" : false
 				},
 				{
-					"name" : "pin_name3",
+					"name" : "SUB",
 					"strict" : false
 				},
 				{
-					"name" : "pin_name4",
+					"name" : "LOAD",
 					"strict" : false
 				},
 				{
-					"name" : "pin_name5",
+					"name" : "NOOP",
 					"strict" : false
 				},
 				{
-					"name" : "pin_name6",
+					"name" : "LOADF",
 					"strict" : false
 				},
 				{
-					"name" : "REG2_ZERO",
+					"name" : "STORE",
 					"strict" : false
 				},
 				{
-					"name" : "REG2_ONE",
+					"name" : "STOREF",
 					"strict" : false
 				},
 				{
-					"name" : "REG1_ZERO",
+					"name" : "INPUTC",
 					"strict" : false
 				},
 				{
-					"name" : "REG1_ONE",
+					"name" : "INPUTD",
 					"strict" : false
 				},
 				{
-					"name" : "Negative_Flag",
+					"name" : "INPUTDF",
 					"strict" : false
 				},
 				{
-					"name" : "Zero_Flag",
+					"name" : "SHIFTL",
 					"strict" : false
 				},
 				{
-					"name" : "Carry_Flag",
+					"name" : "SHIFTR",
 					"strict" : false
 				},
 				{
-					"name" : "OverFlow_Flag",
+					"name" : "INPUTCF",
 					"strict" : false
 				},
 				{
-					"name" : "OPCODE0",
+					"name" : "JUMP",
 					"strict" : false
 				},
 				{
-					"name" : "OPCODE1",
+					"name" : "CMP",
 					"strict" : false
 				},
 				{
-					"name" : "OPCODE2",
+					"name" : "BRE_BRZ",
 					"strict" : false
 				},
 				{
-					"name" : "OPCODE3",
+					"name" : "BRNE_BRNZ",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL0",
+					"name" : "BRG",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL1",
+					"name" : "BRGE",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL2",
+					"name" : "MOVE",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL3",
+					"name" : "SUBI",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL4",
+					"name" : "LOADI_LOADP",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL5",
+					"name" : "X[1]",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL6",
+					"name" : "X[0]",
 					"strict" : false
 				},
 				{
-					"name" : "IMMEDVAL7",
+					"name" : "Y[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[6]",
+					"name" : "Y[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[5]",
+					"name" : "DEC_INPUT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[4]",
+					"name" : "DEC_INPUT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[3]",
+					"name" : "DEC_INPUT[6]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[2]",
+					"name" : "DEC_INPUT[7]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[1]",
+					"name" : "DEC_INPUT[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut0[0]",
+					"name" : "DEC_INPUT[0]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut1[6]",
+					"name" : "DEC_INPUT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Seven_SegOut1[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut1[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut1[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut3[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut4[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut5[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut6[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Seven_SegOut7[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Register_View",
-					"strict" : false
-				},
-				{
-					"name" : "Direct_Video_Map",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Turbo_Mode",
-					"strict" : false
-				},
-				{
-					"name" : "Auto_Clock",
-					"strict" : false
-				},
-				{
-					"name" : "Reset_In",
-					"strict" : false
-				},
-				{
-					"name" : "Manual_Clock",
-					"strict" : false
-				},
-				{
-					"name" : "Switch_Input[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Board_Clock",
+					"name" : "DEC_INPUT[2]",
 					"strict" : false
 				}
 			]

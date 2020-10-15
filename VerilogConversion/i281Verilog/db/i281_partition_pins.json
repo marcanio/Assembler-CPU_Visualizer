@@ -4,187 +4,119 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "IMEM_WRITE_ENABLE",
+					"name" : "pin_name2",
 					"strict" : false
 				},
 				{
-					"name" : "PC_MUX",
+					"name" : "pin_name1",
 					"strict" : false
 				},
 				{
-					"name" : "REG_PORT0_SELECT[0]",
+					"name" : "pin_name3",
 					"strict" : false
 				},
 				{
-					"name" : "REG_PORT0_SELECT[1]",
+					"name" : "pin_name4",
 					"strict" : false
 				},
 				{
-					"name" : "REG_PORT1_SELECT[0]",
+					"name" : "pin_name5",
 					"strict" : false
 				},
 				{
-					"name" : "REG_PORT1_SELECT[1]",
+					"name" : "pin_name6",
 					"strict" : false
 				},
 				{
-					"name" : "REG_WRITE_SELECT[0]",
+					"name" : "pin_name7",
 					"strict" : false
 				},
 				{
-					"name" : "REG_WRITE_SELECT[1]",
+					"name" : "pin_name8",
 					"strict" : false
 				},
 				{
-					"name" : "REG_WRITE_ENABLE",
+					"name" : "pin_name9",
 					"strict" : false
 				},
 				{
-					"name" : "ALU_SOURCE_MUX",
+					"name" : "pin_name10",
 					"strict" : false
 				},
 				{
-					"name" : "ALU_SELECT0",
+					"name" : "pin_name11",
 					"strict" : false
 				},
 				{
-					"name" : "ALU_SELECT1",
+					"name" : "pin_name12",
 					"strict" : false
 				},
 				{
-					"name" : "FLAGS_WRITE_ENABLE",
+					"name" : "pin_name13",
 					"strict" : false
 				},
 				{
-					"name" : "ALU_RESULT_MUX",
+					"name" : "pin_name14",
 					"strict" : false
 				},
 				{
-					"name" : "DMEM_INPUT_MUX",
+					"name" : "pin_name15",
 					"strict" : false
 				},
 				{
-					"name" : "DMEM_WRITE_ENABLE",
+					"name" : "pin_name16",
 					"strict" : false
 				},
 				{
-					"name" : "REG_WRITEBACK_MUX",
+					"name" : "pin_name17",
 					"strict" : false
 				},
 				{
-					"name" : "INPUT_DATACF",
+					"name" : "pin_name18",
 					"strict" : false
 				},
 				{
-					"name" : "INPUT_DATAC",
+					"name" : "pin_name19",
 					"strict" : false
 				},
 				{
-					"name" : "JUMP",
+					"name" : "pin_name20",
 					"strict" : false
 				},
 				{
-					"name" : "BRE_BRZ",
+					"name" : "pin_name21",
 					"strict" : false
 				},
 				{
-					"name" : "BRNE_BRNZ",
+					"name" : "pin_name22",
 					"strict" : false
 				},
 				{
-					"name" : "ZERO_FLAG",
+					"name" : "pin_name23",
 					"strict" : false
 				},
 				{
-					"name" : "BRGE",
+					"name" : "pin_name29",
 					"strict" : false
 				},
 				{
-					"name" : "BRG",
+					"name" : "pin_name28",
 					"strict" : false
 				},
 				{
-					"name" : "OVERFLOW_FLAG",
+					"name" : "pin_name30",
 					"strict" : false
 				},
 				{
-					"name" : "NEGATIVE_FLAG",
+					"name" : "pin_name31",
 					"strict" : false
 				},
 				{
-					"name" : "CMP",
+					"name" : "pin_name24",
 					"strict" : false
 				},
 				{
-					"name" : "SHIFTL",
-					"strict" : false
-				},
-				{
-					"name" : "SHIFTR",
-					"strict" : false
-				},
-				{
-					"name" : "SUBI",
-					"strict" : false
-				},
-				{
-					"name" : "SUB",
-					"strict" : false
-				},
-				{
-					"name" : "ADDI",
-					"strict" : false
-				},
-				{
-					"name" : "ADD",
-					"strict" : false
-				},
-				{
-					"name" : "STOREF",
-					"strict" : false
-				},
-				{
-					"name" : "LOADF",
-					"strict" : false
-				},
-				{
-					"name" : "MOVE",
-					"strict" : false
-				},
-				{
-					"name" : "INPUT_DATADF",
-					"strict" : false
-				},
-				{
-					"name" : "X[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Y[0]",
-					"strict" : false
-				},
-				{
-					"name" : "X[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Y[1]",
-					"strict" : false
-				},
-				{
-					"name" : "STORE",
-					"strict" : false
-				},
-				{
-					"name" : "LOADI_LOADP",
-					"strict" : false
-				},
-				{
-					"name" : "LOAD",
-					"strict" : false
-				},
-				{
-					"name" : "INPUT_DATAD",
+					"name" : "pin_name25",
 					"strict" : false
 				}
 			]

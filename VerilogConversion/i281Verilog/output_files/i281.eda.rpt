@@ -1,5 +1,5 @@
 EDA Netlist Writer report for i281
-Thu Oct 08 21:47:32 2020
+Thu Oct 15 19:33:57 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,9 +37,9 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Thu Oct 08 21:47:32 2020 ;
+; EDA Netlist Writer Status ; Successful - Thu Oct 15 19:33:57 2020 ;
 ; Revision Name             ; i281                                  ;
-; Top-level Entity Name     ; _Control_FSM                          ;
+; Top-level Entity Name     ; i281                                  ;
 ; Family                    ; Cyclone IV E                          ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+----------------------------------------------------------------------+
-; Simulation Generated Files                                           ;
-+----------------------------------------------------------------------+
-; Generated Files                                                      ;
-+----------------------------------------------------------------------+
-; D:/school_stuff/SeniorDesign/i281Verilog/simulation/modelsim/i281.vo ;
-+----------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                           ;
++--------------------------------------------------------------------------------------+
+; Generated Files                                                                      ;
++--------------------------------------------------------------------------------------+
+; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/simulation/modelsim/i281.vo ;
++--------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,13 +81,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Oct 08 21:47:31 2020
+    Info: Processing started: Thu Oct 15 19:33:56 2020
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off i281 -c i281
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file i281.vo in folder "D:/school_stuff/SeniorDesign/i281Verilog/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file i281.vo in folder "D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4647 megabytes
-    Info: Processing ended: Thu Oct 08 21:47:32 2020
+    Info: Peak virtual memory: 4645 megabytes
+    Info: Processing ended: Thu Oct 15 19:33:57 2020
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

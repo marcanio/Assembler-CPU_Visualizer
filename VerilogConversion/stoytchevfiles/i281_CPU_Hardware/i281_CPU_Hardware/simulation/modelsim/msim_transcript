@@ -1,0 +1,83 @@
+# Reading pref.tcl
+# do i281_CPU_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/ones.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:16 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/ones.v 
+# -- Compiling module ONES
+# 
+# Top level modules:
+# 	ONES
+# End time: 15:44:16 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_low.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:16 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_low.v 
+# -- Compiling module BIOS_Hardcoded_Low
+# 
+# Top level modules:
+# 	BIOS_Hardcoded_Low
+# End time: 15:44:16 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_high.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:17 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_high.v 
+# -- Compiling module BIOS_Hardcoded_High
+# 
+# Top level modules:
+# 	BIOS_Hardcoded_High
+# End time: 15:44:17 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_low.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:17 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_low.v 
+# -- Compiling module User_Code_Low
+# 
+# Top level modules:
+# 	User_Code_Low
+# End time: 15:44:17 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_high.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:17 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_high.v 
+# -- Compiling module User_Code_High
+# 
+# Top level modules:
+# 	User_Code_High
+# End time: 15:44:17 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_data.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:17 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_data.v 
+# -- Compiling module User_Data
+# 
+# Top level modules:
+# 	User_Data
+# End time: 15:44:17 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware {D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/seven_seg_decoder_busout.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:44:17 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware" D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/seven_seg_decoder_busout.v 
+# -- Compiling module seven_seg_decoder_BUSOUT
+# 
+# Top level modules:
+# 	seven_seg_decoder_BUSOUT
+# End time: 15:44:17 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
