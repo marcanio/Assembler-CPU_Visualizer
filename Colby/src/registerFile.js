@@ -7,7 +7,7 @@
  * 
 */
 
-export class registerFile {
+export class RegisterFile {
     constructor(width, rows) {
         this.width = width;
         this.rows = rows;

@@ -1,4 +1,4 @@
-const {opCodeDecoder} = require('../opCodeDecoder');
+const {opCodeDecoder: OpCodeDecoder} = require('../opCodeDecoder');
 
 const globalOpCodeDecoder = new opCodeDecoder();
 

@@ -6,7 +6,7 @@
  * 
 */
 
-export class decoder {
+export class Decoder {
     constructor(outputSize) {
     
         if(this.powerOfTwo(outputSize) == true) {

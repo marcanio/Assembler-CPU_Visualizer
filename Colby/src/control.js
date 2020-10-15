@@ -5,7 +5,7 @@
  * 
 */
 
-export class control {
+export class Control {
     constructor() {
         /**
          * Things to know about this array. It comes from slide 47 in 41_i281_CPU.ppt.
@@ -15,9 +15,6 @@ export class control {
          * Sorry for the confusion...
          */
         this.c = new Array(19);
-        this.masks = new Array();
-
-        setupMasks()
     }
     
 
@@ -82,5 +79,13 @@ export class control {
         if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     
+    }
+
+    get(target) {
+        if(target == 'c4c5') return parseInt(this.c.slice(4,6).join(''),2);
+        if(target == 'c6c7') return parseInt(this.c.slice(6,8).join(''),2);
+        if(target == 'c8c8') return parseInt(this.c.slice(8,10).join(''),2);
+        if(target == 'c12c13') return parseInt(this.c.slice(12,14).join(''),2);
+        else throw new Error("Invalid target: %s", target);
     }
 };

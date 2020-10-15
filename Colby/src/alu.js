@@ -10,7 +10,8 @@
  * 
 */
 
-export function alu(operand_a, operand_b, opcode, flags)
+// TODO, problably needs a rewrite to make it like a class. And add more function
+export function Alu(operand_a, operand_b, opcode, flags)
 {
 	let result = 0;
 	if(!flags)

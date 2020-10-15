@@ -4,9 +4,9 @@
  * @author Bryce Snell
  * 
 */
-import {decoder} from "./decoder.js"
+import {Decoder} from "./decoder.js"
 
-export class opCodeDecoder {
+export class OpCodeDecoder {
     constructor() {
         this.noop = 0;
         this.move = 0;
@@ -54,75 +54,70 @@ export class opCodeDecoder {
         let decode1Control = ((opCode & 0x0300)>>>8).toString(16);
         let decode2Control = ((opCode & 0x0100)>>>8).toString(16);
 
-        let decode0 = new decoder(16);
+        let decode0 = new Decoder(16);
         decode0.setControl(decode0Control);
 
         if(decode0.getOutputAtLocation(1) == 1) {
-            let decode1 = new decoder(4);
+            let decode1 = new Decoder(4);
             decode1.setControl(decode1Control);
 
-            for(let i=0; i < decode1.outputSize; i++) {
-                // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
-                if (decode1.getOutputAtLocation(0) == 1) this.inputc = 1;
-                if (decode1.getOutputAtLocation(1) == 1) this.inputcf = 1;
-                if (decode1.getOutputAtLocation(2) == 1) this.inputd = 1;
-                if (decode1.getOutputAtLocation(3) == 1) this.inputdf = 1;
-            }
+            // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
+            if (decode1.getOutputAtLocation(0) == 1) this.inputc = 1;
+            if (decode1.getOutputAtLocation(1) == 1) this.inputcf = 1;
+            if (decode1.getOutputAtLocation(2) == 1) this.inputd = 1;
+            if (decode1.getOutputAtLocation(3) == 1) this.inputdf = 1;
         }
 
         else if(decode0.getOutputAtLocation(12) == 1)
         {
-            let decode2 = new decoder(2);
+            let decode2 = new Decoder(2);
             decode2.setControl(decode2Control);
 
-            for(let i=0; i < decode2.outputSize; i++) {
-                // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
-                if (decode2.getOutputAtLocation(0) == 1) this.shiftl = 1;
-                if (decode2.getOutputAtLocation(1) == 1) this.shiftr = 1;
-            }
+            // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
+            if (decode2.getOutputAtLocation(0) == 1) this.shiftl = 1;
+            if (decode2.getOutputAtLocation(1) == 1) this.shiftr = 1;
         }
 
         else if(decode0.getOutputAtLocation(15) == 1)
         {
-            let decode3 = new decoder(4);
+            let decode3 = new Decoder(4);
             decode3.setControl(decode1Control);
 
-            for(let i=0; i < decode3.outputSize; i++) {
-                // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
-                if (decode3.getOutputAtLocation(0) == 1) this.bre = 1;
-                if (decode3.getOutputAtLocation(1) == 1) this.brne = 1;
-                if (decode3.getOutputAtLocation(2) == 1) this.brg = 1;
-                if (decode3.getOutputAtLocation(3) == 1) this.brge = 1;
-            }
+            // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
+            if (decode3.getOutputAtLocation(0) == 1) this.bre = 1;
+            if (decode3.getOutputAtLocation(1) == 1) this.brne = 1;
+            if (decode3.getOutputAtLocation(2) == 1) this.brg = 1;
+            if (decode3.getOutputAtLocation(3) == 1) this.brge = 1;
         }
 
         else {
-            for(let i=0; i < decode0.outputSize; i++) {
-                // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
-                if (decode0.getOutputAtLocation(0) == 1) this.noop = 1;
-                if (decode0.getOutputAtLocation(2) == 1) this.move = 1;
-                if (decode0.getOutputAtLocation(3) == 1) this.loadi = 1;
-                if (decode0.getOutputAtLocation(4) == 1) this.add = 1;
-                if (decode0.getOutputAtLocation(5) == 1) this.addi = 1;
-                if (decode0.getOutputAtLocation(6) == 1) this.sub = 1;
-                if (decode0.getOutputAtLocation(7) == 1) this.subi = 1;
-                if (decode0.getOutputAtLocation(8) == 1) this.load = 1;
-                if (decode0.getOutputAtLocation(9) == 1) this.loadf = 1;
-                if (decode0.getOutputAtLocation(10) == 1) this.store = 1;
-                if (decode0.getOutputAtLocation(11) == 1) this.storef = 1;
-                if (decode0.getOutputAtLocation(13) == 1) this.cmp = 1;
-                if (decode0.getOutputAtLocation(14) == 1) this.jump = 1;
-            }
+            // TODO: There is some value format that could make this a pretty array, but alas we don't have the hardware of that...
+            if (decode0.getOutputAtLocation(0) == 1) this.noop = 1;
+            if (decode0.getOutputAtLocation(2) == 1) this.move = 1;
+            if (decode0.getOutputAtLocation(3) == 1) this.loadi = 1;
+            if (decode0.getOutputAtLocation(4) == 1) this.add = 1;
+            if (decode0.getOutputAtLocation(5) == 1) this.addi = 1;
+            if (decode0.getOutputAtLocation(6) == 1) this.sub = 1;
+            if (decode0.getOutputAtLocation(7) == 1) this.subi = 1;
+            if (decode0.getOutputAtLocation(8) == 1) this.load = 1;
+            if (decode0.getOutputAtLocation(9) == 1) this.loadf = 1;
+            if (decode0.getOutputAtLocation(10) == 1) this.store = 1;
+            if (decode0.getOutputAtLocation(11) == 1) this.storef = 1;
+            if (decode0.getOutputAtLocation(13) == 1) this.cmp = 1;
+            if (decode0.getOutputAtLocation(14) == 1) this.jump = 1;
         }
 
         this.rx = ((opCode & 0x0C00)>>>8).toString(16);
         this.ry = ((opCode & 0x0300)>>>8).toString(16);
         this.package();
+
+        return this.output;
     }
     
 
     /**
      * This function takes all of the control bits and makes them a string
+     * Helper function for getDecodedOpCode
      * @since 1.0
      * @author Bryce Snell
      * 
@@ -163,6 +158,7 @@ export class opCodeDecoder {
 
     /**
      * This function resets the control outputs
+     * DO NOT CALL EXTERNALLY
      * @since 1.0
      * @author Bryce Snell
      * 

@@ -6,7 +6,7 @@
  * 
 */
 
-export class multiplexer {
+export class Multiplexer {
     constructor(size) {
         this.state = null;
         
