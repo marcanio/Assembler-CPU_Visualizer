@@ -42,7 +42,7 @@ var binaryLookup = {
     '1111': 'F',
 };
 
-
+// DEPRECATED
 export function hexToBinary(s) {
     var ret = '';
     for (var i = 0, len = s.length; i < len; i++) {
@@ -51,8 +51,9 @@ export function hexToBinary(s) {
     return ret;
 }
 
+// DEPRECATED
 export function binToHex(s) {
-    var ret = '';
+    /*var ret = '';
     let lookupString = '';
 
     let bin = padBin(s);
@@ -62,9 +63,10 @@ export function binToHex(s) {
         lookupString = [bin[i], bin[i+1], bin[i+2], bin[i+3]].join('');
            
         ret += binaryLookup[lookupString];
-    }
-    
-    return ret;
+    }*/
+
+    let decimalValue = parseInt(s, 2);
+    return decimalValue.toString(16);
 }
 
 export function padBin(n) {
