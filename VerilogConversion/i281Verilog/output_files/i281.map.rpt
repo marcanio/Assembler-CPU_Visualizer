@@ -1,5 +1,5 @@
 Analysis & Synthesis report for i281
-Thu Oct 15 19:33:42 2020
+Tue Oct 20 20:36:51 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,7 +14,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut"
+  9. Parameter Settings for User Entity Instance: Top-level Entity: |_6BitAdder
  10. Post-Synthesis Netlist Statistics for Top Partition
  11. Elapsed Time Per Partition
  12. Analysis & Synthesis Messages
@@ -44,16 +44,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct 15 19:33:42 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Oct 20 20:36:51 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281                                        ;
-; Top-level Entity Name              ; i281                                        ;
+; Top-level Entity Name              ; _6BitAdder                                  ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 26                                          ;
-;     Total combinational functions  ; 26                                          ;
+; Total logic elements               ; 13                                          ;
+;     Total combinational functions  ; 13                                          ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
-; Total pins                         ; 31                                          ;
+; Total pins                         ; 21                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; i281               ; i281               ;
+; Top-level entity name                                            ; _6BitAdder         ; i281               ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -163,70 +163,61 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
-; _1to2DecoderWithEnable.v         ; yes             ; User Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_1to2DecoderWithEnable.v  ;         ;
-; _2to4DecoderWithEnable.v         ; yes             ; User Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to4DecoderWithEnable.v  ;         ;
-; _3to8DecoderWithEnable.v         ; yes             ; User Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_3to8DecoderWithEnable.v  ;         ;
-; _4to16DecoderWithEnable.v        ; yes             ; User Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v ;         ;
-; _Opcode_Decoder.v                ; yes             ; User Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v         ;         ;
-; i281.bdf                         ; yes             ; User Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/i281.bdf                  ;         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
+; _FullAdder.v                     ; yes             ; User Verilog HDL File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v ;         ;
+; _6BitAdder.v                     ; yes             ; User Verilog HDL File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v ;         ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                    ;
-+---------------------------------------------+------------------+
-; Resource                                    ; Usage            ;
-+---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 26               ;
-;                                             ;                  ;
-; Total combinational functions               ; 26               ;
-; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 16               ;
-;     -- 3 input functions                    ; 8                ;
-;     -- <=2 input functions                  ; 2                ;
-;                                             ;                  ;
-; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 26               ;
-;     -- arithmetic mode                      ; 0                ;
-;                                             ;                  ;
-; Total registers                             ; 0                ;
-;     -- Dedicated logic registers            ; 0                ;
-;     -- I/O registers                        ; 0                ;
-;                                             ;                  ;
-; I/O pins                                    ; 31               ;
-;                                             ;                  ;
-; Embedded Multiplier 9-bit elements          ; 0                ;
-;                                             ;                  ;
-; Maximum fan-out node                        ; pin_name29~input ;
-; Maximum fan-out                             ; 16               ;
-; Total fan-out                               ; 146              ;
-; Average fan-out                             ; 1.66             ;
-+---------------------------------------------+------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 13        ;
+;                                             ;           ;
+; Total combinational functions               ; 13        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 11        ;
+;     -- 3 input functions                    ; 1         ;
+;     -- <=2 input functions                  ; 1         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 13        ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 0         ;
+;     -- Dedicated logic registers            ; 0         ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 21        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; Sub~input ;
+; Maximum fan-out                             ; 12        ;
+; Total fan-out                               ; 78        ;
+; Average fan-out                             ; 1.42      ;
++---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                              ;
-+----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                     ; Entity Name             ; Library Name ;
-+----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |i281                                              ; 26 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |i281                                                                                                                                   ; i281                    ; work         ;
-;    |_Opcode_Decoder:inst|                          ; 26 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst                                                                                                              ; _Opcode_Decoder         ; work         ;
-;       |_1to2DecoderWithEnable:ShiftDecoder|        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_1to2DecoderWithEnable:ShiftDecoder                                                                          ; _1to2DecoderWithEnable  ; work         ;
-;       |_2to4DecoderWithEnable:BranchDecoder|       ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_2to4DecoderWithEnable:BranchDecoder                                                                         ; _2to4DecoderWithEnable  ; work         ;
-;       |_2to4DecoderWithEnable:InputDecoder|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_2to4DecoderWithEnable:InputDecoder                                                                          ; _2to4DecoderWithEnable  ; work         ;
-;       |_4to16DecoderWithEnable:decoderOut|         ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut                                                                           ; _4to16DecoderWithEnable ; work         ;
-;          |_3to8DecoderWithEnable:firstDecoder|     ; 8 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder                                       ; _3to8DecoderWithEnable  ; work         ;
-;             |_2to4DecoderWithEnable:firstDecoder|  ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder|_2to4DecoderWithEnable:firstDecoder   ; _2to4DecoderWithEnable  ; work         ;
-;             |_2to4DecoderWithEnable:secondDecoder| ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder|_2to4DecoderWithEnable:secondDecoder  ; _2to4DecoderWithEnable  ; work         ;
-;          |_3to8DecoderWithEnable:secondDecoder|    ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:secondDecoder                                      ; _3to8DecoderWithEnable  ; work         ;
-;             |_2to4DecoderWithEnable:firstDecoder|  ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:secondDecoder|_2to4DecoderWithEnable:firstDecoder  ; _2to4DecoderWithEnable  ; work         ;
-;             |_2to4DecoderWithEnable:secondDecoder| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:secondDecoder|_2to4DecoderWithEnable:secondDecoder ; _2to4DecoderWithEnable  ; work         ;
-+----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Entity Name ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+-------------+--------------+
+; |_6BitAdder                      ; 13 (1)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |_6BitAdder                             ; _6BitAdder  ; work         ;
+;    |_FullAdder:_FullAdder[1].FA| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_6BitAdder|_FullAdder:_FullAdder[1].FA ; _FullAdder  ; work         ;
+;    |_FullAdder:_FullAdder[2].FA| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_6BitAdder|_FullAdder:_FullAdder[2].FA ; _FullAdder  ; work         ;
+;    |_FullAdder:_FullAdder[3].FA| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_6BitAdder|_FullAdder:_FullAdder[3].FA ; _FullAdder  ; work         ;
+;    |_FullAdder:_FullAdder[4].FA| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_6BitAdder|_FullAdder:_FullAdder[4].FA ; _FullAdder  ; work         ;
+;    |_FullAdder:_FullAdder[5].FA| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_6BitAdder|_FullAdder:_FullAdder[5].FA ; _FullAdder  ; work         ;
+;    |_FullAdder:initialFA|        ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_6BitAdder|_FullAdder:initialFA        ; _FullAdder  ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -245,14 +236,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut"                                                                                                                                ;
-+------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port       ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Enable     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; Enable[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-+------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |_6BitAdder ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; N              ; 6     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -260,16 +251,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 31                          ;
-; cycloneiii_lcell_comb ; 27                          ;
-;     normal            ; 27                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 8                           ;
-;         4 data inputs ; 16                          ;
+; boundary_port         ; 21                          ;
+; cycloneiii_lcell_comb ; 13                          ;
+;     normal            ; 13                          ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 11                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.58                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 4.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -288,7 +278,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Oct 15 19:33:35 2020
+    Info: Processing started: Tue Oct 20 20:36:45 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off i281 -c i281
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -317,28 +307,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file _opcode
 Warning (12019): Can't analyze file -- file _OpcodeDecoder_TB.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file i281.bdf
     Info (12023): Found entity 1: i281
+Info (12021): Found 1 design units, including 1 entities, in source file _fulladder.v
+    Info (12023): Found entity 1: _FullAdder File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file _6bitadder.v
+    Info (12023): Found entity 1: _6BitAdder File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at _programCounter.v(13): created implicit net for "vcc_signal" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_programCounter.v Line: 13
-Info (12127): Elaborating entity "i281" for the top level hierarchy
-Info (12128): Elaborating entity "_Opcode_Decoder" for hierarchy "_Opcode_Decoder:inst"
-Info (12128): Elaborating entity "_4to16DecoderWithEnable" for hierarchy "_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v Line: 39
-Info (12128): Elaborating entity "_3to8DecoderWithEnable" for hierarchy "_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v Line: 10
-Info (12128): Elaborating entity "_2to4DecoderWithEnable" for hierarchy "_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder|_2to4DecoderWithEnable:firstDecoder" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_3to8DecoderWithEnable.v Line: 10
-Info (12128): Elaborating entity "_1to2DecoderWithEnable" for hierarchy "_Opcode_Decoder:inst|_1to2DecoderWithEnable:ShiftDecoder" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v Line: 56
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12127): Elaborating entity "_6BitAdder" for the top level hierarchy
+Info (12128): Elaborating entity "_FullAdder" for hierarchy "_FullAdder:initialFA" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v Line: 22
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "pin_name26"
-    Warning (15610): No output dependent on input pin "pin_name27"
-Info (21057): Implemented 57 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 8 input pins
-    Info (21059): Implemented 23 output pins
-    Info (21061): Implemented 26 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+Info (21057): Implemented 34 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 13 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
     Info: Peak virtual memory: 4774 megabytes
-    Info: Processing ended: Thu Oct 15 19:33:42 2020
-    Info: Elapsed time: 00:00:07
+    Info: Processing ended: Tue Oct 20 20:36:51 2020
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:15
 
 

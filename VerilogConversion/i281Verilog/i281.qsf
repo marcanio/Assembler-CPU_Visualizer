@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY i281
+set_global_assignment -name TOP_LEVEL_ENTITY _6BitAdder
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:12:08  SEPTEMBER 23, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -70,9 +70,6 @@ set_global_assignment -name VERILOG_FILE _4to16DecoderWithEnable.v
 set_global_assignment -name VERILOG_FILE _Opcode_Decoder.v
 set_global_assignment -name VERILOG_FILE _OpcodeDecoder_TB.v
 set_global_assignment -name BDF_FILE i281.bdf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_AB28 -to pin_name24
 set_location_assignment PIN_AC28 -to pin_name25
 set_location_assignment PIN_AC27 -to pin_name26
@@ -104,4 +101,9 @@ set_location_assignment PIN_E22 -to pin_name20
 set_location_assignment PIN_E25 -to pin_name21
 set_location_assignment PIN_E24 -to pin_name22
 set_location_assignment PIN_H21 -to pin_name23
+set_global_assignment -name VERILOG_FILE _FullAdder.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE _6BitAdder.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

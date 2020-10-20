@@ -10,249 +10,31 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_1to2DecoderWithEnable.v}
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:17:07 on Oct 15,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_1to2DecoderWithEnable.v 
-# -- Compiling module _1to2DecoderWithEnable
+# Start time: 20:53:13 on Oct 20,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v 
+# -- Compiling module _FullAdder
 # 
 # Top level modules:
-# 	_1to2DecoderWithEnable
-# End time: 18:17:07 on Oct 15,2020, Elapsed time: 0:00:00
+# 	_FullAdder
+# End time: 20:53:13 on Oct 20,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to4DecoderWithEnable.v}
+# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:17:07 on Oct 15,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to4DecoderWithEnable.v 
-# -- Compiling module _2to4DecoderWithEnable
+# Start time: 20:53:13 on Oct 20,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v 
+# -- Compiling module _6BitAdder
 # 
 # Top level modules:
-# 	_2to4DecoderWithEnable
-# End time: 18:17:07 on Oct 15,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_3to8DecoderWithEnable.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:17:07 on Oct 15,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_3to8DecoderWithEnable.v 
-# -- Compiling module _3to8DecoderWithEnable
-# 
-# Top level modules:
-# 	_3to8DecoderWithEnable
-# End time: 18:17:07 on Oct 15,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:17:08 on Oct 15,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v 
-# -- Compiling module _4to16DecoderWithEnable
-# 
-# Top level modules:
-# 	_4to16DecoderWithEnable
-# End time: 18:17:08 on Oct 15,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog {D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:17:08 on Oct 15,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog" D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v 
-# -- Compiling module _Opcode_Decoder
-# 
-# Top level modules:
-# 	_Opcode_Decoder
-# End time: 18:17:08 on Oct 15,2020, Elapsed time: 0:00:00
+# 	_6BitAdder
+# End time: 20:53:13 on Oct 20,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:18:11 on Oct 15,2020
-# vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v 
-# -- Compiling module _OpcodeDecoder_TB
-# 
-# Top level modules:
-# 	_OpcodeDecoder_TB
-# End time: 18:18:11 on Oct 15,2020, Elapsed time: 0:00:00
+vsim work._6BitAdder
+# vsim work._6BitAdder 
+# Start time: 20:53:27 on Oct 20,2020
+# Loading work._6BitAdder
+# Loading work._FullAdder
+# End time: 20:57:20 on Oct 20,2020, Elapsed time: 0:03:53
 # Errors: 0, Warnings: 0
-vsim work._OpcodeDecoder_TB
-# vsim work._OpcodeDecoder_TB 
-# Start time: 18:18:16 on Oct 15,2020
-# Loading work._OpcodeDecoder_TB
-# Loading work._Opcode_Decoder
-# Loading work._4to16DecoderWithEnable
-# Loading work._3to8DecoderWithEnable
-# Loading work._2to4DecoderWithEnable
-# Loading work._1to2DecoderWithEnable
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'OpTest'.  Expected 26, found 1.
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 9
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'DEC_INPUT'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 9
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'X'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'Y'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'NOOP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'MOVE'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'LOADI_LOADP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'ADD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'ADDI'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'SUB'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'SUBI'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'LOAD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'LOADF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'STORE'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'STOREF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'CMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'JUMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'INPUTC'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'INPUTCF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'INPUTD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'INPUTDF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'SHIFTL'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'SHIFTR'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'BRE_BRZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'BRNE_BRNZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'BRG'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(9): [TFMPC] - Missing connection for port 'BRGE'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'Enable'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest/decoderOut File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v Line: 39
-add wave -position insertpoint  \
-sim:/_OpcodeDecoder_TB/Opcode
-add wave -position insertpoint  \
-sim:/_OpcodeDecoder_TB/period
-run -all
-add wave -position insertpoint  \
-sim:/_OpcodeDecoder_TB/OpTest/decoderOut/Decoder_Output
-# Break key hit
-run -all
-vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:25:58 on Oct 15,2020
-# vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v 
-# -- Compiling module _OpcodeDecoder_TB
-# 
-# Top level modules:
-# 	_OpcodeDecoder_TB
-# End time: 18:25:58 on Oct 15,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work._OpcodeDecoder_TB
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'OpTest'.  Expected 26, found 6.
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'DEC_INPUT'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 32
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'X'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'Y'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SUB'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SUBI'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'LOAD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'LOADF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'STORE'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'STOREF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'CMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'JUMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTC'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTCF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTDF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SHIFTL'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SHIFTR'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRE_BRZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRNE_BRNZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRG'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRGE'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'Enable'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest/decoderOut File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v Line: 39
-add wave -position insertpoint  \
-sim:/_OpcodeDecoder_TB/Opcode \
-sim:/_OpcodeDecoder_TB/NOOP \
-sim:/_OpcodeDecoder_TB/MOVE \
-sim:/_OpcodeDecoder_TB/LOADI_LOADP \
-sim:/_OpcodeDecoder_TB/ADD \
-sim:/_OpcodeDecoder_TB/ADDI
-vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:27:23 on Oct 15,2020
-# vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v 
-# -- Compiling module _OpcodeDecoder_TB
-# 
-# Top level modules:
-# 	_OpcodeDecoder_TB
-# End time: 18:27:23 on Oct 15,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work._OpcodeDecoder_TB
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'OpTest'.  Expected 26, found 6.
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'DEC_INPUT'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 32
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'X'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'Y'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SUB'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SUBI'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'LOAD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'LOADF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'STORE'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'STOREF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'CMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'JUMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTC'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTCF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'INPUTDF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SHIFTL'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'SHIFTR'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRE_BRZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRNE_BRNZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRG'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(32): [TFMPC] - Missing connection for port 'BRGE'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'Enable'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest/decoderOut File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v Line: 39
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-run -all
-vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:30:51 on Oct 15,2020
-# vlog -reportprogress 300 -work work D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v 
-# -- Compiling module _OpcodeDecoder_TB
-# 
-# Top level modules:
-# 	_OpcodeDecoder_TB
-# End time: 18:30:51 on Oct 15,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-restart
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work._OpcodeDecoder_TB
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'OpTest'.  Expected 26, found 6.
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 33
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'DEC_INPUT'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v Line: 33
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'X'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'Y'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'SUB'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'SUBI'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'LOAD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'LOADF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'STORE'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'STOREF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'CMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'JUMP'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'INPUTC'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'INPUTCF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'INPUTD'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'INPUTDF'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'SHIFTL'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'SHIFTR'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'BRE_BRZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'BRNE_BRNZ'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'BRG'.
-# ** Warning: (vsim-3722) D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_OpcodeDecoder_TB.v(33): [TFMPC] - Missing connection for port 'BRGE'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (32) for port 'Enable'. The port definition is at: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4to16DecoderWithEnable.v(2).
-#    Time: 0 ps  Iteration: 0  Instance: /_OpcodeDecoder_TB/OpTest/decoderOut File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Opcode_Decoder.v Line: 39
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-run
-# End time: 18:31:49 on Oct 15,2020, Elapsed time: 0:13:33
-# Errors: 0, Warnings: 23

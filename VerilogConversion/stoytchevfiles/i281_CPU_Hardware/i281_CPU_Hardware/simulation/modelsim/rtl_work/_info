@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dD:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/simulation/modelsim
 vBIOS_Hardcoded_High
-Z1 !s110 1602747857
+Z1 !s110 1603195694
 !i10b 1
 !s100 H?;]kEo0ElDHFkB5^`ef21
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -26,7 +26,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1602747857.000000
+Z6 !s108 1603195694.000000
 !s107 D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_high.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware|D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_high.v|
 !i113 1
@@ -35,7 +35,7 @@ Z8 !s92 -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConve
 Z9 tCvgOpt 0
 n@b@i@o@s_@hardcoded_@high
 vBIOS_Hardcoded_Low
-Z10 !s110 1602747856
+R1
 !i10b 1
 !s100 2EYCEDS8F3[Zg8^lDIFH]0
 R2
@@ -51,7 +51,7 @@ R5
 r1
 !s85 0
 31
-Z11 !s108 1602747856.000000
+R6
 !s107 D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_low.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware|D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/bios_hardcoded_low.v|
 !i113 1
@@ -60,7 +60,7 @@ R8
 R9
 n@b@i@o@s_@hardcoded_@low
 vONES
-R10
+R1
 !i10b 1
 !s100 T139@BU0SFIBOYM9GZM7b3
 R2
@@ -76,7 +76,7 @@ R5
 r1
 !s85 0
 31
-R11
+!s108 1603195693.000000
 !s107 D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/ones.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware|D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/ones.v|
 !i113 1
@@ -121,7 +121,7 @@ w1573742064
 8D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_high.v
 FD:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_high.v
 !i122 4
-Z12 L0 1 36
+Z10 L0 1 36
 R5
 r1
 !s85 0
@@ -146,7 +146,7 @@ w1573742102
 8D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_low.v
 FD:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_code_low.v
 !i122 3
-R12
+R10
 R5
 r1
 !s85 0
@@ -171,7 +171,7 @@ w1573742144
 8D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_data.v
 FD:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/user_data.v
 !i122 5
-R12
+R10
 R5
 r1
 !s85 0

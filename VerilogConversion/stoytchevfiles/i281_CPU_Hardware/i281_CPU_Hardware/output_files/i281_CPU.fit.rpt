@@ -1,5 +1,5 @@
 Fitter report for i281_CPU
-Thu Oct 08 19:05:51 2020
+Fri Oct 16 00:21:42 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Thu Oct 08 19:05:51 2020       ;
+; Fitter Status                      ; Successful - Fri Oct 16 00:21:42 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281_CPU                                    ;
 ; Top-level Entity Name              ; i281_CPU                                    ;
@@ -161,7 +161,7 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   1.1%      ;
-;     Processor 3            ;   0.7%      ;
+;     Processor 3            ;   0.6%      ;
 ;     Processor 4            ;   0.6%      ;
 ;     Processor 5            ;   0.6%      ;
 ;     Processor 6            ;   0.6%      ;
@@ -209,7 +209,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/output_files/i281_CPU.pin.
+The pin-out file can be found in D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/output_files/i281_CPU.pin.
 
 
 +-----------------------------------------------------------------------+
@@ -2517,7 +2517,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has 2.5V VCCIO pins. 9 total pin(s) used --  49 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has 2.5V VCCIO pins. 28 total pin(s) used --  44 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  71 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -2530,23 +2530,23 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 0.92 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.93 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
-Info (144001): Generated suppressed messages file D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/output_files/i281_CPU.fit.smsg
+Info (144001): Generated suppressed messages file D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/output_files/i281_CPU.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 6730 megabytes
-    Info: Processing ended: Thu Oct 08 19:05:51 2020
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Peak virtual memory: 6740 megabytes
+    Info: Processing ended: Fri Oct 16 00:21:42 2020
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:37
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/output_files/i281_CPU.fit.smsg.
+The suppressed messages can be found in D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/output_files/i281_CPU.fit.smsg.
 
 

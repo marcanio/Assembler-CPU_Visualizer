@@ -1,255 +1,90 @@
-|i281
-pin_name2 <= _Opcode_Decoder:inst.MOVE
-pin_name24 => _Opcode_Decoder:inst.DEC_INPUT[0]
-pin_name26 => _Opcode_Decoder:inst.DEC_INPUT[2]
-pin_name27 => _Opcode_Decoder:inst.DEC_INPUT[3]
-pin_name28 => _Opcode_Decoder:inst.DEC_INPUT[4]
-pin_name29 => _Opcode_Decoder:inst.DEC_INPUT[5]
-pin_name30 => _Opcode_Decoder:inst.DEC_INPUT[6]
-pin_name31 => _Opcode_Decoder:inst.DEC_INPUT[7]
-pin_name25 => _Opcode_Decoder:inst.DEC_INPUT[1]
-pin_name1 <= _Opcode_Decoder:inst.NOOP
-pin_name3 <= _Opcode_Decoder:inst.ADD
-pin_name4 <= _Opcode_Decoder:inst.LOADI_LOADP
-pin_name5 <= _Opcode_Decoder:inst.ADDI
-pin_name6 <= _Opcode_Decoder:inst.SUB
-pin_name7 <= _Opcode_Decoder:inst.SUBI
-pin_name8 <= _Opcode_Decoder:inst.LOAD
-pin_name9 <= _Opcode_Decoder:inst.LOADF
-pin_name10 <= _Opcode_Decoder:inst.STORE
-pin_name11 <= _Opcode_Decoder:inst.STOREF
-pin_name12 <= _Opcode_Decoder:inst.CMP
-pin_name13 <= _Opcode_Decoder:inst.JUMP
-pin_name14 <= _Opcode_Decoder:inst.INPUTC
-pin_name15 <= _Opcode_Decoder:inst.INPUTCF
-pin_name16 <= _Opcode_Decoder:inst.INPUTD
-pin_name17 <= _Opcode_Decoder:inst.INPUTDF
-pin_name18 <= _Opcode_Decoder:inst.SHIFTL
-pin_name19 <= _Opcode_Decoder:inst.SHIFTR
-pin_name20 <= _Opcode_Decoder:inst.BRE_BRZ
-pin_name21 <= _Opcode_Decoder:inst.BRNE_BRNZ
-pin_name22 <= _Opcode_Decoder:inst.BRG
-pin_name23 <= _Opcode_Decoder:inst.BRGE
+|_6BitAdder
+First_Input[0] => First_Input[0].IN1
+First_Input[1] => First_Input[1].IN1
+First_Input[2] => First_Input[2].IN1
+First_Input[3] => First_Input[3].IN1
+First_Input[4] => First_Input[4].IN1
+First_Input[5] => First_Input[5].IN1
+Second_Input[0] => XOROut.IN0
+Second_Input[1] => XOROut.IN0
+Second_Input[2] => XOROut.IN0
+Second_Input[3] => XOROut.IN0
+Second_Input[4] => XOROut.IN0
+Second_Input[5] => XOROut.IN0
+Sub => Sub.IN1
+Carry <= _FullAdder:_FullAdder[5].FA.Cout
+Overflow <= Overflow.DB_MAX_OUTPUT_PORT_TYPE
+Adder_Output[0] <= _FullAdder:initialFA.S
+Adder_Output[1] <= _FullAdder:_FullAdder[1].FA.S
+Adder_Output[2] <= _FullAdder:_FullAdder[2].FA.S
+Adder_Output[3] <= _FullAdder:_FullAdder[3].FA.S
+Adder_Output[4] <= _FullAdder:_FullAdder[4].FA.S
+Adder_Output[5] <= _FullAdder:_FullAdder[5].FA.S
 
 
-|i281|_Opcode_Decoder:inst
-DEC_INPUT[0] => DEC_Input_Split[0].IN3
-DEC_INPUT[1] => DEC_Input_Split[1].IN2
-DEC_INPUT[2] => X[0].DATAIN
-DEC_INPUT[3] => X[1].DATAIN
-DEC_INPUT[4] => DEC_Input_Split[4].IN1
-DEC_INPUT[5] => DEC_Input_Split[5].IN1
-DEC_INPUT[6] => DEC_Input_Split[6].IN1
-DEC_INPUT[7] => DEC_Input_Split[7].IN1
-X[0] <= DEC_INPUT[2].DB_MAX_OUTPUT_PORT_TYPE
-X[1] <= DEC_INPUT[3].DB_MAX_OUTPUT_PORT_TYPE
-Y[0] <= DEC_Input_Split[0].DB_MAX_OUTPUT_PORT_TYPE
-Y[1] <= DEC_Input_Split[1].DB_MAX_OUTPUT_PORT_TYPE
-NOOP <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-MOVE <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-LOADI_LOADP <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-ADD <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-ADDI <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-SUB <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-SUBI <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-LOAD <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-LOADF <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-STORE <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-STOREF <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-CMP <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-JUMP <= _4to16DecoderWithEnable:decoderOut.Decoder_Output
-INPUTC <= _2to4DecoderWithEnable:InputDecoder.Decoder_Output
-INPUTCF <= _2to4DecoderWithEnable:InputDecoder.Decoder_Output
-INPUTD <= _2to4DecoderWithEnable:InputDecoder.Decoder_Output
-INPUTDF <= _2to4DecoderWithEnable:InputDecoder.Decoder_Output
-SHIFTL <= _1to2DecoderWithEnable:ShiftDecoder.Decoder_Output
-SHIFTR <= _1to2DecoderWithEnable:ShiftDecoder.Decoder_Output
-BRE_BRZ <= _2to4DecoderWithEnable:BranchDecoder.Decoder_Output
-BRNE_BRNZ <= _2to4DecoderWithEnable:BranchDecoder.Decoder_Output
-BRG <= _2to4DecoderWithEnable:BranchDecoder.Decoder_Output
-BRGE <= _2to4DecoderWithEnable:BranchDecoder.Decoder_Output
+|_6BitAdder|_FullAdder:initialFA
+in1 => XOR1.IN0
+in1 => AND1.IN0
+in2 => XOR1.IN1
+in2 => AND1.IN1
+Cin => XOR2.IN1
+Cin => AND3.IN1
+S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut
-Enable => comb.IN0
-Enable => comb.IN0
-Decoder_Input[0] => Decoder_Input[0].IN2
-Decoder_Input[1] => Decoder_Input[1].IN2
-Decoder_Input[2] => Decoder_Input[2].IN2
-Decoder_Input[3] => comb.IN1
-Decoder_Input[3] => comb.IN1
-Decoder_Output[0] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[1] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[2] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[3] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[4] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[5] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[6] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[7] <= _3to8DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[8] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[9] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[10] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[11] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[12] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[13] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[14] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[15] <= _3to8DecoderWithEnable:secondDecoder.Decoder_Output
+|_6BitAdder|_FullAdder:_FullAdder[1].FA
+in1 => XOR1.IN0
+in1 => AND1.IN0
+in2 => XOR1.IN1
+in2 => AND1.IN1
+Cin => XOR2.IN1
+Cin => AND3.IN1
+S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder
-Enable => comb.IN0
-Enable => comb.IN0
-Decoder_Input[0] => Decoder_Input[0].IN2
-Decoder_Input[1] => Decoder_Input[1].IN2
-Decoder_Input[2] => comb.IN1
-Decoder_Input[2] => comb.IN1
-Decoder_Output[0] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[1] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[2] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[3] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[4] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[5] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[6] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[7] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
+|_6BitAdder|_FullAdder:_FullAdder[2].FA
+in1 => XOR1.IN0
+in1 => AND1.IN0
+in2 => XOR1.IN1
+in2 => AND1.IN1
+Cin => XOR2.IN1
+Cin => AND3.IN1
+S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder|_2to4DecoderWithEnable:firstDecoder
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
+|_6BitAdder|_FullAdder:_FullAdder[3].FA
+in1 => XOR1.IN0
+in1 => AND1.IN0
+in2 => XOR1.IN1
+in2 => AND1.IN1
+Cin => XOR2.IN1
+Cin => AND3.IN1
+S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:firstDecoder|_2to4DecoderWithEnable:secondDecoder
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
+|_6BitAdder|_FullAdder:_FullAdder[4].FA
+in1 => XOR1.IN0
+in1 => AND1.IN0
+in2 => XOR1.IN1
+in2 => AND1.IN1
+Cin => XOR2.IN1
+Cin => AND3.IN1
+S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:secondDecoder
-Enable => comb.IN0
-Enable => comb.IN0
-Decoder_Input[0] => Decoder_Input[0].IN2
-Decoder_Input[1] => Decoder_Input[1].IN2
-Decoder_Input[2] => comb.IN1
-Decoder_Input[2] => comb.IN1
-Decoder_Output[0] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[1] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[2] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[3] <= _2to4DecoderWithEnable:firstDecoder.Decoder_Output
-Decoder_Output[4] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[5] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[6] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-Decoder_Output[7] <= _2to4DecoderWithEnable:secondDecoder.Decoder_Output
-
-
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:secondDecoder|_2to4DecoderWithEnable:firstDecoder
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|i281|_Opcode_Decoder:inst|_4to16DecoderWithEnable:decoderOut|_3to8DecoderWithEnable:secondDecoder|_2to4DecoderWithEnable:secondDecoder
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|i281|_Opcode_Decoder:inst|_2to4DecoderWithEnable:InputDecoder
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|i281|_Opcode_Decoder:inst|_1to2DecoderWithEnable:ShiftDecoder
-Enable => comb.IN0
-Enable => comb.IN0
-Decoder_Input => comb.IN1
-Decoder_Input => comb.IN1
-Decoder_Output[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|i281|_Opcode_Decoder:inst|_2to4DecoderWithEnable:BranchDecoder
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
+|_6BitAdder|_FullAdder:_FullAdder[5].FA
+in1 => XOR1.IN0
+in1 => AND1.IN0
+in2 => XOR1.IN1
+in2 => AND1.IN1
+Cin => XOR2.IN1
+Cin => AND3.IN1
+S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -4,143 +4,87 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "ADD",
+					"name" : "Carry",
 					"strict" : false
 				},
 				{
-					"name" : "ADDI",
+					"name" : "Overflow",
 					"strict" : false
 				},
 				{
-					"name" : "SUB",
+					"name" : "Adder_Output[5]",
 					"strict" : false
 				},
 				{
-					"name" : "LOAD",
+					"name" : "Adder_Output[4]",
 					"strict" : false
 				},
 				{
-					"name" : "NOOP",
+					"name" : "Adder_Output[3]",
 					"strict" : false
 				},
 				{
-					"name" : "LOADF",
+					"name" : "Adder_Output[2]",
 					"strict" : false
 				},
 				{
-					"name" : "STORE",
+					"name" : "Adder_Output[1]",
 					"strict" : false
 				},
 				{
-					"name" : "STOREF",
+					"name" : "Adder_Output[0]",
 					"strict" : false
 				},
 				{
-					"name" : "INPUTC",
+					"name" : "Second_Input[5]",
 					"strict" : false
 				},
 				{
-					"name" : "INPUTD",
+					"name" : "Sub",
 					"strict" : false
 				},
 				{
-					"name" : "INPUTDF",
+					"name" : "First_Input[5]",
 					"strict" : false
 				},
 				{
-					"name" : "SHIFTL",
+					"name" : "Second_Input[4]",
 					"strict" : false
 				},
 				{
-					"name" : "SHIFTR",
+					"name" : "First_Input[4]",
 					"strict" : false
 				},
 				{
-					"name" : "INPUTCF",
+					"name" : "Second_Input[3]",
 					"strict" : false
 				},
 				{
-					"name" : "JUMP",
+					"name" : "First_Input[3]",
 					"strict" : false
 				},
 				{
-					"name" : "CMP",
+					"name" : "Second_Input[2]",
 					"strict" : false
 				},
 				{
-					"name" : "BRE_BRZ",
+					"name" : "First_Input[2]",
 					"strict" : false
 				},
 				{
-					"name" : "BRNE_BRNZ",
+					"name" : "First_Input[0]",
 					"strict" : false
 				},
 				{
-					"name" : "BRG",
+					"name" : "Second_Input[0]",
 					"strict" : false
 				},
 				{
-					"name" : "BRGE",
+					"name" : "First_Input[1]",
 					"strict" : false
 				},
 				{
-					"name" : "MOVE",
-					"strict" : false
-				},
-				{
-					"name" : "SUBI",
-					"strict" : false
-				},
-				{
-					"name" : "LOADI_LOADP",
-					"strict" : false
-				},
-				{
-					"name" : "X[1]",
-					"strict" : false
-				},
-				{
-					"name" : "X[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Y[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Y[0]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[4]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[5]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[6]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[7]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[1]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[0]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[3]",
-					"strict" : false
-				},
-				{
-					"name" : "DEC_INPUT[2]",
+					"name" : "Second_Input[1]",
 					"strict" : false
 				}
 			]
