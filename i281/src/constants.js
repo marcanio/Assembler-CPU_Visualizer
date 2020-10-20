@@ -103,9 +103,39 @@ const MUX0_ID = "mux0";
 const MUX0_FALSE_ID = "mux0_false";
 const MUX0_TRUE_ID = "mux0_true";
 const MUX1_ID = "mux1";
+const MUX1_FALSE_ID = "mux1_false";
+const MUX1_TRUE_ID = "mux1_true";
 const MUX2_ID = "mux2";
+const MUX2_FALSE_ID = "mux2_false";
+const MUX2_TRUE_ID = "mux2_true";
 const MUX3_ID = "mux3";
+const MUX3_FALSE_ID = "mux3_false";
+const MUX3_TRUE_ID = "mux3_true";
+const MUX4_ID = "mux4";
+const MUX4_FALSE_ID = "mux4_false";
+const MUX4_TRUE_ID = "mux4_true";
+
 const ALU_ID = "alu";
+
+const CONTROL_C1 = "control_c1";
+const CONTROL_C2 = "control_c2";
+const CONTROL_C3 = "control_c3";
+const CONTROL_C4 = "control_c4";
+const CONTROL_C5 = "control_c5";
+const CONTROL_C6 = "control_c6";
+const CONTROL_C7 = "control_c7";
+const CONTROL_C8 = "control_c8";
+const CONTROL_C9 = "control_c9";
+const CONTROL_C10 = "control_c10";
+const CONTROL_C11 = "control_c11";
+const CONTROL_C12 = "control_c12";
+const CONTROL_C13 = "control_c13";
+const CONTROL_C14 = "control_c14";
+const CONTROL_C15 = "control_c15";
+const CONTROL_C16 = "control_c16";
+const CONTROL_C17 = "control_c17";
+const CONTROL_C18 = "control_c18";
+
 
 
 export {
@@ -191,7 +221,34 @@ export {
 	MUX0_FALSE_ID,
 	MUX0_TRUE_ID,
 	MUX1_ID,
+	MUX1_FALSE_ID,
+	MUX1_TRUE_ID,
 	MUX2_ID,
+	MUX2_FALSE_ID,
+	MUX2_TRUE_ID,
 	MUX3_ID,
-	ALU_ID
+	MUX3_FALSE_ID,
+	MUX3_TRUE_ID,
+	MUX4_ID,
+	MUX4_FALSE_ID,
+	MUX4_TRUE_ID,
+	ALU_ID,
+	CONTROL_C1,
+	CONTROL_C2,
+	CONTROL_C3,
+	CONTROL_C4,
+	CONTROL_C5,
+	CONTROL_C6,
+	CONTROL_C7,
+	CONTROL_C8,
+	CONTROL_C9,
+	CONTROL_C10,
+	CONTROL_C11,
+	CONTROL_C12,
+	CONTROL_C13,
+	CONTROL_C14,
+	CONTROL_C15,
+	CONTROL_C16,
+	CONTROL_C17,
+	CONTROL_C18
 };
