@@ -1,5 +1,5 @@
 {
-  "name": "Colby",
+  "name": "i281",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Colby McKinley",
+  "author": "sdmay21-38",
   "license": "ISC",
   "dependencies": {
     "common-js": "^0.3.8",
