@@ -1,90 +1,196 @@
-|_6BitAdder
-First_Input[0] => First_Input[0].IN1
-First_Input[1] => First_Input[1].IN1
-First_Input[2] => First_Input[2].IN1
-First_Input[3] => First_Input[3].IN1
-First_Input[4] => First_Input[4].IN1
-First_Input[5] => First_Input[5].IN1
-Second_Input[0] => XOROut.IN0
-Second_Input[1] => XOROut.IN0
-Second_Input[2] => XOROut.IN0
-Second_Input[3] => XOROut.IN0
-Second_Input[4] => XOROut.IN0
-Second_Input[5] => XOROut.IN0
-Sub => Sub.IN1
-Carry <= _FullAdder:_FullAdder[5].FA.Cout
-Overflow <= Overflow.DB_MAX_OUTPUT_PORT_TYPE
-Adder_Output[0] <= _FullAdder:initialFA.S
-Adder_Output[1] <= _FullAdder:_FullAdder[1].FA.S
-Adder_Output[2] <= _FullAdder:_FullAdder[2].FA.S
-Adder_Output[3] <= _FullAdder:_FullAdder[3].FA.S
-Adder_Output[4] <= _FullAdder:_FullAdder[4].FA.S
-Adder_Output[5] <= _FullAdder:_FullAdder[5].FA.S
+|_Registers16bit
+REG_INPUT[0] => REG_INPUT[0].IN1
+REG_INPUT[1] => REG_INPUT[1].IN1
+REG_INPUT[2] => REG_INPUT[2].IN1
+REG_INPUT[3] => REG_INPUT[3].IN1
+REG_INPUT[4] => REG_INPUT[4].IN1
+REG_INPUT[5] => REG_INPUT[5].IN1
+REG_INPUT[6] => REG_INPUT[6].IN1
+REG_INPUT[7] => REG_INPUT[7].IN1
+REG_INPUT[8] => REG_INPUT[8].IN1
+REG_INPUT[9] => REG_INPUT[9].IN1
+REG_INPUT[10] => REG_INPUT[10].IN1
+REG_INPUT[11] => REG_INPUT[11].IN1
+REG_INPUT[12] => REG_INPUT[12].IN1
+REG_INPUT[13] => REG_INPUT[13].IN1
+REG_INPUT[14] => REG_INPUT[14].IN1
+REG_INPUT[15] => REG_INPUT[15].IN1
+control => control.IN16
+clk => rmux[0].DFF.CLK
+clk => rmux[1].DFF.CLK
+clk => rmux[2].DFF.CLK
+clk => rmux[3].DFF.CLK
+clk => rmux[4].DFF.CLK
+clk => rmux[5].DFF.CLK
+clk => rmux[6].DFF.CLK
+clk => rmux[7].DFF.CLK
+clk => rmux[8].DFF.CLK
+clk => rmux[9].DFF.CLK
+clk => rmux[10].DFF.CLK
+clk => rmux[11].DFF.CLK
+clk => rmux[12].DFF.CLK
+clk => rmux[13].DFF.CLK
+clk => rmux[14].DFF.CLK
+clk => rmux[15].DFF.CLK
+Reset => rmux[0].DFF.ACLR
+Reset => rmux[1].DFF.ACLR
+Reset => rmux[2].DFF.ACLR
+Reset => rmux[3].DFF.ACLR
+Reset => rmux[4].DFF.ACLR
+Reset => rmux[5].DFF.ACLR
+Reset => rmux[6].DFF.ACLR
+Reset => rmux[7].DFF.ACLR
+Reset => rmux[8].DFF.ACLR
+Reset => rmux[9].DFF.ACLR
+Reset => rmux[10].DFF.ACLR
+Reset => rmux[11].DFF.ACLR
+Reset => rmux[12].DFF.ACLR
+Reset => rmux[13].DFF.ACLR
+Reset => rmux[14].DFF.ACLR
+Reset => rmux[15].DFF.ACLR
+REG_OUTPUT[0] <= dffQ[0].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[1] <= dffQ[1].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[2] <= dffQ[2].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[3] <= dffQ[3].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[4] <= dffQ[4].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[5] <= dffQ[5].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[6] <= dffQ[6].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[7] <= dffQ[7].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[8] <= dffQ[8].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[9] <= dffQ[9].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[10] <= dffQ[10].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[11] <= dffQ[11].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[12] <= dffQ[12].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[13] <= dffQ[13].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[14] <= dffQ[14].DB_MAX_OUTPUT_PORT_TYPE
+REG_OUTPUT[15] <= dffQ[15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_6BitAdder|_FullAdder:initialFA
-in1 => XOR1.IN0
-in1 => AND1.IN0
-in2 => XOR1.IN1
-in2 => AND1.IN1
-Cin => XOR2.IN1
-Cin => AND3.IN1
-S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
+|_Registers16bit|_2to1mux:rmux[0].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_6BitAdder|_FullAdder:_FullAdder[1].FA
-in1 => XOR1.IN0
-in1 => AND1.IN0
-in2 => XOR1.IN1
-in2 => AND1.IN1
-Cin => XOR2.IN1
-Cin => AND3.IN1
-S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
+|_Registers16bit|_2to1mux:rmux[1].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_6BitAdder|_FullAdder:_FullAdder[2].FA
-in1 => XOR1.IN0
-in1 => AND1.IN0
-in2 => XOR1.IN1
-in2 => AND1.IN1
-Cin => XOR2.IN1
-Cin => AND3.IN1
-S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
+|_Registers16bit|_2to1mux:rmux[2].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_6BitAdder|_FullAdder:_FullAdder[3].FA
-in1 => XOR1.IN0
-in1 => AND1.IN0
-in2 => XOR1.IN1
-in2 => AND1.IN1
-Cin => XOR2.IN1
-Cin => AND3.IN1
-S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
+|_Registers16bit|_2to1mux:rmux[3].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_6BitAdder|_FullAdder:_FullAdder[4].FA
-in1 => XOR1.IN0
-in1 => AND1.IN0
-in2 => XOR1.IN1
-in2 => AND1.IN1
-Cin => XOR2.IN1
-Cin => AND3.IN1
-S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
+|_Registers16bit|_2to1mux:rmux[4].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_6BitAdder|_FullAdder:_FullAdder[5].FA
-in1 => XOR1.IN0
-in1 => AND1.IN0
-in2 => XOR1.IN1
-in2 => AND1.IN1
-Cin => XOR2.IN1
-Cin => AND3.IN1
-S <= XOR2.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= OR4.DB_MAX_OUTPUT_PORT_TYPE
+|_Registers16bit|_2to1mux:rmux[5].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[6].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[7].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[8].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[9].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[10].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[11].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[12].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[13].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[14].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Registers16bit|_2to1mux:rmux[15].regMux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 

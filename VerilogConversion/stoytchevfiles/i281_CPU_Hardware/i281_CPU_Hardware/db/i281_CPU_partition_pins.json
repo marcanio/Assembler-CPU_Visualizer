@@ -4,87 +4,143 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "Carry",
+					"name" : "REG_OUTPUT[15]",
 					"strict" : false
 				},
 				{
-					"name" : "Overflow",
+					"name" : "REG_OUTPUT[14]",
 					"strict" : false
 				},
 				{
-					"name" : "Adder_Output[5]",
+					"name" : "REG_OUTPUT[13]",
 					"strict" : false
 				},
 				{
-					"name" : "Adder_Output[4]",
+					"name" : "REG_OUTPUT[12]",
 					"strict" : false
 				},
 				{
-					"name" : "Adder_Output[3]",
+					"name" : "REG_OUTPUT[11]",
 					"strict" : false
 				},
 				{
-					"name" : "Adder_Output[2]",
+					"name" : "REG_OUTPUT[10]",
 					"strict" : false
 				},
 				{
-					"name" : "Adder_Output[1]",
+					"name" : "REG_OUTPUT[9]",
 					"strict" : false
 				},
 				{
-					"name" : "Adder_Output[0]",
+					"name" : "REG_OUTPUT[8]",
 					"strict" : false
 				},
 				{
-					"name" : "Second_Input[5]",
+					"name" : "REG_OUTPUT[7]",
 					"strict" : false
 				},
 				{
-					"name" : "Sub",
+					"name" : "REG_OUTPUT[6]",
 					"strict" : false
 				},
 				{
-					"name" : "First_Input[5]",
+					"name" : "REG_OUTPUT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "Second_Input[4]",
+					"name" : "REG_OUTPUT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "First_Input[4]",
+					"name" : "REG_OUTPUT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Second_Input[3]",
+					"name" : "REG_OUTPUT[2]",
 					"strict" : false
 				},
 				{
-					"name" : "First_Input[3]",
+					"name" : "REG_OUTPUT[1]",
 					"strict" : false
 				},
 				{
-					"name" : "Second_Input[2]",
+					"name" : "REG_OUTPUT[0]",
 					"strict" : false
 				},
 				{
-					"name" : "First_Input[2]",
+					"name" : "REG_INPUT[15]",
 					"strict" : false
 				},
 				{
-					"name" : "First_Input[0]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "Second_Input[0]",
+					"name" : "Reset",
 					"strict" : false
 				},
 				{
-					"name" : "First_Input[1]",
+					"name" : "Control",
 					"strict" : false
 				},
 				{
-					"name" : "Second_Input[1]",
+					"name" : "REG_INPUT[14]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[13]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[12]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[11]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[10]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[9]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[8]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_INPUT[0]",
 					"strict" : false
 				}
 			]

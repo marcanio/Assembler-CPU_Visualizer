@@ -1,5 +1,5 @@
 Analysis & Synthesis report for i281_CPU
-Tue Oct 20 20:50:26 2020
+Tue Oct 20 23:39:14 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -43,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 20 20:50:26 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Oct 20 23:39:14 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281_CPU                                    ;
-; Top-level Entity Name              ; 6bitAdder                                   ;
+; Top-level Entity Name              ; Registers16bit                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 15                                          ;
-;     Total combinational functions  ; 15                                          ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 21                                          ;
+; Total logic elements               ; 16                                          ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 16                                          ;
+; Total registers                    ; 16                                          ;
+; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -66,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; 6bitAdder          ; i281_CPU           ;
+; Top-level entity name                                            ; Registers16bit     ; i281_CPU           ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -162,14 +162,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                                  ; Library ;
-+----------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------+---------+
-; 6bitAdder.bdf                    ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/6bitAdder.bdf ;         ;
-; fulladder.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/fulladder.bdf ;         ;
-+----------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                                       ; Library ;
++----------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
+; Registers16bit.bdf               ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/Registers16bit.bdf ;         ;
+; block3.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/block3.bdf         ;         ;
++----------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -177,46 +177,40 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 15        ;
+; Estimated Total logic elements              ; 16        ;
 ;                                             ;           ;
-; Total combinational functions               ; 15        ;
+; Total combinational functions               ; 0         ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 11        ;
-;     -- 3 input functions                    ; 2         ;
-;     -- <=2 input functions                  ; 2         ;
+;     -- 4 input functions                    ; 0         ;
+;     -- 3 input functions                    ; 0         ;
+;     -- <=2 input functions                  ; 0         ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 15        ;
+;     -- normal mode                          ; 0         ;
 ;     -- arithmetic mode                      ; 0         ;
 ;                                             ;           ;
-; Total registers                             ; 0         ;
-;     -- Dedicated logic registers            ; 0         ;
+; Total registers                             ; 16        ;
+;     -- Dedicated logic registers            ; 16        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 21        ;
+; I/O pins                                    ; 35        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
-; Maximum fan-out node                        ; Sub~input ;
-; Maximum fan-out                             ; 12        ;
-; Total fan-out                               ; 83        ;
-; Average fan-out                             ; 1.46      ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 16        ;
+; Total fan-out                               ; 115       ;
+; Average fan-out                             ; 1.34      ;
 +---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
-; |6bitAdder                 ; 15 (2)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |6bitAdder                  ; 6bitAdder   ; work         ;
-;    |FullAdder:inst25|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |6bitAdder|FullAdder:inst25 ; FullAdder   ; work         ;
-;    |FullAdder:inst26|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |6bitAdder|FullAdder:inst26 ; FullAdder   ; work         ;
-;    |FullAdder:inst27|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |6bitAdder|FullAdder:inst27 ; FullAdder   ; work         ;
-;    |FullAdder:inst28|      ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |6bitAdder|FullAdder:inst28 ; FullAdder   ; work         ;
-;    |FullAdder:inst29|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |6bitAdder|FullAdder:inst29 ; FullAdder   ; work         ;
-;    |FullAdder:inst30|      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |6bitAdder|FullAdder:inst30 ; FullAdder   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name    ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; |Registers16bit            ; 0 (0)               ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |Registers16bit     ; Registers16bit ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -225,31 +219,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 16    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 16    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 21                          ;
-; cycloneiii_lcell_comb ; 15                          ;
-;     normal            ; 15                          ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 11                          ;
-;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 4.43                        ;
-+-----------------------+-----------------------------+
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 35                              ;
+; cycloneiii_ff     ; 16                              ;
+;     ENA CLR       ; 16                              ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
 
 
 +-------------------------------+
@@ -267,7 +258,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Oct 20 20:50:20 2020
+    Info: Processing started: Tue Oct 20 23:39:08 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off i281_CPU -c i281_CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -290,20 +281,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file i281_cp
     Info (12023): Found entity 1: i281_CPU
 Info (12021): Found 1 design units, including 1 entities, in source file 6bitadder.bdf
     Info (12023): Found entity 1: 6bitAdder
-Info (12127): Elaborating entity "6bitAdder" for the top level hierarchy
-Warning (12125): Using design file fulladder.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: FullAdder
-Info (12128): Elaborating entity "FullAdder" for hierarchy "FullAdder:inst30"
+Info (12021): Found 1 design units, including 1 entities, in source file registers16bit.bdf
+    Info (12023): Found entity 1: Registers16bit
+Info (12127): Elaborating entity "Registers16bit" for the top level hierarchy
+Warning (12125): Using design file block3.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: Block3
+Info (12128): Elaborating entity "Block3" for hierarchy "Block3:inst2"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 13 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 15 logic cells
+Info (21057): Implemented 51 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 16 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Tue Oct 20 20:50:26 2020
+    Info: Peak virtual memory: 4780 megabytes
+    Info: Processing ended: Tue Oct 20 23:39:14 2020
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:15
 
