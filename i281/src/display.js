@@ -126,7 +126,7 @@ window.addEventListener("load", function() {
 	decoder_control_wire.translate(Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[0], Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[1]);
 	
 	var alu_flag_wire = new PathSVG(Constants.ALU_FLAG_WIRE_ID, Constants.ALU_FLAGS_WIRE, Constants.WIRE_STYLE);
-	//alu_flag_wire.translate(Constants.ALU_FLAGS_WIRE_OFFSET[0], Constants.ALU_FLAGS_WIRE_OFFSET[1]);
+    var flag_control_wire = new PathSVG(Constants.FLAGS_CONTROL_WIRE_ID, Constants.FLAGS_CONTROL_WIRE, Constants.WIRE_STYLE);
 
 	var read_a_wire = new PolygonSVG(Constants.READ_A_WIRE_ID, Constants.READ_A_WIRE, Constants.WIRE_STYLE);
 	read_a_wire.translate(Constants.READ_A_WIRE_OFFSET[0], Constants.READ_A_WIRE_OFFSET[1]);
@@ -329,6 +329,7 @@ window.addEventListener("load", function() {
 	svg.appendChild(control_c16.node);
 	svg.appendChild(control_c17.node);
 	svg.appendChild(control_c18.node);
-	svg.appendChild(imem_c1.node);
+    svg.appendChild(imem_c1.node);
+    svg.appendChild(flag_control_wire.node);
 
 });
