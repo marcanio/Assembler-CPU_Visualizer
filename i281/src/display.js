@@ -1,115 +1,4 @@
-import {		MUX_POLYGON,
-	ALU_POLYGON,
-	FLAGS_POLYGON, 
-	CODE_MEM_POLYGON, 
-	DATA_MEM_POLYGON, 
-	OPCODE_DECODER_POLYGON, 
-	CONTROL_POLYGON, 
-	REGISTER_FILE_POLYGON, 
-	PC_VALUE_POLYGON, 
-	PC_UPDATE_POLYGON, 
-	ARROW,
-	MUX_FALSE,
-	MUX_TRUE,
-	OPCODE_TPOS,
-	MUX0_OFFSET,
-	MUX1_OFFSET,
-	MUX2_OFFSET,
-	MUX3_OFFSET,
-	MUX4_OFFSET,
-	ALU_OFFSET,
-	FLAGS_OFFSET,
-	CODE_MEM_OFFSET,
-	OPCODE_DECODER_OFFSET,
-	CONTROL_OFFSET,
-	REGISTER_FILE_OFFSET,
-	PC_VALUE_OFFSET,
-	PC_UPDATE_OFFSET,
-	DATA_MEM_OFFSET,
-	READ_A_MUX_OFFSET,
-	READ_B_MUX_OFFSET,
-	MUX_ALU_WIRE,
-	ALU_RESULT_WIRE,
-	IMEM_DECODER_WIRE,
-	OPCODE_DECODER_CONTROL_WIRE,
-	ALU_FLAGS_WIRE,
-	READ_A_WIRE,
-	READ_B_WIRE,
-	PC_UPDATE_MUX_WIRE,
-	MUX_PC_VALUE_WIRE,
-	MUX_ALU_WIRE_OFFSET,
-	ALU_RESULT_WIRE_OFFSET,
-	IMEM_DECODER_WIRE_OFFSET,
-	OPCODE_DECODER_CONTROL_WIRE_OFFSET,
-	ALU_FLAGS_WIRE_OFFSET,
-	READ_A_WIRE_OFFSET,
-	READ_B_WIRE_OFFSET,
-	PC_UPDATE_MUX_FALSE_WIRE_OFFSET,
-	PC_UPDATE_MUX_TRUE_WIRE_OFFSET,
-	MUX_PC_VALUE_WIRE_OFFSET,
-	IMEM_C1_OFFSET,
-	MUX_C2_OFFSET,
-	PC_VALUE_C3_OFFSET,
-	READ_A_C4_OFFSET,
-	READ_A_C5_OFFSET,
-	READ_B_C6_OFFSET,
-	READ_B_C7_OFFSET,
-	REG_FILE_C8_OFFSET,
-	REG_FILE_C9_OFFSET,
-	REG_FILE_C10_OFFSET,
-	MUX_C11_OFFSET,
-	ALU_C12_OFFSET,
-	ALU_C13_OFFSET,
-	FLAGS_C14_OFFSET,
-	MUX_C15_OFFSET,
-	MUX_C16_OFFSET,
-	DMEM_C17_OFFSET,
-	MUX_C18_OFFSET,
-	CONTROL_ARROW_OFFSET,
-	ARROW_DIST_BETWEEN,
-	MUX_FALSE_TEXT,
-	MUX_TRUE_TEXT,
-	OPCODE_TEXT,
-	BLOCK_STYLE,
-	WIRE_STYLE,
-	ARROW_STYLE,
-	TEXT_STYLE,
-	ID_ATTR,
-	STYLE_ATTR,
-	MUX0_ID,
-	MUX0_FALSE_ID,
-	MUX0_TRUE_ID,
-	MUX1_ID,
-	MUX1_FALSE_ID,
-	MUX1_TRUE_ID,
-	MUX2_ID,
-	MUX2_FALSE_ID,
-	MUX2_TRUE_ID,
-	MUX3_ID,
-	MUX3_FALSE_ID,
-	MUX3_TRUE_ID,
-	MUX4_ID,
-	MUX4_FALSE_ID,
-	MUX4_TRUE_ID,
-	ALU_ID,
-	CONTROL_C1,
-	CONTROL_C2,
-	CONTROL_C3,
-	CONTROL_C4,
-	CONTROL_C5,
-	CONTROL_C6,
-	CONTROL_C7,
-	CONTROL_C8,
-	CONTROL_C9,
-	CONTROL_C10,
-	CONTROL_C11,
-	CONTROL_C12,
-	CONTROL_C13,
-	CONTROL_C14,
-	CONTROL_C15,
-	CONTROL_C16,
-	CONTROL_C17,
-	CONTROL_C18} from "./constants.js";
+import * as Constants from "./constants.js";
 
 
 function init() {
@@ -199,395 +88,395 @@ window.addEventListener("load", function() {
 
 
 	// TODO mask this in a mux thing
-	var mux0 = new Polygon([...MUX_POLYGON]);
-	mux0.attribute(STYLE_ATTR, BLOCK_STYLE);
-	mux0.attribute(ID_ATTR, MUX0_ID);
-	mux0.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
+	var mux0 = new Polygon([...Constants.MUX_POLYGON]);
+	mux0.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	mux0.attribute(Constants.ID_ATTR, Constants.MUX0_ID);
+	mux0.translate(Constants.MUX0_OFFSET[0], Constants.MUX0_OFFSET[1]);
 
-	var mux0_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux0_false.attribute(STYLE_ATTR, TEXT_STYLE );
-	mux0_false.attribute(ID_ATTR, MUX0_FALSE_ID);
-	mux0_false.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
-
-
-	var mux0_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux0_true.attribute(STYLE_ATTR, TEXT_STYLE);
-	mux0_true.attribute(ID_ATTR, MUX0_TRUE_ID);
-	mux0_true.translate(MUX0_OFFSET[0], MUX0_OFFSET[1]);
+	var mux0_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
+	mux0_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
+	mux0_false.attribute(Constants.ID_ATTR, Constants.MUX0_FALSE_ID);
+	mux0_false.translate(Constants.MUX0_OFFSET[0], Constants.MUX0_OFFSET[1]);
 
 
-	var alu = new Polygon(ALU_POLYGON);
-	alu.attribute(STYLE_ATTR, BLOCK_STYLE);
-	alu.attribute(ID_ATTR, ALU_ID);
-	alu.translate(ALU_OFFSET[0],ALU_OFFSET[1]);
-
-	var mux_alu_wire = new Polygon(MUX_ALU_WIRE);
-	mux_alu_wire.attribute(STYLE_ATTR, BLOCK_STYLE);
-	mux_alu_wire.attribute(ID_ATTR, "mux_alu_wire");
-	mux_alu_wire.translate(MUX_ALU_WIRE_OFFSET[0], MUX_ALU_WIRE_OFFSET[1]);
+	var mux0_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
+	mux0_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	mux0_true.attribute(Constants.ID_ATTR, Constants.MUX0_TRUE_ID);
+	mux0_true.translate(Constants.MUX0_OFFSET[0], Constants.MUX0_OFFSET[1]);
 
 
-	var flags = new Polygon(FLAGS_POLYGON);
-	flags.attribute(STYLE_ATTR, BLOCK_STYLE);
-	flags.attribute(ID_ATTR, "flags");
-	flags.translate(FLAGS_OFFSET[0], FLAGS_OFFSET[1]);
+	var alu = new Polygon(Constants.ALU_POLYGON);
+	alu.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	alu.attribute(Constants.ID_ATTR, Constants.ALU_ID);
+	alu.translate(Constants.ALU_OFFSET[0],Constants.ALU_OFFSET[1]);
+
+	var mux_alu_wire = new Polygon(Constants.MUX_ALU_WIRE);
+	mux_alu_wire.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	mux_alu_wire.attribute(Constants.ID_ATTR, "mux_alu_wire");
+	mux_alu_wire.translate(Constants.MUX_ALU_WIRE_OFFSET[0],Constants.MUX_ALU_WIRE_OFFSET[1]);
+
+
+	var flags = new Polygon(Constants.FLAGS_POLYGON);
+	flags.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	flags.attribute(Constants.ID_ATTR, "flags");
+	flags.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
 	var flag_text = new Text(70,30, "Flags");
-	flag_text.attribute(STYLE_ATTR, TEXT_STYLE);
-	flag_text.translate(FLAGS_OFFSET[0], FLAGS_OFFSET[1]);
+	flag_text.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	flag_text.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
 	// TODO spead these out to be 4 differnt text vals
 	var flag_value = new Text(70,70, "0000");
-	flag_value.attribute(STYLE_ATTR, TEXT_STYLE);
-	flag_value.translate(FLAGS_OFFSET[0], FLAGS_OFFSET[1]);
+	flag_value.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	flag_value.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
-	var mux1 = new Polygon([...MUX_POLYGON]);
-	mux1.attribute(STYLE_ATTR, BLOCK_STYLE);
-	mux1.attribute(ID_ATTR, MUX1_ID);
-	mux1.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
+	var mux1 = new Polygon([...Constants.MUX_POLYGON]);
+	mux1.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	mux1.attribute(Constants.ID_ATTR, Constants.MUX1_ID);
+	mux1.translate(Constants.MUX1_OFFSET[0], Constants.MUX1_OFFSET[1]);
 
-	var mux1_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux1_false.attribute(STYLE_ATTR, TEXT_STYLE );
-	mux1_false.attribute(ID_ATTR, MUX1_FALSE_ID);
-	mux1_false.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
-
-
-	var mux1_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux1_true.attribute(STYLE_ATTR, TEXT_STYLE);
-	mux1_true.attribute(ID_ATTR, MUX1_TRUE_ID);
-	mux1_true.translate(MUX1_OFFSET[0], MUX1_OFFSET[1]);
-
-	var mux2 = new Polygon([...MUX_POLYGON]);
-	mux2.attribute(STYLE_ATTR, BLOCK_STYLE);
-	mux2.attribute(ID_ATTR, MUX2_ID);
-	mux2.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
-
-	var mux2_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux2_false.attribute(STYLE_ATTR, TEXT_STYLE );
-	mux2_false.attribute(ID_ATTR, MUX2_FALSE_ID);
-	mux2_false.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
+	var mux1_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
+	mux1_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
+	mux1_false.attribute(Constants.ID_ATTR, Constants.MUX1_FALSE_ID);
+	mux1_false.translate(Constants.MUX1_OFFSET[0], Constants.MUX1_OFFSET[1]);
 
 
-	var mux2_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux2_true.attribute(STYLE_ATTR, TEXT_STYLE);
-	mux2_true.attribute(ID_ATTR, MUX2_TRUE_ID);
-	mux2_true.translate(MUX2_OFFSET[0], MUX2_OFFSET[1]);
+	var mux1_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
+	mux1_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	mux1_true.attribute(Constants.ID_ATTR, Constants.MUX1_TRUE_ID);
+	mux1_true.translate(Constants.MUX1_OFFSET[0], Constants.MUX1_OFFSET[1]);
+
+	var mux2 = new Polygon([...Constants.MUX_POLYGON]);
+	mux2.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	mux2.attribute(Constants.ID_ATTR, Constants.MUX2_ID);
+	mux2.translate(Constants.MUX2_OFFSET[0], Constants.MUX2_OFFSET[1]);
+
+	var mux2_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
+	mux2_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
+	mux2_false.attribute(Constants.ID_ATTR, Constants.MUX2_FALSE_ID);
+	mux2_false.translate(Constants.MUX2_OFFSET[0], Constants.MUX2_OFFSET[1]);
 
 
-	var mux3 = new Polygon([...MUX_POLYGON]);
-	mux3.attribute(STYLE_ATTR, BLOCK_STYLE);
-	mux3.attribute(ID_ATTR, MUX3_ID);
-	mux3.translate(MUX3_OFFSET[0], MUX3_OFFSET[1]);
-
-	var mux3_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux3_false.attribute(STYLE_ATTR, TEXT_STYLE );
-	mux3_false.attribute(ID_ATTR, MUX3_FALSE_ID);
-	mux3_false.translate(MUX3_OFFSET[0], MUX3_OFFSET[1]);
+	var mux2_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
+	mux2_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	mux2_true.attribute(Constants.ID_ATTR, Constants.MUX2_TRUE_ID);
+	mux2_true.translate(Constants.MUX2_OFFSET[0], Constants.MUX2_OFFSET[1]);
 
 
-	var mux3_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux3_true.attribute(STYLE_ATTR, TEXT_STYLE);
-	mux3_true.attribute(ID_ATTR, MUX3_TRUE_ID);
-	mux3_true.translate(MUX3_OFFSET[0], MUX3_OFFSET[1]);
+	var mux3 = new Polygon([...Constants.MUX_POLYGON]);
+	mux3.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	mux3.attribute(Constants.ID_ATTR, Constants.MUX3_ID);
+	mux3.translate(Constants.MUX3_OFFSET[0], Constants.MUX3_OFFSET[1]);
 
-	var mux4 = new Polygon([...MUX_POLYGON]);
-	mux4.attribute(STYLE_ATTR, BLOCK_STYLE);
-	mux4.attribute(ID_ATTR, MUX4_ID);
-	mux4.translate(MUX4_OFFSET[0], MUX4_OFFSET[1]);
-
-	var mux4_false = new Text(MUX_FALSE[0], MUX_FALSE[1], MUX_FALSE_TEXT);
-	mux4_false.attribute(STYLE_ATTR, TEXT_STYLE );
-	mux4_false.attribute(ID_ATTR, MUX4_FALSE_ID);
-	mux4_false.translate(MUX4_OFFSET[0], MUX4_OFFSET[1]);
+	var mux3_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
+	mux3_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
+	mux3_false.attribute(Constants.ID_ATTR, Constants.MUX3_FALSE_ID);
+	mux3_false.translate(Constants.MUX3_OFFSET[0], Constants.MUX3_OFFSET[1]);
 
 
-	var mux4_true = new Text(MUX_TRUE[0], MUX_TRUE[1], MUX_TRUE_TEXT);
-	mux4_true.attribute(STYLE_ATTR, TEXT_STYLE);
-	mux4_true.attribute(ID_ATTR, MUX4_TRUE_ID);
-	mux4_true.translate(MUX4_OFFSET[0], MUX4_OFFSET[1]);
+	var mux3_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
+	mux3_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	mux3_true.attribute(Constants.ID_ATTR, Constants.MUX3_TRUE_ID);
+	mux3_true.translate(Constants.MUX3_OFFSET[0], Constants.MUX3_OFFSET[1]);
 
-	var code_mem = new Polygon(CODE_MEM_POLYGON);
-	code_mem.attribute(STYLE_ATTR, BLOCK_STYLE);
-	code_mem.attribute(ID_ATTR, "code_mem");
-	code_mem.translate(CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1]);
+	var mux4 = new Polygon([...Constants.MUX_POLYGON]);
+	mux4.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	mux4.attribute(Constants.ID_ATTR, Constants.MUX4_ID);
+	mux4.translate(Constants.MUX4_OFFSET[0], Constants.MUX4_OFFSET[1]);
 
-	var opcode_decoder = new Polygon(OPCODE_DECODER_POLYGON);
-	opcode_decoder.attribute(STYLE_ATTR, BLOCK_STYLE);
-	opcode_decoder.attribute(ID_ATTR, "opcode_decoder");
-	opcode_decoder.translate(OPCODE_DECODER_OFFSET[0], OPCODE_DECODER_OFFSET[1]);
+	var mux4_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
+	mux4_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
+	mux4_false.attribute(Constants.ID_ATTR, Constants.MUX4_FALSE_ID);
+	mux4_false.translate(Constants.MUX4_OFFSET[0], Constants.MUX4_OFFSET[1]);
 
-	var opcode_text = new Text(OPCODE_TPOS[0],OPCODE_TPOS[1], OPCODE_TEXT);
-	opcode_text.attribute(STYLE_ATTR, TEXT_STYLE);
-	opcode_text.translate(OPCODE_DECODER_OFFSET[0], OPCODE_DECODER_OFFSET[1]);
 
-	var control = new Polygon(CONTROL_POLYGON);
-	control.attribute(STYLE_ATTR, BLOCK_STYLE);
-	control.attribute(ID_ATTR, "control");
-	control.translate(CONTROL_OFFSET[0], CONTROL_OFFSET[1]);
+	var mux4_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
+	mux4_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	mux4_true.attribute(Constants.ID_ATTR, Constants.MUX4_TRUE_ID);
+	mux4_true.translate(Constants.MUX4_OFFSET[0], Constants.MUX4_OFFSET[1]);
+
+	var code_mem = new Polygon(Constants.CODE_MEM_POLYGON);
+	code_mem.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	code_mem.attribute(Constants.ID_ATTR, "code_mem");
+	code_mem.translate(Constants.CODE_MEM_OFFSET[0], Constants.CODE_MEM_OFFSET[1]);
+
+	var opcode_decoder = new Polygon(Constants.OPCODE_DECODER_POLYGON);
+	opcode_decoder.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	opcode_decoder.attribute(Constants.ID_ATTR, "opcode_decoder");
+	opcode_decoder.translate(Constants.OPCODE_DECODER_OFFSET[0], Constants.OPCODE_DECODER_OFFSET[1]);
+
+	var opcode_text = new Text(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], Constants.OPCODE_TEXT);
+	opcode_text.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	opcode_text.translate(Constants.OPCODE_DECODER_OFFSET[0], Constants.OPCODE_DECODER_OFFSET[1]);
+
+	var control = new Polygon(Constants.CONTROL_POLYGON);
+	control.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	control.attribute(Constants.ID_ATTR, "control");
+	control.translate(Constants.CONTROL_OFFSET[0], Constants.CONTROL_OFFSET[1]);
 
 	var control_text = new Text(70,30, "Control");
-	control_text.attribute(STYLE_ATTR, TEXT_STYLE);
-	control_text.translate(CONTROL_OFFSET[0], CONTROL_OFFSET[1]);
+	control_text.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	control_text.translate(Constants.CONTROL_OFFSET[0], Constants.CONTROL_OFFSET[1]);
 
-	var reg_file = new Polygon(REGISTER_FILE_POLYGON);
-	reg_file.attribute(STYLE_ATTR, BLOCK_STYLE);
-	reg_file.attribute(ID_ATTR, "code_mem");
-	reg_file.translate(REGISTER_FILE_OFFSET[0], REGISTER_FILE_OFFSET[1]);
+	var reg_file = new Polygon(Constants.REGISTER_FILE_POLYGON);
+	reg_file.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	reg_file.attribute(Constants.ID_ATTR, "code_mem");
+	reg_file.translate(Constants.REGISTER_FILE_OFFSET[0], Constants.REGISTER_FILE_OFFSET[1]);
 
-	var read_a_mux = new Polygon([...MUX_POLYGON]);
-	read_a_mux.attribute(STYLE_ATTR, BLOCK_STYLE);
-	read_a_mux.attribute(ID_ATTR, "read_a_mux");
-	read_a_mux.translate(READ_A_MUX_OFFSET[0], READ_A_MUX_OFFSET[1]);
+	var read_a_mux = new Polygon([...Constants.MUX_POLYGON]);
+	read_a_mux.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	read_a_mux.attribute(Constants.ID_ATTR, "read_a_mux");
+	read_a_mux.translate(Constants.READ_A_MUX_OFFSET[0], Constants.READ_A_MUX_OFFSET[1]);
 
-	var read_b_mux = new Polygon([...MUX_POLYGON]);
-	read_b_mux.attribute(STYLE_ATTR, BLOCK_STYLE);
-	read_b_mux.attribute(ID_ATTR, "read_b_mux");
-	read_b_mux.translate(READ_B_MUX_OFFSET[0], READ_B_MUX_OFFSET[1]);
+	var read_b_mux = new Polygon([...Constants.MUX_POLYGON]);
+	read_b_mux.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	read_b_mux.attribute(Constants.ID_ATTR, "read_b_mux");
+	read_b_mux.translate(Constants.READ_B_MUX_OFFSET[0], Constants.READ_B_MUX_OFFSET[1]);
 
 
-	var pc_value = new Polygon(PC_VALUE_POLYGON);
-	pc_value.attribute(STYLE_ATTR, BLOCK_STYLE);
-	pc_value.attribute(ID_ATTR, "pc_value");
-	pc_value.translate(PC_VALUE_OFFSET[0], PC_VALUE_OFFSET[1]);
+	var pc_value = new Polygon(Constants.PC_VALUE_POLYGON);
+	pc_value.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	pc_value.attribute(Constants.ID_ATTR, "pc_value");
+	pc_value.translate(Constants.PC_VALUE_OFFSET[0], Constants.PC_VALUE_OFFSET[1]);
 
-	var pc_update = new Polygon(PC_UPDATE_POLYGON);
-	pc_update.attribute(STYLE_ATTR, BLOCK_STYLE);
-	pc_update.attribute(ID_ATTR, "pc_value");
-	pc_update.translate(PC_UPDATE_OFFSET[0], PC_UPDATE_OFFSET[1]);
+	var pc_update = new Polygon(Constants.PC_UPDATE_POLYGON);
+	pc_update.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	pc_update.attribute(Constants.ID_ATTR, "pc_value");
+	pc_update.translate(Constants.PC_UPDATE_OFFSET[0], Constants.PC_UPDATE_OFFSET[1]);
 
-	var dmem = new Polygon(DATA_MEM_POLYGON);
-	dmem.attribute(STYLE_ATTR, BLOCK_STYLE);
-	dmem.attribute(ID_ATTR, "dmem");
-	dmem.translate(DATA_MEM_OFFSET[0], DATA_MEM_OFFSET[1]);
+	var dmem = new Polygon(Constants.DATA_MEM_POLYGON);
+	dmem.attribute(Constants.STYLE_ATTR, Constants.BLOCK_STYLE);
+	dmem.attribute(Constants.ID_ATTR, "dmem");
+	dmem.translate(Constants.DATA_MEM_OFFSET[0], Constants.DATA_MEM_OFFSET[1]);
 
-	var alu_result_wire = new Polygon(ALU_RESULT_WIRE);
-	alu_result_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	alu_result_wire.attribute(ID_ATTR, "mux_alu_wire");
-	alu_result_wire.translate(ALU_RESULT_WIRE_OFFSET[0], ALU_RESULT_WIRE_OFFSET[1]);
+	var alu_result_wire = new Polygon(Constants.ALU_RESULT_WIRE);
+	alu_result_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	alu_result_wire.attribute(Constants.ID_ATTR, "mux_alu_wire");
+	alu_result_wire.translate(Constants.ALU_RESULT_WIRE_OFFSET[0], Constants.ALU_RESULT_WIRE_OFFSET[1]);
 
-	var imem_decoder_wire = new Polygon(IMEM_DECODER_WIRE);
-	imem_decoder_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	imem_decoder_wire.attribute(ID_ATTR, "alu_result_wire");
-	imem_decoder_wire.translate(IMEM_DECODER_WIRE_OFFSET[0], IMEM_DECODER_WIRE_OFFSET[1]);
+	var imem_decoder_wire = new Polygon(Constants.IMEM_DECODER_WIRE);
+	imem_decoder_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	imem_decoder_wire.attribute(Constants.ID_ATTR, "alu_result_wire");
+	imem_decoder_wire.translate(Constants.IMEM_DECODER_WIRE_OFFSET[0], Constants.IMEM_DECODER_WIRE_OFFSET[1]);
 
-	var decoder_control_wire = new Polygon(OPCODE_DECODER_CONTROL_WIRE);
-	decoder_control_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	decoder_control_wire.attribute(ID_ATTR, "decoder_control_wire");
-	decoder_control_wire.translate(OPCODE_DECODER_CONTROL_WIRE_OFFSET[0], OPCODE_DECODER_CONTROL_WIRE_OFFSET[1]);
+	var decoder_control_wire = new Polygon(Constants.OPCODE_DECODER_CONTROL_WIRE);
+	decoder_control_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	decoder_control_wire.attribute(Constants.ID_ATTR, "decoder_control_wire");
+	decoder_control_wire.translate(Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[0], Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[1]);
 	
-	var alu_flag_wire = new Polygon(ALU_FLAGS_WIRE);
-	alu_flag_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	alu_flag_wire.attribute(ID_ATTR, "alu_flag_wire");
-	alu_flag_wire.translate(ALU_FLAGS_WIRE_OFFSET[0], ALU_FLAGS_WIRE_OFFSET[1]);
+	var alu_flag_wire = new Polygon(Constants.ALU_FLAGS_WIRE);
+	alu_flag_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	alu_flag_wire.attribute(Constants.ID_ATTR, "alu_flag_wire");
+	alu_flag_wire.translate(Constants.ALU_FLAGS_WIRE_OFFSET[0], Constants.ALU_FLAGS_WIRE_OFFSET[1]);
 
-	var read_a_wire = new Polygon(READ_A_WIRE);
-	read_a_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	read_a_wire.attribute(ID_ATTR, "read_a_wire");
-	read_a_wire.translate(READ_A_WIRE_OFFSET[0], READ_A_WIRE_OFFSET[1]);
+	var read_a_wire = new Polygon(Constants.READ_A_WIRE);
+	read_a_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	read_a_wire.attribute(Constants.ID_ATTR, "read_a_wire");
+	read_a_wire.translate(Constants.READ_A_WIRE_OFFSET[0], Constants.READ_A_WIRE_OFFSET[1]);
 
-	var read_b_wire = new Polygon(READ_B_WIRE);
-	read_b_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	read_b_wire.attribute(ID_ATTR, "read_b_wire");
-	read_b_wire.translate(READ_B_WIRE_OFFSET[0], READ_B_WIRE_OFFSET[1]);
+	var read_b_wire = new Polygon(Constants.READ_B_WIRE);
+	read_b_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	read_b_wire.attribute(Constants.ID_ATTR, "read_b_wire");
+	read_b_wire.translate(Constants.READ_B_WIRE_OFFSET[0], Constants.READ_B_WIRE_OFFSET[1]);
 
-	var pc_update_true_wire = new Polygon([...PC_UPDATE_MUX_WIRE]);
-	pc_update_true_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	pc_update_true_wire.attribute(ID_ATTR, "pc_update_true_wire");
-	pc_update_true_wire.translate(PC_UPDATE_MUX_TRUE_WIRE_OFFSET[0], PC_UPDATE_MUX_TRUE_WIRE_OFFSET[1]);
+	var pc_update_true_wire = new Polygon([...Constants.PC_UPDATE_MUX_WIRE]);
+	pc_update_true_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	pc_update_true_wire.attribute(Constants.ID_ATTR, "pc_update_true_wire");
+	pc_update_true_wire.translate(Constants.PC_UPDATE_MUX_TRUE_WIRE_OFFSET[0], Constants.PC_UPDATE_MUX_TRUE_WIRE_OFFSET[1]);
 
-	var pc_update_false_wire = new Polygon([...PC_UPDATE_MUX_WIRE]);
-	pc_update_false_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	pc_update_false_wire.attribute(ID_ATTR, "pc_update_false_wire");
-	pc_update_false_wire.translate(PC_UPDATE_MUX_FALSE_WIRE_OFFSET[0], PC_UPDATE_MUX_FALSE_WIRE_OFFSET[1]);
+	var pc_update_false_wire = new Polygon([...Constants.PC_UPDATE_MUX_WIRE]);
+	pc_update_false_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	pc_update_false_wire.attribute(Constants.ID_ATTR, "pc_update_false_wire");
+	pc_update_false_wire.translate(Constants.PC_UPDATE_MUX_FALSE_WIRE_OFFSET[0], Constants.PC_UPDATE_MUX_FALSE_WIRE_OFFSET[1]);
 
-	var mux_pc_val_wire = new Polygon(MUX_PC_VALUE_WIRE);
-	mux_pc_val_wire.attribute(STYLE_ATTR, WIRE_STYLE);
-	mux_pc_val_wire.attribute(ID_ATTR, "mux_pc_val_wire");
-	mux_pc_val_wire.translate(MUX_PC_VALUE_WIRE_OFFSET[0], MUX_PC_VALUE_WIRE_OFFSET[1]);
+	var mux_pc_val_wire = new Polygon(Constants.MUX_PC_VALUE_WIRE);
+	mux_pc_val_wire.attribute(Constants.STYLE_ATTR, Constants.WIRE_STYLE);
+	mux_pc_val_wire.attribute(Constants.ID_ATTR, "mux_pc_val_wire");
+	mux_pc_val_wire.translate(Constants.MUX_PC_VALUE_WIRE_OFFSET[0], Constants.MUX_PC_VALUE_WIRE_OFFSET[1]);
 
 
 
-	var mux_c2 = new Polygon([...ARROW]);
-	mux_c2.attribute(STYLE_ATTR, ARROW_STYLE);
-	mux_c2.attribute(ID_ATTR, "mux_c2");
-	mux_c2.translate(MUX_C2_OFFSET[0], MUX_C2_OFFSET[1] );
+	var mux_c2 = new Polygon([...Constants.ARROW]);
+	mux_c2.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	mux_c2.attribute(Constants.ID_ATTR, "mux_c2");
+	mux_c2.translate(Constants.MUX_C2_OFFSET[0], Constants.MUX_C2_OFFSET[1] );
 
-	var mux_c11 = new Polygon([...ARROW]);
-	mux_c11.attribute(STYLE_ATTR, ARROW_STYLE);
-	mux_c11.attribute(ID_ATTR, "mux_c11");
-	mux_c11.translate(MUX_C11_OFFSET[0], MUX_C11_OFFSET[1] );
+	var mux_c11 = new Polygon([...Constants.ARROW]);
+	mux_c11.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	mux_c11.attribute(Constants.ID_ATTR, "mux_c11");
+	mux_c11.translate(Constants.MUX_C11_OFFSET[0], Constants.MUX_C11_OFFSET[1] );
 
-	var mux_c15 = new Polygon([...ARROW]);
-	mux_c15.attribute(STYLE_ATTR, ARROW_STYLE);
-	mux_c15.attribute(ID_ATTR, "mux_c15");
-	mux_c15.translate(MUX_C15_OFFSET[0], MUX_C15_OFFSET[1] );
+	var mux_c15 = new Polygon([...Constants.ARROW]);
+	mux_c15.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	mux_c15.attribute(Constants.ID_ATTR, "mux_c15");
+	mux_c15.translate(Constants.MUX_C15_OFFSET[0], Constants.MUX_C15_OFFSET[1] );
 
-	var mux_c16 = new Polygon([...ARROW]);
-	mux_c16.attribute(STYLE_ATTR, ARROW_STYLE);
-	mux_c16.attribute(ID_ATTR, "mux_c16");
-	mux_c16.translate(MUX_C16_OFFSET[0], MUX_C16_OFFSET[1] );
+	var mux_c16 = new Polygon([...Constants.ARROW]);
+	mux_c16.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	mux_c16.attribute(Constants.ID_ATTR, "mux_c16");
+	mux_c16.translate(Constants.MUX_C16_OFFSET[0], Constants.MUX_C16_OFFSET[1] );
 
-	var mux_c18 = new Polygon([...ARROW]);
-	mux_c18.attribute(STYLE_ATTR, ARROW_STYLE);
-	mux_c18.attribute(ID_ATTR, "mux_c18");
-	mux_c18.translate(MUX_C18_OFFSET[0], MUX_C18_OFFSET[1] );
+	var mux_c18 = new Polygon([...Constants.ARROW]);
+	mux_c18.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	mux_c18.attribute(Constants.ID_ATTR, "mux_c18");
+	mux_c18.translate(Constants.MUX_C18_OFFSET[0], Constants.MUX_C18_OFFSET[1] );
 
-	var pc_value_c3 = new Polygon([...ARROW]);
-	pc_value_c3.attribute(STYLE_ATTR, ARROW_STYLE);
-	pc_value_c3.attribute(ID_ATTR, "pc_value_c3");
-	pc_value_c3.translate(PC_VALUE_C3_OFFSET[0], PC_VALUE_C3_OFFSET[1] );
+	var pc_value_c3 = new Polygon([...Constants.ARROW]);
+	pc_value_c3.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	pc_value_c3.attribute(Constants.ID_ATTR, "pc_value_c3");
+	pc_value_c3.translate(Constants.PC_VALUE_C3_OFFSET[0], Constants.PC_VALUE_C3_OFFSET[1] );
 
-	var imem_c1 = new Polygon([...ARROW]);
-	imem_c1.attribute(STYLE_ATTR, ARROW_STYLE);
-	imem_c1.attribute(ID_ATTR, "imem_c1");
-	imem_c1.translate(IMEM_C1_OFFSET[0], IMEM_C1_OFFSET[1]);
+	var imem_c1 = new Polygon([...Constants.ARROW]);
+	imem_c1.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	imem_c1.attribute(Constants.ID_ATTR, "imem_c1");
+	imem_c1.translate(Constants.IMEM_C1_OFFSET[0], Constants.IMEM_C1_OFFSET[1]);
 	
-	var read_a_c4 = new Polygon([...ARROW]);
-	read_a_c4.attribute(STYLE_ATTR, ARROW_STYLE);
-	read_a_c4.attribute(ID_ATTR, "read_a_c4");
-	read_a_c4.translate(READ_A_C4_OFFSET[0], READ_A_C4_OFFSET[1]);
+	var read_a_c4 = new Polygon([...Constants.ARROW]);
+	read_a_c4.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	read_a_c4.attribute(Constants.ID_ATTR, "read_a_c4");
+	read_a_c4.translate(Constants.READ_A_C4_OFFSET[0], Constants.READ_A_C4_OFFSET[1]);
 
-	var read_a_c5 = new Polygon([...ARROW]);
-	read_a_c5.attribute(STYLE_ATTR, ARROW_STYLE);
-	read_a_c5.attribute(ID_ATTR, "read_a_c5");
-	read_a_c5.translate(READ_A_C5_OFFSET[0], READ_A_C5_OFFSET[1]);
+	var read_a_c5 = new Polygon([...Constants.ARROW]);
+	read_a_c5.attribute(Constants.STYLE_ATTR,Constants. ARROW_STYLE);
+	read_a_c5.attribute(Constants.ID_ATTR, "read_a_c5");
+	read_a_c5.translate(Constants.READ_A_C5_OFFSET[0], Constants.READ_A_C5_OFFSET[1]);
 
-	var read_b_c6 = new Polygon([...ARROW]);
-	read_b_c6.attribute(STYLE_ATTR, ARROW_STYLE);
-	read_b_c6.attribute(ID_ATTR, "read_b_c6");
-	read_b_c6.translate(READ_B_C6_OFFSET[0], READ_B_C6_OFFSET[1]);
+	var read_b_c6 = new Polygon([...Constants.ARROW]);
+	read_b_c6.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	read_b_c6.attribute(Constants.ID_ATTR, "read_b_c6");
+	read_b_c6.translate(Constants.READ_B_C6_OFFSET[0], Constants.READ_B_C6_OFFSET[1]);
 
-	var read_b_c7 = new Polygon([...ARROW]);
-	read_b_c7.attribute(STYLE_ATTR, ARROW_STYLE);
-	read_b_c7.attribute(ID_ATTR, "read_b_c7");
-	read_b_c7.translate(READ_B_C7_OFFSET[0], READ_B_C7_OFFSET[1]);
+	var read_b_c7 = new Polygon([...Constants.ARROW]);
+	read_b_c7.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	read_b_c7.attribute(Constants.ID_ATTR, "read_b_c7");
+	read_b_c7.translate(Constants.READ_B_C7_OFFSET[0], Constants.READ_B_C7_OFFSET[1]);
 
-	var reg_file_c8 = new Polygon([...ARROW]);
-	reg_file_c8.attribute(STYLE_ATTR, ARROW_STYLE);
-	reg_file_c8.attribute(ID_ATTR, "reg_file_c8");
-	reg_file_c8.translate(REG_FILE_C8_OFFSET[0], REG_FILE_C8_OFFSET[1]);
+	var reg_file_c8 = new Polygon([...Constants.ARROW]);
+	reg_file_c8.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	reg_file_c8.attribute(Constants.ID_ATTR, "reg_file_c8");
+	reg_file_c8.translate(Constants.REG_FILE_C8_OFFSET[0], Constants.REG_FILE_C8_OFFSET[1]);
 
-	var reg_file_c9 = new Polygon([...ARROW]);
-	reg_file_c9.attribute(STYLE_ATTR, ARROW_STYLE);
-	reg_file_c9.attribute(ID_ATTR, "reg_file_c9");
-	reg_file_c9.translate(REG_FILE_C9_OFFSET[0], REG_FILE_C9_OFFSET[1]);
+	var reg_file_c9 = new Polygon([...Constants.ARROW]);
+	reg_file_c9.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	reg_file_c9.attribute(Constants.ID_ATTR, "reg_file_c9");
+	reg_file_c9.translate(Constants.REG_FILE_C9_OFFSET[0], Constants.REG_FILE_C9_OFFSET[1]);
 
-	var reg_file_c10 = new Polygon([...ARROW]);
-	reg_file_c10.attribute(STYLE_ATTR, ARROW_STYLE);
-	reg_file_c10.attribute(ID_ATTR, "reg_file_c10");
-	reg_file_c10.translate(REG_FILE_C10_OFFSET[0], REG_FILE_C10_OFFSET[1]);
+	var reg_file_c10 = new Polygon([...Constants.ARROW]);
+	reg_file_c10.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	reg_file_c10.attribute(Constants.ID_ATTR, "reg_file_c10");
+	reg_file_c10.translate(Constants.REG_FILE_C10_OFFSET[0], Constants.REG_FILE_C10_OFFSET[1]);
 
-	var alu_c12 = new Polygon([...ARROW]);
-	alu_c12.attribute(STYLE_ATTR, ARROW_STYLE);
-	alu_c12.attribute(ID_ATTR, "alu_c12");
-	alu_c12.translate(ALU_C12_OFFSET[0], ALU_C12_OFFSET[1]);
+	var alu_c12 = new Polygon([...Constants.ARROW]);
+	alu_c12.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	alu_c12.attribute(Constants.ID_ATTR, "alu_c12");
+	alu_c12.translate(Constants.ALU_C12_OFFSET[0], Constants.ALU_C12_OFFSET[1]);
 
-	var alu_c13 = new Polygon([...ARROW]);
-	alu_c13.attribute(STYLE_ATTR, ARROW_STYLE);
-	alu_c13.attribute(ID_ATTR, "alu_c13");
-	alu_c13.translate(ALU_C13_OFFSET[0], ALU_C13_OFFSET[1]);
+	var alu_c13 = new Polygon([...Constants.ARROW]);
+	alu_c13.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	alu_c13.attribute(Constants.ID_ATTR, "alu_c13");
+	alu_c13.translate(Constants.ALU_C13_OFFSET[0], Constants.ALU_C13_OFFSET[1]);
 
-	var flags_c14 = new Polygon([...ARROW]);
-	flags_c14.attribute(STYLE_ATTR, ARROW_STYLE);
-	flags_c14.attribute(ID_ATTR, "flags_c14");
-	flags_c14.translate(FLAGS_C14_OFFSET[0], FLAGS_C14_OFFSET[1]);
+	var flags_c14 = new Polygon([...Constants.ARROW]);
+	flags_c14.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	flags_c14.attribute(Constants.ID_ATTR, "flags_c14");
+	flags_c14.translate(Constants.FLAGS_C14_OFFSET[0], Constants.FLAGS_C14_OFFSET[1]);
 
-	var dmem_c17 = new Polygon([...ARROW]);
-	dmem_c17.attribute(STYLE_ATTR, ARROW_STYLE);
-	dmem_c17.attribute(ID_ATTR, "dmem_c17");
-	dmem_c17.translate(DMEM_C17_OFFSET[0], DMEM_C17_OFFSET[1]);
+	var dmem_c17 = new Polygon([...Constants.ARROW]);
+	dmem_c17.attribute(Constants.STYLE_ATTR,Constants.ARROW_STYLE);
+	dmem_c17.attribute(Constants.ID_ATTR, "dmem_c17");
+	dmem_c17.translate(Constants.DMEM_C17_OFFSET[0], Constants.DMEM_C17_OFFSET[1]);
 
 
 
-	var control_c1 = new Polygon([...ARROW]);
-	control_c1.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c1.attribute(ID_ATTR, CONTROL_C1);
-	control_c1.translate(CONTROL_ARROW_OFFSET[0] + 1 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c1 = new Polygon([...Constants.ARROW]);
+	control_c1.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c1.attribute(Constants.ID_ATTR, Constants.CONTROL_C1);
+	control_c1.translate(Constants.CONTROL_ARROW_OFFSET[0] + 1 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c2 = new Polygon([...ARROW]);
-	control_c2.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c2.attribute(ID_ATTR, CONTROL_C2);
-	control_c2.translate(CONTROL_ARROW_OFFSET[0] + 2 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c2 = new Polygon([...Constants.ARROW]);
+	control_c2.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c2.attribute(Constants.ID_ATTR, Constants.CONTROL_C2);
+	control_c2.translate(Constants.CONTROL_ARROW_OFFSET[0] + 2 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c3 = new Polygon([...ARROW]);
-	control_c3.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c3.attribute(ID_ATTR, CONTROL_C3);
-	control_c3.translate(CONTROL_ARROW_OFFSET[0] + 3 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c3 = new Polygon([...Constants.ARROW]);
+	control_c3.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c3.attribute(Constants.ID_ATTR, Constants.CONTROL_C3);
+	control_c3.translate(Constants.CONTROL_ARROW_OFFSET[0] + 3 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c4 = new Polygon([...ARROW]);
-	control_c4.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c4.attribute(ID_ATTR, CONTROL_C4);
-	control_c4.translate(CONTROL_ARROW_OFFSET[0] + 4 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c4 = new Polygon([...Constants.ARROW]);
+	control_c4.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c4.attribute(Constants.ID_ATTR, Constants.CONTROL_C4);
+	control_c4.translate(Constants.CONTROL_ARROW_OFFSET[0] + 4 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c5 = new Polygon([...ARROW]);
-	control_c5.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c5.attribute(ID_ATTR, CONTROL_C5);
-	control_c5.translate(CONTROL_ARROW_OFFSET[0] + 5 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c5 = new Polygon([...Constants.ARROW]);
+	control_c5.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c5.attribute(Constants.ID_ATTR, Constants.CONTROL_C5);
+	control_c5.translate(Constants.CONTROL_ARROW_OFFSET[0] + 5 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c6 = new Polygon([...ARROW]);
-	control_c6.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c6.attribute(ID_ATTR, CONTROL_C6);
-	control_c6.translate(CONTROL_ARROW_OFFSET[0] + 6 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c6 = new Polygon([...Constants.ARROW]);
+	control_c6.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c6.attribute(Constants.ID_ATTR, Constants.CONTROL_C6);
+	control_c6.translate(Constants.CONTROL_ARROW_OFFSET[0] + 6 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c7 = new Polygon([...ARROW]);
-	control_c7.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c7.attribute(ID_ATTR, CONTROL_C7);
-	control_c7.translate(CONTROL_ARROW_OFFSET[0] + 7 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c7 = new Polygon([...Constants.ARROW]);
+	control_c7.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c7.attribute(Constants.ID_ATTR, Constants.CONTROL_C7);
+	control_c7.translate(Constants.CONTROL_ARROW_OFFSET[0] + 7 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c8 = new Polygon([...ARROW]);
-	control_c8.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c8.attribute(ID_ATTR, CONTROL_C8);
-	control_c8.translate(CONTROL_ARROW_OFFSET[0] + 8 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c8 = new Polygon([...Constants.ARROW]);
+	control_c8.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c8.attribute(Constants.ID_ATTR, Constants.CONTROL_C8);
+	control_c8.translate(Constants.CONTROL_ARROW_OFFSET[0] + 8 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c9 = new Polygon([...ARROW]);
-	control_c9.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c9.attribute(ID_ATTR, CONTROL_C9);
-	control_c9.translate(CONTROL_ARROW_OFFSET[0] + 9 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c9 = new Polygon([...Constants.ARROW]);
+	control_c9.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c9.attribute(Constants.ID_ATTR, Constants.CONTROL_C9);
+	control_c9.translate(Constants.CONTROL_ARROW_OFFSET[0] + 9 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c10 = new Polygon([...ARROW]);
-	control_c10.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c10.attribute(ID_ATTR, CONTROL_C10);
-	control_c10.translate(CONTROL_ARROW_OFFSET[0] + 10 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c10 = new Polygon([...Constants.ARROW]);
+	control_c10.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c10.attribute(Constants.ID_ATTR, Constants.CONTROL_C10);
+	control_c10.translate(Constants.CONTROL_ARROW_OFFSET[0] + 10 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c11 = new Polygon([...ARROW]);
-	control_c11.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c11.attribute(ID_ATTR, CONTROL_C11);
-	control_c11.translate(CONTROL_ARROW_OFFSET[0] + 11 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c11 = new Polygon([...Constants.ARROW]);
+	control_c11.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c11.attribute(Constants.ID_ATTR, Constants.CONTROL_C11);
+	control_c11.translate(Constants.CONTROL_ARROW_OFFSET[0] + 11 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c12 = new Polygon([...ARROW]);
-	control_c12.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c12.attribute(ID_ATTR, CONTROL_C12);
-	control_c12.translate(CONTROL_ARROW_OFFSET[0] + 12 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c12 = new Polygon([...Constants.ARROW]);
+	control_c12.attribute(Constants.STYLE_ATTR,Constants.ARROW_STYLE);
+	control_c12.attribute(Constants.ID_ATTR, Constants.CONTROL_C12);
+	control_c12.translate(Constants.CONTROL_ARROW_OFFSET[0] + 12 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c13 = new Polygon([...ARROW]);
-	control_c13.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c13.attribute(ID_ATTR, CONTROL_C13);
-	control_c13.translate(CONTROL_ARROW_OFFSET[0] + 13 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c13 = new Polygon([...Constants.ARROW]);
+	control_c13.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c13.attribute(Constants.ID_ATTR, Constants.CONTROL_C13);
+	control_c13.translate(Constants.CONTROL_ARROW_OFFSET[0] + 13 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c14 = new Polygon([...ARROW]);
-	control_c14.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c14.attribute(ID_ATTR, CONTROL_C14);
-	control_c14.translate(CONTROL_ARROW_OFFSET[0] + 14 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c14 = new Polygon([...Constants.ARROW]);
+	control_c14.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c14.attribute(Constants.ID_ATTR, Constants.CONTROL_C14);
+	control_c14.translate(Constants.CONTROL_ARROW_OFFSET[0] + 14 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c15 = new Polygon([...ARROW]);
-	control_c15.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c15.attribute(ID_ATTR, CONTROL_C15);
-	control_c15.translate(CONTROL_ARROW_OFFSET[0] + 15 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c15 = new Polygon([...Constants.ARROW]);
+	control_c15.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c15.attribute(Constants.ID_ATTR, Constants.CONTROL_C15);
+	control_c15.translate(Constants.CONTROL_ARROW_OFFSET[0] + 15 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c16 = new Polygon([...ARROW]);
-	control_c16.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c16.attribute(ID_ATTR, CONTROL_C16);
-	control_c16.translate(CONTROL_ARROW_OFFSET[0] + 16 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c16 = new Polygon([...Constants.ARROW]);
+	control_c16.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c16.attribute(Constants.ID_ATTR, Constants.CONTROL_C16);
+	control_c16.translate(Constants.CONTROL_ARROW_OFFSET[0] + 16 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c17 = new Polygon([...ARROW]);
-	control_c17.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c17.attribute(ID_ATTR, CONTROL_C17);
-	control_c17.translate(CONTROL_ARROW_OFFSET[0] + 17 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c17 = new Polygon([...Constants.ARROW]);
+	control_c17.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c17.attribute(Constants.ID_ATTR, Constants.CONTROL_C17);
+	control_c17.translate(Constants.CONTROL_ARROW_OFFSET[0] + 17 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
-	var control_c18 = new Polygon([...ARROW]);
-	control_c18.attribute(STYLE_ATTR, ARROW_STYLE);
-	control_c18.attribute(ID_ATTR, CONTROL_C18);
-	control_c18.translate(CONTROL_ARROW_OFFSET[0] + 18 * ARROW_DIST_BETWEEN, CONTROL_ARROW_OFFSET[1]);
+	var control_c18 = new Polygon([...Constants.ARROW]);
+	control_c18.attribute(Constants.STYLE_ATTR, Constants.ARROW_STYLE);
+	control_c18.attribute(Constants.ID_ATTR, Constants.CONTROL_C18);
+	control_c18.translate(Constants.CONTROL_ARROW_OFFSET[0] + 18 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]);
 
 
 	var svg = document.getElementById("canvas");
