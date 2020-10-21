@@ -33,11 +33,11 @@ window.addEventListener("load", function() {
 	var flags = new PolygonSVG(Constants.FLAGS_ID, Constants.FLAGS_POLYGON, Constants.BLOCK_STYLE);
 	flags.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
-	var flag_text = new TextSVG(70,30, "FLAGS_TEXT_ID", "Flags", Constants.TEXT_STYLE);
+	var flag_text = new TextSVG(Constants.FLAG_TPOS[0],Constants.FLAG_TPOS[1], Constants.FLAG_TEXT_ID, Constants.FLAG_TEXT, Constants.TEXT_STYLE);
 	flag_text.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
 	// TODO spead these out to be 4 differnt text vals
-	var flag_value = new TextSVG(70,70, "TMP_VAL", "0000", Constants.TEXT_STYLE);
+	var flag_value = new TextSVG(Constants.FLAG_VPOS[0],Constants.FLAG_VPOS[1], "TMP_VAL", "0000", Constants.TEXT_STYLE);
 	flag_value.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
 	var mux1 = new PolygonSVG(Constants.MUX1_ID, [...Constants.MUX_POLYGON], Constants.BLOCK_STYLE);
@@ -87,13 +87,13 @@ window.addEventListener("load", function() {
 	var opcode_decoder = new PolygonSVG(Constants.OPCODE_DECODER_ID, Constants.OPCODE_DECODER_POLYGON, Constants.BLOCK_STYLE);
 	opcode_decoder.translate(Constants.OPCODE_DECODER_OFFSET[0], Constants.OPCODE_DECODER_OFFSET[1]);
 
-	var opcode_text = new TextSVG(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], "OPCODE_TEXT_ID", Constants.OPCODE_TEXT, Constants.TEXT_STYLE);
+	var opcode_text = new TextSVG(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], Constants.OPCODE_TEXT_ID, Constants.OPCODE_TEXT, Constants.TEXT_STYLE);
 	opcode_text.translate(Constants.OPCODE_DECODER_OFFSET[0], Constants.OPCODE_DECODER_OFFSET[1]);
 
 	var control = new PolygonSVG(Constants.CONTROL_ID, Constants.CONTROL_POLYGON, Constants.BLOCK_STYLE);
 	control.translate(Constants.CONTROL_OFFSET[0], Constants.CONTROL_OFFSET[1]);
 
-	var control_text = new TextSVG(70,30, "CONTROL_TEXT_ID", "Control", Constants.TEXT_STYLE);
+	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.TEXT_STYLE);
 	control_text.translate(Constants.CONTROL_OFFSET[0], Constants.CONTROL_OFFSET[1]);
 
 	var reg_file = new PolygonSVG(Constants.REG_FILE_ID, Constants.REGISTER_FILE_POLYGON, Constants.BLOCK_STYLE);

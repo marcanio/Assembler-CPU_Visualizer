@@ -20,6 +20,10 @@ export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,50, 0,40, 5,40];
 export const MUX_FALSE = [20, 60];
 export const MUX_TRUE = [20, 140];
 export const OPCODE_TPOS = [100, 30];
+export const CONTROL_TPOS = [70, 30];
+export const FLAG_TPOS = [70, 30];
+export const FLAG_VPOS = [70, 70];
+
 
 
 export const MUX0_OFFSET = [900 , 650];
@@ -89,7 +93,8 @@ export const ARROW_DIST_BETWEEN = 28;
 export const MUX_FALSE_TEXT = "0";
 export const MUX_TRUE_TEXT = "1";
 export const OPCODE_TEXT = "Opcode Decoder";
-
+export const FLAG_TEXT = "Flags";
+export const CONTROL_TEXT = "Control";
 
 export const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
 export const WIRE_STYLE = "stroke:black; stroke-width:2px;";
@@ -98,7 +103,7 @@ export const TEXT_STYLE = "font-family: Arial, Helvetica, sans-serif; font-size:
 
 export const ID_ATTR = "id";
 export const STYLE_ATTR = "style";
-// TODO create id tags for all components
+
 export const MUX0_ID = "mux0";
 export const MUX0_FALSE_ID = "mux0_false";
 export const MUX0_TRUE_ID = "mux0_true";
@@ -117,15 +122,15 @@ export const MUX4_TRUE_ID = "mux4_true";
 export const READ_A_MUX_ID = "read_a_mux";
 export const READ_B_MUX_ID = "read_b_mux";
 
-
 export const ALU_ID = "alu";
 export const FLAGS_ID = "flags";
 export const CONTROL_ID = "control";
 export const REG_FILE_ID = "reg_file";
 export const DMEM_ID = "code_mem";
-export const PC_VALUE_ID = "code_mem";
-export const PC_UPDATE_ID = "code_mem";
-
+export const PC_VALUE_ID = "pc_val";
+export const PC_UPDATE_ID = "pc_update";
+export const CODE_MEM_ID = "code_mem";
+export const OPCODE_DECODER_ID = "opcode_decoder";
 
 export const CONTROL_C1 = "control_c1";
 export const CONTROL_C2 = "control_c2";
@@ -146,27 +151,24 @@ export const CONTROL_C16 = "control_c16";
 export const CONTROL_C17 = "control_c17";
 export const CONTROL_C18 = "control_c18";
 
-export const CODE_MEM_ID = "code_mem";
-export const OPCODE_DECODER_ID = "opcode_decoder";
 export const IMEM_C1_ID = "imem_c1";
+export const MUX_C2_ID = "mux_c2";
 export const PC_VALUE_C3_ID = "pc_value_c3";
 export const READ_A_C4_ID = "read_a_c4";
 export const READ_A_C5_ID = "read_a_c5";
 export const READ_B_C6_ID = "read_b_c6";
 export const READ_B_C7_ID = "read_b_c7";
-
-export const MUX_C2_ID = "mux_c2";
-export const MUX_C11_ID = "mux_c11";
-export const MUX_C15_ID = "mux_c15";
-export const MUX_C16_ID = "mux_c16";
-export const MUX_C18_ID = "mux_c18";
 export const REG_FILE_C8_ID = "reg_file_c8";
-export const REG_FILE_C9_ID = "reg_file_c8";
-export const REG_FILE_C10_ID = "reg_file_c8";
+export const REG_FILE_C9_ID = "reg_file_c9";
+export const REG_FILE_C10_ID = "reg_file_c10";
+export const MUX_C11_ID = "mux_c11";
 export const ALU_C12_ID = "alu_c12";
 export const ALU_C13_ID = "alu_c13";
 export const FLAGS_C14_ID  = "flags_c14";
+export const MUX_C15_ID = "mux_c15";
+export const MUX_C16_ID = "mux_c16";
 export const DMEM_C17_ID = "dmem_c17";
+export const MUX_C18_ID = "mux_c18";
 
 export const READ_A_WIRE_ID = "read_a_wire";
 export const READ_B_WIRE_ID = "read_b_wire";
@@ -178,3 +180,7 @@ export const DECODER_CONTROL_WIRE_ID = "decoder_control_wire";
 export const ALU_RESULT_WIRE_ID = "alu_result_wire";
 export const MUX_ALU_WIRE_ID = "mux_alu_wire";
 export const IMEM_DECODER_WIRE_ID = "imem_decoder_wire_id";
+
+export const OPCODE_TEXT_ID = "opcode_text_id";
+export const FLAG_TEXT_ID = "flag_text_id";
+export const CONTROL_TEXT_ID = "control_text_id";
