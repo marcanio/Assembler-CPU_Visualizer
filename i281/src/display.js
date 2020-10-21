@@ -1,6 +1,7 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
+import PathSVG from "./PathSVG.js";
 
 
 function init() {
@@ -124,8 +125,8 @@ window.addEventListener("load", function() {
 	var decoder_control_wire = new PolygonSVG(Constants.DECODER_CONTROL_WIRE_ID, Constants.OPCODE_DECODER_CONTROL_WIRE, Constants.WIRE_STYLE);
 	decoder_control_wire.translate(Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[0], Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[1]);
 	
-	var alu_flag_wire = new PolygonSVG(Constants.ALU_FLAG_WIRE_ID, Constants.ALU_FLAGS_WIRE, Constants.WIRE_STYLE);
-	alu_flag_wire.translate(Constants.ALU_FLAGS_WIRE_OFFSET[0], Constants.ALU_FLAGS_WIRE_OFFSET[1]);
+	var alu_flag_wire = new PathSVG(Constants.ALU_FLAG_WIRE_ID, Constants.ALU_FLAGS_WIRE, Constants.WIRE_STYLE);
+	//alu_flag_wire.translate(Constants.ALU_FLAGS_WIRE_OFFSET[0], Constants.ALU_FLAGS_WIRE_OFFSET[1]);
 
 	var read_a_wire = new PolygonSVG(Constants.READ_A_WIRE_ID, Constants.READ_A_WIRE, Constants.WIRE_STYLE);
 	read_a_wire.translate(Constants.READ_A_WIRE_OFFSET[0], Constants.READ_A_WIRE_OFFSET[1]);

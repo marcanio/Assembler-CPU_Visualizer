@@ -49,7 +49,7 @@ export const MUX_ALU_WIRE = [0, 0, ALU_OFFSET[0] - (MUX0_OFFSET[0] + MUX_POLYGON
 export const ALU_RESULT_WIRE = [0, 0, MUX1_OFFSET[0] - (ALU_OFFSET[0] + ALU_POLYGON[2]), 0];
 export const IMEM_DECODER_WIRE = [0, 0, OPCODE_DECODER_OFFSET[0] - (CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH), 0];
 export const OPCODE_DECODER_CONTROL_WIRE = [0, 0, CONTROL_OFFSET[0] - (OPCODE_DECODER_OFFSET[0] + OPCODE_DECODER_POLYGON[2]), 0];
-export const ALU_FLAGS_WIRE = [0, 0, 200, -25];
+export const ALU_FLAGS_WIRE = ["M", ALU_OFFSET[0] + ALU_POLYGON[2], ALU_OFFSET[1] + 100, "l", 100, 0, 0, -75 , 100, 0 ];
 export const READ_A_WIRE = [0, 0, ALU_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH), 0];
 export const READ_B_WIRE = [0, 0, MUX0_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH), 0];
 export const PC_UPDATE_MUX_WIRE = [0, 0, MUX4_OFFSET[0] - (PC_UPDATE_OFFSET[0] + PC_UPDATE_POLYGON[2]), 0];
@@ -97,9 +97,9 @@ export const FLAG_TEXT = "Flags";
 export const CONTROL_TEXT = "Control";
 
 export const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
-export const WIRE_STYLE = "stroke:black; stroke-width:2px;";
+export const WIRE_STYLE = "stroke:black; stroke-width:2px; fill:none; stroke:black;";
 export const ARROW_STYLE = " fill:black; stroke:black; stroke-width:1px;";
-export const TEXT_STYLE = "font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-anchor:middle; fill:black;";
+export const TEXT_STYLE = "font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-anchor:middle;fill:black; ";
 
 export const ID_ATTR = "id";
 export const STYLE_ATTR = "style";
