@@ -1,5 +1,5 @@
 import * as Constants from "./constants.js";
-
+import TextSVG from "./TextSVG.js";
 
 function init() {
 	//const btn = document.getElementById("btn");
@@ -53,36 +53,6 @@ function Polygon() {
 	this.points.apply(this, arguments);
 }
 
-function Text(x, y, text) {
-	this.node = document.createElementNS("http://www.w3.org/2000/svg", "text");
-	this.node.appendChild(document.createTextNode(text));
-	this.node.setAttributeNS(null,"x", x);	
-	this.node.setAttributeNS(null,"y", y);
-	this.cur_x = x;
-	this.cur_y = y;
-
-	this.attribute = function (key, val) {
-		if (val === undefined) return this.node.getAttribute(key);
-		this.node.setAttribute(key, val);
-	};
-
-	this.setPoint = function (x, y) {
-		this.cur_x = x;
-		this.cur_y = y;
-		this.node.setAttributeNS(null,"x", x);	
-		this.node.setAttributeNS(null,"y", y);		
-	};
-
-	this.translate = function (x, y) {
-
-		this.cur_x += x;
-		this.cur_y += y;
-		this.node.setAttributeNS(null,"x", this.cur_x);	
-		this.node.setAttributeNS(null,"y", this.cur_y);		
-
-	};
-}
-
 window.addEventListener("load", function() {
 	init();
 
@@ -93,15 +63,10 @@ window.addEventListener("load", function() {
 	mux0.attribute(Constants.ID_ATTR, Constants.MUX0_ID);
 	mux0.translate(Constants.MUX0_OFFSET[0], Constants.MUX0_OFFSET[1]);
 
-	var mux0_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
-	mux0_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
-	mux0_false.attribute(Constants.ID_ATTR, Constants.MUX0_FALSE_ID);
+	var mux0_false = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX0_FALSE_ID, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE);
 	mux0_false.translate(Constants.MUX0_OFFSET[0], Constants.MUX0_OFFSET[1]);
 
-
-	var mux0_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
-	mux0_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
-	mux0_true.attribute(Constants.ID_ATTR, Constants.MUX0_TRUE_ID);
+	var mux0_true = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX0_TRUE_ID, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE);
 	mux0_true.translate(Constants.MUX0_OFFSET[0], Constants.MUX0_OFFSET[1]);
 
 
@@ -121,13 +86,11 @@ window.addEventListener("load", function() {
 	flags.attribute(Constants.ID_ATTR, Constants.FLAGS_ID);
 	flags.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
-	var flag_text = new Text(70,30, "Flags");
-	flag_text.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	var flag_text = new TextSVG(70,30, "FLAGS_TEXT_ID", "Flags", Constants.TEXT_STYLE);
 	flag_text.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
 	// TODO spead these out to be 4 differnt text vals
-	var flag_value = new Text(70,70, "0000");
-	flag_value.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	var flag_value = new TextSVG(70,70, "TMP_VAL", "0000", Constants.TEXT_STYLE);
 	flag_value.translate(Constants.FLAGS_OFFSET[0], Constants.FLAGS_OFFSET[1]);
 
 	var mux1 = new Polygon([...Constants.MUX_POLYGON]);
@@ -135,15 +98,11 @@ window.addEventListener("load", function() {
 	mux1.attribute(Constants.ID_ATTR, Constants.MUX1_ID);
 	mux1.translate(Constants.MUX1_OFFSET[0], Constants.MUX1_OFFSET[1]);
 
-	var mux1_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
-	mux1_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
-	mux1_false.attribute(Constants.ID_ATTR, Constants.MUX1_FALSE_ID);
+	var mux1_false = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX1_FALSE_ID, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE );
 	mux1_false.translate(Constants.MUX1_OFFSET[0], Constants.MUX1_OFFSET[1]);
 
 
-	var mux1_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
-	mux1_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
-	mux1_true.attribute(Constants.ID_ATTR, Constants.MUX1_TRUE_ID);
+	var mux1_true = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX1_TRUE_ID, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE);
 	mux1_true.translate(Constants.MUX1_OFFSET[0], Constants.MUX1_OFFSET[1]);
 
 	var mux2 = new Polygon([...Constants.MUX_POLYGON]);
@@ -151,15 +110,11 @@ window.addEventListener("load", function() {
 	mux2.attribute(Constants.ID_ATTR, Constants.MUX2_ID);
 	mux2.translate(Constants.MUX2_OFFSET[0], Constants.MUX2_OFFSET[1]);
 
-	var mux2_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
-	mux2_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
-	mux2_false.attribute(Constants.ID_ATTR, Constants.MUX2_FALSE_ID);
+	var mux2_false = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX2_FALSE_ID, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE);
 	mux2_false.translate(Constants.MUX2_OFFSET[0], Constants.MUX2_OFFSET[1]);
 
 
-	var mux2_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
-	mux2_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
-	mux2_true.attribute(Constants.ID_ATTR, Constants.MUX2_TRUE_ID);
+	var mux2_true = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX2_TRUE_ID, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE);
 	mux2_true.translate(Constants.MUX2_OFFSET[0], Constants.MUX2_OFFSET[1]);
 
 
@@ -168,15 +123,11 @@ window.addEventListener("load", function() {
 	mux3.attribute(Constants.ID_ATTR, Constants.MUX3_ID);
 	mux3.translate(Constants.MUX3_OFFSET[0], Constants.MUX3_OFFSET[1]);
 
-	var mux3_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
-	mux3_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
-	mux3_false.attribute(Constants.ID_ATTR, Constants.MUX3_FALSE_ID);
+	var mux3_false = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX3_FALSE_ID, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE);
 	mux3_false.translate(Constants.MUX3_OFFSET[0], Constants.MUX3_OFFSET[1]);
 
 
-	var mux3_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
-	mux3_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
-	mux3_true.attribute(Constants.ID_ATTR, Constants.MUX3_TRUE_ID);
+	var mux3_true = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX3_TRUE_ID, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE);
 	mux3_true.translate(Constants.MUX3_OFFSET[0], Constants.MUX3_OFFSET[1]);
 
 	var mux4 = new Polygon([...Constants.MUX_POLYGON]);
@@ -184,15 +135,11 @@ window.addEventListener("load", function() {
 	mux4.attribute(Constants.ID_ATTR, Constants.MUX4_ID);
 	mux4.translate(Constants.MUX4_OFFSET[0], Constants.MUX4_OFFSET[1]);
 
-	var mux4_false = new Text(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX_FALSE_TEXT);
-	mux4_false.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE );
-	mux4_false.attribute(Constants.ID_ATTR, Constants.MUX4_FALSE_ID);
+	var mux4_false = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX4_FALSE_ID, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE);
 	mux4_false.translate(Constants.MUX4_OFFSET[0], Constants.MUX4_OFFSET[1]);
 
 
-	var mux4_true = new Text(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX_TRUE_TEXT);
-	mux4_true.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
-	mux4_true.attribute(Constants.ID_ATTR, Constants.MUX4_TRUE_ID);
+	var mux4_true = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], Constants.MUX4_TRUE_ID, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE);
 	mux4_true.translate(Constants.MUX4_OFFSET[0], Constants.MUX4_OFFSET[1]);
 
 	var code_mem = new Polygon(Constants.CODE_MEM_POLYGON);
@@ -205,8 +152,7 @@ window.addEventListener("load", function() {
 	opcode_decoder.attribute(Constants.ID_ATTR, Constants.OPCODE_DECODER_ID);
 	opcode_decoder.translate(Constants.OPCODE_DECODER_OFFSET[0], Constants.OPCODE_DECODER_OFFSET[1]);
 
-	var opcode_text = new Text(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], Constants.OPCODE_TEXT);
-	opcode_text.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	var opcode_text = new TextSVG(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], "OPCODE_TEXT_ID", Constants.OPCODE_TEXT, Constants.TEXT_STYLE);
 	opcode_text.translate(Constants.OPCODE_DECODER_OFFSET[0], Constants.OPCODE_DECODER_OFFSET[1]);
 
 	var control = new Polygon(Constants.CONTROL_POLYGON);
@@ -214,8 +160,7 @@ window.addEventListener("load", function() {
 	control.attribute(Constants.ID_ATTR, Constants.CONTROL_ID);
 	control.translate(Constants.CONTROL_OFFSET[0], Constants.CONTROL_OFFSET[1]);
 
-	var control_text = new Text(70,30, "Control");
-	control_text.attribute(Constants.STYLE_ATTR, Constants.TEXT_STYLE);
+	var control_text = new TextSVG(70,30, "CONTROL_TEXT_ID", "Control", Constants.TEXT_STYLE);
 	control_text.translate(Constants.CONTROL_OFFSET[0], Constants.CONTROL_OFFSET[1]);
 
 	var reg_file = new Polygon(Constants.REGISTER_FILE_POLYGON);
@@ -487,7 +432,7 @@ window.addEventListener("load", function() {
 	svg.appendChild(alu.node);
 	svg.appendChild(mux_alu_wire.node);
 	svg.appendChild(flags.node);
-	svg.appendChild(flag_text.node);
+	svg.appendChild(flag_text.get_node());
 	svg.appendChild(flag_value.node);
 	svg.appendChild(mux1.node);
 	svg.appendChild(mux1_false.node);
