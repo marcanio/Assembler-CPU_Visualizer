@@ -7,8 +7,8 @@ export default class TextSVG {
 		this.id = id;
 		this.txt_val = txt_val;
 		this.node = document.createElementNS("http://www.w3.org/2000/svg", "text");
-		this.node.setAttributeNS(null,"x", x);	
-		this.node.setAttributeNS(null,"y", y);
+		this.node.setAttribute("x", x);	
+		this.node.setAttribute("y", y);
 		this.node.appendChild(document.createTextNode(txt_val));
 		this.node.setAttribute(Constants.ID_ATTR, id);
 		this.node.setAttribute(Constants.STYLE_ATTR, style);

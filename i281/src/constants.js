@@ -177,3 +177,4 @@ export const ALU_FLAG_WIRE_ID = "alu_flag_wire";
 export const DECODER_CONTROL_WIRE_ID = "decoder_control_wire";
 export const ALU_RESULT_WIRE_ID = "alu_result_wire";
 export const MUX_ALU_WIRE_ID = "mux_alu_wire";
+export const IMEM_DECODER_WIRE_ID = "imem_decoder_wire_id";
