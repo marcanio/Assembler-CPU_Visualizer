@@ -5,7 +5,7 @@ html {
   }
   
   #page-wrapper {
-    width: 600px;
+    width: 700px;
     background: #FFF;
     padding: 1em;
     margin: 1em auto;
@@ -16,6 +16,7 @@ html {
   
   h1 {
       margin-top: 0;
+      text-align: center;
   }
   
   img {
@@ -29,6 +30,7 @@ html {
   }
   
   .button {
+    display: inline-block;
     background-color: #2342ce;
     border: none;
     color: white;
@@ -39,4 +41,24 @@ html {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+  }
+  .mainButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .fileWords{
+    text-align: center;
+    padding: 10px;
+  }
+  table {
+    font-family:sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
   }

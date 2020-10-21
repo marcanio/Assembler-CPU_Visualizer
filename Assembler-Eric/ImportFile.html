@@ -7,15 +7,25 @@
 <div id="page-wrapper">
 
     <h1>i281 Assembler</h1>
+    <div class="mainButtons">
     <button class = "button" onclick="ShowFile()">Import a file </button>
     <button class = "button" onclick="ShowTextbox()">Enter text</button>
-    <div style="display:none" id="fileDiv">
-        Select a text file: 
-        <input type="file" id="fileInput">
+    </div>
+
+    <div style="display:none;" id="fileDiv">
+        <div class = "fileWords">
+            Select a text file: 
+            <input type="file" id="fileInput">
+        </div>
+        
         <p id="fileDisplayArea"></p>
-        <button class="button" onclick="formatFile()">Format code</button>
-        <button class="button" onclick="getData()">Get Data</button>
-        <button class="button" onClick="fib()" >Assemble!</button>
+        <table id="assemblyTable"></table>
+        <p id = "displayMachinetext"></p>
+        <p id = "displayMachine"></p>
+        <table id="machineTable"></table>
+        <div class = "mainButtons">
+        <button class="button" onclick="mainMethod()">Assemble!</button>
+        </div>
     </div>
 
     <div style="display: none;" id="inputDiv">
@@ -26,6 +36,6 @@
         <p id="textInput"></p>
        
     </div>
-    
+  
 
 </div>
