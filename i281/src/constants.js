@@ -114,8 +114,18 @@ const MUX3_TRUE_ID = "mux3_true";
 const MUX4_ID = "mux4";
 const MUX4_FALSE_ID = "mux4_false";
 const MUX4_TRUE_ID = "mux4_true";
+const READ_A_MUX_ID = "read_a_mux";
+const READ_B_MUX_ID = "read_b_mux";
+
 
 const ALU_ID = "alu";
+const FLAGS_ID = "flags";
+const CONTROL_ID = "control";
+const REG_FILE_ID = "reg_file";
+const DMEM_ID = "code_mem";
+const PC_VALUE_ID = "code_mem";
+const PC_UPDATE_ID = "code_mem";
+
 
 const CONTROL_C1 = "control_c1";
 const CONTROL_C2 = "control_c2";
@@ -136,6 +146,37 @@ const CONTROL_C16 = "control_c16";
 const CONTROL_C17 = "control_c17";
 const CONTROL_C18 = "control_c18";
 
+const CODE_MEM_ID = "code_mem";
+const OPCODE_DECODER_ID = "opcode_decoder";
+const IMEM_C1_ID = "imem_c1";
+const PC_VALUE_C3_ID = "pc_value_c3";
+const READ_A_C4_ID = "read_a_c4";
+const READ_A_C5_ID = "read_a_c5";
+const READ_B_C6_ID = "read_b_c6";
+const READ_B_C7_ID = "read_b_c7";
+
+const MUX_C2_ID = "mux_c2";
+const MUX_C11_ID = "mux_c11";
+const MUX_C15_ID = "mux_c15";
+const MUX_C16_ID = "mux_c16";
+const MUX_C18_ID = "mux_c18";
+const REG_FILE_C8_ID = "reg_file_c8";
+const REG_FILE_C9_ID = "reg_file_c8";
+const REG_FILE_C10_ID = "reg_file_c8";
+const ALU_C12_ID = "alu_c12";
+const ALU_C13_ID = "alu_c13";
+const FLAGS_C14_ID  = "flags_c14";
+const DMEM_C17_ID = "dmem_c17";
+
+const READ_A_WIRE_ID = "read_a_wire";
+const READ_B_WIRE_ID = "read_b_wire";
+const MUX_PC_VAL_WIRE_ID = "mux_pc_val_wire";
+const PC_UPDATE_FALSE_WIRE_ID = "pc_update_false_wire";
+const PC_UPDATE_TRUE_WIRE_ID = "mux_pc_val_wire";
+const ALU_FLAG_WIRE_ID = "alu_flag_wire";
+const DECODER_CONTROL_WIRE_ID = "decoder_control_wire";
+const ALU_RESULT_WIRE_ID = "alu_result_wire";
+const MUX_ALU_WIRE_ID = "mux_alu_wire";
 
 
 export {
@@ -250,5 +291,42 @@ export {
 	CONTROL_C15,
 	CONTROL_C16,
 	CONTROL_C17,
-	CONTROL_C18
+	CONTROL_C18,
+	CODE_MEM_ID,
+	OPCODE_DECODER_ID,
+	REG_FILE_C8_ID,
+	REG_FILE_C9_ID,
+	REG_FILE_C10_ID,
+	ALU_C12_ID,
+	ALU_C13_ID,
+	FLAGS_C14_ID,
+	DMEM_C17_ID,
+	MUX_C2_ID,
+	MUX_C11_ID,
+	MUX_C15_ID,
+	MUX_C16_ID,
+	MUX_C18_ID,
+	IMEM_C1_ID,
+	PC_VALUE_C3_ID,
+	READ_A_C4_ID,
+	READ_A_C5_ID,
+	READ_B_C6_ID,
+	READ_B_C7_ID,
+	FLAGS_ID,
+	CONTROL_ID,
+	DMEM_ID,
+	PC_VALUE_ID,
+	PC_UPDATE_ID,
+	REG_FILE_ID,
+	READ_A_MUX_ID,
+	READ_B_MUX_ID,
+	READ_A_WIRE_ID,
+	READ_B_WIRE_ID,
+	MUX_PC_VAL_WIRE_ID,
+	PC_UPDATE_FALSE_WIRE_ID,
+	PC_UPDATE_TRUE_WIRE_ID,
+	ALU_FLAG_WIRE_ID,
+	DECODER_CONTROL_WIRE_ID,
+	ALU_RESULT_WIRE_ID,
+	MUX_ALU_WIRE_ID
 };
