@@ -1,0 +1,193 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "IMEM_WRITE_ENABLE",
+					"strict" : false
+				},
+				{
+					"name" : "PC_MUX",
+					"strict" : false
+				},
+				{
+					"name" : "REG_PORT0_SELECT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_PORT0_SELECT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_PORT1_SELECT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_PORT1_SELECT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_WRITE_SELECT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_WRITE_SELECT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_WRITE_ENABLE",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_SOURCE_MUX",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_SELECT0",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_SELECT1",
+					"strict" : false
+				},
+				{
+					"name" : "FLAGS_WRITE_ENABLE",
+					"strict" : false
+				},
+				{
+					"name" : "ALU_RESULT_MUX",
+					"strict" : false
+				},
+				{
+					"name" : "DMEM_INPUT_MUX",
+					"strict" : false
+				},
+				{
+					"name" : "DMEM_WRITE_ENABLE",
+					"strict" : false
+				},
+				{
+					"name" : "REG_WRITEBACK_MUX",
+					"strict" : false
+				},
+				{
+					"name" : "INPUT_DATACF",
+					"strict" : false
+				},
+				{
+					"name" : "INPUT_DATAC",
+					"strict" : false
+				},
+				{
+					"name" : "JUMP",
+					"strict" : false
+				},
+				{
+					"name" : "BRE_BRZ",
+					"strict" : false
+				},
+				{
+					"name" : "BRNE_BRNZ",
+					"strict" : false
+				},
+				{
+					"name" : "ZERO_FLAG",
+					"strict" : false
+				},
+				{
+					"name" : "BRGE",
+					"strict" : false
+				},
+				{
+					"name" : "BRG",
+					"strict" : false
+				},
+				{
+					"name" : "OVERFLOW_FLAG",
+					"strict" : false
+				},
+				{
+					"name" : "NEGATIVE_FLAG",
+					"strict" : false
+				},
+				{
+					"name" : "CMP",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFTL",
+					"strict" : false
+				},
+				{
+					"name" : "SHIFTR",
+					"strict" : false
+				},
+				{
+					"name" : "SUBI",
+					"strict" : false
+				},
+				{
+					"name" : "SUB",
+					"strict" : false
+				},
+				{
+					"name" : "ADDI",
+					"strict" : false
+				},
+				{
+					"name" : "ADD",
+					"strict" : false
+				},
+				{
+					"name" : "STOREF",
+					"strict" : false
+				},
+				{
+					"name" : "LOADF",
+					"strict" : false
+				},
+				{
+					"name" : "MOVE",
+					"strict" : false
+				},
+				{
+					"name" : "INPUT_DATADF",
+					"strict" : false
+				},
+				{
+					"name" : "X[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Y[0]",
+					"strict" : false
+				},
+				{
+					"name" : "X[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Y[1]",
+					"strict" : false
+				},
+				{
+					"name" : "STORE",
+					"strict" : false
+				},
+				{
+					"name" : "LOADI_LOADP",
+					"strict" : false
+				},
+				{
+					"name" : "LOAD",
+					"strict" : false
+				},
+				{
+					"name" : "INPUT_DATAD",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -5,28 +5,38 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 <html lang="en">
 <head>
     
-    <title>Document</title>
+    <title>i281 CPU</title>
     <link rel="stylesheet" href="./index.css">
     <script src="./simulator.js" type="module"></script>
+    <script src="./display.js" type="module"></script>
+
     
 </head>
-  <body>
+  <body >
     <h1>i281 CPU</h1>
 
-    <svg height="1000" width="1280">
-      <!-- MUX -->
+    <svg id="canvas" height="1600" width="100%">
+      <!--
+
+      
+       MUX 
       <polygon id="mux0_shape" class="mux_structure" points="0,0, 50,30, 50,170, 0,200 "/>
       <text id="mux0_false" x="20" y="60" class="mux_text">0</text>
       <text id="mux0_true" x="20" y="140" class="mux_text">1</text>
-      <!-- ALU -->
+       ALU 
       <polygon id="alu_shape" class="alu_structure" points="100,100, 200,175, 200,325, 100,400, 100,300, 125,250, 100,200 "/>
-      <!-- WIRE -->
+       WIRE 
       <line x1="50" y1="100" x2="100" y2="150" class="wire" />
+
+       OpCode Decoder
+      <polygon id="opcode_decoder_shape" class="opcode_decorder_structure" points="0,0, 50,0, 50,30, 50,0 "/>
+      <text id="opcode_decoder_text" x="20" y="10" class="mux_text">OpCode Decoder</text>
+      ALU
+      -->
     </svg> 
-    
+  
     <input type="text" id="instruction">
-    <input type="button" id="btn" onclick="compute()" value="Compute">
-    <input type="button" id="bsnellbtn" onclick="bsnellTest()" value="bsnellTest">
+    <input type="button" id="btn" value="Compute">
     <label type="text" id="result"></label>
 
     

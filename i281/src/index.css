@@ -13,8 +13,7 @@
 }
 
 .text_medium{
-  font: Courier;
-  font-size: medium;
+  font: 20px Courier;
 }
 
 .text_large{
@@ -35,6 +34,12 @@
 }
 
 .alu_structure{
+  fill:white;
+  stroke:black;
+  stroke-width:2px;
+}
+
+.opcode_decorder_structure{
   fill:white;
   stroke:black;
   stroke-width:2px;

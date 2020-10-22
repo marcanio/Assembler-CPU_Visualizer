@@ -1,16 +1,16 @@
 {
-  "name": "Colby",
+  "name": "i281",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "lint": "eslint .",
+    "lint": "eslint \"**/*.js",
     "test": "jest --watchAll ./test"
   },
   "keywords": [],
-  "author": "Colby McKinley",
+  "author": "sdmay21-38",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
@@ -18,8 +18,7 @@
     "common-js": "^0.3.8",
     "esm": "^3.2.25",
     "http": "0.0.1-security",
-    "http-server": "^0.12.3",
-    "jquery": "^3.5.1"
+    "http-server": "^0.12.3"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
