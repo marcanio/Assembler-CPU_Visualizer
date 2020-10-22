@@ -56,6 +56,10 @@ export const MUX_REG_FILE_WIRE = ["M", MUX3_OFFSET[0] + MUX_POLYGON[2], MUX3_OFF
 export const MUX2_DMEM_WIRE = ["M", MUX2_OFFSET[0] + MUX_POLYGON[2], MUX2_OFFSET[1] + 100, "l", (DATA_MEM_OFFSET[0] - MUX2_OFFSET[0] - MUX_WIDTH), 0];
 export const MUX1_DMEM_WIRE1 = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", 25, 0, 0, ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 75) , (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0];
 export const MUX1_DMEM_WIRE2 = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", 25, 0, 0, ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) + 0) , (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0];
+export const MUX1_MUX3_WIRE = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", (0.75 * (MUX3_OFFSET[0] - MUX1_OFFSET[0]) + 0), 0,  (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0, 0, (150), 63, 0];
+export const DMEM_MUX3_WIRE = ["M", DATA_MEM_OFFSET[0] + DATA_MEM_POLYGON[2], DATA_MEM_OFFSET[1] + 100, "l", 25, 0, 0, -((DATA_MEM_OFFSET[1] - MUX3_OFFSET[1]) - 20) , (MUX3_OFFSET[0]  - DATA_MEM_OFFSET[0] - DATA_MEM_POLYGON[2] - 25), 0];
+export const IMEM_MUX2_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -25, 0, 0, 1200 , (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 100), 0, 0, -425, 125, 0 ];
+export const READ_B_MUX2_WIRE = ["M", REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH, REGISTER_FILE_OFFSET[1] + 200, "l", 25, 0, 0, 300 , (MUX2_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 25)), 0];
 
 
 export const READ_A_WIRE = [0, 0, ALU_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH), 0];
@@ -193,7 +197,10 @@ export const MUX1_DMEM_WIRE1_ID = "mux1_dmem_wire1";
 export const MUX1_DMEM_WIRE2_ID = "mux1_dmem_wire2";
 export const MUX2_DMEM_WIRE_ID = "mux2_dmem_wire";
 export const MUX_REG_FILE_WIRE_ID = "mux_reg_file_wire";
-
+export const MUX1_MUX3_WIRE_ID = "mux1_mux3_wire";
+export const DMEM_MUX3_WIRE_ID = "dmem_mux3_wire";
+export const IMEM_MUX2_WIRE_ID = "imem_mux2_wire";
+export const READ_B_MUX2_WIRE_ID = "read_b_mux2_wire";
 
 export const OPCODE_TEXT_ID = "opcode_text_id";
 export const FLAG_TEXT_ID = "flag_text_id";
