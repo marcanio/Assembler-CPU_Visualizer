@@ -40,6 +40,6 @@ export default class PolygonSVG {
 		var res = [];
 		for (let i = 0, l = arg.length; i < l; i++)
 			res.push(arg[i] + ",");
-		return res.join(" ");
+		return res.join(" ").slice(0, -1);
 	}
 }
