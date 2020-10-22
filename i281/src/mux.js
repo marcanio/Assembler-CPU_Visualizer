@@ -11,7 +11,7 @@ export class Multiplexer {
         this.state = null;
         
         if(this.powerOfTwo(size) == true) this.size = size;
-        else throw 'Multiplexer size is not a power of two';
+        else throw new Error('Multiplexer size is not a power of two');
 
         this.sources = new Array(this.size);
     }
@@ -44,12 +44,13 @@ export class Multiplexer {
     /**
      * This function sets the input states of the multiplexer
      * @param port: The input port to set the value of
-     * @param value: The value that should be set
+     * @param callback: A function that gives an input value
+     * @since: 2.0
      * @author Bryce Snell
      */
-    setSource(port, value) {
+    setSource(port, callback) {
         if(0 <= port && port <= (this.size - 1)) {
-            this.sources[port] = value;
+            this.sources[port] = callback;
         }   
         else throw 'Invalid multiplexer port: ' + port;
     }
@@ -59,7 +60,7 @@ export class Multiplexer {
      * @author Bryce Snell
      */
     getOutput() {
-        return this.sources[this.state];
+        return this.sources[this.state]();
     }
 
 
