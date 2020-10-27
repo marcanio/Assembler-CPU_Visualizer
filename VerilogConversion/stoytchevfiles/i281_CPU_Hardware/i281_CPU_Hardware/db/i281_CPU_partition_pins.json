@@ -4,75 +4,95 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "REG_OUTPUT[15]",
+					"name" : "IMEM_READ_OUTPUT[15]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[14]",
+					"name" : "IMEM_READ_OUTPUT[14]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[13]",
+					"name" : "IMEM_READ_OUTPUT[13]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[12]",
+					"name" : "IMEM_READ_OUTPUT[12]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[11]",
+					"name" : "IMEM_READ_OUTPUT[11]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[10]",
+					"name" : "IMEM_READ_OUTPUT[10]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[9]",
+					"name" : "IMEM_READ_OUTPUT[9]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[8]",
+					"name" : "IMEM_READ_OUTPUT[8]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[7]",
+					"name" : "IMEM_READ_OUTPUT[7]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[6]",
+					"name" : "IMEM_READ_OUTPUT[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[5]",
+					"name" : "IMEM_READ_OUTPUT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[4]",
+					"name" : "IMEM_READ_OUTPUT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[3]",
+					"name" : "IMEM_READ_OUTPUT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[2]",
+					"name" : "IMEM_READ_OUTPUT[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[1]",
+					"name" : "IMEM_READ_OUTPUT[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT[0]",
+					"name" : "IMEM_READ_OUTPUT[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[15]",
+					"name" : "IMEM_READ_SELECT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "IMEM_READ_SELECT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_READ_SELECT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_READ_SELECT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_READ_SELECT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_READ_SELECT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Clock",
 					"strict" : false
 				},
 				{
@@ -80,67 +100,95 @@
 					"strict" : false
 				},
 				{
-					"name" : "Control",
+					"name" : "IMEM_INPUT[15]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[14]",
+					"name" : "IMEM_WRITE_SELECT[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[13]",
+					"name" : "IMEM_WRITE_ENABLE",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[12]",
+					"name" : "IMEM_WRITE_SELECT[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[11]",
+					"name" : "IMEM_WRITE_SELECT[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[10]",
+					"name" : "IMEM_WRITE_SELECT[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[9]",
+					"name" : "IMEM_WRITE_SELECT[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[8]",
+					"name" : "IMEM_WRITE_SELECT[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[7]",
+					"name" : "IMEM_INPUT[14]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[6]",
+					"name" : "IMEM_INPUT[13]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[5]",
+					"name" : "IMEM_INPUT[12]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[4]",
+					"name" : "IMEM_INPUT[11]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[3]",
+					"name" : "IMEM_INPUT[10]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[2]",
+					"name" : "IMEM_INPUT[9]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[1]",
+					"name" : "IMEM_INPUT[8]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[0]",
+					"name" : "IMEM_INPUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "IMEM_INPUT[0]",
 					"strict" : false
 				}
 			]

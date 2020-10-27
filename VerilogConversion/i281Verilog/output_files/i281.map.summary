@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue Oct 20 23:47:13 2020
+Analysis & Synthesis Status : Successful - Tue Oct 27 19:40:27 2020
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : i281
-Top-level Entity Name : _Registers16bit
+Top-level Entity Name : _IMEM
 Family : Cyclone IV E
-Total logic elements : 16
-    Total combinational functions : 0
-    Dedicated logic registers : 16
-Total registers : 16
-Total pins : 35
+Total logic elements : 904
+    Total combinational functions : 426
+    Dedicated logic registers : 514
+Total registers : 514
+Total pins : 47
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
