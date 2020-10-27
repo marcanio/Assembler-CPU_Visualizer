@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY _IMEM
+set_global_assignment -name TOP_LEVEL_ENTITY _4x8BitRegisters
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "19:12:08  SEPTEMBER 23, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -55,21 +55,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name VERILOG_FILE "2-to-1-mux.v"
-set_global_assignment -name VERILOG_FILE 2to1mux.v
-set_global_assignment -name VERILOG_FILE _2to1mux.v
-set_global_assignment -name VERILOG_FILE _programCounter.v
-set_global_assignment -name VERILOG_FILE ProgramCounter_Stoyt.v
-set_global_assignment -name VERILOG_FILE _programCounterMultiplexer.v
-set_global_assignment -name VERILOG_FILE _6WideBusMux.v
-set_global_assignment -name VERILOG_FILE _Control_FSM.v
-set_global_assignment -name VERILOG_FILE _1to2DecoderWithEnable.v
-set_global_assignment -name VERILOG_FILE _2to4DecoderWithEnable.v
-set_global_assignment -name VERILOG_FILE _3to8DecoderWithEnable.v
-set_global_assignment -name VERILOG_FILE _4to16DecoderWithEnable.v
-set_global_assignment -name VERILOG_FILE _Opcode_Decoder.v
-set_global_assignment -name VERILOG_FILE _OpcodeDecoder_TB.v
-set_global_assignment -name BDF_FILE i281.bdf
 set_location_assignment PIN_AB28 -to pin_name24
 set_location_assignment PIN_AC28 -to pin_name25
 set_location_assignment PIN_AC27 -to pin_name26
@@ -101,6 +86,21 @@ set_location_assignment PIN_E22 -to pin_name20
 set_location_assignment PIN_E25 -to pin_name21
 set_location_assignment PIN_E24 -to pin_name22
 set_location_assignment PIN_H21 -to pin_name23
+set_global_assignment -name VERILOG_FILE "2-to-1-mux.v"
+set_global_assignment -name VERILOG_FILE 2to1mux.v
+set_global_assignment -name VERILOG_FILE _2to1mux.v
+set_global_assignment -name VERILOG_FILE _programCounter.v
+set_global_assignment -name VERILOG_FILE ProgramCounter_Stoyt.v
+set_global_assignment -name VERILOG_FILE _programCounterMultiplexer.v
+set_global_assignment -name VERILOG_FILE _6WideBusMux.v
+set_global_assignment -name VERILOG_FILE _Control_FSM.v
+set_global_assignment -name VERILOG_FILE _1to2DecoderWithEnable.v
+set_global_assignment -name VERILOG_FILE _2to4DecoderWithEnable.v
+set_global_assignment -name VERILOG_FILE _3to8DecoderWithEnable.v
+set_global_assignment -name VERILOG_FILE _4to16DecoderWithEnable.v
+set_global_assignment -name VERILOG_FILE _Opcode_Decoder.v
+set_global_assignment -name VERILOG_FILE _OpcodeDecoder_TB.v
+set_global_assignment -name BDF_FILE i281.bdf
 set_global_assignment -name VERILOG_FILE _FullAdder.v
 set_global_assignment -name VERILOG_FILE _6BitAdder.v
 set_global_assignment -name VERILOG_FILE _SixteenWideBusMux.v
@@ -110,8 +110,12 @@ set_global_assignment -name VERILOG_FILE _ReadOnly_16x16_Register_File_Low.v
 set_global_assignment -name VERILOG_FILE _IMEM_high.v
 set_global_assignment -name VERILOG_FILE _IMEM_low.v
 set_global_assignment -name VERILOG_FILE _16Wide4To1BusMux.v
+set_global_assignment -name VERILOG_FILE _IMEM.v
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE _Registers8bit.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE _IMEM.v
+set_global_assignment -name VERILOG_FILE _4x8BitRegisters.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
