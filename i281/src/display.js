@@ -1,6 +1,7 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
+import PathSVG from "./PathSVG.js";
 
 
 function init() {
@@ -124,8 +125,25 @@ window.addEventListener("load", function() {
 	var decoder_control_wire = new PolygonSVG(Constants.DECODER_CONTROL_WIRE_ID, Constants.OPCODE_DECODER_CONTROL_WIRE, Constants.WIRE_STYLE);
 	decoder_control_wire.translate(Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[0], Constants.OPCODE_DECODER_CONTROL_WIRE_OFFSET[1]);
 	
-	var alu_flag_wire = new PolygonSVG(Constants.ALU_FLAG_WIRE_ID, Constants.ALU_FLAGS_WIRE, Constants.WIRE_STYLE);
-	alu_flag_wire.translate(Constants.ALU_FLAGS_WIRE_OFFSET[0], Constants.ALU_FLAGS_WIRE_OFFSET[1]);
+	var alu_flag_wire = new PathSVG(Constants.ALU_FLAG_WIRE_ID, Constants.ALU_FLAGS_WIRE, Constants.WIRE_STYLE);
+	var flag_control_wire = new PathSVG(Constants.FLAGS_CONTROL_WIRE_ID, Constants.FLAGS_CONTROL_WIRE, Constants.WIRE_STYLE);
+	var mux_imem_wire = new PathSVG(Constants.MUX_IMEM_WIRE_ID, Constants.MUX_IMEM_WIRE, Constants.WIRE_STYLE);
+	var mux_reg_file_wire = new PathSVG(Constants.MUX_REG_FILE_WIRE_ID, Constants.MUX_REG_FILE_WIRE, Constants.WIRE_STYLE);
+	var mux2_dmem_wire = new PathSVG(Constants.MUX2_DMEM_WIRE_ID, Constants.MUX2_DMEM_WIRE, Constants.WIRE_STYLE);
+	var mux1_dmem_wire1 = new PathSVG(Constants.MUX1_DMEM_WIRE1_ID, Constants.MUX1_DMEM_WIRE1, Constants.WIRE_STYLE);
+	var mux1_dmem_wire2 = new PathSVG(Constants.MUX1_DMEM_WIRE2_ID, Constants.MUX1_DMEM_WIRE2, Constants.WIRE_STYLE);
+	var mux1_mux3_wire = new PathSVG(Constants.MUX1_MUX3_WIRE_ID, Constants.MUX1_MUX3_WIRE, Constants.WIRE_STYLE);
+	var dmem_mux3_wire = new PathSVG(Constants.DMEM_MUX3_WIRE_ID, Constants.DMEM_MUX3_WIRE, Constants.WIRE_STYLE);
+	var imem_mux2_wire = new PathSVG(Constants.IMEM_MUX2_WIRE_ID, Constants.IMEM_MUX2_WIRE, Constants.WIRE_STYLE);
+	var read_b_mux2_wire = new PathSVG(Constants.READ_B_MUX2_WIRE_ID, Constants.READ_B_MUX2_WIRE, Constants.WIRE_STYLE);
+	var imem_in_pc_update_wire = new PathSVG(Constants.IMEM_IN_PC_UPDATE_MUX_WIRE_ID, Constants.IMEM_IN_PC_UPDATE_MUX_WIRE, Constants.WIRE_STYLE);
+	var imem_out_pc_update_wire = new PathSVG(Constants.IMEM_OUT_PC_UPDATE_WIRE_ID, Constants.IMEM_OUT_PC_UPDATE_WIRE, Constants.WIRE_STYLE);
+	var imem_pc_val_mux_wire = new PathSVG(Constants.IMEM_PC_VAL_MUX_WIRE_ID, Constants.IMEM_PC_VAL_MUX_WIRE, Constants.WIRE_STYLE);
+	var imem_mux0_wire = new PathSVG(Constants.IMEM_MUX0_WIRE_ID, Constants.IMEM_MUX0_WIRE, Constants.WIRE_STYLE);
+	var imem_mux1_wire = new PathSVG(Constants.IMEM_MUX1_WIRE_ID, Constants.IMEM_MUX1_WIRE, Constants.WIRE_STYLE);
+	var switches_mux1_wire = new PathSVG(Constants.SWITCHES_MUX1_WIRE_ID, Constants.SWITCHES_MUX1_WIRE, Constants.WIRE_STYLE);
+
+	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 15, "switches_id", "Switches", Constants.TEXT_STYLE)
 
 	var read_a_wire = new PolygonSVG(Constants.READ_A_WIRE_ID, Constants.READ_A_WIRE, Constants.WIRE_STYLE);
 	read_a_wire.translate(Constants.READ_A_WIRE_OFFSET[0], Constants.READ_A_WIRE_OFFSET[1]);
@@ -329,5 +347,21 @@ window.addEventListener("load", function() {
 	svg.appendChild(control_c17.node);
 	svg.appendChild(control_c18.node);
 	svg.appendChild(imem_c1.node);
-
+	svg.appendChild(flag_control_wire.node);
+	svg.appendChild(mux_imem_wire.node);
+	svg.appendChild(mux_reg_file_wire.node);
+	svg.appendChild(mux2_dmem_wire.node);
+	svg.appendChild(mux1_dmem_wire1.node);
+	svg.appendChild(mux1_dmem_wire2.node);
+	svg.appendChild(mux1_mux3_wire.node);
+	svg.appendChild(dmem_mux3_wire.node);
+    svg.appendChild(imem_mux2_wire.node);
+	svg.appendChild(read_b_mux2_wire.node);
+	svg.appendChild(imem_in_pc_update_wire.node);
+	svg.appendChild(imem_pc_val_mux_wire.node);
+	svg.appendChild(imem_out_pc_update_wire.node);
+	svg.appendChild(imem_mux0_wire.node);
+	svg.appendChild(imem_mux1_wire.node);
+	svg.appendChild(switches_mux1_wire.node);
+	svg.appendChild(switches_text.node);
 });
