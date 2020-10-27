@@ -136,7 +136,14 @@ window.addEventListener("load", function() {
 	var dmem_mux3_wire = new PathSVG(Constants.DMEM_MUX3_WIRE_ID, Constants.DMEM_MUX3_WIRE, Constants.WIRE_STYLE);
 	var imem_mux2_wire = new PathSVG(Constants.IMEM_MUX2_WIRE_ID, Constants.IMEM_MUX2_WIRE, Constants.WIRE_STYLE);
 	var read_b_mux2_wire = new PathSVG(Constants.READ_B_MUX2_WIRE_ID, Constants.READ_B_MUX2_WIRE, Constants.WIRE_STYLE);
+	var imem_in_pc_update_wire = new PathSVG(Constants.IMEM_IN_PC_UPDATE_MUX_WIRE_ID, Constants.IMEM_IN_PC_UPDATE_MUX_WIRE, Constants.WIRE_STYLE);
+	var imem_out_pc_update_wire = new PathSVG(Constants.IMEM_OUT_PC_UPDATE_WIRE_ID, Constants.IMEM_OUT_PC_UPDATE_WIRE, Constants.WIRE_STYLE);
+	var imem_pc_val_mux_wire = new PathSVG(Constants.IMEM_PC_VAL_MUX_WIRE_ID, Constants.IMEM_PC_VAL_MUX_WIRE, Constants.WIRE_STYLE);
+	var imem_mux0_wire = new PathSVG(Constants.IMEM_MUX0_WIRE_ID, Constants.IMEM_MUX0_WIRE, Constants.WIRE_STYLE);
+	var imem_mux1_wire = new PathSVG(Constants.IMEM_MUX1_WIRE_ID, Constants.IMEM_MUX1_WIRE, Constants.WIRE_STYLE);
+	var switches_mux1_wire = new PathSVG(Constants.SWITCHES_MUX1_WIRE_ID, Constants.SWITCHES_MUX1_WIRE, Constants.WIRE_STYLE);
 
+	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 15, "switches_id", "Switches", Constants.TEXT_STYLE)
 
 	var read_a_wire = new PolygonSVG(Constants.READ_A_WIRE_ID, Constants.READ_A_WIRE, Constants.WIRE_STYLE);
 	read_a_wire.translate(Constants.READ_A_WIRE_OFFSET[0], Constants.READ_A_WIRE_OFFSET[1]);
@@ -349,5 +356,12 @@ window.addEventListener("load", function() {
 	svg.appendChild(mux1_mux3_wire.node);
 	svg.appendChild(dmem_mux3_wire.node);
     svg.appendChild(imem_mux2_wire.node);
-    svg.appendChild(read_b_mux2_wire.node);
+	svg.appendChild(read_b_mux2_wire.node);
+	svg.appendChild(imem_in_pc_update_wire.node);
+	svg.appendChild(imem_pc_val_mux_wire.node);
+	svg.appendChild(imem_out_pc_update_wire.node);
+	svg.appendChild(imem_mux0_wire.node);
+	svg.appendChild(imem_mux1_wire.node);
+	svg.appendChild(switches_mux1_wire.node);
+	svg.appendChild(switches_text.node);
 });

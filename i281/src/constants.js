@@ -58,8 +58,15 @@ export const MUX1_DMEM_WIRE1 = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSE
 export const MUX1_DMEM_WIRE2 = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", 25, 0, 0, ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) + 0) , (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0];
 export const MUX1_MUX3_WIRE = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", (0.75 * (MUX3_OFFSET[0] - MUX1_OFFSET[0]) + 0), 0,  (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0, 0, (150), 63, 0];
 export const DMEM_MUX3_WIRE = ["M", DATA_MEM_OFFSET[0] + DATA_MEM_POLYGON[2], DATA_MEM_OFFSET[1] + 100, "l", 25, 0, 0, -((DATA_MEM_OFFSET[1] - MUX3_OFFSET[1]) - 20) , (MUX3_OFFSET[0]  - DATA_MEM_OFFSET[0] - DATA_MEM_POLYGON[2] - 25), 0];
-export const IMEM_MUX2_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -25, 0, 0, 1200 , (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 100), 0, 0, -425, 125, 0 ];
+export const IMEM_MUX2_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -50, 0, 0, 1200 , (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 100), 0, 0, -425, 150, 0 ];
 export const READ_B_MUX2_WIRE = ["M", REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH, REGISTER_FILE_OFFSET[1] + 200, "l", 25, 0, 0, 300 , (MUX2_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 25)), 0];
+export const IMEM_PC_UPDATE_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 300, "l", -25, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_HEIGHT/2 - CODE_MEM_OFFSET[1]) , (PC_UPDATE_OFFSET[0] - CODE_MEM_OFFSET[0] + 25), 0];
+export const IMEM_IN_PC_VAL_MUX_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 300, "l", -25, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1]) , (PC_VALUE_OFFSET[0] + CODE_MEM_OFFSET[0] + 50), 0, 0, -200, -25, 0];
+export const IMEM_PC_VAL_MUX_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 300, "l", -25, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1]) , (PC_VALUE_OFFSET[0] + CODE_MEM_OFFSET[0] + 50), 0, 0, -200, -25, 0];
+export const IMEM_OUT_PC_UPDATE_WIRE = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1] + 25, "l", 15, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 25 - 25) , -300, 0, 0, 50, 35, 0];
+export const IMEM_MUX0_WIRE = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1] + 25, "l", 15, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 25 - 25) , (MUX0_OFFSET[0] - (CODE_MEM_WIDTH + CODE_MEM_OFFSET[0] + 30 )), 0, 0, -350, 15, 0];
+export const IMEM_MUX1_WIRE = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1] + 25, "l", 15, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 25 - 25) , (MUX1_OFFSET[0] - (CODE_MEM_WIDTH + CODE_MEM_OFFSET[0] + 30 )), 0, 0, -400, 15, 0];
+export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + MUX_TRUE[1] - 15, "l", 200, 0] ;
 
 
 export const READ_A_WIRE = [0, 0, ALU_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH), 0];
@@ -110,7 +117,7 @@ export const CONTROL_TEXT = "Control";
 export const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
 export const WIRE_STYLE = "stroke:black; stroke-width:2px; fill:none; stroke:black;";
 export const ARROW_STYLE = " fill:black; stroke:black; stroke-width:1px;";
-export const TEXT_STYLE = "font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-anchor:middle;fill:black; ";
+export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
 
 export const ID_ATTR = "id";
 export const STYLE_ATTR = "style";
@@ -201,6 +208,12 @@ export const MUX1_MUX3_WIRE_ID = "mux1_mux3_wire";
 export const DMEM_MUX3_WIRE_ID = "dmem_mux3_wire";
 export const IMEM_MUX2_WIRE_ID = "imem_mux2_wire";
 export const READ_B_MUX2_WIRE_ID = "read_b_mux2_wire";
+export const IMEM_IN_PC_UPDATE_WIRE_ID = "imem_in_pc_update_wire";
+export const IMEM_OUT_PC_UPDATE_WIRE_ID = "imem_out_pc_update_wire";
+export const IMEM_PC_VAL_MUX_WIRE_ID = "imem_pc_val_mux_wire";
+export const IMEM_MUX0_WIRE_ID = "imem_mux0_wire";
+export const IMEM_MUX1_WIRE_ID = "imem_mux1_wire";
+export const SWITCHES_MUX1_WIRE_ID = "switches_mux1_wire";
 
 export const OPCODE_TEXT_ID = "opcode_text_id";
 export const FLAG_TEXT_ID = "flag_text_id";
