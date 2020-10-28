@@ -1,7 +1,7 @@
 import * as Constants from "./constants.js";
 
 export default class PolygonSVG {
-	constructor(id, points, style) {
+	constructor(id, points, style, offset) {
 		this.id = id;
 		this.node = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		this.node.setAttribute(Constants.ID_ATTR, id);
@@ -10,6 +10,8 @@ export default class PolygonSVG {
 		if(points) {
 			points.forEach(val => this.point_list.push(val));
 			this.node.setAttribute("points", this.build(this.point_list));
+			if(offset)
+				this.translate(offset[0], offset[1]);
 		}
 	}
     

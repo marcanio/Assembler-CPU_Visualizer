@@ -1,7 +1,7 @@
 import * as Constants from "./constants.js";
 
 export default class TextSVG {
-	constructor(x, y, id, txt_val, style) {
+	constructor(x, y, id, txt_val, style, offset) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
@@ -12,6 +12,8 @@ export default class TextSVG {
 		this.node.appendChild(document.createTextNode(txt_val));
 		this.node.setAttribute(Constants.ID_ATTR, id);
 		this.node.setAttribute(Constants.STYLE_ATTR, style);
+		if(offset)
+			this.translate(offset[0], offset[1]);
 	}
     
 	get_node () { return this.node; }
