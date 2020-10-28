@@ -22,7 +22,7 @@ export const MUX_TRUE = [20, 140];
 export const OPCODE_TPOS = [100, 30];
 export const CONTROL_TPOS = [70, 30];
 export const FLAG_TPOS = [70, 30];
-export const FLAG_VPOS = [70, 70];
+export const FLAG_VPOS = [0, 70];
 
 
 
@@ -106,6 +106,7 @@ export const MUX_C18_OFFSET = [MUX3_OFFSET[0] + 20, MUX3_OFFSET[1] + (15 - ARROW
 export const CONTROL_ARROW_OFFSET = [CONTROL_OFFSET[0], CONTROL_OFFSET[1] + CONTROL_POLYGON[7]];
 
 export const ARROW_DIST_BETWEEN = 28;
+export const FLAGS_DIST_BETWEEN = 30;
 
 
 export const MUX_FALSE_TEXT = "0";
@@ -113,6 +114,7 @@ export const MUX_TRUE_TEXT = "1";
 export const OPCODE_TEXT = "Opcode Decoder";
 export const FLAG_TEXT = "Flags";
 export const CONTROL_TEXT = "Control";
+export const SWITCHES_TEXT = "Switches";
 
 export const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
 export const WIRE_STYLE = "stroke:black; stroke-width:2px; fill:none; stroke:black;";
@@ -149,6 +151,14 @@ export const PC_VALUE_ID = "pc_val";
 export const PC_UPDATE_ID = "pc_update";
 export const CODE_MEM_ID = "code_mem";
 export const OPCODE_DECODER_ID = "opcode_decoder";
+
+export const CARRY_FLAG_ID = "carry_flag";
+export const ZERO_FLAG_ID = "zero_flag";
+export const OVERFLOW_FLAG_ID = "overflow_flag";
+export const PARITY_FLAG_ID = "parity_flag";
+
+export const SWITCHES_ID = "swtiches";
+
 
 export const CONTROL_C1 = "control_c1";
 export const CONTROL_C2 = "control_c2";
