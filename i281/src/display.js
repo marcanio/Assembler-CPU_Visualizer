@@ -48,6 +48,16 @@ window.addEventListener("load", function() {
 	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.TEXT_STYLE, Constants.CONTROL_OFFSET);
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
 
+	var read_a_a_text = new TextSVG(Constants.MUX_A[0],Constants.MUX_A[1], Constants.READ_A_MUX_A_ID, Constants.MUX_A_TEXT, Constants.TEXT_STYLE, Constants.READ_A_MUX_OFFSET);
+	var read_a_b_text = new TextSVG(Constants.MUX_B[0],Constants.MUX_B[1], Constants.READ_A_MUX_B_ID, Constants.MUX_B_TEXT, Constants.TEXT_STYLE, Constants.READ_A_MUX_OFFSET);
+	var read_a_c_text = new TextSVG(Constants.MUX_C[0],Constants.MUX_C[1], Constants.READ_A_MUX_C_ID, Constants.MUX_C_TEXT, Constants.TEXT_STYLE, Constants.READ_A_MUX_OFFSET);
+	var read_a_d_text = new TextSVG(Constants.MUX_D[0],Constants.MUX_D[1], Constants.READ_A_MUX_D_ID, Constants.MUX_D_TEXT, Constants.TEXT_STYLE, Constants.READ_A_MUX_OFFSET);
+
+	var read_b_a_text = new TextSVG(Constants.MUX_A[0],Constants.MUX_A[1], Constants.READ_A_MUX_A_ID, Constants.MUX_A_TEXT, Constants.TEXT_STYLE, Constants.READ_B_MUX_OFFSET);
+	var read_b_b_text = new TextSVG(Constants.MUX_B[0],Constants.MUX_B[1], Constants.READ_A_MUX_B_ID, Constants.MUX_B_TEXT, Constants.TEXT_STYLE, Constants.READ_B_MUX_OFFSET);
+	var read_b_c_text = new TextSVG(Constants.MUX_C[0],Constants.MUX_C[1], Constants.READ_A_MUX_C_ID, Constants.MUX_C_TEXT, Constants.TEXT_STYLE, Constants.READ_B_MUX_OFFSET);
+	var read_b_d_text = new TextSVG(Constants.MUX_D[0],Constants.MUX_D[1], Constants.READ_A_MUX_D_ID, Constants.MUX_D_TEXT, Constants.TEXT_STYLE, Constants.READ_B_MUX_OFFSET);
+
 	var alu = new PolygonSVG(Constants.ALU_ID, Constants.ALU_POLYGON, Constants.BLOCK_STYLE, Constants.ALU_OFFSET);
 	var code_mem = new PolygonSVG(Constants.CODE_MEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
 	var control = new PolygonSVG(Constants.CONTROL_ID, Constants.CONTROL_POLYGON, Constants.BLOCK_STYLE, Constants.CONTROL_OFFSET);
@@ -238,4 +248,12 @@ window.addEventListener("load", function() {
 	svg.appendChild(zero_flag.node);
 	svg.appendChild(overflow_flag.node);
 	svg.appendChild(parity_flag.node);
+	svg.appendChild(read_a_a_text.node);
+	svg.appendChild(read_a_b_text.node);
+	svg.appendChild(read_a_c_text.node);
+	svg.appendChild(read_a_d_text.node);
+	svg.appendChild(read_b_a_text.node);
+	svg.appendChild(read_b_b_text.node);
+	svg.appendChild(read_b_c_text.node);
+	svg.appendChild(read_b_d_text.node);
 });
