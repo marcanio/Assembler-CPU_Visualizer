@@ -1,0 +1,61 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/school_stuff/SeniorDesign/i281Verilog/simulation/modelsim
+v_2to1mux
+Z1 !s110 1600864529
+!i10b 1
+!s100 M10PUj[Hz3FBz:MbI@Q@m2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IeHb0E>n:K=Q9ZSlInHlXE1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1600860437
+8D:/school_stuff/SeniorDesign/i281Verilog/_2to1mux.v
+FD:/school_stuff/SeniorDesign/i281Verilog/_2to1mux.v
+!i122 0
+L0 1 14
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1600864529.000000
+!s107 D:/school_stuff/SeniorDesign/i281Verilog/_2to1mux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/SeniorDesign/i281Verilog|D:/school_stuff/SeniorDesign/i281Verilog/_2to1mux.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+D:/school_stuff/SeniorDesign/i281Verilog
+Z8 tCvgOpt 0
+n@_2to1mux
+v_programCounter
+R1
+!i10b 1
+!s100 hP=[zJ6Fml2h`_IP>e6Il3
+R2
+IA>>AXI5aFl`j0gfLYVZo=1
+R3
+R0
+w1600863540
+8D:/school_stuff/SeniorDesign/i281Verilog/_programCounter.v
+FD:/school_stuff/SeniorDesign/i281Verilog/_programCounter.v
+!i122 1
+L0 1 25
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/school_stuff/SeniorDesign/i281Verilog/_programCounter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/SeniorDesign/i281Verilog|D:/school_stuff/SeniorDesign/i281Verilog/_programCounter.v|
+!i113 1
+R6
+R7
+R8
+n@_program@counter
