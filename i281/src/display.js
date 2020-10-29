@@ -2,7 +2,7 @@ import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
 import PathSVG from "./PathSVG.js";
-
+import * as Instructions from "./instructions.js"
 
 function init() {
 	//const btn = document.getElementById("btn");
@@ -49,7 +49,7 @@ window.addEventListener("load", function() {
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
 
 	var alu = new PolygonSVG(Constants.ALU_ID, Constants.ALU_POLYGON, Constants.BLOCK_STYLE, Constants.ALU_OFFSET);
-	var code_mem = new PolygonSVG(Constants.CODE_MEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
+	var code_mem = new PolygonSVG(Constants.CODE_MEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE_TRANSPARENT, Constants.CODE_MEM_OFFSET);
 	var control = new PolygonSVG(Constants.CONTROL_ID, Constants.CONTROL_POLYGON, Constants.BLOCK_STYLE, Constants.CONTROL_OFFSET);
 	var dmem = new PolygonSVG(Constants.DMEM_ID, Constants.DATA_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.DATA_MEM_OFFSET);
 	var opcode_decoder = new PolygonSVG(Constants.OPCODE_DECODER_ID, Constants.OPCODE_DECODER_POLYGON, Constants.BLOCK_STYLE, Constants.OPCODE_DECODER_OFFSET);
@@ -139,9 +139,15 @@ window.addEventListener("load", function() {
 	var control_c17 = new PolygonSVG(Constants.CONTROL_C17, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 17 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
 	var control_c18 = new PolygonSVG(Constants.CONTROL_C18, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 18 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
 
+	//var instructions = Instructions.instructions
+
+	//var instruction = new TextSVG(70, 30, instruction, 100001010, Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
 
 	var svg = document.getElementById("canvas");
 	//var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+
+
 	svg.appendChild(mux0.node);
 	svg.appendChild(mux0_false.node);
 	svg.appendChild(mux0_true.node);
@@ -238,4 +244,12 @@ window.addEventListener("load", function() {
 	svg.appendChild(zero_flag.node);
 	svg.appendChild(overflow_flag.node);
 	svg.appendChild(parity_flag.node);
+	/*
+	for(var i=0; i<instructions.length; i++){
+		var cur = "inst"+i
+		var inst = new TextSVG(120, 30+30*i, cur, instructions[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+		svg.appendChild(inst.node)
+		console.log(inst.id)
+	}
+	*/
 });
