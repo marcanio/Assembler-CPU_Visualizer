@@ -7,7 +7,7 @@
 
 import {RegisterFile} from "./registerFile.js"
 import {Multiplexer} from "./mux.js"
-import {alu} from "./alu.js"
+import {Alu} from "./alu.js"
 import {OpCodeDecoder} from "./opCodeDecoder.js"
 import {Control} from "./control.js"
 
@@ -21,10 +21,21 @@ export class cpu {
         this.registers = new RegisterFile(8, 4);
         this.dMem = new RegisterFile(8, 8);  // Unsure if this is the total size
         this.flags = new RegisterFile(4, 1);
+
+        this.regMux0 = new Multiplexer(4);
+        this.regMux1 = new Multiplexer(4);
         
     }
 
+    setup() {
+        // Setup the registers' mux sources
 
+        for(var i=0; i < 4; i++) {
+            this.regMux0.setSource(i, this.registers.getRegister(i))
+            this.regMux1.setSource(i, this.registers.getRegister(i))
+        }
+        
+    }
 
     /**
      * This function simulates the processor running for one cycle
@@ -33,7 +44,7 @@ export class cpu {
      * 
     */
     singleCycle() {
-        let opcode = this.iMem.getRegister(0);
+        let opcode = this.iMem.getRegister(0);  // TODO this might need to not be zero later...
 
         let decodedOpcode = this.ocd.getDecodedOpCode(opcode);
 
@@ -44,20 +55,20 @@ export class cpu {
 
         // Process the control signals
         let controlSignals = this.control.setControl(decodedOpcode, zeroFlag, negativeFlag, overflowFlag);
-
-        // Create these muxes
-        let regMux0 = new Multiplexer(4);
-        let regMux1 = new Multiplexer(4);
         
         // Set them in the right state
         regMux0.setState(this.control.get('c4c5'));
         regMux1.setState(this.control.get('c6c7'));
 
-        // Update all of the values
-        for(let i=0; i<regMux0.size; i++) {
-            regMux0.setSource(i, this.registers.getRegister(i));
-            regMux1.setSource(i, this.registers.getRegister(i));
-        }
+        let aluMux = new Multiplexer(2);
+        aluMux.setState(controlSignals[11]);
+
+        // Update the mux for the alu
+        aluMux.setSource(0, this.regMux1.getOutput);
+        aluMux.setSource(1, opcode.substring(0,8)); // TODO. This will be a massive headache. What endian are we using? This should be right.
+
+
+
 
     }
 };

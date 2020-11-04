@@ -45,7 +45,7 @@ export class Multiplexer {
      * This function sets the input states of the multiplexer
      * @param port: The input port to set the value of
      * @param callback: A function that gives an input value
-     * @since: 2.0
+     * @since: 2.0 - The great callback change
      * @author Bryce Snell
      */
     setSource(port, callback) {
