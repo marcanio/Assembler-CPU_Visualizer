@@ -12,6 +12,7 @@ export class RegisterFile {
         this.width = width;
         this.rows = rows;
         this.registers = Array(rows);
+        this.writeEnable = 0;
     }
 
     getWidth() {
@@ -35,6 +36,18 @@ export class RegisterFile {
         else throw 'Invalid src register';
     }
 
+
+    /**
+     * This function sets the write enable bit
+     * @param writeEnable: binary for write enable
+     * @since 1.0
+     * @author Bryce Snell
+     * 
+    */
+    setWriteEnable(writeEnable) {
+        this.writeEnable = writeEnable;
+    }
+
     /**
      * This function returns a value from a register
      * @param dest: integer for the register target
@@ -44,7 +57,15 @@ export class RegisterFile {
      * 
     */
     setRegister(dest, value) {
-        if (0 <= dest && dest <= this.rows) this.registers[dest] = value;
-        else throw 'Invaid dest register';
+        if (this.writeEnable == 1) {
+            if (0 <= dest && dest <= this.rows) this.registers[dest] = value;
+            else throw 'Invaid dest register';
+        }
+
+        else {
+            console.warn("Attempt to write to register without enabling write (this may be expected)");
+
+        }
+
     }
 };

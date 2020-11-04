@@ -57,10 +57,14 @@ export class Multiplexer {
 
     /**
      * This function gets the current output of a multiplexer
+     * @since: 2.0 - Allows callbacks and "static" data
      * @author Bryce Snell
      */
     getOutput() {
-        return this.sources[this.state]();
+        let value = this.sources[this.state];
+        // This should allow for dynamic callbacks and "static" values
+        if (typeof value === 'function') { return this.sources[this.state](); }   
+        else { return value; }
     }
 
 

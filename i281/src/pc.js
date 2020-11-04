@@ -23,13 +23,13 @@ export class PC {
 
     /**
      * This function calculates the PC
-     * @param: callback - callback function to get the lower 6 bits from the instruction memory
+     * @param: opcode - 16 bits from the instruction memory
      * @param: branchControl - binary integer for branch control signal
      * @since: 1.0
      * @author Bryce Snell
      */
-    process(callback, branchControl) {
-        let instruction = callback();  // This will get the lower 6 bits from the instruction memory, control is a string
+    process(opcode, branchControl) {
+        let instruction = opcode.substring(0,6); // get the lower 6 bits
         let pcLength = this.currentPC.length();
 
 		// No branch
@@ -81,7 +81,7 @@ export class PC {
 			// Bit based add (I'm so sorry we have to do it this way)
 			for(i=0; i<pcLength; i++) {
 				let a = parseInt(this.currentPC[i], 2);
-				let b = parseInt(this.instruction[i], 2);
+				let b = parseInt(instruction[i], 2);
 				
 
 				let sum = a+b+carryArray[i];
