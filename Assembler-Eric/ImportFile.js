@@ -49,7 +49,7 @@ let instructionFormat = ["0000_", // NOOP
 
 window.onload = function() {
     let fileInput = document.getElementById('fileInput');
-    let fileDisplayArea = document.getElementById('fileDisplayArea');
+    //let fileDisplayArea = document.getElementById('fileDisplayArea');
 
 		fileInput.addEventListener('change', function(e) {
 			let file = fileInput.files[0];
@@ -57,7 +57,7 @@ window.onload = function() {
             let reader = new FileReader();
                 //Pass each line to the remove comments function
 				reader.onload = function(e) {
-                    fileDisplayArea.innerText = reader.result;
+                    //fileDisplayArea.innerText = reader.result;
                     let lines = this.result.split('\n');
                     removeComments(lines);
 				}
@@ -238,11 +238,18 @@ function removeComments(lines){
  * Main method - Formats output of the assembly and runs the code through methods
  */
 function mainMethod(){
+    //Hide file input & buttons
+    document.getElementById("inputField").style.display = "none";
+    document.getElementById("fileInputButton").style.display = "none";
+    document.getElementById("textInputButton").style.display = "none";
+    document.getElementById("assemblyButton").style.display = "none";
+    document.getElementById("banner").innerHTML = "Successfully Assembled"
+    document.getElementById("displayAssemblytext").innerHTML= "<b>Assembly Code:</b>\n";
+    //Show download buttons
     document.getElementById("downloadButton").style.display = "block";
     document.getElementById("downloadLow").style.display = "block";
     document.getElementById("downloadHigh").style.display = "block";
-    let fileDisplayArea = document.getElementById('fileDisplayArea');
-    fileDisplayArea.innerText = "";
+    
     let count = 0;
     //Remove white spaces
     for(let i=0; i < withComments.length;i++){
@@ -265,7 +272,7 @@ function mainMethod(){
     console.log(branchDest.values());
 
 
-    fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
+    //fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
     
     for(let line =0; line <withoutComments.length; line++){
         let eachLine = withoutComments[line].split(" ");
