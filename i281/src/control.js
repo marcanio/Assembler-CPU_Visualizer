@@ -55,29 +55,29 @@ export class Control {
         
         
         // This part sets the output. Note, if the input is not one hot encoded this will break.
-        if(decodedOpCode.charAt(0) == 1) this.c = [null, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(1) == 1) this.c = [null, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0];
-        if(decodedOpCode.charAt(2) == 1) this.c = [null, 1, 0, 1, x1, x0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(3) == 1) this.c = [null, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0];
-        if(decodedOpCode.charAt(4) == 1) this.c = [null, 0, 0, 1, x1, x0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0];
-        if(decodedOpCode.charAt(5) == 1) this.c = [null, 0, 0, 1, y1, y0, 0, 0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(6) == 1) this.c = [null, 0, 0, 1, 0, 0, 0, 0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 0];
-        if(decodedOpCode.charAt(7) == 1) this.c = [null, 0, 0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 0, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(8) == 1) this.c = [null, 0, 0, 1, x1, x0, 0, 0, x1, x0, 1, 1, 1, 0, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(9) == 1) this.c = [null, 0, 0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(10) == 1) this.c = [null, 0, 0, 1, x1, x0, 0, 0, x1, x0, 1, 1, 1, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(11) == 1) this.c = [null, 0, 0, 1, 0, 0, 0, 0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 1];
-        if(decodedOpCode.charAt(12) == 1) this.c = [null, 0, 0, 1, y1, y0, 0, 0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 1];
-        if(decodedOpCode.charAt(13) == 1) this.c = [null, 0, 0, 1, 0, 0, x1, x0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0];
-        if(decodedOpCode.charAt(14) == 1) this.c = [null, 0, 0, 1, y1, y0, x1, x0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0];
-        if(decodedOpCode.charAt(15) == 1) this.c = [null, 0, 0, 1, x1, x0, 0, 0, x1, x0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(16) == 1) this.c = [null, 0, 0, 1, x1, x0, 0, 0, x1, x0, 1, 0, 0, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(17) == 1) this.c = [null, 0, 0, 1, x1, x0, y1, y0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(18) == 1) this.c = [null, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(19) == 1) this.c = [null, 0, b1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(20) == 1) this.c = [null, 0, b2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(0) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(1) == 1) this.c =  [null, 1,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 1, 0, 0, 0];
+        if(decodedOpCode.charAt(2) == 1) this.c =  [null, 1,  0, 1, x1, x0,  0,  0,  0,  0, 0, 1, 1, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(3) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 0];
+        if(decodedOpCode.charAt(4) == 1) this.c =  [null, 0,  0, 1, x1, x0,  0,  0,  0,  0, 0, 1, 1, 0, 0, 0, 1, 1, 0];
+        if(decodedOpCode.charAt(5) == 1) this.c =  [null, 0,  0, 1, y1, y0,  0,  0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(6) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 0];
+        if(decodedOpCode.charAt(7) == 1) this.c =  [null, 0,  0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 0, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(8) == 1) this.c =  [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 1, 1, 0, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(9) == 1) this.c =  [null, 0,  0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 1, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(10) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 1, 1, 1, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(11) == 1) this.c = [null, 0,  0, 1,  0,  0,  0,  0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 1];
+        if(decodedOpCode.charAt(12) == 1) this.c = [null, 0,  0, 1, y1, y0,  0,  0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 1];
+        if(decodedOpCode.charAt(13) == 1) this.c = [null, 0,  0, 1,  0,  0, x1, x0,  0,  0, 0, 0, 0, 0, 0, 1, 0, 1, 0];
+        if(decodedOpCode.charAt(14) == 1) this.c = [null, 0,  0, 1, y1, y0, x1, x0,  0,  0, 0, 1, 1, 0, 0, 0, 0, 1, 0];
+        if(decodedOpCode.charAt(15) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(16) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 0, 0, 1, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(17) == 1) this.c = [null, 0,  0, 1, x1, x0, y1, y0,  0,  0, 0, 0, 1, 1, 1, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(18) == 1) this.c = [null, 0,  1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(19) == 1) this.c = [null, 0, b1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(20) == 1) this.c = [null, 0, b2, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     
     }
 
