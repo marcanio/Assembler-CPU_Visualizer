@@ -50,21 +50,21 @@ export class Alu {
 	 * @author Bryce Snell
 	 */
 	getResult() {
-		return this.result;
+		return this.pad(this.result.toString(2), 8);
 	}
 
     /**
      * This function gets the results of the processor
+	 * @param: control - Control bits for cpu
      * @since: 1.0
      * @author Bryce Snell
      */
-    process() {
-		let control = this.controlCallback(this.controlCBParams);
+    process(control) {
 		let carry = 0;
 		let overflow = 0;
 
 		// Shift left
-		if(control[0] == 0 && control[1] == 1) {
+		if(control[0] == 0 && control[1] == 0) {
 			this.result = this.opA << 1;
 			carry = this.opA[7];
 		}
@@ -92,10 +92,12 @@ export class Alu {
 				let sum = a+b+carryArray[i];
 				if (sum == 0) {
 					tempResult[i] = 0;
+					carryArray[i+1] = 0;
 				}
 
 				else if (sum == 1) {
 					tempResult[i] = 1;
+					carryArray[i+1] = 0;
 				}
 
 				else if (sum == 2) {
@@ -114,9 +116,19 @@ export class Alu {
 			carry = carryArray[8];
 			overflow = carryArray[8] ^ carryArray[7];
 
-			this.result = tempResult.toString(2);
+			this.result = tempResult.join();
 		}
 
 		else throw new Error('Unknown control state for alu: ' + control);
+	}
+	
+	/**
+     * A little helper function for padding strings.
+     * @param: input - input string to pad
+     * @param: size - Size to pad it to.
+     */
+    pad(input, size) {
+        while (input.length < size) {input= '0' + input;}
+        return input;
     }
 };

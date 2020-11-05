@@ -81,11 +81,21 @@ export class Control {
     
     }
 
+    /**
+     * A little helper function for padding strings.
+     * @param: input - input string to pad
+     * @param: size - Size to pad it to.
+     */
+    pad(input, size) {
+        while (input.length < (size || 2)) {input= '0' + input;}
+        return input;
+    }
+
     get(target) {
-        if(target == 'c4c5') return parseInt(this.c.slice(4,6).join(''),2);
-        if(target == 'c6c7') return parseInt(this.c.slice(6,8).join(''),2);
-        if(target == 'c8c8') return parseInt(this.c.slice(8,10).join(''),2);
-        if(target == 'c12c13') return parseInt(this.c.slice(12,14).join(''),2);
+        if(target == 'c4c5') return (String(this.c[4]) + String(this.c[5]));
+        if(target == 'c6c7') return (String(this.c[6]) + String(this.c[7]));
+        if(target == 'c8c9') return (String(this.c[8]) + String(this.c[9]));
+        if(target == 'c12c13') return (String(this.c[12]) + String(this.c[13]));
         else throw new Error("Invalid target: %s", target);
     }
 };

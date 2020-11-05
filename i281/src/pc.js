@@ -30,7 +30,7 @@ export class PC {
      */
     process(opcode, branchControl) {
         let instruction = opcode.substring(0,6); // get the lower 6 bits
-        let pcLength = this.currentPC.length();
+        let pcLength = this.currentPC.length;
 
 		// No branch
 		if(branchControl == 0) {
@@ -41,7 +41,7 @@ export class PC {
 			carryArray[0] = 0;  // Initialize the first bit to 0
 
 			// Bit based add (I'm so sorry we have to do it this way)
-			for(i=0; i<pcLength; i++) {
+			for(let i=0; i<pcLength; i++) {
 				let a = parseInt(this.currentPC[i], 2);
 				let b = parseInt(this.step[i], 2);
 				
@@ -49,18 +49,22 @@ export class PC {
 				let sum = a+b+carryArray[i];
 				if (sum == 0) {
 					tempResult[i] = 0;
+					carryArray[i+1] = 0;
 				}
 
 				else if (sum == 1) {
 					tempResult[i] = 1;
+					carryArray[i+1] = 0;
 				}
 
 				else if (sum == 2) {
 					tempResult[i] = 0;
+					carryArray[i+1] = 1;
 				}
 
 				else if (sum == 3) {
 					tempResult[i] = 1;
+					carryArray[i+1] = 1;
 				}
 
 				else throw new Error('The adder had a massive mistake: ' + sum);
@@ -79,7 +83,7 @@ export class PC {
 			carryArray[0] = 0;  // Initialize the first bit to 0
 
 			// Bit based add (I'm so sorry we have to do it this way)
-			for(i=0; i<pcLength; i++) {
+			for(let i=0; i<pcLength; i++) {
 				let a = parseInt(this.currentPC[i], 2);
 				let b = parseInt(instruction[i], 2);
 				
@@ -87,24 +91,28 @@ export class PC {
 				let sum = a+b+carryArray[i];
 				if (sum == 0) {
 					tempResult[i] = 0;
+					carryArray[i+1] = 0;
 				}
 
 				else if (sum == 1) {
 					tempResult[i] = 1;
+					carryArray[i+1] = 0;
 				}
 
 				else if (sum == 2) {
 					tempResult[i] = 0;
+					carryArray[i+1] = 1;
 				}
 
 				else if (sum == 3) {
 					tempResult[i] = 1;
+					carryArray[i+1] = 1;
 				}
 
 				else throw new Error('The pc had a massive mistake: ' + sum);
 			}
 
-			this.currentPC = tempResult.toString(2);
+			this.currentPC = tempResult.join();
 		}
 
 		else throw new Error('Unknown control state for alu: ' + control);

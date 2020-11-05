@@ -23,6 +23,12 @@ export class RegisterFile {
         return this.rows;
     }
 
+    initialize() {
+        for(let i=0; i<this.rows; i++) {
+            this.registers[i] = new Array(this.width+1).join('0');
+        }
+    }
+
     /**
      * This function returns a value from a register
      * @param src: integer for the register target

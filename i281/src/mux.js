@@ -44,13 +44,13 @@ export class Multiplexer {
     /**
      * This function sets the input states of the multiplexer
      * @param port: The input port to set the value of
-     * @param callback: A function that gives an input value
-     * @since: 2.0 - The great callback change
+     * @param value: Input value to the mux
+     * @since: 3.0 - The great callback change was not good, we have reverted
      * @author Bryce Snell
      */
-    setSource(port, callback) {
+    setSource(port, value) {
         if(0 <= port && port <= (this.size - 1)) {
-            this.sources[port] = callback;
+            this.sources[port] = value;
         }   
         else throw 'Invalid multiplexer port: ' + port;
     }
@@ -61,10 +61,7 @@ export class Multiplexer {
      * @author Bryce Snell
      */
     getOutput() {
-        let value = this.sources[this.state];
-        // This should allow for dynamic callbacks and "static" values
-        if (typeof value === 'function') { return this.sources[this.state](); }   
-        else { return value; }
+        return this.sources[this.state];
     }
 
 

@@ -42,33 +42,6 @@ var binaryLookup = {
     '1111': 'F',
 };
 
-// DEPRECATED
-export function hexToBinary(s) {
-    var ret = '';
-    for (var i = 0, len = s.length; i < len; i++) {
-        ret += hexlookup[s[i]];
-    }
-    return ret;
-}
-
-// DEPRECATED
-export function binToHex(s) {
-    /*var ret = '';
-    let lookupString = '';
-
-    let bin = padBin(s);
-
-    for (var i=0, len = bin.length; i < len; i += 4) {
-
-        lookupString = [bin[i], bin[i+1], bin[i+2], bin[i+3]].join('');
-           
-        ret += binaryLookup[lookupString];
-    }*/
-
-    let decimalValue = parseInt(s, 2);
-    return decimalValue.toString(16);
-}
-
 export function padBin(n) {
     let targetLength = 0;
 

@@ -12,11 +12,11 @@ import {OpCodeDecoder} from "./opCodeDecoder.js"
 import {Control} from "./control.js"
 import {PC} from "./pc.js"
 
-export class cpu {
+export class CPU {
     constructor() {
         // The constructor will create a processor object with all needed subcomponents
         this.pc = new PC();
-        this.iMem = new RegisterFile(8, 4);
+        this.iMem = new RegisterFile(16, 4);
         this.ocd = new OpCodeDecoder();
         this.control = new Control();
         this.registers = new RegisterFile(8, 4);
@@ -38,16 +38,14 @@ export class cpu {
     }
 
     setup() {
-        // Setup the registers' mux sources
-
-        for(var i=0; i < 4; i++) {
-            this.regMux0.setSource(i, this.registers.getRegister(i))
-            this.regMux1.setSource(i, this.registers.getRegister(i))
-        }
+        // Initialize the register files
+        // TODO this may be unneeded for the iMem after we get code from Eric
+        this.iMem.initialize();
+        this.dMem.initialize();
+        this.registers.initialize();
+        this.flags.initialize();
 
         this.alu.setControl(this.control.get, 'c12c13');
-
-        this.aluResultMux.setSource(0, this.alu.getResult);
     }
 
     /**
@@ -74,25 +72,34 @@ export class cpu {
         let overflowFlag = this.flags.getRegister(0).charAt(3); 
 
         // Process the control signals
-        let controlSignals = this.control.setControl(decodedOpcode, zeroFlag, negativeFlag, overflowFlag);
+        this.control.setControl(decodedOpcode, zeroFlag, negativeFlag, overflowFlag);
+        let controlSignals = this.control.getControl();
         
         // Set the muxes in the correct state (These won't really be used in the sim, they are just for display)
-        regMux0.setState(this.control.get('c4c5'));
-        regMux1.setState(this.control.get('c6c7'));
+        this.regMux0.setState(this.control.get('c4c5'));
+        this.regMux1.setState(parseInt(this.control.get('c6c7'),2));
 
+        // Setup the registers' mux sources
+        for(var i=0; i < 4; i++) {
+            this.regMux0.setSource(i, this.registers.getRegister(i))
+            this.regMux1.setSource(i, this.registers.getRegister(i))
+        }
 
         // Set the state of the multiplexer before the alu.
         this.aluSourceMux.setState(controlSignals[11]);
 
         // Update the mux for the alu
-        aluSourceMux.setSource(0, this.regMux1.getOutput);
-        aluSourceMux.setSource(1, opcode.substring(0,8)); // TODO. This will be a massive headache. What endian are we using? This should be right.
+        this.aluSourceMux.setSource(0, this.regMux1.getOutput());
+        this.aluSourceMux.setSource(1, opcode.substring(0,8)); // TODO. This will be a massive headache. What endian are we using? This should be right.
 
         // Setup the alu inputs and get the result
-        this.alu.setOps(this.registers.getRegister(this.control.get('c4c5')), this.aluSourceMux.getOutput());
-        this.alu.process()
+        let aluOpA = this.registers.getRegister(parseInt(this.control.get('c4c5'),2));
+        let aluOpB = this.aluSourceMux.getOutput();
+        this.alu.setOps(aluOpA, aluOpB);
+        this.alu.process(this.control.get('c12c13'));
 
         // Handle post mux alu
+        this.aluResultMux.setSource(0, this.alu.getResult());
         this.aluResultMux.setSource(1, opcode.substring(0,8));
         this.aluResultMux.setState(controlSignals[15]);
         let aluSourceMuxOutput = this.aluResultMux.getOutput();
@@ -107,6 +114,7 @@ export class cpu {
         this.registers.setRegister(this.control.getControl('C8C9'), writebackResult);
 
         // Update pc
-        this.pc.process(this.iMem.getRegister(pc), controlSignals[2]);
+
+        this.pc.process(opcode, controlSignals[2]);
     }
 };
