@@ -46,6 +46,17 @@ window.addEventListener("load", function() {
 	var pc_update = new PolygonSVG(Constants.PC_UPDATE_ID, Constants.PC_UPDATE_POLYGON, Constants.BLOCK_STYLE, Constants.PC_UPDATE_OFFSET);
 	var reg_file = new PolygonSVG(Constants.REG_FILE_ID, Constants.REGISTER_FILE_POLYGON, Constants.BLOCK_STYLE, Constants.REGISTER_FILE_OFFSET);
 
+	var reg_a_label = new TextSVG(Constants.REG_A[0] - 80, Constants.REG_A[1], Constants.REG_A_LABEL_ID, "A", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+	var reg_b_label = new TextSVG(Constants.REG_B[0] - 80, Constants.REG_B[1], Constants.REG_B_LABEL_ID, "B", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+	var reg_c_label = new TextSVG(Constants.REG_C[0] - 80, Constants.REG_C[1], Constants.REG_C_LABEL_ID, "C", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+	var reg_d_label = new TextSVG(Constants.REG_D[0] - 80, Constants.REG_D[1], Constants.REG_D_LABEL_ID, "D", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+
+	var reg_a_text = new TextSVG(Constants.REG_A[0], Constants.REG_A[1], Constants.REG_A_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+	var reg_b_text = new TextSVG(Constants.REG_B[0], Constants.REG_B[1], Constants.REG_B_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+	var reg_c_text = new TextSVG(Constants.REG_C[0], Constants.REG_C[1], Constants.REG_C_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+	var reg_d_text = new TextSVG(Constants.REG_D[0], Constants.REG_D[1], Constants.REG_D_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+
+
 	var read_a_mux = new Mux4_1SVG(Constants.READ_A_MUX_ID, Constants.READ_A_MUX_A_ID, Constants.READ_A_MUX_B_ID, Constants.READ_A_MUX_C_ID, Constants.READ_A_MUX_D_ID, Constants.READ_A_MUX_OFFSET);
 	var read_b_mux = new Mux4_1SVG(Constants.READ_B_MUX_ID, Constants.READ_B_MUX_A_ID, Constants.READ_B_MUX_B_ID, Constants.READ_B_MUX_C_ID, Constants.READ_B_MUX_D_ID, Constants.READ_B_MUX_OFFSET);
 	
@@ -217,4 +228,14 @@ window.addEventListener("load", function() {
 	svg.appendChild(zero_flag.node);
 	svg.appendChild(overflow_flag.node);
 	svg.appendChild(parity_flag.node);
+	svg.appendChild(reg_a_text.node);
+	svg.appendChild(reg_b_text.node);
+	svg.appendChild(reg_c_text.node);
+	svg.appendChild(reg_d_text.node);
+	svg.appendChild(reg_a_label.node);
+	svg.appendChild(reg_b_label.node);
+	svg.appendChild(reg_c_label.node);
+	svg.appendChild(reg_d_label.node);
+
+
 });

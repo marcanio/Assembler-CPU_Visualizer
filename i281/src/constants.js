@@ -28,6 +28,12 @@ export const MUX_B = [20, 80];
 export const MUX_C = [20, 120];
 export const MUX_D = [20, 160];
 
+export const REG_A = [100, 80];
+export const REG_B = [100, 160];
+export const REG_C = [100, 240];
+export const REG_D = [100, 320];
+
+
 export const OPCODE_TPOS = [100, 30];
 export const CONTROL_TPOS = [70, 30];
 export const FLAG_TPOS = [70, 30];
@@ -181,6 +187,17 @@ export const READ_B_MUX_A_ID = "read_b_a";
 export const READ_B_MUX_B_ID = "read_b_b";
 export const READ_B_MUX_C_ID = "read_b_c";
 export const READ_B_MUX_D_ID = "read_b_d";
+
+export const REG_A_ID = "reg_a";
+export const REG_B_ID = "reg_a";
+export const REG_C_ID = "reg_a";
+export const REG_D_ID = "reg_a";
+
+export const REG_A_LABEL_ID = "reg_a_lbl";
+export const REG_B_LABEL_ID = "reg_b_lbl";
+export const REG_C_LABEL_ID = "reg_d_lbl";
+export const REG_D_LABEL_ID = "reg_d_lbl";
+
 
 
 export const CONTROL_C1 = "control_c1";
