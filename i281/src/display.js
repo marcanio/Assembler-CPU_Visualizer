@@ -11,6 +11,7 @@ function init() {
 
 window.addEventListener("load", function() {
 	init();
+	//console.log(Constants.BLOCK_STYLE);
 	// TODO mask this in a mux thing
 	var mux0 = new PolygonSVG(Constants.MUX0_ID, [...Constants.MUX_POLYGON], Constants.BLOCK_STYLE, Constants.MUX0_OFFSET);
 	var mux0_false = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], Constants.MUX0_FALSE_ID, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE, Constants.MUX0_OFFSET);

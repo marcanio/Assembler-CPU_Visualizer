@@ -129,9 +129,9 @@ export const MUX_C_TEXT = "C";
 export const MUX_D_TEXT = "D";
 
 
-export const BLOCK_STYLE = " fill:white; stroke:black; stroke-width:2px;";
-export const WIRE_STYLE = "stroke:black; stroke-width:2px; fill:none; stroke:black;";
-export const ARROW_STYLE = " fill:black; stroke:black; stroke-width:1px;";
+export const BLOCK_STYLE = {"fill":"white", "stroke":"black", "stroke-width":"2px"};
+export const WIRE_STYLE = {"stroke":"black", "stroke-width":"2px", "fill":"none"};
+export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
 
 export const ID_ATTR = "id";
