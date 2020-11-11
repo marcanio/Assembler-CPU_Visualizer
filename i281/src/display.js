@@ -3,7 +3,11 @@ import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
 import PathSVG from "./PathSVG.js";
 import Mux2_1SVG from "./Mux2_1SVG.js";
-import Mux4_1SVG from "./Mux4_1SVG.js";
+import RegisterFileSVG from "./RegisterFileSVG.js";
+import PCValueSVG from "./PCValueSVG.js";
+import DMEM_SVG from "./DMEM_SVG.js";
+import FlagsSVG from "./FlagsSVG.js";
+import IMEM_SVG from "./IMEM_SVG.js";
 
 
 function init() {
@@ -18,14 +22,7 @@ window.addEventListener("load", function() {
 	var mux_alu_wire = new PolygonSVG(Constants.MUX_ALU_WIRE_ID, Constants.MUX_ALU_WIRE, Constants.BLOCK_STYLE);
 	mux_alu_wire.translate(Constants.MUX_ALU_WIRE_OFFSET[0],Constants.MUX_ALU_WIRE_OFFSET[1]);
 
-	var flags = new PolygonSVG(Constants.FLAGS_ID, Constants.FLAGS_POLYGON, Constants.BLOCK_STYLE, Constants.FLAGS_OFFSET);
-
-	var flag_text = new TextSVG(Constants.FLAG_TPOS[0],Constants.FLAG_TPOS[1], Constants.FLAG_TEXT_ID, Constants.FLAG_TEXT, Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
-
-	var carry_flag = new TextSVG(Constants.FLAG_VPOS[0] + 1 * Constants.FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.CARRY_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
-	var zero_flag = new TextSVG(Constants.FLAG_VPOS[0] + 2 * Constants.FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.ZERO_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
-	var overflow_flag = new TextSVG(Constants.FLAG_VPOS[0] + 3 * Constants.FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.OVERFLOW_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
-	var parity_flag = new TextSVG(Constants.FLAG_VPOS[0] + 4 * Constants.FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.PARITY_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
+	var flags = new FlagsSVG();
 
 	var mux0 = new Mux2_1SVG(Constants.MUX0_ID, Constants.MUX0_TRUE_ID, Constants.MUX0_FALSE_ID, Constants.MUX0_OFFSET);
 	var mux1 = new Mux2_1SVG(Constants.MUX1_ID, Constants.MUX1_TRUE_ID, Constants.MUX1_FALSE_ID, Constants.MUX1_OFFSET);
@@ -34,31 +31,19 @@ window.addEventListener("load", function() {
 	var mux4 = new Mux2_1SVG(Constants.MUX4_ID, Constants.MUX4_TRUE_ID, Constants.MUX4_FALSE_ID, Constants.MUX4_OFFSET);
 
 	var opcode_text = new TextSVG(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], Constants.OPCODE_TEXT_ID, Constants.OPCODE_TEXT, Constants.TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
+	var pc_udpate_text = new TextSVG(Constants.PC_UPDATE_TPOS[0],Constants.PC_UPDATE_TPOS[1], Constants.PC_UPDATE_TEXT_ID, "PC Update Logic", Constants.TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
+
 	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.TEXT_STYLE, Constants.CONTROL_OFFSET);
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
 
 	var alu = new PolygonSVG(Constants.ALU_ID, Constants.ALU_POLYGON, Constants.BLOCK_STYLE, Constants.ALU_OFFSET);
-	var code_mem = new PolygonSVG(Constants.CODE_MEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
+	var code_mem = new IMEM_SVG();
 	var control = new PolygonSVG(Constants.CONTROL_ID, Constants.CONTROL_POLYGON, Constants.BLOCK_STYLE, Constants.CONTROL_OFFSET);
-	var dmem = new PolygonSVG(Constants.DMEM_ID, Constants.DATA_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.DATA_MEM_OFFSET);
+	var dmem = new DMEM_SVG();
 	var opcode_decoder = new PolygonSVG(Constants.OPCODE_DECODER_ID, Constants.OPCODE_DECODER_POLYGON, Constants.BLOCK_STYLE, Constants.OPCODE_DECODER_OFFSET);
-	var pc_value = new PolygonSVG(Constants.PC_VALUE_ID, Constants.PC_VALUE_POLYGON, Constants.BLOCK_STYLE, Constants.PC_VALUE_OFFSET);
+	var pc_value = new PCValueSVG();
 	var pc_update = new PolygonSVG(Constants.PC_UPDATE_ID, Constants.PC_UPDATE_POLYGON, Constants.BLOCK_STYLE, Constants.PC_UPDATE_OFFSET);
-	var reg_file = new PolygonSVG(Constants.REG_FILE_ID, Constants.REGISTER_FILE_POLYGON, Constants.BLOCK_STYLE, Constants.REGISTER_FILE_OFFSET);
-
-	var reg_a_label = new TextSVG(Constants.REG_A[0] - 80, Constants.REG_A[1], Constants.REG_A_LABEL_ID, "A", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-	var reg_b_label = new TextSVG(Constants.REG_B[0] - 80, Constants.REG_B[1], Constants.REG_B_LABEL_ID, "B", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-	var reg_c_label = new TextSVG(Constants.REG_C[0] - 80, Constants.REG_C[1], Constants.REG_C_LABEL_ID, "C", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-	var reg_d_label = new TextSVG(Constants.REG_D[0] - 80, Constants.REG_D[1], Constants.REG_D_LABEL_ID, "D", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-
-	var reg_a_text = new TextSVG(Constants.REG_A[0], Constants.REG_A[1], Constants.REG_A_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-	var reg_b_text = new TextSVG(Constants.REG_B[0], Constants.REG_B[1], Constants.REG_B_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-	var reg_c_text = new TextSVG(Constants.REG_C[0], Constants.REG_C[1], Constants.REG_C_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-	var reg_d_text = new TextSVG(Constants.REG_D[0], Constants.REG_D[1], Constants.REG_D_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-
-
-	var read_a_mux = new Mux4_1SVG(Constants.READ_A_MUX_ID, Constants.READ_A_MUX_A_ID, Constants.READ_A_MUX_B_ID, Constants.READ_A_MUX_C_ID, Constants.READ_A_MUX_D_ID, Constants.READ_A_MUX_OFFSET);
-	var read_b_mux = new Mux4_1SVG(Constants.READ_B_MUX_ID, Constants.READ_B_MUX_A_ID, Constants.READ_B_MUX_B_ID, Constants.READ_B_MUX_C_ID, Constants.READ_B_MUX_D_ID, Constants.READ_B_MUX_OFFSET);
+	var reg_file = new RegisterFileSVG();
 	
 	var alu_result_wire = new PolygonSVG(Constants.ALU_RESULT_WIRE_ID, Constants.ALU_RESULT_WIRE, Constants.WIRE_STYLE);
 	alu_result_wire.translate(Constants.ALU_RESULT_WIRE_OFFSET[0], Constants.ALU_RESULT_WIRE_OFFSET[1]);
@@ -149,20 +134,16 @@ window.addEventListener("load", function() {
 	mux4.get_all_nodes().forEach( x => svg.appendChild(x));
 	svg.appendChild(alu.node);
 	svg.appendChild(mux_alu_wire.node);
-	svg.appendChild(flags.node);
-	svg.appendChild(flag_text.node);
-	svg.appendChild(carry_flag.node);
-	svg.appendChild(code_mem.node);
+	flags.get_all_nodes().forEach( x => svg.appendChild(x));
+	code_mem.get_all_nodes().forEach( x => svg.appendChild(x));
 	svg.appendChild(opcode_decoder.node);
 	svg.appendChild(opcode_text.node);
 	svg.appendChild(control.node);
 	svg.appendChild(control_text.node);
-	svg.appendChild(reg_file.node);
-	read_a_mux.get_all_nodes().forEach( x => svg.appendChild(x));
-	read_b_mux.get_all_nodes().forEach( x => svg.appendChild(x));
-	svg.appendChild(pc_value.node);
+	reg_file.get_all_nodes().forEach(x => svg.appendChild(x));
+	pc_value.get_all_nodes().forEach(x => svg.appendChild(x));
 	svg.appendChild(pc_update.node);
-	svg.appendChild(dmem.node);
+	dmem.get_all_nodes().forEach(x => svg.appendChild(x));
 	svg.appendChild(alu_result_wire.node);
 	svg.appendChild(imem_decoder_wire.node);
 	svg.appendChild(decoder_control_wire.node);
@@ -225,17 +206,5 @@ window.addEventListener("load", function() {
 	svg.appendChild(imem_mux1_wire.node);
 	svg.appendChild(switches_mux1_wire.node);
 	svg.appendChild(switches_text.node);
-	svg.appendChild(zero_flag.node);
-	svg.appendChild(overflow_flag.node);
-	svg.appendChild(parity_flag.node);
-	svg.appendChild(reg_a_text.node);
-	svg.appendChild(reg_b_text.node);
-	svg.appendChild(reg_c_text.node);
-	svg.appendChild(reg_d_text.node);
-	svg.appendChild(reg_a_label.node);
-	svg.appendChild(reg_b_label.node);
-	svg.appendChild(reg_c_label.node);
-	svg.appendChild(reg_d_label.node);
-
-
+	svg.appendChild(pc_udpate_text.node);
 });
