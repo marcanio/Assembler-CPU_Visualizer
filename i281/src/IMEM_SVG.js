@@ -11,6 +11,8 @@ let addr = []
 let box = []
 let mem = [];
 
+
+
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
 
@@ -19,7 +21,7 @@ export default class IMEM_SVG {
 		this.imem = new PolygonSVG(Constants.IMEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
 
 		for(var i=0; i<Inst.instructions.length; i++){
-			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+i, "0000", Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET)
+			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+i, (i+32).toString(2), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET) 
 			addr.push(cur)
 		}
 
