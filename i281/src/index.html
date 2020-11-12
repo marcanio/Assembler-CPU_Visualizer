@@ -9,42 +9,19 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
     <link rel="stylesheet" href="./index.css">
     <script src="./simulator.js" type="module"></script>
     <script src="./display.js" type="module"></script>
+
     
 </head>
   <body >
     <h1>i281 CPU</h1>
 
-    <svg id="canvas" height="1600" width="2400">
+    <svg id="canvas" height="1600" width="3000">
     </svg> 
   
     <input type="text" id="instruction">
-    <button onclick="test()">load</button>
+    <input type="button" id="btn" value="Compute">
     <label type="text" id="result"></label>
-    <p id="counter">0</p>
-    <script src="./load.js" type="module"></script>
-    
-    <script>
-      function test(){
-        var doc = document.getElementById("counter")
-                var counter = doc.innerHTML
-                console.log(counter)
-                var cur = "i"+counter
-                console.log(cur)
-                if(counter==0){
-                    var i0 = document.getElementById("inst0")
-                    i0.style.fill = "red"
-                }
-                else{
-                    var prev = counter-1
-                    var current = "inst"+counter
-                    var prev = "inst"+prev
-                    document.getElementById(prev).style.fill = "black"
-                    document.getElementById(current).style.fill = "red"
-                }
-                counter++
-                doc.innerHTML=counter
-      }
-    </script>
+
     
   </body>
 </html>
