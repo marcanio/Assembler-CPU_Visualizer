@@ -353,15 +353,21 @@ function mainMethod(){
     
     document.getElementById("displayMachinetext").innerHTML +=  "<b>Machine Code:</b><br>";
     let formatMachine = machineCode.split("\n");
-    
-    for(let line =0; line <formatMachine.length-1; line++){
+    let spaceing =0;
+    for(let line =0; line <formatMachine.length-1 + codeSegmentStart; line++){
         let x = document.getElementById('machineTable').insertRow(line);
         
         let y = x.insertCell(0);
-        let z = x.insertCell(1);
+        //let z = x.insertCell(1);
+        if(line >= codeSegmentStart){
+            y.innerHTML = formatMachine[spaceing]; 
+            spaceing++;
+        }else{
+            y.innerHTML = "|";
+            
+        }
 
-        y.innerHTML = line +1;
-        z.innerHTML = formatMachine[line];
+        
 
     }
     
