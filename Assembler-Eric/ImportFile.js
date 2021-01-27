@@ -46,8 +46,13 @@ let instructionFormat = ["0000_", // NOOP
 "1111_"  // BRGE
 ];
 
+//Objects in the DOM
+var downloadButtonObject = document.getElementById("downloadButton");
+
+
 
 window.onload = function() {
+    
     let fileInput = document.getElementById('fileInput');
     //let fileDisplayArea = document.getElementById('fileDisplayArea');
 
@@ -63,7 +68,8 @@ window.onload = function() {
 				}
 
                 reader.readAsText(file);	
-		});
+        });
+       
 }
 
 //--------------------Below deals with all of the data in the .data portion-----------
@@ -245,8 +251,9 @@ function mainMethod(){
     document.getElementById("assemblyButton").style.display = "none";
     document.getElementById("banner").innerHTML = "Successfully Assembled"
     document.getElementById("displayAssemblytext").innerHTML= "<b>Assembly Code:</b>\n";
-    //Show download buttons
-    document.getElementById("downloadButton").style.display = "block";
+    //Show download buttons 
+    downloadButtonObject.style.display = "block";
+    //document.getElementById("downloadButton").style.display = "block";
     document.getElementById("downloadLow").style.display = "block";
     document.getElementById("downloadHigh").style.display = "block";
     
@@ -343,9 +350,10 @@ function mainMethod(){
             y.innerHTML = eachLine[parts];
         } 
     }
+    
     document.getElementById("displayMachinetext").innerHTML +=  "<b>Machine Code:</b><br>";
     let formatMachine = machineCode.split("\n");
-
+    
     for(let line =0; line <formatMachine.length-1; line++){
         let x = document.getElementById('machineTable').insertRow(line);
         
@@ -356,6 +364,7 @@ function mainMethod(){
         z.innerHTML = formatMachine[line];
 
     }
+    
     
 }
 function formatInput(){
@@ -1021,7 +1030,7 @@ function ShowFile(){
     let T = document.getElementById("fileDiv");
     let F = document.getElementById("inputDiv");
     T.style.display ="block";
-    F.style.display ="none";
+  
 }
 /**
  * Choice to show the input box
@@ -1038,9 +1047,49 @@ function ShowTextbox(){
 function fillP(){
     let input = document.getElementById("textArea");
     let paragraph = document.getElementById("textInput");
-    paragraph.innerText = input.value;
+    
 
 }
 //TODO - Parse only the data
 function getData(){ 
+}
+
+/**
+ * ----------------------------Examples---------------------------------------
+ */
+
+ function BubbleSort(){
+     var BB = `.data
+     array   BYTE 7 , 3 , 2 , 1 , 6 , 4 , 5 , 8
+     last    BYTE 7
+     temp    BYTE ?
+     .code
+    LOADI  A , 0                 
+Outer:  LOAD   D , [ last ]             
+    LOADI  B , 0                  
+    CMP    A , D                  
+    BRGE   End             
+Inner:  LOAD   D , [ last ]             
+             SUB    D , A                  
+             CMP    B , D                  
+             BRGE   Iinc                  
+If:     LOADF  C , [ array + B ]        
+             LOADF  D , [ array + B + 1 ]        
+             CMP    D , C                  
+             BRGE   Jinc
+Swap:   STOREF [ array + B ] , D
+             STOREF [ array + B + 1 ] , C
+Jinc:   ADDI   B , 1                  
+             JUMP   Inner
+Iinc:   ADDI   A , 1                  
+             JUMP   Outer
+End:    NOOP`;
+   // var BubbleSort = ".data\narray BYTE 7 , 3 , 2 , 1 , 6 , 4 , 5 , 8 \n last BYTE 7 \n temp BYTE ?\n .code\n LOADI A, 0\n Outer: LOAD D, [last]\n LOADI B, 0\n CMP A, D\n BRGE End\n Inner: LOAD D, [last]\n SUB D, A\n CMP B, D\n BRGE Iinc\n If: LOADF C, [array+B]\n LOADF D, [array+B+1]\n CMP D, C\n BRGE Jinc\n Swap: STOREF [array+B], D\n STOREF [array+B+1], C\n Jinc: ADDI B, 1\n JUMP Inner\n Iinc: ADDI A, 1\n JUMP Outer\n End: NOOP ";
+    var newText = BB.split("\n");
+    removeComments(newText);
+    //withComments = newText;
+    document.getElementById("fileDiv").style.display = "block";
+    mainMethod();
+
+
 }
