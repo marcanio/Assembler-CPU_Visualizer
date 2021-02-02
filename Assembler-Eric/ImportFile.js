@@ -1060,42 +1060,5 @@ function fillP(){
 function getData(){ 
 }
 
-/**
- * ----------------------------Examples---------------------------------------
- */
-
- function BubbleSort(){
-     var BB = `.data
-     array   BYTE 7 , 3 , 2 , 1 , 6 , 4 , 5 , 8
-     last    BYTE 7
-     temp    BYTE ?
-     .code
-    LOADI  A , 0                 
-Outer:  LOAD   D , [ last ]             
-    LOADI  B , 0                  
-    CMP    A , D                  
-    BRGE   End             
-Inner:  LOAD   D , [ last ]             
-             SUB    D , A                  
-             CMP    B , D                  
-             BRGE   Iinc                  
-If:     LOADF  C , [ array + B ]        
-             LOADF  D , [ array + B + 1 ]        
-             CMP    D , C                  
-             BRGE   Jinc
-Swap:   STOREF [ array + B ] , D
-             STOREF [ array + B + 1 ] , C
-Jinc:   ADDI   B , 1                  
-             JUMP   Inner
-Iinc:   ADDI   A , 1                  
-             JUMP   Outer
-End:    NOOP`;
-   // var BubbleSort = ".data\narray BYTE 7 , 3 , 2 , 1 , 6 , 4 , 5 , 8 \n last BYTE 7 \n temp BYTE ?\n .code\n LOADI A, 0\n Outer: LOAD D, [last]\n LOADI B, 0\n CMP A, D\n BRGE End\n Inner: LOAD D, [last]\n SUB D, A\n CMP B, D\n BRGE Iinc\n If: LOADF C, [array+B]\n LOADF D, [array+B+1]\n CMP D, C\n BRGE Jinc\n Swap: STOREF [array+B], D\n STOREF [array+B+1], C\n Jinc: ADDI B, 1\n JUMP Inner\n Iinc: ADDI A, 1\n JUMP Outer\n End: NOOP ";
-    var newText = BB.split("\n");
-    removeComments(newText);
-    //withComments = newText;
-    document.getElementById("fileDiv").style.display = "block";
-    mainMethod();
 
 
-}
