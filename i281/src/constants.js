@@ -30,7 +30,6 @@ export const MUX_C = [20, 120];
 export const MUX_D = [20, 160];
 
 export const OPCODE_TPOS = [100, 30];
-export const PC_UPDATE_TPOS = [100, 30];
 export const CONTROL_TPOS = [70, 30];
 export const FLAG_TPOS = [70, 30];
 export const FLAG_VPOS = [0, 70];

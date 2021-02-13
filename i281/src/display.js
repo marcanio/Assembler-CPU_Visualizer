@@ -8,6 +8,7 @@ import PCValueSVG from "./PCValueSVG.js";
 import DMEM_SVG from "./DMEM_SVG.js";
 import FlagsSVG from "./FlagsSVG.js";
 import IMEM_SVG from "./IMEM_SVG.js";
+import PCUpdateSVG from "./PCUpdateSVG.js";
 
 
 function init() {
@@ -31,7 +32,6 @@ window.addEventListener("load", function() {
 	var mux4 = new Mux2_1SVG(Constants.MUX4_ID, Constants.MUX4_TRUE_ID, Constants.MUX4_FALSE_ID, Constants.MUX4_OFFSET);
 
 	var opcode_text = new TextSVG(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], Constants.OPCODE_TEXT_ID, Constants.OPCODE_TEXT, Constants.TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
-	var pc_udpate_text = new TextSVG(Constants.PC_UPDATE_TPOS[0],Constants.PC_UPDATE_TPOS[1], Constants.PC_UPDATE_TEXT_ID, "PC Update Logic", Constants.TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
 
 	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.TEXT_STYLE, Constants.CONTROL_OFFSET);
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
@@ -42,7 +42,7 @@ window.addEventListener("load", function() {
 	var dmem = new DMEM_SVG();
 	var opcode_decoder = new PolygonSVG(Constants.OPCODE_DECODER_ID, Constants.OPCODE_DECODER_POLYGON, Constants.BLOCK_STYLE, Constants.OPCODE_DECODER_OFFSET);
 	var pc_value = new PCValueSVG();
-	var pc_update = new PolygonSVG(Constants.PC_UPDATE_ID, Constants.PC_UPDATE_POLYGON, Constants.BLOCK_STYLE, Constants.PC_UPDATE_OFFSET);
+	var pc_update = new PCUpdateSVG();
 	var reg_file = new RegisterFileSVG();
 	
 	var alu_result_wire = new PolygonSVG(Constants.ALU_RESULT_WIRE_ID, Constants.ALU_RESULT_WIRE, Constants.WIRE_STYLE);
@@ -142,7 +142,7 @@ window.addEventListener("load", function() {
 	svg.appendChild(control_text.node);
 	reg_file.get_all_nodes().forEach(x => svg.appendChild(x));
 	pc_value.get_all_nodes().forEach(x => svg.appendChild(x));
-	svg.appendChild(pc_update.node);
+	pc_update.get_all_nodes().forEach(x => svg.appendChild(x));
 	dmem.get_all_nodes().forEach(x => svg.appendChild(x));
 	svg.appendChild(alu_result_wire.node);
 	svg.appendChild(imem_decoder_wire.node);
@@ -206,5 +206,4 @@ window.addEventListener("load", function() {
 	svg.appendChild(imem_mux1_wire.node);
 	svg.appendChild(switches_mux1_wire.node);
 	svg.appendChild(switches_text.node);
-	svg.appendChild(pc_udpate_text.node);
 });
