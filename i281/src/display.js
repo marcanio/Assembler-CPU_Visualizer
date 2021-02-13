@@ -6,14 +6,44 @@ import Mux2_1SVG from "./Mux2_1SVG.js";
 import RegisterFileSVG from "./RegisterFileSVG.js";
 import PCValueSVG from "./PCValueSVG.js";
 import DMEM_SVG from "./DMEM_SVG.js";
+import ALU_SVG from "./ALU_SVG.js";
+
 import FlagsSVG from "./FlagsSVG.js";
 import IMEM_SVG from "./IMEM_SVG.js";
 import PCUpdateSVG from "./PCUpdateSVG.js";
+import OpcodeDeCoderSVG from "./OpcodeDecoderSVG.js";
 
 
 function init() {
 	//const btn = document.getElementById("btn");
 	//btn.onclick = compute;
+	show_arrows.onchange = toggle_arrow_visablitity
+}
+
+function toggle_arrow_visablitity(checkbox) {
+	let arrows = [];
+	arrows.push(document.getElementById(Constants.IMEM_C1_ID));
+	arrows.push(document.getElementById(Constants.MUX_C2_ID));
+	arrows.push(document.getElementById(Constants.PC_VALUE_C3_ID));
+	arrows.push(document.getElementById(Constants.READ_A_C4_ID));
+	arrows.push(document.getElementById(Constants.READ_A_C5_ID));
+	arrows.push(document.getElementById(Constants.READ_B_C6_ID));
+	arrows.push(document.getElementById(Constants.READ_B_C7_ID));
+	arrows.push(document.getElementById(Constants.REG_FILE_C8_ID));
+	arrows.push(document.getElementById(Constants.REG_FILE_C9_ID));
+	arrows.push(document.getElementById(Constants.REG_FILE_C10_ID));
+	arrows.push(document.getElementById(Constants.MUX_C11_ID));
+	arrows.push(document.getElementById(Constants.ALU_C12_ID));
+	arrows.push(document.getElementById(Constants.ALU_C13_ID));
+	arrows.push(document.getElementById(Constants.FLAGS_C14_ID));
+	arrows.push(document.getElementById(Constants.MUX_C15_ID));
+	arrows.push(document.getElementById(Constants.MUX_C16_ID));
+	arrows.push(document.getElementById(Constants.DMEM_C17_ID));
+	arrows.push(document.getElementById(Constants.MUX_C18_ID));
+
+	const val = (checkbox.target.checked) ? "hidden" : "visible";
+	arrows.forEach( elem => elem.style.visibility = val);
+
 }
 
 window.addEventListener("load", function() {
@@ -31,16 +61,15 @@ window.addEventListener("load", function() {
 	var mux3 = new Mux2_1SVG(Constants.MUX3_ID, Constants.MUX3_TRUE_ID, Constants.MUX3_FALSE_ID, Constants.MUX3_OFFSET);
 	var mux4 = new Mux2_1SVG(Constants.MUX4_ID, Constants.MUX4_TRUE_ID, Constants.MUX4_FALSE_ID, Constants.MUX4_OFFSET);
 
-	var opcode_text = new TextSVG(Constants.OPCODE_TPOS[0],Constants.OPCODE_TPOS[1], Constants.OPCODE_TEXT_ID, Constants.OPCODE_TEXT, Constants.TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
 
 	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.TEXT_STYLE, Constants.CONTROL_OFFSET);
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
 
-	var alu = new PolygonSVG(Constants.ALU_ID, Constants.ALU_POLYGON, Constants.BLOCK_STYLE, Constants.ALU_OFFSET);
+	var alu = new ALU_SVG();
 	var code_mem = new IMEM_SVG();
 	var control = new PolygonSVG(Constants.CONTROL_ID, Constants.CONTROL_POLYGON, Constants.BLOCK_STYLE, Constants.CONTROL_OFFSET);
 	var dmem = new DMEM_SVG();
-	var opcode_decoder = new PolygonSVG(Constants.OPCODE_DECODER_ID, Constants.OPCODE_DECODER_POLYGON, Constants.BLOCK_STYLE, Constants.OPCODE_DECODER_OFFSET);
+	var opcode_decoder = new OpcodeDeCoderSVG();
 	var pc_value = new PCValueSVG();
 	var pc_update = new PCUpdateSVG();
 	var reg_file = new RegisterFileSVG();
@@ -132,12 +161,11 @@ window.addEventListener("load", function() {
 	mux2.get_all_nodes().forEach( x => svg.appendChild(x));
 	mux3.get_all_nodes().forEach( x => svg.appendChild(x));
 	mux4.get_all_nodes().forEach( x => svg.appendChild(x));
-	svg.appendChild(alu.node);
+	alu.get_all_nodes().forEach( x => svg.appendChild(x));
 	svg.appendChild(mux_alu_wire.node);
 	flags.get_all_nodes().forEach( x => svg.appendChild(x));
 	code_mem.get_all_nodes().forEach( x => svg.appendChild(x));
-	svg.appendChild(opcode_decoder.node);
-	svg.appendChild(opcode_text.node);
+	opcode_decoder.get_all_nodes().forEach( x => svg.appendChild(x));
 	svg.appendChild(control.node);
 	svg.appendChild(control_text.node);
 	reg_file.get_all_nodes().forEach(x => svg.appendChild(x));
