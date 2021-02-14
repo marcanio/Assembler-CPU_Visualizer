@@ -14,9 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "common-js": "^0.3.8",
+    "commonjs": "0.0.1",
     "esm": "^3.2.25",
     "http": "0.0.1-security",
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "httpserver": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^7.10.0"
