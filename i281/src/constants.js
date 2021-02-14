@@ -59,7 +59,7 @@ export const ALU_RESULT_WIRE = [0, 0, MUX1_OFFSET[0] - (ALU_OFFSET[0] + ALU_POLY
 export const IMEM_DECODER_WIRE = [0, 0, OPCODE_DECODER_OFFSET[0] - (CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH), 0];
 export const OPCODE_DECODER_CONTROL_WIRE = [0, 0, CONTROL_OFFSET[0] - (OPCODE_DECODER_OFFSET[0] + OPCODE_DECODER_POLYGON[2]), 0];
 export const ALU_FLAGS_WIRE = ["M", ALU_OFFSET[0] + ALU_POLYGON[2], ALU_OFFSET[1] + 100, "l", 100, 0, 0, -100 , "L", FLAGS_OFFSET[0], FLAGS_OFFSET[1] + FLAGS_HIEGHT/2 ];
-export const FLAGS_CONTROL_WIRE = ["M", FLAGS_OFFSET[0] + FLAGS_POLYGON[2], FLAGS_OFFSET[1] + FLAGS_POLYGON[2]/2, "l", 25, 0, 0, -200 , -600, 0, 0, -150, 125, 0 ];
+export const FLAGS_CONTROL_WIRE = ["M", FLAGS_OFFSET[0] + FLAGS_POLYGON[2], FLAGS_OFFSET[1] + FLAGS_HIEGHT/2, "l", 25, 0, 0, -200 , -600, 0, 0, -150, 125, 0 ];
 export const MUX_IMEM_WIRE = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2]+ 400, MUX1_OFFSET[1] + 100, "l", 0, -(MUX1_OFFSET[1] + 100) , -(MUX1_OFFSET[0] + 350 + MUX_WIDTH), 0, 0, 200, 50, 0 ];
 export const MUX_REG_FILE_WIRE = ["M", MUX3_OFFSET[0] + MUX_POLYGON[2], MUX3_OFFSET[1] + 100, "l", 25, 0, 0, -(MUX3_OFFSET[1] - REGISTER_FILE_OFFSET[1] + 250) , -(MUX3_OFFSET[0] - REGISTER_FILE_OFFSET[0] + 50 + MUX_WIDTH), 0, 0, 200, 25, 0 ];
 export const MUX2_DMEM_WIRE = ["M", MUX2_OFFSET[0] + MUX_POLYGON[2], MUX2_OFFSET[1] + 100, "l", (DATA_MEM_OFFSET[0] - MUX2_OFFSET[0] - MUX_WIDTH), 0];
@@ -133,7 +133,7 @@ export const MUX_D_TEXT = "D";
 
 
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
-export const WIRE_STYLE = {"stroke":"black", "stroke-width":"1.5px", "fill":"none"};
+export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
