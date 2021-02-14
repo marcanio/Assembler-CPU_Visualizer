@@ -50,6 +50,16 @@ export const PC_VALUE_OFFSET = [1000, 1150];
 export const PC_UPDATE_OFFSET = [500, 1150];
 export const DATA_MEM_OFFSET = [1750, 900];
 
+export const INTERSECT_1_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 15, CODE_MEM_OFFSET[1] + 25];
+export const INTERSECT_2_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 15, CODE_MEM_OFFSET[1] + (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 100)];
+export const INTERSECT_3_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 15, CODE_MEM_OFFSET[1] + 25 + PC_UPDATE_OFFSET[1] + 175];
+export const INTERSECT_4_POS = [15 + MUX0_OFFSET[0] - 100 , CODE_MEM_OFFSET[1] + (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 100)];
+export const INTERSECT_5_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2]+ 400, MUX1_OFFSET[1] + 100];
+export const INTERSECT_6_POS = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 25, REGISTER_FILE_OFFSET[1] + 200];
+export const INTERSECT_7_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 25, MUX1_OFFSET[1] + 100];
+export const INTERSECT_8_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 25, MUX1_OFFSET[1] + 100 + ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 75) ];
+export const INTERSECT_9_POS = [ MUX2_OFFSET[0] - 150, MUX2_OFFSET[1] + MUX_TRUE[1] - 15];
+
 export const READ_A_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 50];
 export const READ_B_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 300];
 
@@ -116,6 +126,7 @@ export const CONTROL_ARROW_OFFSET = [CONTROL_OFFSET[0], CONTROL_OFFSET[1] + CONT
 
 export const ARROW_DIST_BETWEEN = 28;
 
+export const INTERSECT_RADIUS = 10;
 
 export const MUX_FALSE_TEXT = "0";
 export const MUX_TRUE_TEXT = "1";
@@ -137,6 +148,7 @@ export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
+export const INTERSECT_STYLE = {"fill":"black"};
 
 export const ID_ATTR = "id";
 export const STYLE_ATTR = "style";
