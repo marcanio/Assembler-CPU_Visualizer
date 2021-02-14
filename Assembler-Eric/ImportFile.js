@@ -8,6 +8,7 @@ let dataLocation = 0;
 let arrayNames = new Array();
 let dataValues = new Array();
 let varibleNames = new Array();
+let printBranch =0;
 
 let machineCode = "";
 
@@ -45,10 +46,15 @@ let instructionFormat = ["0000_", // NOOP
 "1111_"  // BRGE
 ];
 
+//Objects in the DOM
+var downloadButtonObject = document.getElementById("downloadButton");
+
+
 
 window.onload = function() {
+    
     let fileInput = document.getElementById('fileInput');
-    let fileDisplayArea = document.getElementById('fileDisplayArea');
+    //let fileDisplayArea = document.getElementById('fileDisplayArea');
 
 		fileInput.addEventListener('change', function(e) {
 			let file = fileInput.files[0];
@@ -56,13 +62,14 @@ window.onload = function() {
             let reader = new FileReader();
                 //Pass each line to the remove comments function
 				reader.onload = function(e) {
-                    fileDisplayArea.innerText = reader.result;
+                    //fileDisplayArea.innerText = reader.result;
                     let lines = this.result.split('\n');
                     removeComments(lines);
 				}
 
                 reader.readAsText(file);	
-		});
+        });
+       
 }
 
 //--------------------Below deals with all of the data in the .data portion-----------
@@ -80,6 +87,7 @@ function findDataStart(code){
             alert("Expecting (.data) ");
         }
     }
+   
 }
 /**
  * Parse the code after data
@@ -218,7 +226,7 @@ function removeComments(lines){
 		lines[line] = lines[line].replace("[" , " [ ");
 		lines[line] = lines[line].replace("}" , " } ");
 		lines[line] = lines[line].replace("{" , " { ");
-		lines[line] = lines[line].replace("+" , " + ");
+        lines[line] = lines[line].replace(/\+/g , " + ");
         lines[line] = lines[line].replace("-" , " - ");
         let curString = lines[line];
         if (curString.startsWith(";")){
@@ -236,8 +244,19 @@ function removeComments(lines){
  * Main method - Formats output of the assembly and runs the code through methods
  */
 function mainMethod(){
-    let fileDisplayArea = document.getElementById('fileDisplayArea');
-    fileDisplayArea.innerText = "";
+    //Hide file input & buttons
+    document.getElementById("inputField").style.display = "none";
+    document.getElementById("fileInputButton").style.display = "none";
+    document.getElementById("textInputButton").style.display = "none";
+    document.getElementById("assemblyButton").style.display = "none";
+    document.getElementById("banner").innerHTML = "Successfully Assembled"
+    document.getElementById("displayAssemblytext").innerHTML= "<b>Assembly Code:</b>\n";
+    //Show download buttons 
+    downloadButtonObject.style.display = "block";
+    //document.getElementById("downloadButton").style.display = "block";
+    document.getElementById("downloadLow").style.display = "block";
+    document.getElementById("downloadHigh").style.display = "block";
+    
     let count = 0;
     //Remove white spaces
     for(let i=0; i < withComments.length;i++){
@@ -252,12 +271,15 @@ function mainMethod(){
     withoutComments = getJumps(withoutComments);
     findDataStart(withoutComments);
     parseCodeSegment(withoutComments);
-    console.log(withoutComments);
-    console.log(lineNumber);
-    console.log(machineCode);
+    //console.log(withoutComments);
+    //console.log(lineNumber);
+    //console.log(machineCode);
+    console.log(codeSegmentStart);
+    console.log(Array.from(branchDest.keys()));
+    console.log(branchDest.values());
 
 
-    fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
+    //fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
     
     for(let line =0; line <withoutComments.length; line++){
         let eachLine = withoutComments[line].split(" ");
@@ -310,6 +332,16 @@ function mainMethod(){
             eachLine[1] = eachLine[0];
             eachLine[0] = line;
         }
+
+        //Add branches to line numbers
+        let branchNames = Array.from(branchDest.keys());
+        let branchNumbers = Array.from(branchDest.values());
+        if((line-codeSegmentStart) == branchNumbers[printBranch]){
+            eachLine[0] += ") " +branchNames[printBranch] + ":";
+            printBranch++;
+            
+        }
+        
         
         for(let parts =0; parts < eachLine.length; parts++){
             
@@ -318,20 +350,26 @@ function mainMethod(){
             y.innerHTML = eachLine[parts];
         } 
     }
+    
     document.getElementById("displayMachinetext").innerHTML +=  "<b>Machine Code:</b><br>";
     let formatMachine = machineCode.split("\n");
-
-    for(let line =0; line <formatMachine.length-1; line++){
+    let spaceing =0;
+    for(let line =0; line <formatMachine.length-1 + codeSegmentStart; line++){
         let x = document.getElementById('machineTable').insertRow(line);
         
         let y = x.insertCell(0);
-        let z = x.insertCell(1);
+        //let z = x.insertCell(1);
+        if(line >= codeSegmentStart){
+            y.innerHTML = formatMachine[spaceing]; 
+            spaceing++;
+        }else{
+            y.innerHTML = "|";
+            
+        }
 
-        y.innerHTML = line +1;
-        z.innerHTML = formatMachine[line];
+        
 
     }
-   
     
     
 }
@@ -353,18 +391,109 @@ function formatInput(){
     }
 
 }
+function downloadMachineFile(){
+    let element = document.createElement('a');
+    let fileName = document.getElementById("fileInput").value;
+    fileName = fileName.split('.')[0];
+    fileName += ".txt";
+    let tempmachineCode=  machineCode.replace(/\_/g,"");
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(tempmachineCode));
+    element.setAttribute('download',fileName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+function downloadUserCodeLow(){
+    let element = document.createElement('a');
+    let fileName = "User_Code_Low.v";
+    let machineCodeFormatted = machineCode.split('\n');
+    let output = "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" + 
+    "\r\n" + 
+    "output [15:0] b0I;\r\n" + 
+    "output [15:0] b1I;\r\n" + 
+    "output [15:0] b2I;\r\n" + 
+    "output [15:0] b3I;\r\n" + 
+    "output [15:0] b4I;\r\n" + 
+    "output [15:0] b5I;\r\n" + 
+    "output [15:0] b6I;\r\n" + 
+    "output [15:0] b7I;\r\n" + 
+    "output [15:0] b8I;\r\n" + 
+    "output [15:0] b9I;\r\n" + 
+    "output [15:0] b10I;\r\n" + 
+    "output [15:0] b11I;\r\n" + 
+    "output [15:0] b12I;\r\n" + 
+    "output [15:0] b13I;\r\n" + 
+    "output [15:0] b14I;\r\n" + 
+    "output [15:0] b15I;\r\n\n";
+    let i=0;
+    for(i =0; machineCodeFormatted.length-1 > i &&i < 16; i++){
+        let line = machineCodeFormatted[i];
+        output += "assign b" + i + "I[15:0] = 16'b"+line +";\n";
+    }
+    for (; i < 16; i++) {
+        output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
+    }
+    
+    element.setAttribute('href','data:text/plain;charset=utf-8,' + encodeURIComponent(output));
+    element.setAttribute('download',fileName);
+    element.style.display ='none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+function downloadUserCodeHigh(){
+    let fileName = "User_Code_High.v";
+    let element = document.createElement('a');
+    let machineCodeFormatted = machineCode.split('\n');
+    let output = "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" + 
+    "\r\n" + 
+    "output [15:0] b0I;\r\n" + 
+    "output [15:0] b1I;\r\n" + 
+    "output [15:0] b2I;\r\n" + 
+    "output [15:0] b3I;\r\n" + 
+    "output [15:0] b4I;\r\n" + 
+    "output [15:0] b5I;\r\n" + 
+    "output [15:0] b6I;\r\n" + 
+    "output [15:0] b7I;\r\n" + 
+    "output [15:0] b8I;\r\n" + 
+    "output [15:0] b9I;\r\n" + 
+    "output [15:0] b10I;\r\n" + 
+    "output [15:0] b11I;\r\n" + 
+    "output [15:0] b12I;\r\n" + 
+    "output [15:0] b13I;\r\n" + 
+    "output [15:0] b14I;\r\n" + 
+    "output [15:0] b15I;\r\n\n";
+    let i=16;
+    for(i =16; machineCodeFormatted.length-1 > i &&i < 32; i++){
+        let line = machineCodeFormatted[i];
+        output += "assign b" + i + "I[15:0] = 16'b"+line +";\n";
+    }
+    for (; i < 32; i++) {
+        output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
+    }
+    
+    element.setAttribute('href','data:text/plain;charset=utf-8,' + encodeURIComponent(output));
+    element.setAttribute('download',fileName);
+    element.style.display ='none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+
+}
 //------------------------------Instrcutions--------------------------------------------------
 
-/**
- * NOOP instruction in machine code
- */
 function parseNOOP(){
     machineCode += "00_00_00000000";
 	machineCode += "\n";
 }
-/**
- *  ADD instruction in machine code
- */
 function parseADD(code){
     machineCode += getRegisterName(code[1]);
     getComma(code[2]);
@@ -372,9 +501,6 @@ function parseADD(code){
     machineCode += "00000000";
     machineCode += "\n";
 }
-/**
- * ADDI instruction in machine code
- */
 function parseADDI(code){
     machineCode += getRegisterName(code[1]);
     getComma(code[2]);
@@ -384,9 +510,31 @@ function parseADDI(code){
     machineCode += convertStringToBinary(immediateValue);
     machineCode += "\n";
 }
-/**
- * LOADI instruction and machine code
- */
+function parseSUB(code){
+    machineCode += getRegisterName(code[1]);
+    getComma(code[2]);
+    machineCode += getRegisterName(code[3]);
+    machineCode += "00000000";
+    machineCode += "\n";
+}
+function parseSUBI(code){
+    machineCode += getRegisterName(code[1]);
+    getComma(code[2]);
+    machineCode += "00_";
+    let immediateValue = code[3];
+    checkImmediateValueOutOfBounds(immediateValue);
+    machineCode += convertStringToBinary(immediateValue);
+    machineCode += "\n";
+}
+function parseINPUT(code){
+    machineCode += getRegisterName(code[1]);
+    getComma(code[2]);
+    machineCode += "00_";
+    getLeftBracket(code[3]);
+   machineCode += parseDataAddress(code[4]);
+   getRightBracket(code[5]);
+   machineCode += "\n";
+}
 function parseLOADI(code){
     let reg = code[1];
     machineCode += getRegisterName(reg);
@@ -395,10 +543,6 @@ function parseLOADI(code){
     machineCode += convertStringToBinary(code[3]);
     machineCode += "\n";
 }
-
-/**
- * LOAD instruction to machine code
- */
 function parseLOAD(code){
     machineCode += getRegisterName(code[1]);
     machineCode += "00_";
@@ -431,9 +575,6 @@ function parseLOAD(code){
 
 
 }
-/**
- * LOADF instruction to machine code
- */
 function parseLOADF(code){
     machineCode += getRegisterName(code[1]);
     getComma(code[2]);
@@ -464,9 +605,23 @@ function parseLOADF(code){
     }
     machineCode += "\n";
 }
-/**
- * STOREF instruction to machine code
- */
+function parseLOADP(code){
+    machineCode += getRegisterName(code[1]);
+    getComma(code[2]);
+    machineCode += "00_";
+    getLeftCurlyBracket(code[3]);
+    let dataLocation = valueMapping.get(code[4]);
+    let next = code[5];
+    if(next.localeCompare("+")==0){
+        dataLocation += parseInt(code[6]);
+        getRightCurlyBracket(code[7]);
+    }else{
+        getRightCurlyBracket(next);
+    }
+    machineCode += convertStringToBinary(dataLocation);
+    machineCode += "\n";
+    
+}
 function parseSTOREF(code){
     let temp = "";
     getLeftBracket(code[1]);
@@ -480,6 +635,8 @@ function parseSTOREF(code){
         warnAddressOutOfBounds(newOffset);
         temp += convertStringToBinary(newOffset);
         getRightBracket(code[7]);
+        getComma[8];
+        machineCode += getRegisterName(code[9]);
     }
     else if(next.localeCompare("-") ==0){
         let offset = parseInt(code[6]);
@@ -487,20 +644,20 @@ function parseSTOREF(code){
         warnAddressOutOfBounds(newOffset);
         temp += convertStringToBinary(newOffset);
         getRightBracket(code[7]);
+        getComma[8];
+        machineCode += getRegisterName(code[9]);
     }
     else if(next.localeCompare("]") ==0){
         temp += convertStringToBinary(valueMapping.get(dataValue));
+        getComma(code[6]);
+        machineCode += getRegisterName(code[7]);
     }else{
         errorMessage("Expecting +,- or ]");
     }
-    getComma(code[6]);
-    machineCode += getRegisterName(code[7]);
+    
     machineCode += temp;
     machineCode += "\n";
 }
-/**
- * STORE instruction to machine code
- */
 function parseSTORE(code){
     getLeftBracket(code[1]);
     let dataValue = code[2];
@@ -537,9 +694,6 @@ function parseSTORE(code){
 	machineCode += "\n";
 
 }
-/**
- * MOVE instruction to machine code
- */
 function parseMOVE(code){
     machineCode += getRegisterName(code[1]);
     getComma(code[2]);
@@ -548,9 +702,6 @@ function parseMOVE(code){
     machineCode += "\n";
 
 }
-/**
- * CMP instruction to machine code
- */
 function parseCMP(code){
 
     machineCode += getRegisterName(code[1]);
@@ -560,58 +711,41 @@ function parseCMP(code){
     machineCode += "\n";
 
 }
-/**
- * BRGE instruction to machine code
- */
 function parseBRGE(code, line){
     machineCode += "00_11_";
     machineCode += branchDifference(line, code[1]);
     machineCode += "\n";
 }
-/**
- * BRE instruction to machine code
- */
 function parseBRE(code, line){
     machineCode += "00_00_";
     machineCode += branchDifference(line,code[1]);
     machineCode += "\n";
 }
-/**
- * BRG instruction to machine code
- */
 function parseBRG(code, line){
     machineCode += "00_10_";
     machineCode += branchDifference(line, code[1]);
     machineCode += "\n";
 }
-/**
- * BRNE instruction to machine code
- */
 function parseBRNE(code, line){
     machineCode += "00_01_";
     machineCode += branchDifference(line, code[1]);
     machineCode += "\n";
 }
-/**
- * Jump instruction to machine code
- */
 function parseJUMP(code, line){
     machineCode += "00_00_";
     machineCode += branchDifference(line, code[1]);
     machineCode += "\n";
 }
-/**
- * SHIFTR instruction to machine code
- */
 function parseSHIFTR(code){
     machineCode += getRegisterName(code[1]);
     machineCode += "01_00000000";
     machineCode += "\n";
 
 }
-
-
 //------------------------------------Helper methods for the instructions-----------------
+function parseDataAddress(code){
+    convertStringToBinary(valueMapping.get(code));
+}
 /**
  * Maps a string to binary by looping through value
  */
@@ -626,17 +760,12 @@ function mapIntoBinary(string){
 
         while(toReturn.length < 8){
             toReturn = 1 + toReturn;
-        }
-       
-        
-
-        
+        }        
     }else{
         while(toReturn.length < 8){
             toReturn = 0 + toReturn;
         }
     }
-   
     return toReturn;
 }
 /**
@@ -704,33 +833,32 @@ function checkImmediateValueOutOfBounds(immediateValue){
         errorMessage("Immediate value " + immediateValue + " out of bounds");
     }
 }
-/**
- * Checking for comma
- */
+//------------------------All get functions looking verify characters---------------------------
 function getComma(comma){
     if(comma.localeCompare(",") == 1){
         errorMessage("Expecting comma");
     }
 }
-/**
- * Checking for a left bracket
- */
 function getLeftBracket(leftBracket){
     if(leftBracket.localeCompare("[") == 1){
         errorMessage("Expected left bracket");
     }
 }
-/**
- * Checking for a Right bracket
- */
 function getRightBracket(rightBracket){
     if(rightBracket.localeCompare("]") == 1){
-        errorMessage("Expected left bracket");
+        errorMessage("Expected Right bracket");
     }
 }
-/**
- * Checking for the plus symbol
- */
+function getLeftCurlyBracket(leftBracket){
+    if(leftBracket.localeCompare("{") == 1){
+        errorMessage("Expected left curly bracket");
+    }
+}
+function getRightCurlyBracket(rightBracket){
+    if(rightBracket.localeCompare("}") == 1){
+        errorMessage("Expected right curly bracket");
+    }
+}
 function getPlus(plus){
     if(plus.localeCompare("+") == 1){
         error("Expected Right bracket");
@@ -760,7 +888,7 @@ function parseCodeSegment(code){
         }
         else if(opcode.localeCompare("LOADP") == 0){
             getOpCodeBits("LOADP");
-            //parseLOADP(lineScanner);
+            parseLOADP(lineScanner);
         }
         else if(opcode.localeCompare("CMP")== 0){
             getOpCodeBits("CMP");
@@ -784,7 +912,7 @@ function parseCodeSegment(code){
         }
         else if(opcode.localeCompare("INPUT") == 0){
             getOpCodeBits("INPUT");
-            //parseINPUT(lineScanner);
+            parseINPUT(lineScanner);
         }
         else if(opcode.localeCompare("BRE") == 0 || opcode.localeCompare("BRZ") ==0){
             getOpCodeBits("BRE");
@@ -816,11 +944,11 @@ function parseCodeSegment(code){
         }
         else if(opcode.localeCompare("SUB") == 0){
             getOpCodeBits("SUB");
-            //parseSUB(lineScanner);
+            parseSUB(lineScanner);
         }
         else if(opcode.localeCompare("SUBI") == 0){
             getOpCodeBits("SUBI");
-            //parseSUBI(lineScanner);
+            parseSUBI(lineScanner);
         }
         else if(opcode.localeCompare("MOVE") == 0){
             getOpCodeBits("MOVE");
@@ -908,7 +1036,7 @@ function ShowFile(){
     let T = document.getElementById("fileDiv");
     let F = document.getElementById("inputDiv");
     T.style.display ="block";
-    F.style.display ="none";
+  
 }
 /**
  * Choice to show the input box
@@ -925,9 +1053,12 @@ function ShowTextbox(){
 function fillP(){
     let input = document.getElementById("textArea");
     let paragraph = document.getElementById("textInput");
-    paragraph.innerText = input.value;
+    
 
 }
 //TODO - Parse only the data
 function getData(){ 
 }
+
+
+
