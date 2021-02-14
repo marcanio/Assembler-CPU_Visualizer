@@ -23,7 +23,6 @@ export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,50, 0,40, 5,40];
 export const REGISTER_BOX = [0, 0, 120, 0, 120, 30, 0, 30];
 export const IMEM_BOX = [0, 0, 250, 0, 250, 30, 0, 30];
 
-export const REGISTER_BOX = [0, 0, 120, 0, 120, 30, 0, 30];
 export const MUX_FALSE = [20, 60];
 export const MUX_TRUE = [20, 140];
 export const MUX_A = [20, 40];
