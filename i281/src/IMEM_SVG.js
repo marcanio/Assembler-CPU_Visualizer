@@ -1,16 +1,31 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
+<<<<<<< HEAD
+=======
+import * as Inst from "./instructions.js"
+
+>>>>>>> kolosik_testing2
 
 const ADDR = [50, 0];
 const VAL = [350/2, -24];
 
+<<<<<<< HEAD
+=======
+let addr = []
+let box = []
+let mem = [];
+
+
+
+>>>>>>> kolosik_testing2
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
 
 export default class IMEM_SVG {
 	constructor() {
 		this.imem = new PolygonSVG(Constants.IMEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
+<<<<<<< HEAD
 		this.addr0 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 1), Constants.IMEM_ADDR0_ID, "0000", Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
 		this.addr1 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 2), Constants.IMEM_ADDR1_ID, "0001", Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
 		this.addr2 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 3), Constants.IMEM_ADDR2_ID, "0010", Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
@@ -115,6 +130,41 @@ export default class IMEM_SVG {
 		res.push(this.val14.get_node());
 		res.push(this.val15.get_node());
 
+=======
+
+		for(var i=0; i<Inst.instructions.length; i++){
+			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+i, (i+32).toString(2), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET) 
+			addr.push(cur)
+		}
+
+		for(var i=0; i<Inst.instructions.length; i++){
+			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0]-20, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
+			box.push(cur)
+		}
+		
+		for(var i=0; i<Inst.instructions.length; i++){
+			var cur = new TextSVG(220, (BETWEEN_DIST * (i+1)), "imem_val"+i, Inst.instructions[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+			mem.push(cur)
+		}
+	}
+    
+	get_all_nodes() {
+		let res=[]
+		res.push(this.imem.get_node());
+
+		for(var i=0; i<addr.length; i++){
+			res.push(addr[i].get_node());
+			console.log(addr[i].get_node())
+		}
+
+		for(var i=0; i<box.length; i++){
+			res.push(box[i].get_node())
+		}
+
+		for(var i=0; i<mem.length; i++){
+			res.push(mem[i].get_node())
+		}
+>>>>>>> kolosik_testing2
 		return res;
 	}
 

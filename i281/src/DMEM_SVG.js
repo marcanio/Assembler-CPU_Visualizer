@@ -1,12 +1,17 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
+import * as instructions from "./instructions.js"
+
+
 
 const ADDR = [50, 0];
 const VAL = [350/2, -24];
 
 const BOX_OFFSET = [Constants.DATA_MEM_OFFSET[0] + VAL[0] - 60, Constants.DATA_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
+
+const res = []
 
 export default class DMEM_SVG {
 	constructor() {
@@ -27,7 +32,6 @@ export default class DMEM_SVG {
 		this.addr13 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 14), Constants.DMEM_ADDR13_ID, "1101", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.addr14 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 15), Constants.DMEM_ADDR14_ID, "1110", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.addr15 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 16), Constants.DMEM_ADDR15_ID, "1111", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-        
 		this.val0_box = new PolygonSVG(Constants.DMEM_BOX0_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 1)]);
 		this.val1_box = new PolygonSVG(Constants.DMEM_BOX1_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 2)]);
 		this.val2_box = new PolygonSVG(Constants.DMEM_BOX2_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 3)]);
@@ -44,7 +48,6 @@ export default class DMEM_SVG {
 		this.val13_box = new PolygonSVG(Constants.DMEM_BOX13_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 14)]);
 		this.val14_box = new PolygonSVG(Constants.DMEM_BOX14_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 15)]);
 		this.val15_box = new PolygonSVG(Constants.DMEM_BOX15_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 16)]);        
-        
 		this.val0 = new TextSVG(VAL[0], (BETWEEN_DIST * 1), Constants.DMEM_VAL0_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.val1 = new TextSVG(VAL[0], (BETWEEN_DIST * 2), Constants.DMEM_VAL1_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.val2 = new TextSVG(VAL[0], (BETWEEN_DIST * 3), Constants.DMEM_VAL2_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);

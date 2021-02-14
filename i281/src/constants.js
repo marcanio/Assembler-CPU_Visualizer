@@ -21,7 +21,9 @@ export const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const PC_UPDATE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,50, 0,40, 5,40];
 export const REGISTER_BOX = [0, 0, 120, 0, 120, 30, 0, 30];
+export const IMEM_BOX = [0, 0, 250, 0, 250, 30, 0, 30];
 
+export const REGISTER_BOX = [0, 0, 120, 0, 120, 30, 0, 30];
 export const MUX_FALSE = [20, 60];
 export const MUX_TRUE = [20, 140];
 export const MUX_A = [20, 40];
@@ -135,6 +137,7 @@ export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"1.5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
+export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
 
 export const ID_ATTR = "id";
 export const STYLE_ATTR = "style";
