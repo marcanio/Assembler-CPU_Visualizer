@@ -1,6 +1,6 @@
-const {opCodeDecoder: OpCodeDecoder} = require('../opCodeDecoder');
+const {OpCodeDecoder} = require('../opCodeDecoder');
 
-const globalOpCodeDecoder = new opCodeDecoder();
+const globalOpCodeDecoder = new OpCodeDecoder();
 
 // Control signal tests
 test('Noop test', () => {

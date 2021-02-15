@@ -67,7 +67,7 @@ export class PC {
 					carryArray[i+1] = 1;
 				}
 
-				else throw new Error('The adder had a massive mistake: ' + sum);
+				else throw 'The adder had a massive mistake: ' + sum;
 			}
 
 
@@ -109,12 +109,12 @@ export class PC {
 					carryArray[i+1] = 1;
 				}
 
-				else throw new Error('The pc had a massive mistake: ' + sum);
+				else throw 'The pc had a massive mistake: ' + sum;
 			}
 
 			this.currentPC = tempResult.join();
 		}
 
-		else throw new Error('Unknown control state for alu: ' + control);
+		else throw 'Unknown control state for alu: ' + control;
     }
 };

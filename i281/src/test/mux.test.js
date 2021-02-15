@@ -14,14 +14,14 @@ test('Set state valid', () => {
 });
 
 test('Set state invalid', () => {
-    expect(globalMux.setState(10)).toThrow(TypeError);
+    expect(globalMux.setState(10)).toThrow('Invalid multiplexer state: 10');
 })
 
 test('Set source to value', () => {
     globalMux.setSource(0, driverFunction);
-    expect(globalMux.getOutput()).toBe(1);
+    expect(globalMux.getOutput()).toBe(driverFunction);
 })
 
 test('Not power of two', () => {
-    expect(new multiplexer(3)).toThrow();
+    expect(new Multiplexer(3)).toThrow();
 })

@@ -70,7 +70,6 @@ export class RegisterFile {
 
         else {
             console.warn("Attempt to write to register without enabling write (this may be expected)");
-
         }
 
     }

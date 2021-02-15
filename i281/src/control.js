@@ -55,29 +55,29 @@ export class Control {
         
         
         // This part sets the output. Note, if the input is not one hot encoded this will break.
-        if(decodedOpCode.charAt(0) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(1) == 1) this.c =  [null, 1,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 1, 0, 0, 0];
-        if(decodedOpCode.charAt(2) == 1) this.c =  [null, 1,  0, 1, x1, x0,  0,  0,  0,  0, 0, 1, 1, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(3) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 0];
-        if(decodedOpCode.charAt(4) == 1) this.c =  [null, 0,  0, 1, x1, x0,  0,  0,  0,  0, 0, 1, 1, 0, 0, 0, 1, 1, 0];
-        if(decodedOpCode.charAt(5) == 1) this.c =  [null, 0,  0, 1, y1, y0,  0,  0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(6) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 0];
-        if(decodedOpCode.charAt(7) == 1) this.c =  [null, 0,  0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 0, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(8) == 1) this.c =  [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 1, 1, 0, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(9) == 1) this.c =  [null, 0,  0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(10) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 1, 1, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(11) == 1) this.c = [null, 0,  0, 1,  0,  0,  0,  0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 1];
-        if(decodedOpCode.charAt(12) == 1) this.c = [null, 0,  0, 1, y1, y0,  0,  0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 1];
-        if(decodedOpCode.charAt(13) == 1) this.c = [null, 0,  0, 1,  0,  0, x1, x0,  0,  0, 0, 0, 0, 0, 0, 1, 0, 1, 0];
-        if(decodedOpCode.charAt(14) == 1) this.c = [null, 0,  0, 1, y1, y0, x1, x0,  0,  0, 0, 1, 1, 0, 0, 0, 0, 1, 0];
-        if(decodedOpCode.charAt(15) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 0, 0, 0, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(16) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 0, 0, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(17) == 1) this.c = [null, 0,  0, 1, x1, x0, y1, y0,  0,  0, 0, 0, 1, 1, 1, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(18) == 1) this.c = [null, 0,  1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(19) == 1) this.c = [null, 0, b1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(20) == 1) this.c = [null, 0, b2, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        if(decodedOpCode.charAt(0) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // noop
+        if(decodedOpCode.charAt(1) == 1) this.c =  [null, 1,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 1, 0, 0, 0];  // inputc
+        if(decodedOpCode.charAt(2) == 1) this.c =  [null, 1,  0, 1, x1, x0,  0,  0,  0,  0, 0, 1, 1, 0, 0, 0, 0, 0, 0];  // inputcf
+        if(decodedOpCode.charAt(3) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 1, 1, 1, 0];  // inputd
+        if(decodedOpCode.charAt(4) == 1) this.c =  [null, 0,  0, 1, x1, x0,  0,  0,  0,  0, 0, 1, 1, 0, 0, 0, 1, 1, 0];  // inputdf
+        if(decodedOpCode.charAt(5) == 1) this.c =  [null, 0,  0, 1, y1, y0,  0,  0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 0];  // move
+        if(decodedOpCode.charAt(6) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 0];  // loadi/loadp
+        if(decodedOpCode.charAt(7) == 1) this.c =  [null, 0,  0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 0, 1, 0, 0, 0, 0];  // add
+        if(decodedOpCode.charAt(8) == 1) this.c =  [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 1, 1, 0, 1, 0, 0, 0, 0];  // addi
+        if(decodedOpCode.charAt(9) == 1) this.c =  [null, 0,  0, 1, x1, x0, y1, y0, x1, x0, 1, 0, 1, 1, 1, 0, 0, 0, 0];  // sub
+        if(decodedOpCode.charAt(10) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 1, 1, 1, 1, 0, 0, 0, 0];  // subi
+        if(decodedOpCode.charAt(11) == 1) this.c = [null, 0,  0, 1,  0,  0,  0,  0, x1, x0, 1, 0, 0, 0, 0, 1, 0, 0, 1];  // load
+        if(decodedOpCode.charAt(12) == 1) this.c = [null, 0,  0, 1, y1, y0,  0,  0, x1, x0, 1, 1, 1, 0, 0, 0, 0, 0, 1];  // loadf
+        if(decodedOpCode.charAt(13) == 1) this.c = [null, 0,  0, 1,  0,  0, x1, x0,  0,  0, 0, 0, 0, 0, 0, 1, 0, 1, 0];  // store
+        if(decodedOpCode.charAt(14) == 1) this.c = [null, 0,  0, 1, y1, y0, x1, x0,  0,  0, 0, 1, 1, 0, 0, 0, 0, 1, 0];  // storef
+        if(decodedOpCode.charAt(15) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 0, 0, 0, 1, 0, 0, 0, 0];  // shiftl
+        if(decodedOpCode.charAt(16) == 1) this.c = [null, 0,  0, 1, x1, x0,  0,  0, x1, x0, 1, 0, 0, 1, 1, 0, 0, 0, 0];  // shiftr
+        if(decodedOpCode.charAt(17) == 1) this.c = [null, 0,  0, 1, x1, x0, y1, y0,  0,  0, 0, 0, 1, 1, 1, 0, 0, 0, 0];  // cmp
+        if(decodedOpCode.charAt(18) == 1) this.c = [null, 0,  1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // jump
+        if(decodedOpCode.charAt(19) == 1) this.c = [null, 0, b1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // bre/brz
+        if(decodedOpCode.charAt(20) == 1) this.c = [null, 0, b2, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brne/brnz
+        if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brg
+        if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  //brge
     
     }
 
@@ -85,8 +85,9 @@ export class Control {
      * A little helper function for padding strings.
      * @param: input - input string to pad
      * @param: size - Size to pad it to.
+     * 
      */
-    pad(input, size) {
+    pad(input, size) { // TODO, this is unused, clean it up later!
         while (input.length < (size || 2)) {input= '0' + input;}
         return input;
     }

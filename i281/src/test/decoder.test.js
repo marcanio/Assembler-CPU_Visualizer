@@ -1,13 +1,13 @@
-const {decoder} = require('../decoder');
+const {Decoder} = require('../decoder');
 
-const globalDecoder = new decoder(4);
+const globalDecoder = new Decoder(4);
 
 test('Set control valid: 0x0', () => {
     globalDecoder.setControl(0x0);
 });
 
 test('Set state invalid: 0x6', () => {
-    expect(globalDecoder.setControl(0x6)).toThrow();
+    expect(globalDecoder.setControl(0x6)).toThrow('Invalid decoder control: 6');
 })
 
 test('Get output: 0x0', () => {
@@ -32,11 +32,11 @@ test('Get output: 0x3', () => {
 
 test('Get output: 0x4', () => {
     globalDecoder.setControl(0x4);
-    expect(globalDecoder.getOutputString()).toThrow();
+    expect(globalDecoder.getOutputString()).toThrow('');
 })
 
 test('Not power of two', () => {
-    expect(new decoder(0x3)).toThrow();
+    expect(new Decoder(0x3)).toThrow('Decoder size is not a power of two');
 })
 
 test('Get output at location: 0', () => {

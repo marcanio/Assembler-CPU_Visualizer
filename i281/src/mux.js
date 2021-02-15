@@ -11,7 +11,7 @@ export class Multiplexer {
         this.state = null;
         
         if(this.powerOfTwo(size) == true) this.size = size;
-        else throw new Error('Multiplexer size is not a power of two');
+        else throw 'Multiplexer size is not a power of two';
 
         this.sources = new Array(this.size);
     }
@@ -38,7 +38,7 @@ export class Multiplexer {
     */
     setState(state) {
         if(0 <= state && state <= (this.size - 1)) this.state = state;
-        else throw new Error('Invalid multiplexer state: ' + state);
+        else throw 'Invalid multiplexer state: ' + state;
     }
 
     /**

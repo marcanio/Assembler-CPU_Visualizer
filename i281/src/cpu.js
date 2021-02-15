@@ -100,21 +100,23 @@ export class CPU {
 
         // Handle post mux alu
         this.aluResultMux.setSource(0, this.alu.getResult());
-        this.aluResultMux.setSource(1, opcode.substring(0,8));
+        this.aluResultMux.setSource(1, opcode.substring(8,17));
         this.aluResultMux.setState(controlSignals[15]);
         let aluSourceMuxOutput = this.aluResultMux.getOutput();
 
         // Update the final mux
         this.regWritebackMux.setSource(0, aluSourceMuxOutput);
-        this.regWritebackMux.setSource(1, this.dMem.getRegister(aluSourceMuxOutput.substring(0,4))); // TODO, I think that source is right...
+        //let registerSource = parseInt(aluSourceMuxOutput.substring(0,4), 2);
+        this.regWritebackMux.setSource(1, aluSourceMuxOutput);
+        this.regWritebackMux.setState(controlSignals[18]);
         let writebackResult = this.regWritebackMux.getOutput();
 
         // Update registers
         this.registers.setWriteEnable(controlSignals[10]);
-        this.registers.setRegister(this.control.getControl('C8C9'), writebackResult);
+        let targetRegister = parseInt(this.control.get('c8c9'), 2);
+        this.registers.setRegister(targetRegister, writebackResult);
 
         // Update pc
-
         this.pc.process(opcode, controlSignals[2]);
     }
 };

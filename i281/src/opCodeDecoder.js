@@ -49,7 +49,29 @@ export class OpCodeDecoder {
         let binaryStr = parseInt(opCode, 16).toString(2);
         
         this.resetOutputs(); // TODO if we can remove by updating values in real time please do.
+        
+        
+        let instruction = opCode.substring(0,4);
 
+        if (instruction == '0000') this.noop = 1;
+        if (instruction == '0001');
+        if (instruction == '0010');
+        if (instruction == '0011') this.loadi = 1;
+        if (instruction == '0100');
+        if (instruction == '0101');
+        if (instruction == '0110');
+        if (instruction == '0111');
+        if (instruction == '1000');
+        if (instruction == '1001');
+        if (instruction == '1010');
+        if (instruction == '1011');
+        if (instruction == '1100');
+        if (instruction == '1101');
+        if (instruction == '1110');
+        if (instruction == '1111');
+        // TODO this isn't all of the instructions. Some use bits 9,10. 
+        
+        /*
         let decode0Control = ((opCode & 0xF000)>>>12).toString(16);
         let decode1Control = ((opCode & 0x0300)>>>8).toString(16);
         let decode2Control = ((opCode & 0x0100)>>>8).toString(16);
@@ -105,7 +127,7 @@ export class OpCodeDecoder {
             if (decode0.getOutputAtLocation(11) == 1) this.storef = 1;
             if (decode0.getOutputAtLocation(13) == 1) this.cmp = 1;
             if (decode0.getOutputAtLocation(14) == 1) this.jump = 1;
-        }
+        }*/
 
         this.rx = ((opCode & 0x0C00)>>>8).toString(16);
         this.ry = ((opCode & 0x0300)>>>8).toString(16);
@@ -130,6 +152,10 @@ export class OpCodeDecoder {
         
         this.output = 
             this.noop.toString() +
+            this.inputc.toString() +
+            this.inputcf.toString() +
+            this.inputd.toString() +
+            this.inputdf.toString() +
             this.move.toString() +
             this.loadi.toString() +
             this.add.toString() +
@@ -140,14 +166,10 @@ export class OpCodeDecoder {
             this.loadf.toString() +
             this.store.toString() +
             this.storef.toString() +
-            this.cmp.toString() +
-            this.jump.toString() +
-            this.inputc.toString() +
-            this.inputcf.toString() +
-            this.inputd.toString() +
-            this.inputdf.toString() +
             this.shiftl.toString() +
             this.shiftr.toString() +
+            this.cmp.toString() +
+            this.jump.toString() +
             this.bre.toString() +
             this.brne.toString() +
             this.brg.toString() +
