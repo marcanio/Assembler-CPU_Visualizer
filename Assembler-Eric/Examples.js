@@ -28,9 +28,80 @@ Iinc:   ADDI   A , 1
             JUMP   Outer
 End:    NOOP`;
 
-   var newText = BB.split("\n");
+   let newText = BB.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
    mainMethod();
    
+}
+
+function InsertionSort(){
+   var IS =`.data
+   array    BYTE    2, 3, 4, 1
+   N        BYTE    4
+.code
+               LOADI  A, 1              ; i = 1
+For:        LOAD   D, [N]            ; D <- N
+               CMP    A, D              ; i < N ?
+         BRGE   End
+               MOVE   B, A              ; j = i             
+               LOADF  C, [array + A]    ; INS = array[i]
+While:      LOADI  D, 0              ; D <- 0
+               CMP    D, B              ; 0 < j ?
+               BRGE   Insertion         ; if no, go to Insertion
+               LOADF  D, [array+B-1]    ; D <- array[j-1]
+               CMP    D, C              ; array[j-1] < INS ?
+               BRGE   Insertion         ; if no, go to Insertion
+Shuffle:    STOREF [array + B], D    ; array[j] = array[j-1]
+               SUBI   B, 1              ; j--
+               JUMP   While             ; repeat the while loop
+Insertion:  STOREF [array + B], C    ; array[j] = INS
+Iinc:       ADDI   A, 1              ; i++
+               JUMP   For               ; repeat the for loop
+End:        NOOP`;
+
+ let newText = IS.split("\n");
+ removeComments(newText);
+ document.getElementById("fileDiv").style.display = "block";
+ mainMethod();
+
+}
+
+function SelectionSort(){
+   let SS=`.data
+   array   BYTE    2, 3, 4, 1
+   last    BYTE    3
+   i       BYTE    ?
+.code
+           LOADI  A, 0               ; i = 0
+Outer:  STORE  [i], A             ; store i to memory
+           LOAD   D, [last]          ; D <- last
+           CMP    A, D               ; is i less than last ?
+           BRGE   End                ; if no exit the outer loop and the program
+           MOVE   C, A               ; maxIndex = i
+           MOVE   B, A               ; j = i             
+           ADDI   B, 1               ; j++ (the effect of the last two lines: j=i+1)
+Inner:  LOAD   D, [last]          ; D <- last
+           CMP    B, D               ; j <= last ?
+           BRG    Swap               ; if no, jump to the swap
+If:     LOADF  A, [array + B]     ; A <- array[j]
+           LOADF  D, [array + C]     ; D <- array[maxIndex]
+           CMP    D, A               ; is D less than A?
+           BRGE   Jinc               ; if no, go to increment j
+           MOVE   C, B               ; maxIndex = j
+Jinc:   ADDI   B, 1               ; j++
+           JUMP   Inner              ; jump to the beginning of the inner loop
+Swap:   LOAD   A, [i]             ; restore i from memory
+           LOADF  B, [array + A]     ; B <- array[i]
+           LOADF  D, [array + C]     ; D <- array[maxIndex]
+           STOREF [array + A], D     ; array[i] <- array[maxIndex]
+           STOREF [array + C], B     ; array[maxIndex] -< array[i]
+Iinc:   ADDI   A, 1               ; i++
+           JUMP   Outer              ; jump to the beginning of the outer loop
+End:    NOOP`;
+
+   let newText = SS.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
 }

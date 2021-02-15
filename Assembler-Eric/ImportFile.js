@@ -348,7 +348,9 @@ function mainMethod(){
             let y = x.insertCell(parts);
             
             y.innerHTML = eachLine[parts];
+           
         } 
+       
     }
     
     document.getElementById("displayMachinetext").innerHTML +=  "<b>Machine Code:</b><br>";
