@@ -1,4 +1,4 @@
-
+//Arithmetic Operations -> 
 function Arithmetic1(){
    let A1 =`.data
    x        BYTE        2
@@ -49,8 +49,72 @@ function Multiplication(){
    document.getElementById("fileDiv").style.display = "block";
    mainMethod();
 }
+function MultiplicationWithLoop(){
+   let A1 =`.data
+   x        BYTE        3
+   z        BYTE        ?
+   .code
+           LOAD  A, [x]
+           LOADI C, 0        ; z=0
+           LOADI B, 0        ; i=0
+           LOADI D, 5        ; sentinel value
+For:    CMP   B, D        ; i<5?
+           BRGE  End         ; if(i>=5), exit for loop
+           ADD   C, A        ; z+=x
+           ADDI  B, 1        ; i++
+           JUMP  For         ; jump to For loop
+End:    STORE [z], C      ; update the z value in memory`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
 
 
+//Arrays ->
+function Arrays(){
+   let A1 =`.data
+   array   BYTE    1, 2, 3, 4
+   .code
+           LOADI  A, 0
+           STORE  [array + 0], A
+           LOAD   B, [array + 1]
+           ADDI   B, 5
+           STORE  [array + 1], B
+           LOAD   C, [array + 2]
+           SUBI   C, 1
+           STORE  [array + 2], C
+           LOAD   D, [array + 3]
+           ADD    D, C                ; array[2] is already in C
+           STORE  [array + 3], D`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function ArrayPlusFive(){
+   let A1 =`.data
+   array   BYTE    1, 2, 3, 4
+   N       BYTE    4
+   .code
+           LOADI  A, 0               ; i = 0
+For:    LOAD   D, [N]             ; D <- N
+           CMP    A, D               ; i < N ?
+           BRGE   End                ; if no, exit the for loop
+           LOADF  C, [array + A]     ; load array[i]
+           ADDI   C, 5               ; add 5
+           STOREF [array + A], C     ; store the result back to memory
+Iinc:   ADDI   A, 1               ; i++
+           JUMP   For                ; repeat the for loop
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
 
 
 //Sorting Algorithms

@@ -744,6 +744,12 @@ function parseSHIFTR(code){
     machineCode += "\n";
 
 }
+function parseSHIFTL(code){
+    machineCode += getRegisterName(code[1]);
+    machineCode += "00_00000000";
+    machineCode += "\n";
+}
+
 //------------------------------------Helper methods for the instructions-----------------
 function parseDataAddress(code){
     convertStringToBinary(valueMapping.get(code));
@@ -974,7 +980,7 @@ function parseCodeSegment(code){
         }
         else if(opcode.localeCompare("SHIFTL") ==0){
             getOpCodeBits("SHIFTL");
-            //parseSHIFTL(lineScanner);
+            parseSHIFTL(lineScanner);
         }
         else if(opcode.localeCompare("SHIFTR") == 0){
             getOpCodeBits("SHIFTR");
