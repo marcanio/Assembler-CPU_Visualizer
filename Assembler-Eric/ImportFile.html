@@ -16,21 +16,73 @@
         <a class="navbar-brand" href="#" onClick="window.location.reload();">i281 Assembler</a>
         
 
-        <div class="collapse navbar-collapse " id="navbarNavDropdown"></div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Example Assembly</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" onclick="BubbleSort()"  href="#">Bubble Sort</a>
-                        <a class="dropdown-item" onclick="InsertionSort()" href="#">Insertion Sort</a>
-                        <a class="dropdown-item" onclick="SelectionSort()" href="#">Selection Sort</a>
-                    </div>
+        <div class="" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Examples</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                        <li class="dropdown">
+                            <a class="dropdown-item" href="#">Arithmetic</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" onclick="Arithmetic1()">Arithmetic 1</a></li>
+                                <li><a class="dropdown-item" onclick="Arithmetic2()">Arithmetic 2</a></li>
+                                <li><a class="dropdown-item" onclick="Multiplication()">Multiplication</a></li>
+                                <li><a class="dropdown-item" href="#">Multiplication with loop</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-item" href="#">Array</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Array Operations</a></li>
+                                <li><a class="dropdown-item" href="#">Array Plus 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-item" href="#">If Statement</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">If Equal</a></li>
+                                <li><a class="dropdown-item" href="#">If Greater</a></li>
+                                <li><a class="dropdown-item" href="#">If Greater Than Or Equal</a></li>
+                                <li><a class="dropdown-item" href="#">If Less</a></li>
+                                <li><a class="dropdown-item" href="#">If Less Than Or Equal</a></li>
+                                <li><a class="dropdown-item" href="#">If Not Equal</a></li>
+                                <li><a class="dropdown-item" href="#">If With 2 Conditions</a></li>
+                                <li><a class="dropdown-item" href="#">If With Else</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-item" href="#">Loops</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Do Loop</a></li>
+                                <li><a class="dropdown-item" href="#">For Loop</a></li>
+                                <li><a class="dropdown-item" href="#">For Loop Unrolling</a></li>
+                                <li><a class="dropdown-item" href="#">While Loop</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-item" href="#">Search Algorithms</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Binary Search</a></li>
+                                <li><a class="dropdown-item" href="#">Linear Search</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-item" href="#">Sorting Algorithms</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" onclick="BubbleSort()">Bubble Sort</a></li>
+                                <li><a class="dropdown-item" onclick="InsertionSort()">Inserting Sort</a></li>
+                                <li><a class="dropdown-item" onclick=" SelectionSort()">Selection Sort</a></li>
+                            </ul>
+                        </li>
+                        <a class="dropdown-item" href="#">Struct</a>
+                        <a class="dropdown-item" href="#">Switch Statement</a>
+                    </ul>
                 </li>
             </ul>
-
-       
-
+        </div>
     </nav>
 </div>
 

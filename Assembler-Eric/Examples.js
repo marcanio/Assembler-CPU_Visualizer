@@ -1,4 +1,59 @@
 
+function Arithmetic1(){
+   let A1 =`.data
+   x        BYTE        2
+   z        BYTE        ?
+   .code
+   LOAD  A, [x]
+   MOVE  C, A        ; z=x;
+   ADDI  C, 3        ; z+=3;
+   STORE [z], C      ; update the memory for z`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function Arithmetic2(){
+   let A1 =`.data
+   x        BYTE        2
+   y        BYTE        3
+   z        BYTE        ?
+   .code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           MOVE  C, A        ; z=x;
+           ADD   C, B        ; z+=y;
+           STORE [z], C`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function Multiplication(){
+   let A1 =`.data
+   x        BYTE        3
+   z        BYTE        ?
+   .code
+           LOAD    A, [x]
+           MOVE    C, A        ; z=x;
+           MOVE    B, A        ; B=x;
+           SHIFTL  B           ; B=2x
+           SHIFTL  B           ; B=4x
+           ADD     C, B        ; C=4x+x
+           STORE   [z], C      ; update the memory for z`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+
+
+
+
+//Sorting Algorithms
 
 function BubbleSort(){
     

@@ -1,3 +1,16 @@
 
 body { background: lightgrey !important; }
  
+
+.dropdown-menu > .dropdown a::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: .9rem;
+    top: .9rem;
+  }
+  
+  .dropdown-menu > .dropdown .dropdown-menu {
+    top: -.7rem;
+    left: 100%;
+    border-radius: 0 .25rem .25rem .25rem;
+  }
