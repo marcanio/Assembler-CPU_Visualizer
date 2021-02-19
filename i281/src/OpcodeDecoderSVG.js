@@ -10,8 +10,8 @@ const BOX_OFFSET = [Constants.FLAGS_OFFSET[0] + Constants.FLAG_VPOS[0] + 15, Con
 export default class OpcodeDeCoderSVG {
 	constructor() {
         this.opcode_decoder = new PolygonSVG(Constants.OPCODE_DECODER_ID, Constants.OPCODE_DECODER_POLYGON, Constants.BLOCK_STYLE, Constants.OPCODE_DECODER_OFFSET);
-		this.top_text = new TextSVG(OPCODE_TPOS[0], OPCODE_TPOS[1], Constants.OPCODE_TEXT_ID, "Opcode", Constants.TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
-		this.middle_text = new TextSVG(OPCODE_TPOS[0], OPCODE_TPOS[1]+ 30, Constants.OPCODE_TEXT_ID, "Decoder", Constants.TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
+		this.top_text = new TextSVG(OPCODE_TPOS[0], OPCODE_TPOS[1], Constants.OPCODE_TEXT_ID, "Opcode", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
+		this.middle_text = new TextSVG(OPCODE_TPOS[0], OPCODE_TPOS[1]+ 30, Constants.OPCODE_TEXT_ID, "Decoder", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.OPCODE_DECODER_OFFSET);
 
 	}
     

@@ -147,6 +147,7 @@ export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
+export const COMPONENT_NAME_TEXT_STYLE = "font-family: Ariel; font-size: 24px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
 export const INTERSECT_STYLE = {"fill":"black"};
 
