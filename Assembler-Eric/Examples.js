@@ -116,6 +116,343 @@ End:    NOOP`;
    mainMethod();
 }
 
+//If Statements ->
+function IfEqual(){
+   let A1 =`.data
+   x       BYTE   3
+   y       BYTE   5
+   z       BYTE   0
+   .code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           CMP   A, B
+           BRNE  End
+           STORE [z], A
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function IfGreater(){
+   let A1 =`.data
+   x       BYTE    3
+   y       BYTE    5
+   z       BYTE    0
+   .code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           CMP   B, A      ; these are swapped
+           BRGE  End
+           STORE [z], A
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function IfGreaterThanOrEqual(){
+   let A1 =`.data
+   x       BYTE    3
+   y       BYTE    5
+   z       BYTE    0
+.code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           CMP   B, A        ; these are swapped
+           BRG   End
+           STORE [z], A
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function IfLess(){
+   let A1 =`.data
+   x       BYTE     3
+   y       BYTE     5
+   z       BYTE     0
+   .code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           CMP   A, B
+           BRGE  End
+           STORE [z], A
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function IfLessThanOrEqual(){
+   let A1 =`.data
+   x       BYTE    3
+   y       BYTE    5
+   z       BYTE    0
+   .code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           CMP   A, B
+           BRG   End
+           STORE [z], A
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function IfNotEqual(){
+   let A1 =`.data
+   x       BYTE    3
+   y       BYTE    5
+   z       BYTE    0
+   .code
+           LOAD  A, [x]
+           LOAD  B, [y]
+           CMP   A, B
+           BRE   End
+           STORE [z], A
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function IfWith2Conditions(){
+   let A1 =`.data
+   x        BYTE        5
+   min      BYTE        1
+   max      BYTE        8
+   inRange  BYTE        0
+   .code
+           LOAD  A, [x]
+           LOAD  B, [min]
+           LOAD  C, [max]
+           CMP   B, A                ; min <= x ?
+           BRG   End
+           CMP   A, C                ; x <= max ?
+           BRG   End
+           LOADI D, 1
+           STORE [inRange], D
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+
+//Loops
+function DoLoop(){
+   let A1 =`.data
+   N       BYTE      5
+   sum     BYTE      ?
+   .code
+           LOADI A, 0           ; i = 0
+           LOADI B, 0           ; sum=0
+           LOAD  D, [N]         ; register D = N
+Do:     ADDI  A, 1           ; i++
+           ADD   B, A           ; sum+=i
+           CMP   D, A           ; N > i ? (register ordering is swapped)
+           BRG   Do             ; if true, jump to Do
+End:    STORE [sum], B       ; store sum to memory`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function ForLoop(){
+   let A1 =`.data
+   N        BYTE    5
+   i        BYTE    ?
+   sum      BYTE    ?
+   .code
+           LOADI  B, 0        ; sum=0
+           LOADI  A, 1        ; i=1
+           LOAD   D, [N]      ; register D = N
+Loop:   CMP    A, D        ; i<=N ?
+           BRG    End         ; exit if i>N
+Add:    ADD    B, A        ; sum+=i
+           ADDI   A,1         ; i++
+           JUMP   Loop        ; next iteration
+End:    STORE  [sum], B    ; update the memory for sum`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function ForLoopUnrolling(){
+   let A1 =`.data
+   sum        BYTE        ?
+   .code
+           LOADI B, 0       ; sum=0
+           LOADI A, 1       ; i=1
+           ADD   B, A       ; sum+=i
+           ADDI  A, 1       ; i++
+           ADD   B, A       ; sum+=i
+           ADDI  A, 1       ; i++
+           ADD   B, A       ; sum+=i
+           STORE [sum], B   ; update the memory for sum`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function WhileLoop(){
+   let A1 =`.data
+   N       BYTE     5
+   sum     BYTE     ?
+   .code
+           LOADI A, 1         ; i = 1
+           LOADI B, 0         ; sum=0
+           LOAD  D, [N]       ; register D = N
+While:  CMP   A, D         ; i <= N ?
+           BRG   End          ; if no, exit the while loop
+           ADD   B, A         ; sum+=i
+           ADDI  A, 1         ; i++
+           JUMP  While        ; next iteration
+End:    STORE [sum], B     ; store sum to memory`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+
+//Search Algorithms
+function BinarySearch(){
+   let A1 =`.data
+   array      BYTE 2, 4, 5, 7, 8, 9
+   found      BYTE 0
+   mid        BYTE ?
+   low        BYTE 0
+   high       BYTE 5
+   key        BYTE 4
+   .code
+              LOAD    A, [low]         ; Register A <- [low]
+              LOAD    C, [high]        ; Register 
+              LOAD    D, [key]         ; Register D <- [key]
+While:     CMP     A, C             ; Compare A with C
+              BRG     End              ; exit the loop if low > high 
+Step:      MOVE    B, A             ; B <- low
+              ADD     B, C             ; B <- B + hight
+              SHIFTR  B                ; B <- B / 2
+If:        STORE   [mid], B         ; Store [mid] <- B 
+              LOADF   B, [array+B]     ; B = array[mid]
+              CMP     B, D             ; Compare array[mid] with key
+              BRE     Match            ; if they are equal we found a match
+              BRGE    AdjHigh          ; reuses the flags to handle the If-Else
+AdjLow:    LOAD    A, [mid]         ; low = mid
+              ADDI    A, 1             ; low = mid + 1
+              JUMP    While            ; Jump to While
+AdjHigh:   LOAD    C, [mid]         ; high = mid
+              SUBI    C, 1             ; high = mid - 1
+              JUMP    While            ; Jump to While
+Match:     LOAD    B, [found]       ; Load B <- [found]
+              ADDI    B, 1             ; B <- B + 1
+              STORE   [found], B       ; Store [found] <- B; implicit break
+End:       NOOP                     ; Do nothing`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function LinearSearch(){
+   let A1 =`.data
+   array   BYTE   5, 2, 7, 3, 6, 1
+   found   BYTE   0
+   index   BYTE   ?
+   N       BYTE   6
+   key     BYTE   5
+   i       BYTE   ?
+   .code
+           LOADI  A, 0             ; i=0
+           LOAD   B, [N]           ; Register B <- [N]
+           LOAD   D, [key]         ; Register D <- [key]
+For:    CMP    A, B             ; Compare A with B
+           BRGE   End              ; if i >= N exit the loop
+Step:   LOADF  C, [array+A]     ; Register C <- array[i]
+           CMP    C, D             ; Compare C with D
+           BRNE   Iinc
+Match:  LOAD   C, [found]       ; Load C <- [found]
+           ADDI   C, 1             ; C <- C + 1
+           STORE  [found], C       ; Store [found] <- C
+           STORE  [index], A
+           JUMP   End
+Iinc:   ADDI   A, 1             ; i++
+           JUMP   For              ; Jump to For
+End:    NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+
+//Struct
+function Struct(){
+   let A1 =`.data
+   point   BYTE    ?, ?, ?
+   .code
+           LOADI A, 2
+           STORE [point+0], A
+           LOADI B, 3
+           STORE [point+1], B
+           ADD A, B
+           STORE [point+2], A`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+
+//Switch Statement
+function Switch(){
+   let A1 =`.data
+   x        BYTE        6
+   y        BYTE        ?
+   .code
+            LOAD    A, [x]
+Zero:    LOADI   C, 0
+            CMP     A, C
+            BRNE    One
+            MOVE    B, A
+            SHIFTL  B
+            JUMP    End
+One:     LOADI   C, 1
+            CMP     A, C
+            BRNE    Two
+            MOVE    B, A
+            ADDI    B, 3         
+            JUMP    End
+Two:     LOADI   C, 2
+            CMP     A, C
+            BRNE    Default
+            MOVE    B, A
+            SUBI    B, 1
+            JUMP    End
+Default: MOVE    B, A
+            SHIFTR  B
+End:     STORE   [y], B
+            NOOP`;
+
+   let newText = A1.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
 
 //Sorting Algorithms
 
