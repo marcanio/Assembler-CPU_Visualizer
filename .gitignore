@@ -125,3 +125,4 @@ dist
 #Ignore .swp and .swo files from Vim
 *.swp
 *.swo
+
