@@ -10,7 +10,7 @@ const BOX_OFFSET = [Constants.FLAGS_OFFSET[0] + Constants.FLAG_VPOS[0] + 15, Con
 export default class ALU_SVG {
 	constructor() {
         this.alu = new PolygonSVG(Constants.ALU_ID, Constants.ALU_POLYGON, Constants.BLOCK_STYLE, Constants.ALU_OFFSET);
-		this.text = new TextSVG(TPOS[0], TPOS[1], "ALUTextid", "ALU", Constants.TEXT_STYLE, Constants.ALU_OFFSET);
+		this.text = new TextSVG(TPOS[0], TPOS[1], "ALUTextid", "ALU", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.ALU_OFFSET);
 	}
     
 	get_all_nodes() {
