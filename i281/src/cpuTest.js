@@ -17,11 +17,13 @@ cpu.iMem.setRegister(8, '1010010000000010');  // STORE [sum], B
 cpu.iMem.setWriteEnable(0);
 cpu.dMem.setWriteEnable(1);
 
-let numCycles = 32;
+let numCycles = 31;
 
+let t0 = performance.now();
 for(let i=0; i<numCycles; i++) {
     cpu.singleCycle();
 }
+let t1 = performance.now();
 
 let regA = cpu.registers.getRegister(0);
 let regB = cpu.registers.getRegister(1);
@@ -31,3 +33,7 @@ console.log('regA: ' + regA);
 console.log('regB: ' + regB);
 console.log('regD: ' + regD);
 console.log('dmemResult: ' + dMemResult);
+console.log('===============');
+console.log('Total execution time was: ' + (t1-t0) + ' ms');
+console.log('Average time per instruction: ' + (t1-t0)/numCycles + ' ms');
+console.log('Average "frequency": ' + numCycles/(t1-t0) + ' KHz');
