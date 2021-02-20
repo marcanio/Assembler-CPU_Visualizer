@@ -41,18 +41,15 @@ export class Control {
      * 
     */
     setControl(decodedOpCode, zeroFlag, negativeFlag, overflowFlag) {
-        // TODO Check that x0, x1, y0, y1 are in the right order..., updated note, I think they are.
         let x0 = parseInt(decodedOpCode.charAt(24));
         let x1 = parseInt(decodedOpCode.charAt(23));
         let y0 = parseInt(decodedOpCode.charAt(26));
         let y1 = parseInt(decodedOpCode.charAt(25));
 
-        // TODO figure out what these signals should be
         let b1 = zeroFlag;
-        let b2 = (zeroFlag===1) ? 0 : 1;  // This is the ugliest negation I have ever used.
-        let b4 = (negativeFlag===overflowFlag) ? 1 : 0; // I know this is out of order, but it made the calculations less redundant and easier.
-        let b3 = (b2 & b4) ? 1 : 0;  // Very ugly as well.
-        
+        let b2 = (zeroFlag===1) ? 0 : 1;  // b2 = ~zeroFlag
+        let b4 = (negativeFlag===overflowFlag) ? 1 : 0; // XNOR(negativeFlag, overflowFlag)
+        let b3 = (b2 == 1 && b4 == 1) ? 1 : 0;  // AND(~zeroFlag, XNOR(negativeFlag, overflowFlag))
         
         // This part sets the output. Note, if the input is not one hot encoded this will break.
         if(decodedOpCode.charAt(0) == 1) this.c =  [null, 0,  0, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // noop
@@ -78,7 +75,6 @@ export class Control {
         if(decodedOpCode.charAt(20) == 1) this.c = [null, 0, b2, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brne/brnz
         if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brg
         if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  //brge
-    
     }
 
     /**

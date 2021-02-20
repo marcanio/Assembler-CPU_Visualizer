@@ -12,6 +12,11 @@ export class Alu {
 		this.controlCallback;
 		this.controlCBParams;
 		this.result;
+		this.zero = 0;
+		this.negative = 0;
+		this.overflow = 0;
+		this.carry = 0;
+		
     }
     
 
@@ -60,19 +65,27 @@ export class Alu {
      * @author Bryce Snell
      */
     process(control) {
-		let carry = 0;
-		let overflow = 0;
 
 		// Shift left
 		if(control[0] == 0 && control[1] == 0) {
-			this.result = this.opA << 1;
-			carry = this.opA[7];
+			this.result = this.opA.substring(1)+'0';
+			this.carry = this.opA[0];
+			this.overflow = 0;
+
+			if(parseInt(this.result,2) == 0) {
+				this.zero = 1;
+			}
 		}
 
 		// Shift right
 		else if(control[0] == 0 && control[1] == 1) {
-			this.result = this.opA >> 1;
-			carry = this.opA[0];
+			this.result = '0' + this.opA.substring(1,7);
+			this.carry = this.opA[7];
+			this.overflow = 0;
+
+			if(parseInt(this.result,2) == 0) {
+				this.zero = 1;
+			}
 		}
 
 		// Add/sub
@@ -81,42 +94,45 @@ export class Alu {
 			let tempResult = new Array(8);  // This will hold the result
 			let carryArray = new Array(9);  // This will hold the carry results
 
-			carryArray[0] = control[1];  // This is the part that handles the add/sub difference
+			carryArray[7] = parseInt(control[1], 2);  // This is the part that handles the add/sub difference
 
 			// Bit based add (I'm so sorry we have to do it this way)
-			for(i=0; i<8; i++) {
+			for(let i=7; i>=0; i--) {
 				let a = parseInt(this.opA[i], 2);
 				let b = parseInt(this.opB[i], 2);
 				
 
-				let sum = a+b+carryArray[i];
+				let sum = a+(b^carryArray[7])+carryArray[i];
 				if (sum == 0) {
 					tempResult[i] = 0;
-					carryArray[i+1] = 0;
+					carryArray[i-1] = 0;
 				}
 
 				else if (sum == 1) {
 					tempResult[i] = 1;
-					carryArray[i+1] = 0;
+					carryArray[i-1] = 0;
 				}
 
 				else if (sum == 2) {
 					tempResult[i] = 0;
-					carryArray[i+1] = 1;
+					carryArray[i-1] = 1;
 				}
 
 				else if (sum == 3) {
 					tempResult[i] = 1;
-					carryArray[i+1] = 1;
+					carryArray[i-1] = 1;
 				}
 
 				else throw new Error('The adder had a massive mistake: ' + sum);
 			}
 
-			carry = carryArray[8];
-			overflow = carryArray[8] ^ carryArray[7];
+			this.result = tempResult.join("");
 
-			this.result = tempResult.join();
+			// Calculate flags
+			this.zero = !(tempResult[7] || tempResult[6] || tempResult[5] || tempResult[4] || tempResult[3] || tempResult[2] || tempResult[1] || tempResult[0]) ? 1 : 0;
+			this.carry = carryArray[-1];
+			this.overflow = carryArray[-1] ^ carryArray[0];
+			this.negative = tempResult[0];
 		}
 
 		else throw new Error('Unknown control state for alu: ' + control);
