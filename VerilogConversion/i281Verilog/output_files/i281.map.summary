@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue Oct 27 20:45:54 2020
+Analysis & Synthesis Status : Successful - Mon Feb 15 20:17:57 2021
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : i281
-Top-level Entity Name : _4x8BitRegisters
+Top-level Entity Name : _Video_Card
 Family : Cyclone IV E
-Total logic elements : 68
-    Total combinational functions : 36
-    Dedicated logic registers : 32
-Total registers : 32
-Total pins : 65
+Total logic elements : 128
+    Total combinational functions : 128
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 154
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

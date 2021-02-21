@@ -1,5 +1,5 @@
 Analysis & Synthesis report for i281_CPU
-Tue Oct 27 20:25:02 2020
+Mon Feb 15 20:02:36 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,10 +14,9 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 27 20:25:02 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 15 20:02:36 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281_CPU                                    ;
-; Top-level Entity Name              ; 4x8BitRegisters                             ;
+; Top-level Entity Name              ; Clock_divider_512                           ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 68                                          ;
-;     Total combinational functions  ; 36                                          ;
-;     Dedicated logic registers      ; 32                                          ;
-; Total registers                    ; 32                                          ;
-; Total pins                         ; 65                                          ;
+; Total logic elements               ; 12                                          ;
+;     Total combinational functions  ; 12                                          ;
+;     Dedicated logic registers      ; 9                                           ;
+; Total registers                    ; 9                                           ;
+; Total pins                         ; 2                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; 4x8BitRegisters    ; i281_CPU           ;
+; Top-level entity name                                            ; Clock_divider_512  ; i281_CPU           ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -156,91 +155,62 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
-+----------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                                              ; Library ;
-+----------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
-; Registers8bit.bdf                ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/Registers8bit.bdf         ;         ;
-; 4x8BitRegisters.bdf              ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/4x8BitRegisters.bdf       ;         ;
-; block3.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/block3.bdf                ;         ;
-; 2bitdecoderwithenable.bdf        ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/2bitdecoderwithenable.bdf ;         ;
-; 8wide4to1busmux.bdf              ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/8wide4to1busmux.bdf       ;         ;
-; 8widwidebusmux.bdf               ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/8widwidebusmux.bdf        ;         ;
-+----------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                          ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; Clock_divider_512.bdf            ; yes             ; User Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware/i281_CPU_Hardware/Clock_divider_512.bdf ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 68          ;
-;                                             ;             ;
-; Total combinational functions               ; 36          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 32          ;
-;     -- 3 input functions                    ; 4           ;
-;     -- <=2 input functions                  ; 0           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 36          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 32          ;
-;     -- Dedicated logic registers            ; 32          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 65          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 32          ;
-; Total fan-out                               ; 381         ;
-; Average fan-out                             ; 1.92        ;
-+---------------------------------------------+-------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 12           ;
+;                                             ;              ;
+; Total combinational functions               ; 12           ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 5            ;
+;     -- 3 input functions                    ; 3            ;
+;     -- <=2 input functions                  ; 4            ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 12           ;
+;     -- arithmetic mode                      ; 0            ;
+;                                             ;              ;
+; Total registers                             ; 9            ;
+;     -- Dedicated logic registers            ; 9            ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 2            ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; CLK_IN~input ;
+; Maximum fan-out                             ; 9            ;
+; Total fan-out                               ; 57           ;
+; Average fan-out                             ; 2.28         ;
++---------------------------------------------+--------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                          ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------+-----------------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                      ; Entity Name           ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------+-----------------------+--------------+
-; |4x8BitRegisters                ; 36 (0)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 65   ; 0            ; |4x8BitRegisters                                                         ; 4x8BitRegisters       ; work         ;
-;    |2BitDecoderWithEnable:inst| ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|2BitDecoderWithEnable:inst                              ; 2BitDecoderWithEnable ; work         ;
-;    |8wide4to1BusMUX:inst5|      ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5                                   ; 8wide4to1BusMUX       ; work         ;
-;       |8WidWideBusMux:inst6|    ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6              ; 8WidWideBusMux        ; work         ;
-;          |Block3:inst2|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst2 ; Block3                ; work         ;
-;          |Block3:inst3|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst3 ; Block3                ; work         ;
-;          |Block3:inst4|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst4 ; Block3                ; work         ;
-;          |Block3:inst5|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst5 ; Block3                ; work         ;
-;          |Block3:inst6|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst6 ; Block3                ; work         ;
-;          |Block3:inst7|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst7 ; Block3                ; work         ;
-;          |Block3:inst8|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst8 ; Block3                ; work         ;
-;          |Block3:inst|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst  ; Block3                ; work         ;
-;    |8wide4to1BusMUX:inst6|      ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6                                   ; 8wide4to1BusMUX       ; work         ;
-;       |8WidWideBusMux:inst6|    ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6              ; 8WidWideBusMux        ; work         ;
-;          |Block3:inst2|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst2 ; Block3                ; work         ;
-;          |Block3:inst3|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst3 ; Block3                ; work         ;
-;          |Block3:inst4|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst4 ; Block3                ; work         ;
-;          |Block3:inst5|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst5 ; Block3                ; work         ;
-;          |Block3:inst6|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst6 ; Block3                ; work         ;
-;          |Block3:inst7|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst7 ; Block3                ; work         ;
-;          |Block3:inst8|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst8 ; Block3                ; work         ;
-;          |Block3:inst|          ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst  ; Block3                ; work         ;
-;    |Registers8bit:A|            ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|Registers8bit:A                                         ; Registers8bit         ; work         ;
-;    |Registers8bit:B|            ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|Registers8bit:B                                         ; Registers8bit         ; work         ;
-;    |Registers8bit:C|            ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|Registers8bit:C                                         ; Registers8bit         ; work         ;
-;    |Registers8bit:D|            ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |4x8BitRegisters|Registers8bit:D                                         ; Registers8bit         ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------+-----------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                            ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
+; |Clock_divider_512         ; 12 (12)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |Clock_divider_512  ; Clock_divider_512 ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -249,24 +219,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
+; Total registers                              ; 9     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |4x8BitRegisters|8wide4to1BusMUX:inst5|8WidWideBusMux:inst6|Block3:inst|inst3  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |4x8BitRegisters|8wide4to1BusMUX:inst6|8WidWideBusMux:inst6|Block3:inst8|inst3 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -274,16 +234,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 65                          ;
-; cycloneiii_ff         ; 32                          ;
-;     ENA CLR           ; 32                          ;
-; cycloneiii_lcell_comb ; 36                          ;
-;     normal            ; 36                          ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 32                          ;
+; boundary_port         ; 2                           ;
+; cycloneiii_ff         ; 9                           ;
+;     plain             ; 9                           ;
+; cycloneiii_lcell_comb ; 12                          ;
+;     normal            ; 12                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 5                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.49                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -302,7 +264,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Oct 27 20:24:55 2020
+    Info: Processing started: Mon Feb 15 20:02:29 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off i281_CPU -c i281_CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -339,31 +301,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file registe
     Info (12023): Found entity 1: Registers8bit
 Info (12021): Found 1 design units, including 1 entities, in source file 4x8bitregisters.bdf
     Info (12023): Found entity 1: 4x8BitRegisters
-Info (12127): Elaborating entity "4x8BitRegisters" for the top level hierarchy
-Info (12128): Elaborating entity "Registers8bit" for hierarchy "Registers8bit:A"
-Warning (12125): Using design file block3.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Block3
-Info (12128): Elaborating entity "Block3" for hierarchy "Registers8bit:A|Block3:inst2"
-Warning (12125): Using design file 2bitdecoderwithenable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 2BitDecoderWithEnable
-Info (12128): Elaborating entity "2BitDecoderWithEnable" for hierarchy "2BitDecoderWithEnable:inst"
-Warning (12125): Using design file 8wide4to1busmux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 8wide4to1BusMUX
-Info (12128): Elaborating entity "8wide4to1BusMUX" for hierarchy "8wide4to1BusMUX:inst5"
-Warning (12125): Using design file 8widwidebusmux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 8WidWideBusMux
-Info (12128): Elaborating entity "8WidWideBusMux" for hierarchy "8wide4to1BusMUX:inst5|8WidWideBusMux:inst6"
+Info (12127): Elaborating entity "Clock_divider_512" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 133 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 48 output pins
-    Info (21061): Implemented 68 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4781 megabytes
-    Info: Processing ended: Tue Oct 27 20:25:02 2020
+Info (21057): Implemented 14 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 12 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4840 megabytes
+    Info: Processing ended: Mon Feb 15 20:02:36 2021
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Total CPU time (on all processors): 00:00:16
 
 

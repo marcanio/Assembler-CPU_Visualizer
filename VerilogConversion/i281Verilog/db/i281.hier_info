@@ -1,127 +1,184 @@
-|_4x8BitRegisters
-REG_INPUT[0] => REG_INPUT[0].IN4
-REG_INPUT[1] => REG_INPUT[1].IN4
-REG_INPUT[2] => REG_INPUT[2].IN4
-REG_INPUT[3] => REG_INPUT[3].IN4
-REG_INPUT[4] => REG_INPUT[4].IN4
-REG_INPUT[5] => REG_INPUT[5].IN4
-REG_INPUT[6] => REG_INPUT[6].IN4
-REG_INPUT[7] => REG_INPUT[7].IN4
-READ_PORT0_SELECT[0] => READ_PORT0_SELECT[0].IN1
-READ_PORT0_SELECT[1] => READ_PORT0_SELECT[1].IN1
-WRITE_SELECT[0] => WRITE_SELECT[0].IN1
-WRITE_SELECT[1] => WRITE_SELECT[1].IN1
-READ_PORT1_SELECT[0] => READ_PORT1_SELECT[0].IN1
-READ_PORT1_SELECT[1] => READ_PORT1_SELECT[1].IN1
-Clock => Clock.IN4
-Reset => Reset.IN4
-WRITE_ENABLE => WRITE_ENABLE.IN1
-REG_A[0] <= REG_A[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[1] <= REG_A[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[2] <= REG_A[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[3] <= REG_A[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[4] <= REG_A[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[5] <= REG_A[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[6] <= REG_A[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_A[7] <= REG_A[7].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[0] <= REG_B[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[1] <= REG_B[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[2] <= REG_B[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[3] <= REG_B[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[4] <= REG_B[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[5] <= REG_B[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[6] <= REG_B[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_B[7] <= REG_B[7].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[0] <= REG_C[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[1] <= REG_C[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[2] <= REG_C[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[3] <= REG_C[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[4] <= REG_C[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[5] <= REG_C[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[6] <= REG_C[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_C[7] <= REG_C[7].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[0] <= REG_D[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[1] <= REG_D[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[2] <= REG_D[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[3] <= REG_D[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[4] <= REG_D[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[5] <= REG_D[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[6] <= REG_D[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_D[7] <= REG_D[7].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT0[0] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[1] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[2] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[3] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[4] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[5] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[6] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT0[7] <= _8Wide4To1BusMux:Output0.muxresult
-REG_OUTPUT1[0] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[1] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[2] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[3] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[4] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[5] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[6] <= _8Wide4To1BusMux:Output1.muxresult
-REG_OUTPUT1[7] <= _8Wide4To1BusMux:Output1.muxresult
+|_Video_Card
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Direct_Video_Map => _.IN1
+Register_View => Register_View.IN4
+Video_Input0[0] => _3BitSevenSeg_0[0].IN2
+Video_Input0[1] => _3BitSevenSeg_0[1].IN2
+Video_Input0[2] => _3BitSevenSeg_0[2].IN2
+Video_Input0[3] => _3BitSevenSeg_0[3].IN2
+Video_Input0[4] => _6BitSevenSeg_0[4].IN1
+Video_Input0[5] => _6BitSevenSeg_0[5].IN1
+Video_Input0[6] => _6BitSevenSeg_0[6].IN1
+Video_Input0[7] => ~NO_FANOUT~
+Video_Input1[0] => _3BitSevenSeg_1[0].IN2
+Video_Input1[1] => _3BitSevenSeg_1[1].IN2
+Video_Input1[2] => _3BitSevenSeg_1[2].IN2
+Video_Input1[3] => _3BitSevenSeg_1[3].IN2
+Video_Input1[4] => _6BitSevenSeg_1[4].IN1
+Video_Input1[5] => _6BitSevenSeg_1[5].IN1
+Video_Input1[6] => _6BitSevenSeg_1[6].IN1
+Video_Input1[7] => ~NO_FANOUT~
+Video_Input2[0] => _3BitSevenSeg_2[0].IN2
+Video_Input2[1] => _3BitSevenSeg_2[1].IN2
+Video_Input2[2] => _3BitSevenSeg_2[2].IN2
+Video_Input2[3] => _3BitSevenSeg_2[3].IN2
+Video_Input2[4] => _6BitSevenSeg_2[4].IN1
+Video_Input2[5] => _6BitSevenSeg_2[5].IN1
+Video_Input2[6] => _6BitSevenSeg_2[6].IN1
+Video_Input2[7] => ~NO_FANOUT~
+Video_Input3[0] => _3BitSevenSeg_3[0].IN2
+Video_Input3[1] => _3BitSevenSeg_3[1].IN2
+Video_Input3[2] => _3BitSevenSeg_3[2].IN2
+Video_Input3[3] => _3BitSevenSeg_3[3].IN2
+Video_Input3[4] => _6BitSevenSeg_3[4].IN1
+Video_Input3[5] => _6BitSevenSeg_3[5].IN1
+Video_Input3[6] => _6BitSevenSeg_3[6].IN1
+Video_Input3[7] => ~NO_FANOUT~
+Video_Input4[0] => _3BitSevenSeg_4[0].IN2
+Video_Input4[1] => _3BitSevenSeg_4[1].IN2
+Video_Input4[2] => _3BitSevenSeg_4[2].IN2
+Video_Input4[3] => _3BitSevenSeg_4[3].IN2
+Video_Input4[4] => _6BitSevenSeg_4[4].IN1
+Video_Input4[5] => _6BitSevenSeg_4[5].IN1
+Video_Input4[6] => _6BitSevenSeg_4[6].IN1
+Video_Input4[7] => ~NO_FANOUT~
+Video_Input5[0] => _3BitSevenSeg_5[0].IN2
+Video_Input5[1] => _3BitSevenSeg_5[1].IN2
+Video_Input5[2] => _3BitSevenSeg_5[2].IN2
+Video_Input5[3] => _3BitSevenSeg_5[3].IN2
+Video_Input5[4] => _6BitSevenSeg_5[4].IN1
+Video_Input5[5] => _6BitSevenSeg_5[5].IN1
+Video_Input5[6] => _6BitSevenSeg_5[6].IN1
+Video_Input5[7] => ~NO_FANOUT~
+Video_Input6[0] => _3BitSevenSeg_6[0].IN2
+Video_Input6[1] => _3BitSevenSeg_6[1].IN2
+Video_Input6[2] => _3BitSevenSeg_6[2].IN2
+Video_Input6[3] => _3BitSevenSeg_6[3].IN2
+Video_Input6[4] => _6BitSevenSeg_6[4].IN1
+Video_Input6[5] => _6BitSevenSeg_6[5].IN1
+Video_Input6[6] => _6BitSevenSeg_6[6].IN1
+Video_Input6[7] => ~NO_FANOUT~
+Video_Input7[0] => _3BitSevenSeg_7[0].IN2
+Video_Input7[1] => _3BitSevenSeg_7[1].IN2
+Video_Input7[2] => _3BitSevenSeg_7[2].IN2
+Video_Input7[3] => _3BitSevenSeg_7[3].IN2
+Video_Input7[4] => _6BitSevenSeg_7[4].IN1
+Video_Input7[5] => _6BitSevenSeg_7[5].IN1
+Video_Input7[6] => _6BitSevenSeg_7[6].IN1
+Video_Input7[7] => ~NO_FANOUT~
+REG_IN_A[0] => _3BitRegInA[0].IN1
+REG_IN_A[1] => _3BitRegInA[1].IN1
+REG_IN_A[2] => _3BitRegInA[2].IN1
+REG_IN_A[3] => _3BitRegInA[3].IN1
+REG_IN_A[4] => ~NO_FANOUT~
+REG_IN_A[5] => ~NO_FANOUT~
+REG_IN_A[6] => ~NO_FANOUT~
+REG_IN_A[7] => ~NO_FANOUT~
+REG_IN_B[0] => _3BitRegInB[0].IN1
+REG_IN_B[1] => _3BitRegInB[1].IN1
+REG_IN_B[2] => _3BitRegInB[2].IN1
+REG_IN_B[3] => _3BitRegInB[3].IN1
+REG_IN_B[4] => ~NO_FANOUT~
+REG_IN_B[5] => ~NO_FANOUT~
+REG_IN_B[6] => ~NO_FANOUT~
+REG_IN_B[7] => ~NO_FANOUT~
+REG_IN_C[0] => _3BitRegInC[0].IN1
+REG_IN_C[1] => _3BitRegInC[1].IN1
+REG_IN_C[2] => _3BitRegInC[2].IN1
+REG_IN_C[3] => _3BitRegInC[3].IN1
+REG_IN_C[4] => ~NO_FANOUT~
+REG_IN_C[5] => ~NO_FANOUT~
+REG_IN_C[6] => ~NO_FANOUT~
+REG_IN_C[7] => ~NO_FANOUT~
+REG_IN_D[0] => _3BitRegInD_0[0].IN1
+REG_IN_D[1] => _3BitRegInD_0[1].IN1
+REG_IN_D[2] => _3BitRegInD_0[2].IN1
+REG_IN_D[3] => _3BitRegInD_0[3].IN1
+REG_IN_D[4] => ~NO_FANOUT~
+REG_IN_D[5] => ~NO_FANOUT~
+REG_IN_D[6] => ~NO_FANOUT~
+REG_IN_D[7] => ~NO_FANOUT~
+Video_Output0[0] << _7WideBusMux:SevenWideBus0.result
+Video_Output0[1] << _7WideBusMux:SevenWideBus0.result
+Video_Output0[2] << _7WideBusMux:SevenWideBus0.result
+Video_Output0[3] << _7WideBusMux:SevenWideBus0.result
+Video_Output0[4] << _7WideBusMux:SevenWideBus0.result
+Video_Output0[5] << _7WideBusMux:SevenWideBus0.result
+Video_Output0[6] << _7WideBusMux:SevenWideBus0.result
+Video_Output1[0] << _7WideBusMux:SevenWideBus1.result
+Video_Output1[1] << _7WideBusMux:SevenWideBus1.result
+Video_Output1[2] << _7WideBusMux:SevenWideBus1.result
+Video_Output1[3] << _7WideBusMux:SevenWideBus1.result
+Video_Output1[4] << _7WideBusMux:SevenWideBus1.result
+Video_Output1[5] << _7WideBusMux:SevenWideBus1.result
+Video_Output1[6] << _7WideBusMux:SevenWideBus1.result
+Video_Output2[0] << _7WideBusMux:SevenWideBus2.result
+Video_Output2[1] << _7WideBusMux:SevenWideBus2.result
+Video_Output2[2] << _7WideBusMux:SevenWideBus2.result
+Video_Output2[3] << _7WideBusMux:SevenWideBus2.result
+Video_Output2[4] << _7WideBusMux:SevenWideBus2.result
+Video_Output2[5] << _7WideBusMux:SevenWideBus2.result
+Video_Output2[6] << _7WideBusMux:SevenWideBus2.result
+Video_Output3[0] << _7WideBusMux:SevenWideBus3.result
+Video_Output3[1] << _7WideBusMux:SevenWideBus3.result
+Video_Output3[2] << _7WideBusMux:SevenWideBus3.result
+Video_Output3[3] << _7WideBusMux:SevenWideBus3.result
+Video_Output3[4] << _7WideBusMux:SevenWideBus3.result
+Video_Output3[5] << _7WideBusMux:SevenWideBus3.result
+Video_Output3[6] << _7WideBusMux:SevenWideBus3.result
+Video_Output4[0] << _7WideBusMux:SevenWideBus4.result
+Video_Output4[1] << _7WideBusMux:SevenWideBus4.result
+Video_Output4[2] << _7WideBusMux:SevenWideBus4.result
+Video_Output4[3] << _7WideBusMux:SevenWideBus4.result
+Video_Output4[4] << _7WideBusMux:SevenWideBus4.result
+Video_Output4[5] << _7WideBusMux:SevenWideBus4.result
+Video_Output4[6] << _7WideBusMux:SevenWideBus4.result
+Video_Output5[0] << _7WideBusMux:SevenWideBus5.result
+Video_Output5[1] << _7WideBusMux:SevenWideBus5.result
+Video_Output5[2] << _7WideBusMux:SevenWideBus5.result
+Video_Output5[3] << _7WideBusMux:SevenWideBus5.result
+Video_Output5[4] << _7WideBusMux:SevenWideBus5.result
+Video_Output5[5] << _7WideBusMux:SevenWideBus5.result
+Video_Output5[6] << _7WideBusMux:SevenWideBus5.result
+Video_Output6[0] << _7WideBusMux:SevenWideBus6.result
+Video_Output6[1] << _7WideBusMux:SevenWideBus6.result
+Video_Output6[2] << _7WideBusMux:SevenWideBus6.result
+Video_Output6[3] << _7WideBusMux:SevenWideBus6.result
+Video_Output6[4] << _7WideBusMux:SevenWideBus6.result
+Video_Output6[5] << _7WideBusMux:SevenWideBus6.result
+Video_Output6[6] << _7WideBusMux:SevenWideBus6.result
+Video_Output7[0] << _7WideBusMux:SevenWideBus7.result
+Video_Output7[1] << _7WideBusMux:SevenWideBus7.result
+Video_Output7[2] << _7WideBusMux:SevenWideBus7.result
+Video_Output7[3] << _7WideBusMux:SevenWideBus7.result
+Video_Output7[4] << _7WideBusMux:SevenWideBus7.result
+Video_Output7[5] << _7WideBusMux:SevenWideBus7.result
+Video_Output7[6] << _7WideBusMux:SevenWideBus7.result
 
 
-|_4x8BitRegisters|_2to4DecoderWithEnable:RegDec
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Enable => Decoder_Output.IN1
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[0] => Decoder_Output.IN0
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Input[1] => Decoder_Output.IN1
-Decoder_Output[0] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[1] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[2] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
-Decoder_Output[3] <= Decoder_Output.DB_MAX_OUTPUT_PORT_TYPE
+|_Video_Card|_4WideBusMux:BusMux0
+Control => Control.IN4
+dataAline[0] => dataAline[0].IN1
+dataAline[1] => dataAline[1].IN1
+dataAline[2] => dataAline[2].IN1
+dataAline[3] => dataAline[3].IN1
+dataBline[0] => dataBline[0].IN1
+dataBline[1] => dataBline[1].IN1
+dataBline[2] => dataBline[2].IN1
+dataBline[3] => dataBline[3].IN1
+result[0] <= _2to1mux:mux[0].mux.mxout
+result[1] <= _2to1mux:mux[1].mux.mxout
+result[2] <= _2to1mux:mux[2].mux.mxout
+result[3] <= _2to1mux:mux[3].mux.mxout
 
 
-|_4x8BitRegisters|_Registers8bit:A
-REG_INPUT[0] => REG_INPUT[0].IN1
-REG_INPUT[1] => REG_INPUT[1].IN1
-REG_INPUT[2] => REG_INPUT[2].IN1
-REG_INPUT[3] => REG_INPUT[3].IN1
-REG_INPUT[4] => REG_INPUT[4].IN1
-REG_INPUT[5] => REG_INPUT[5].IN1
-REG_INPUT[6] => REG_INPUT[6].IN1
-REG_INPUT[7] => REG_INPUT[7].IN1
-control => control.IN8
-clk => rmux[0].DFF.CLK
-clk => rmux[1].DFF.CLK
-clk => rmux[2].DFF.CLK
-clk => rmux[3].DFF.CLK
-clk => rmux[4].DFF.CLK
-clk => rmux[5].DFF.CLK
-clk => rmux[6].DFF.CLK
-clk => rmux[7].DFF.CLK
-Reset => rmux[0].DFF.ACLR
-Reset => rmux[1].DFF.ACLR
-Reset => rmux[2].DFF.ACLR
-Reset => rmux[3].DFF.ACLR
-Reset => rmux[4].DFF.ACLR
-Reset => rmux[5].DFF.ACLR
-Reset => rmux[6].DFF.ACLR
-Reset => rmux[7].DFF.ACLR
-REG_OUTPUT[0] <= dffQ[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[1] <= dffQ[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[2] <= dffQ[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[3] <= dffQ[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[4] <= dffQ[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[5] <= dffQ[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[6] <= dffQ[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[7] <= dffQ[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[0].regMux
+|_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[0].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -129,7 +186,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[1].regMux
+|_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[1].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -137,7 +194,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[2].regMux
+|_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[2].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -145,7 +202,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[3].regMux
+|_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[3].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -153,392 +210,28 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[4].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[5].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[6].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:A|_2to1mux:rmux[7].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B
-REG_INPUT[0] => REG_INPUT[0].IN1
-REG_INPUT[1] => REG_INPUT[1].IN1
-REG_INPUT[2] => REG_INPUT[2].IN1
-REG_INPUT[3] => REG_INPUT[3].IN1
-REG_INPUT[4] => REG_INPUT[4].IN1
-REG_INPUT[5] => REG_INPUT[5].IN1
-REG_INPUT[6] => REG_INPUT[6].IN1
-REG_INPUT[7] => REG_INPUT[7].IN1
-control => control.IN8
-clk => rmux[0].DFF.CLK
-clk => rmux[1].DFF.CLK
-clk => rmux[2].DFF.CLK
-clk => rmux[3].DFF.CLK
-clk => rmux[4].DFF.CLK
-clk => rmux[5].DFF.CLK
-clk => rmux[6].DFF.CLK
-clk => rmux[7].DFF.CLK
-Reset => rmux[0].DFF.ACLR
-Reset => rmux[1].DFF.ACLR
-Reset => rmux[2].DFF.ACLR
-Reset => rmux[3].DFF.ACLR
-Reset => rmux[4].DFF.ACLR
-Reset => rmux[5].DFF.ACLR
-Reset => rmux[6].DFF.ACLR
-Reset => rmux[7].DFF.ACLR
-REG_OUTPUT[0] <= dffQ[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[1] <= dffQ[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[2] <= dffQ[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[3] <= dffQ[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[4] <= dffQ[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[5] <= dffQ[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[6] <= dffQ[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[7] <= dffQ[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[0].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[1].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[2].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[3].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[4].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[5].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[6].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:B|_2to1mux:rmux[7].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C
-REG_INPUT[0] => REG_INPUT[0].IN1
-REG_INPUT[1] => REG_INPUT[1].IN1
-REG_INPUT[2] => REG_INPUT[2].IN1
-REG_INPUT[3] => REG_INPUT[3].IN1
-REG_INPUT[4] => REG_INPUT[4].IN1
-REG_INPUT[5] => REG_INPUT[5].IN1
-REG_INPUT[6] => REG_INPUT[6].IN1
-REG_INPUT[7] => REG_INPUT[7].IN1
-control => control.IN8
-clk => rmux[0].DFF.CLK
-clk => rmux[1].DFF.CLK
-clk => rmux[2].DFF.CLK
-clk => rmux[3].DFF.CLK
-clk => rmux[4].DFF.CLK
-clk => rmux[5].DFF.CLK
-clk => rmux[6].DFF.CLK
-clk => rmux[7].DFF.CLK
-Reset => rmux[0].DFF.ACLR
-Reset => rmux[1].DFF.ACLR
-Reset => rmux[2].DFF.ACLR
-Reset => rmux[3].DFF.ACLR
-Reset => rmux[4].DFF.ACLR
-Reset => rmux[5].DFF.ACLR
-Reset => rmux[6].DFF.ACLR
-Reset => rmux[7].DFF.ACLR
-REG_OUTPUT[0] <= dffQ[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[1] <= dffQ[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[2] <= dffQ[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[3] <= dffQ[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[4] <= dffQ[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[5] <= dffQ[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[6] <= dffQ[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[7] <= dffQ[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[0].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[1].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[2].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[3].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[4].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[5].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[6].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:C|_2to1mux:rmux[7].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D
-REG_INPUT[0] => REG_INPUT[0].IN1
-REG_INPUT[1] => REG_INPUT[1].IN1
-REG_INPUT[2] => REG_INPUT[2].IN1
-REG_INPUT[3] => REG_INPUT[3].IN1
-REG_INPUT[4] => REG_INPUT[4].IN1
-REG_INPUT[5] => REG_INPUT[5].IN1
-REG_INPUT[6] => REG_INPUT[6].IN1
-REG_INPUT[7] => REG_INPUT[7].IN1
-control => control.IN8
-clk => rmux[0].DFF.CLK
-clk => rmux[1].DFF.CLK
-clk => rmux[2].DFF.CLK
-clk => rmux[3].DFF.CLK
-clk => rmux[4].DFF.CLK
-clk => rmux[5].DFF.CLK
-clk => rmux[6].DFF.CLK
-clk => rmux[7].DFF.CLK
-Reset => rmux[0].DFF.ACLR
-Reset => rmux[1].DFF.ACLR
-Reset => rmux[2].DFF.ACLR
-Reset => rmux[3].DFF.ACLR
-Reset => rmux[4].DFF.ACLR
-Reset => rmux[5].DFF.ACLR
-Reset => rmux[6].DFF.ACLR
-Reset => rmux[7].DFF.ACLR
-REG_OUTPUT[0] <= dffQ[0].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[1] <= dffQ[1].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[2] <= dffQ[2].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[3] <= dffQ[3].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[4] <= dffQ[4].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[5] <= dffQ[5].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[6] <= dffQ[6].DB_MAX_OUTPUT_PORT_TYPE
-REG_OUTPUT[7] <= dffQ[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[0].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[1].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[2].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[3].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[4].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[5].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[6].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_Registers8bit:D|_2to1mux:rmux[7].regMux
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1
-data0in[0] => data0in[0].IN1
-data0in[1] => data0in[1].IN1
-data0in[2] => data0in[2].IN1
-data0in[3] => data0in[3].IN1
-data0in[4] => data0in[4].IN1
-data0in[5] => data0in[5].IN1
-data0in[6] => data0in[6].IN1
-data0in[7] => data0in[7].IN1
-data1in[0] => data1in[0].IN1
-data1in[1] => data1in[1].IN1
-data1in[2] => data1in[2].IN1
-data1in[3] => data1in[3].IN1
-data1in[4] => data1in[4].IN1
-data1in[5] => data1in[5].IN1
-data1in[6] => data1in[6].IN1
-data1in[7] => data1in[7].IN1
-data2in[0] => data2in[0].IN1
-data2in[1] => data2in[1].IN1
-data2in[2] => data2in[2].IN1
-data2in[3] => data2in[3].IN1
-data2in[4] => data2in[4].IN1
-data2in[5] => data2in[5].IN1
-data2in[6] => data2in[6].IN1
-data2in[7] => data2in[7].IN1
-data3in[0] => data3in[0].IN1
-data3in[1] => data3in[1].IN1
-data3in[2] => data3in[2].IN1
-data3in[3] => data3in[3].IN1
-data3in[4] => data3in[4].IN1
-data3in[5] => data3in[5].IN1
-data3in[6] => data3in[6].IN1
-data3in[7] => data3in[7].IN1
-Select[0] => Select[0].IN2
-Select[1] => Select[1].IN1
-muxresult[0] <= _8WideBusMux:mux2.result
-muxresult[1] <= _8WideBusMux:mux2.result
-muxresult[2] <= _8WideBusMux:mux2.result
-muxresult[3] <= _8WideBusMux:mux2.result
-muxresult[4] <= _8WideBusMux:mux2.result
-muxresult[5] <= _8WideBusMux:mux2.result
-muxresult[6] <= _8WideBusMux:mux2.result
-muxresult[7] <= _8WideBusMux:mux2.result
-
-
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0
-dataa[0] => dataa[0].IN1
-dataa[1] => dataa[1].IN1
-dataa[2] => dataa[2].IN1
-dataa[3] => dataa[3].IN1
-dataa[4] => dataa[4].IN1
-dataa[5] => dataa[5].IN1
-dataa[6] => dataa[6].IN1
-dataa[7] => dataa[7].IN1
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT0
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus0
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
 datab[0] => datab[0].IN1
 datab[1] => datab[1].IN1
 datab[2] => datab[2].IN1
@@ -546,8 +239,7 @@ datab[3] => datab[3].IN1
 datab[4] => datab[4].IN1
 datab[5] => datab[5].IN1
 datab[6] => datab[6].IN1
-datab[7] => datab[7].IN1
-control => control.IN8
+control => control.IN7
 result[0] <= _2to1mux:BusMux[0].mux1.mxout
 result[1] <= _2to1mux:BusMux[1].mux1.mxout
 result[2] <= _2to1mux:BusMux[2].mux1.mxout
@@ -555,10 +247,9 @@ result[3] <= _2to1mux:BusMux[3].mux1.mxout
 result[4] <= _2to1mux:BusMux[4].mux1.mxout
 result[5] <= _2to1mux:BusMux[5].mux1.mxout
 result[6] <= _2to1mux:BusMux[6].mux1.mxout
-result[7] <= _2to1mux:BusMux[7].mux1.mxout
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[0].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[0].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -566,7 +257,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[1].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[1].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -574,7 +265,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[2].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[2].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -582,7 +273,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[3].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[3].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -590,7 +281,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[4].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[4].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -598,7 +289,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[5].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[5].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -606,7 +297,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[6].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -614,7 +305,23 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux0|_2to1mux:BusMux[7].mux1
+|_Video_Card|_4WideBusMux:BusMux1
+Control => Control.IN4
+dataAline[0] => dataAline[0].IN1
+dataAline[1] => dataAline[1].IN1
+dataAline[2] => dataAline[2].IN1
+dataAline[3] => dataAline[3].IN1
+dataBline[0] => dataBline[0].IN1
+dataBline[1] => dataBline[1].IN1
+dataBline[2] => dataBline[2].IN1
+dataBline[3] => dataBline[3].IN1
+result[0] <= _2to1mux:mux[0].mux.mxout
+result[1] <= _2to1mux:mux[1].mux.mxout
+result[2] <= _2to1mux:mux[2].mux.mxout
+result[3] <= _2to1mux:mux[3].mux.mxout
+
+
+|_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[0].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -622,15 +329,52 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1
-dataa[0] => dataa[0].IN1
-dataa[1] => dataa[1].IN1
-dataa[2] => dataa[2].IN1
-dataa[3] => dataa[3].IN1
-dataa[4] => dataa[4].IN1
-dataa[5] => dataa[5].IN1
-dataa[6] => dataa[6].IN1
-dataa[7] => dataa[7].IN1
+|_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[1].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[2].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[3].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT1
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus1
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
 datab[0] => datab[0].IN1
 datab[1] => datab[1].IN1
 datab[2] => datab[2].IN1
@@ -638,8 +382,7 @@ datab[3] => datab[3].IN1
 datab[4] => datab[4].IN1
 datab[5] => datab[5].IN1
 datab[6] => datab[6].IN1
-datab[7] => datab[7].IN1
-control => control.IN8
+control => control.IN7
 result[0] <= _2to1mux:BusMux[0].mux1.mxout
 result[1] <= _2to1mux:BusMux[1].mux1.mxout
 result[2] <= _2to1mux:BusMux[2].mux1.mxout
@@ -647,10 +390,9 @@ result[3] <= _2to1mux:BusMux[3].mux1.mxout
 result[4] <= _2to1mux:BusMux[4].mux1.mxout
 result[5] <= _2to1mux:BusMux[5].mux1.mxout
 result[6] <= _2to1mux:BusMux[6].mux1.mxout
-result[7] <= _2to1mux:BusMux[7].mux1.mxout
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[0].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[0].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -658,7 +400,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[1].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[1].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -666,7 +408,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[2].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[2].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -674,7 +416,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[3].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[3].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -682,7 +424,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[4].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[4].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -690,7 +432,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[5].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[5].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -698,7 +440,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[6].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -706,7 +448,23 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux1|_2to1mux:BusMux[7].mux1
+|_Video_Card|_4WideBusMux:BusMux2
+Control => Control.IN4
+dataAline[0] => dataAline[0].IN1
+dataAline[1] => dataAline[1].IN1
+dataAline[2] => dataAline[2].IN1
+dataAline[3] => dataAline[3].IN1
+dataBline[0] => dataBline[0].IN1
+dataBline[1] => dataBline[1].IN1
+dataBline[2] => dataBline[2].IN1
+dataBline[3] => dataBline[3].IN1
+result[0] <= _2to1mux:mux[0].mux.mxout
+result[1] <= _2to1mux:mux[1].mux.mxout
+result[2] <= _2to1mux:mux[2].mux.mxout
+result[3] <= _2to1mux:mux[3].mux.mxout
+
+
+|_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[0].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -714,15 +472,52 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2
-dataa[0] => dataa[0].IN1
-dataa[1] => dataa[1].IN1
-dataa[2] => dataa[2].IN1
-dataa[3] => dataa[3].IN1
-dataa[4] => dataa[4].IN1
-dataa[5] => dataa[5].IN1
-dataa[6] => dataa[6].IN1
-dataa[7] => dataa[7].IN1
+|_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[1].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[2].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[3].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT2
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus2
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
 datab[0] => datab[0].IN1
 datab[1] => datab[1].IN1
 datab[2] => datab[2].IN1
@@ -730,8 +525,7 @@ datab[3] => datab[3].IN1
 datab[4] => datab[4].IN1
 datab[5] => datab[5].IN1
 datab[6] => datab[6].IN1
-datab[7] => datab[7].IN1
-control => control.IN8
+control => control.IN7
 result[0] <= _2to1mux:BusMux[0].mux1.mxout
 result[1] <= _2to1mux:BusMux[1].mux1.mxout
 result[2] <= _2to1mux:BusMux[2].mux1.mxout
@@ -739,10 +533,9 @@ result[3] <= _2to1mux:BusMux[3].mux1.mxout
 result[4] <= _2to1mux:BusMux[4].mux1.mxout
 result[5] <= _2to1mux:BusMux[5].mux1.mxout
 result[6] <= _2to1mux:BusMux[6].mux1.mxout
-result[7] <= _2to1mux:BusMux[7].mux1.mxout
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[0].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[0].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -750,7 +543,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[1].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[1].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -758,7 +551,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[2].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[2].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -766,7 +559,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[3].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[3].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -774,7 +567,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[4].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[4].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -782,7 +575,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[5].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[5].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -790,7 +583,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[6].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -798,7 +591,23 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[7].mux1
+|_Video_Card|_4WideBusMux:BusMux3
+Control => Control.IN4
+dataAline[0] => dataAline[0].IN1
+dataAline[1] => dataAline[1].IN1
+dataAline[2] => dataAline[2].IN1
+dataAline[3] => dataAline[3].IN1
+dataBline[0] => dataBline[0].IN1
+dataBline[1] => dataBline[1].IN1
+dataBline[2] => dataBline[2].IN1
+dataBline[3] => dataBline[3].IN1
+result[0] <= _2to1mux:mux[0].mux.mxout
+result[1] <= _2to1mux:mux[1].mux.mxout
+result[2] <= _2to1mux:mux[2].mux.mxout
+result[3] <= _2to1mux:mux[3].mux.mxout
+
+
+|_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[0].mux
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -806,60 +615,52 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0
-data0in[0] => data0in[0].IN1
-data0in[1] => data0in[1].IN1
-data0in[2] => data0in[2].IN1
-data0in[3] => data0in[3].IN1
-data0in[4] => data0in[4].IN1
-data0in[5] => data0in[5].IN1
-data0in[6] => data0in[6].IN1
-data0in[7] => data0in[7].IN1
-data1in[0] => data1in[0].IN1
-data1in[1] => data1in[1].IN1
-data1in[2] => data1in[2].IN1
-data1in[3] => data1in[3].IN1
-data1in[4] => data1in[4].IN1
-data1in[5] => data1in[5].IN1
-data1in[6] => data1in[6].IN1
-data1in[7] => data1in[7].IN1
-data2in[0] => data2in[0].IN1
-data2in[1] => data2in[1].IN1
-data2in[2] => data2in[2].IN1
-data2in[3] => data2in[3].IN1
-data2in[4] => data2in[4].IN1
-data2in[5] => data2in[5].IN1
-data2in[6] => data2in[6].IN1
-data2in[7] => data2in[7].IN1
-data3in[0] => data3in[0].IN1
-data3in[1] => data3in[1].IN1
-data3in[2] => data3in[2].IN1
-data3in[3] => data3in[3].IN1
-data3in[4] => data3in[4].IN1
-data3in[5] => data3in[5].IN1
-data3in[6] => data3in[6].IN1
-data3in[7] => data3in[7].IN1
-Select[0] => Select[0].IN2
-Select[1] => Select[1].IN1
-muxresult[0] <= _8WideBusMux:mux2.result
-muxresult[1] <= _8WideBusMux:mux2.result
-muxresult[2] <= _8WideBusMux:mux2.result
-muxresult[3] <= _8WideBusMux:mux2.result
-muxresult[4] <= _8WideBusMux:mux2.result
-muxresult[5] <= _8WideBusMux:mux2.result
-muxresult[6] <= _8WideBusMux:mux2.result
-muxresult[7] <= _8WideBusMux:mux2.result
+|_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[1].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0
-dataa[0] => dataa[0].IN1
-dataa[1] => dataa[1].IN1
-dataa[2] => dataa[2].IN1
-dataa[3] => dataa[3].IN1
-dataa[4] => dataa[4].IN1
-dataa[5] => dataa[5].IN1
-dataa[6] => dataa[6].IN1
-dataa[7] => dataa[7].IN1
+|_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[2].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[3].mux
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT3
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus3
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
 datab[0] => datab[0].IN1
 datab[1] => datab[1].IN1
 datab[2] => datab[2].IN1
@@ -867,8 +668,7 @@ datab[3] => datab[3].IN1
 datab[4] => datab[4].IN1
 datab[5] => datab[5].IN1
 datab[6] => datab[6].IN1
-datab[7] => datab[7].IN1
-control => control.IN8
+control => control.IN7
 result[0] <= _2to1mux:BusMux[0].mux1.mxout
 result[1] <= _2to1mux:BusMux[1].mux1.mxout
 result[2] <= _2to1mux:BusMux[2].mux1.mxout
@@ -876,10 +676,9 @@ result[3] <= _2to1mux:BusMux[3].mux1.mxout
 result[4] <= _2to1mux:BusMux[4].mux1.mxout
 result[5] <= _2to1mux:BusMux[5].mux1.mxout
 result[6] <= _2to1mux:BusMux[6].mux1.mxout
-result[7] <= _2to1mux:BusMux[7].mux1.mxout
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[0].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[0].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -887,7 +686,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[1].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[1].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -895,7 +694,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[2].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[2].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -903,7 +702,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[3].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[3].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -911,7 +710,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[4].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[4].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -919,7 +718,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[5].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[5].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -927,7 +726,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[6].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -935,23 +734,28 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux0|_2to1mux:BusMux[7].mux1
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT4
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1
-dataa[0] => dataa[0].IN1
-dataa[1] => dataa[1].IN1
-dataa[2] => dataa[2].IN1
-dataa[3] => dataa[3].IN1
-dataa[4] => dataa[4].IN1
-dataa[5] => dataa[5].IN1
-dataa[6] => dataa[6].IN1
-dataa[7] => dataa[7].IN1
+|_Video_Card|_7WideBusMux:SevenWideBus4
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
 datab[0] => datab[0].IN1
 datab[1] => datab[1].IN1
 datab[2] => datab[2].IN1
@@ -959,8 +763,7 @@ datab[3] => datab[3].IN1
 datab[4] => datab[4].IN1
 datab[5] => datab[5].IN1
 datab[6] => datab[6].IN1
-datab[7] => datab[7].IN1
-control => control.IN8
+control => control.IN7
 result[0] <= _2to1mux:BusMux[0].mux1.mxout
 result[1] <= _2to1mux:BusMux[1].mux1.mxout
 result[2] <= _2to1mux:BusMux[2].mux1.mxout
@@ -968,10 +771,9 @@ result[3] <= _2to1mux:BusMux[3].mux1.mxout
 result[4] <= _2to1mux:BusMux[4].mux1.mxout
 result[5] <= _2to1mux:BusMux[5].mux1.mxout
 result[6] <= _2to1mux:BusMux[6].mux1.mxout
-result[7] <= _2to1mux:BusMux[7].mux1.mxout
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[0].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[0].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -979,7 +781,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[1].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[1].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -987,7 +789,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[2].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[2].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -995,7 +797,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[3].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[3].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1003,7 +805,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[4].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[4].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1011,7 +813,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[5].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[5].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1019,7 +821,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[6].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1027,23 +829,28 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux1|_2to1mux:BusMux[7].mux1
-i0 => topAndOut.IN0
-i1 => bottomAndOut.IN0
-sel => bottomAndOut.IN1
-sel => topAndOut.IN1
-mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT5
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2
-dataa[0] => dataa[0].IN1
-dataa[1] => dataa[1].IN1
-dataa[2] => dataa[2].IN1
-dataa[3] => dataa[3].IN1
-dataa[4] => dataa[4].IN1
-dataa[5] => dataa[5].IN1
-dataa[6] => dataa[6].IN1
-dataa[7] => dataa[7].IN1
+|_Video_Card|_7WideBusMux:SevenWideBus5
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
 datab[0] => datab[0].IN1
 datab[1] => datab[1].IN1
 datab[2] => datab[2].IN1
@@ -1051,8 +858,7 @@ datab[3] => datab[3].IN1
 datab[4] => datab[4].IN1
 datab[5] => datab[5].IN1
 datab[6] => datab[6].IN1
-datab[7] => datab[7].IN1
-control => control.IN8
+control => control.IN7
 result[0] <= _2to1mux:BusMux[0].mux1.mxout
 result[1] <= _2to1mux:BusMux[1].mux1.mxout
 result[2] <= _2to1mux:BusMux[2].mux1.mxout
@@ -1060,10 +866,9 @@ result[3] <= _2to1mux:BusMux[3].mux1.mxout
 result[4] <= _2to1mux:BusMux[4].mux1.mxout
 result[5] <= _2to1mux:BusMux[5].mux1.mxout
 result[6] <= _2to1mux:BusMux[6].mux1.mxout
-result[7] <= _2to1mux:BusMux[7].mux1.mxout
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[0].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[0].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1071,7 +876,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[1].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[1].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1079,7 +884,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[2].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[2].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1087,7 +892,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[3].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[3].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1095,7 +900,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[4].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[4].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1103,7 +908,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[5].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[5].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1111,7 +916,7 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[6].mux1
+|_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1
@@ -1119,7 +924,189 @@ sel => topAndOut.IN1
 mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[7].mux1
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT6
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
+datab[0] => datab[0].IN1
+datab[1] => datab[1].IN1
+datab[2] => datab[2].IN1
+datab[3] => datab[3].IN1
+datab[4] => datab[4].IN1
+datab[5] => datab[5].IN1
+datab[6] => datab[6].IN1
+control => control.IN7
+result[0] <= _2to1mux:BusMux[0].mux1.mxout
+result[1] <= _2to1mux:BusMux[1].mux1.mxout
+result[2] <= _2to1mux:BusMux[2].mux1.mxout
+result[3] <= _2to1mux:BusMux[3].mux1.mxout
+result[4] <= _2to1mux:BusMux[4].mux1.mxout
+result[5] <= _2to1mux:BusMux[5].mux1.mxout
+result[6] <= _2to1mux:BusMux[6].mux1.mxout
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[0].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[1].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[2].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[3].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[4].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[5].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[6].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT7
+OUTARR[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+OUTARR[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+INARR[0] => Decoder0.IN0
+INARR[1] => Decoder0.IN1
+INARR[2] => Decoder0.IN2
+INARR[3] => Decoder0.IN3
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7
+dataa[0] => BusNot[0].IN1
+dataa[1] => BusNot[1].IN1
+dataa[2] => BusNot[2].IN1
+dataa[3] => BusNot[3].IN1
+dataa[4] => BusNot[4].IN1
+dataa[5] => BusNot[5].IN1
+dataa[6] => BusNot[6].IN1
+datab[0] => datab[0].IN1
+datab[1] => datab[1].IN1
+datab[2] => datab[2].IN1
+datab[3] => datab[3].IN1
+datab[4] => datab[4].IN1
+datab[5] => datab[5].IN1
+datab[6] => datab[6].IN1
+control => control.IN7
+result[0] <= _2to1mux:BusMux[0].mux1.mxout
+result[1] <= _2to1mux:BusMux[1].mux1.mxout
+result[2] <= _2to1mux:BusMux[2].mux1.mxout
+result[3] <= _2to1mux:BusMux[3].mux1.mxout
+result[4] <= _2to1mux:BusMux[4].mux1.mxout
+result[5] <= _2to1mux:BusMux[5].mux1.mxout
+result[6] <= _2to1mux:BusMux[6].mux1.mxout
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[0].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[1].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[2].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[3].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[4].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[5].mux1
+i0 => topAndOut.IN0
+i1 => bottomAndOut.IN0
+sel => bottomAndOut.IN1
+sel => topAndOut.IN1
+mxout <= mxout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[6].mux1
 i0 => topAndOut.IN0
 i1 => bottomAndOut.IN0
 sel => bottomAndOut.IN1

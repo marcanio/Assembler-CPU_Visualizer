@@ -1,5 +1,5 @@
 Analysis & Synthesis report for i281
-Tue Oct 27 20:45:54 2020
+Mon Feb 15 20:17:57 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,22 +14,21 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: _Registers8bit:A
- 11. Parameter Settings for User Entity Instance: _Registers8bit:B
- 12. Parameter Settings for User Entity Instance: _Registers8bit:C
- 13. Parameter Settings for User Entity Instance: _Registers8bit:D
- 14. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1
- 15. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1|_8WideBusMux:mux0
- 16. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1|_8WideBusMux:mux1
- 17. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1|_8WideBusMux:mux2
- 18. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0
- 19. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0|_8WideBusMux:mux0
- 20. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0|_8WideBusMux:mux1
- 21. Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0|_8WideBusMux:mux2
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+  9. Parameter Settings for User Entity Instance: _4WideBusMux:BusMux0
+ 10. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus0
+ 11. Parameter Settings for User Entity Instance: _4WideBusMux:BusMux1
+ 12. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus1
+ 13. Parameter Settings for User Entity Instance: _4WideBusMux:BusMux2
+ 14. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus2
+ 15. Parameter Settings for User Entity Instance: _4WideBusMux:BusMux3
+ 16. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus3
+ 17. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus4
+ 18. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus5
+ 19. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus6
+ 20. Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus7
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -56,16 +55,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 27 20:45:54 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 15 20:17:57 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281                                        ;
-; Top-level Entity Name              ; _4x8BitRegisters                            ;
+; Top-level Entity Name              ; _Video_Card                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 68                                          ;
-;     Total combinational functions  ; 36                                          ;
-;     Dedicated logic registers      ; 32                                          ;
-; Total registers                    ; 32                                          ;
-; Total pins                         ; 65                                          ;
+; Total logic elements               ; 128                                         ;
+;     Total combinational functions  ; 128                                         ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 154                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -79,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                            ; _4x8BitRegisters   ; i281               ;
+; Top-level entity name                                            ; _Video_Card        ; i281               ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -175,84 +174,150 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; _2to1mux.v                       ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to1mux.v               ;         ;
-; _2to4DecoderWithEnable.v         ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to4DecoderWithEnable.v ;         ;
-; _Registers8bit.v                 ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Registers8bit.v         ;         ;
-; _4x8BitRegisters.v               ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4x8BitRegisters.v       ;         ;
-; _8wide4to1busmux.v               ; yes             ; Auto-Found Verilog HDL File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_8wide4to1busmux.v       ;         ;
-; _8widebusmux.v                   ; yes             ; Auto-Found Verilog HDL File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_8widebusmux.v           ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; _2to1mux.v                       ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to1mux.v                 ;         ;
+; _7WideBusMux.v                   ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_7WideBusMux.v             ;         ;
+; _Video_Card.v                    ; yes             ; User Verilog HDL File        ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v              ;         ;
+; _4widebusmux.v                   ; yes             ; Auto-Found Verilog HDL File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4widebusmux.v             ;         ;
+; seven_seg_decoder_busout.v       ; yes             ; Auto-Found Verilog HDL File  ; D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/seven_seg_decoder_busout.v ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 68          ;
-;                                             ;             ;
-; Total combinational functions               ; 36          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 32          ;
-;     -- 3 input functions                    ; 4           ;
-;     -- <=2 input functions                  ; 0           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 36          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 32          ;
-;     -- Dedicated logic registers            ; 32          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 65          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; Clock~input ;
-; Maximum fan-out                             ; 32          ;
-; Total fan-out                               ; 381         ;
-; Average fan-out                             ; 1.92        ;
-+---------------------------------------------+-------------+
++----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                          ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Estimated Total logic elements              ; 128                    ;
+;                                             ;                        ;
+; Total combinational functions               ; 128                    ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 56                     ;
+;     -- 3 input functions                    ; 72                     ;
+;     -- <=2 input functions                  ; 0                      ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 128                    ;
+;     -- arithmetic mode                      ; 0                      ;
+;                                             ;                        ;
+; Total registers                             ; 0                      ;
+;     -- Dedicated logic registers            ; 0                      ;
+;     -- I/O registers                        ; 0                      ;
+;                                             ;                        ;
+; I/O pins                                    ; 154                    ;
+;                                             ;                        ;
+; Embedded Multiplier 9-bit elements          ; 0                      ;
+;                                             ;                        ;
+; Maximum fan-out node                        ; Direct_Video_Map~input ;
+; Maximum fan-out                             ; 56                     ;
+; Total fan-out                               ; 650                    ;
+; Average fan-out                             ; 1.49                   ;
++---------------------------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                          ;
-+------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+------------------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Entity Name            ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+------------------------+--------------+
-; |_4x8BitRegisters                  ; 36 (0)              ; 32 (0)                    ; 0           ; 0            ; 0       ; 0         ; 65   ; 0            ; |_4x8BitRegisters                                                                    ; _4x8BitRegisters       ; work         ;
-;    |_2to4DecoderWithEnable:RegDec| ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_2to4DecoderWithEnable:RegDec                                      ; _2to4DecoderWithEnable ; work         ;
-;    |_8Wide4To1BusMux:Output0|      ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0                                           ; _8Wide4To1BusMux       ; work         ;
-;       |_8WideBusMux:mux2|          ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2                         ; _8WideBusMux           ; work         ;
-;          |_2to1mux:BusMux[0].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[0].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[1].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[1].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[2].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[2].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[3].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[3].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[4].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[4].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[5].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[5].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[6].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[6].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[7].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[7].mux1 ; _2to1mux               ; work         ;
-;    |_8Wide4To1BusMux:Output1|      ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1                                           ; _8Wide4To1BusMux       ; work         ;
-;       |_8WideBusMux:mux2|          ; 16 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2                         ; _8WideBusMux           ; work         ;
-;          |_2to1mux:BusMux[0].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[0].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[1].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[1].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[2].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[2].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[3].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[3].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[4].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[4].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[5].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[5].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[6].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[6].mux1 ; _2to1mux               ; work         ;
-;          |_2to1mux:BusMux[7].mux1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[7].mux1 ; _2to1mux               ; work         ;
-;    |_Registers8bit:A|              ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_Registers8bit:A                                                   ; _Registers8bit         ; work         ;
-;    |_Registers8bit:B|              ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_Registers8bit:B                                                   ; _Registers8bit         ; work         ;
-;    |_Registers8bit:C|              ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_Registers8bit:C                                                   ; _Registers8bit         ; work         ;
-;    |_Registers8bit:D|              ; 0 (0)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_4x8BitRegisters|_Registers8bit:D                                                   ; _Registers8bit         ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                               ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                             ; Entity Name              ; Library Name ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------+--------------------------+--------------+
+; |_Video_Card                               ; 128 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 154  ; 0            ; |_Video_Card                                                    ; _Video_Card              ; work         ;
+;    |_4WideBusMux:BusMux0|                  ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux0                               ; _4WideBusMux             ; work         ;
+;       |_2to1mux:mux[0].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[0].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[1].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[1].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[2].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[2].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[3].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux0|_2to1mux:mux[3].mux           ; _2to1mux                 ; work         ;
+;    |_4WideBusMux:BusMux1|                  ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux1                               ; _4WideBusMux             ; work         ;
+;       |_2to1mux:mux[0].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[0].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[1].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[1].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[2].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[2].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[3].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux1|_2to1mux:mux[3].mux           ; _2to1mux                 ; work         ;
+;    |_4WideBusMux:BusMux2|                  ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux2                               ; _4WideBusMux             ; work         ;
+;       |_2to1mux:mux[0].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[0].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[1].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[1].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[2].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[2].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[3].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux2|_2to1mux:mux[3].mux           ; _2to1mux                 ; work         ;
+;    |_4WideBusMux:BusMux3|                  ; 4 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux3                               ; _4WideBusMux             ; work         ;
+;       |_2to1mux:mux[0].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[0].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[1].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[1].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[2].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[2].mux           ; _2to1mux                 ; work         ;
+;       |_2to1mux:mux[3].mux|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_4WideBusMux:BusMux3|_2to1mux:mux[3].mux           ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus0|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus0|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus1|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus1|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus2|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus2|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus3|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus3|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus4|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus4|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus5|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus5|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus6|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus6|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |_7WideBusMux:SevenWideBus7|            ; 7 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7                         ; _7WideBusMux             ; work         ;
+;       |_2to1mux:BusMux[0].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[0].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[1].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[1].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[2].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[2].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[3].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[3].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[4].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[4].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[5].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[5].mux1 ; _2to1mux                 ; work         ;
+;       |_2to1mux:BusMux[6].mux1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|_7WideBusMux:SevenWideBus7|_2to1mux:BusMux[6].mux1 ; _2to1mux                 ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT0| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT0              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT1| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT1              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT2| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT2              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT3| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT3              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT4| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT4              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT5| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT5              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT6| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT6              ; seven_seg_decoder_BUSOUT ; work         ;
+;    |seven_seg_decoder_BUSOUT:sevenBUSOUT7| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |_Video_Card|seven_seg_decoder_BUSOUT:sevenBUSOUT7              ; seven_seg_decoder_BUSOUT ; work         ;
++--------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -261,143 +326,133 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |_4x8BitRegisters|_8Wide4To1BusMux:Output0|_8WideBusMux:mux2|_2to1mux:BusMux[7].mux1|mxout ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |_4x8BitRegisters|_8Wide4To1BusMux:Output1|_8WideBusMux:mux2|_2to1mux:BusMux[0].mux1|mxout ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _Registers8bit:A ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; N              ; 8     ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _4WideBusMux:BusMux0 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; N              ; 4     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _Registers8bit:B ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; N              ; 8     ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus0 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _Registers8bit:C ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; N              ; 8     ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _4WideBusMux:BusMux1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; N              ; 4     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _Registers8bit:D ;
-+----------------+-------+--------------------------------------+
-; Parameter Name ; Value ; Type                                 ;
-+----------------+-------+--------------------------------------+
-; N              ; 8     ; Signed Integer                       ;
-+----------------+-------+--------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus1 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1 ;
-+----------------+-------+----------------------------------------------+
-; Parameter Name ; Value ; Type                                         ;
-+----------------+-------+----------------------------------------------+
-; N              ; 8     ; Signed Integer                               ;
-+----------------+-------+----------------------------------------------+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _4WideBusMux:BusMux2 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; N              ; 4     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1|_8WideBusMux:mux0 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus2 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1|_8WideBusMux:mux1 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _4WideBusMux:BusMux3 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; N              ; 4     ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output1|_8WideBusMux:mux2 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus3 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0 ;
-+----------------+-------+----------------------------------------------+
-; Parameter Name ; Value ; Type                                         ;
-+----------------+-------+----------------------------------------------+
-; N              ; 8     ; Signed Integer                               ;
-+----------------+-------+----------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus4 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0|_8WideBusMux:mux0 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus5 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0|_8WideBusMux:mux1 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus6 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: _8Wide4To1BusMux:Output0|_8WideBusMux:mux2 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: _7WideBusMux:SevenWideBus7 ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 7     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -406,16 +461,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 65                          ;
-; cycloneiii_ff         ; 32                          ;
-;     ENA CLR           ; 32                          ;
-; cycloneiii_lcell_comb ; 36                          ;
-;     normal            ; 36                          ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 32                          ;
+; boundary_port         ; 154                         ;
+; cycloneiii_lcell_comb ; 136                         ;
+;     normal            ; 136                         ;
+;         1 data inputs ; 8                           ;
+;         3 data inputs ; 72                          ;
+;         4 data inputs ; 56                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.49                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -434,7 +488,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Oct 27 20:45:48 2020
+    Info: Processing started: Mon Feb 15 20:17:50 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off i281 -c i281
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -487,33 +541,63 @@ Info (12021): Found 1 design units, including 1 entities, in source file _regist
     Info (12023): Found entity 1: _Registers8bit File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Registers8bit.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file _4x8bitregisters.v
     Info (12023): Found entity 1: _4x8BitRegisters File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4x8BitRegisters.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file _clock_divider_512.v
+    Info (12023): Found entity 1: _Clock_divider_512 File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Clock_divider_512.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file _7widebusmux.v
+    Info (12023): Found entity 1: _7WideBusMux File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_7WideBusMux.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file _video_card.v
+    Info (12023): Found entity 1: _Video_Card File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 1
 Warning (10236): Verilog HDL Implicit Net warning at _programCounter.v(13): created implicit net for "vcc_signal" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_programCounter.v Line: 13
 Warning (10236): Verilog HDL Implicit Net warning at _Registers16bit.v(11): created implicit net for "vcc_signal" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Registers16bit.v Line: 11
 Warning (10236): Verilog HDL Implicit Net warning at _IMEM.v(9): created implicit net for "_GND" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_IMEM.v Line: 9
 Warning (10236): Verilog HDL Implicit Net warning at _IMEM.v(14): created implicit net for "RO_WE_LOW" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_IMEM.v Line: 14
 Warning (10236): Verilog HDL Implicit Net warning at _IMEM.v(15): created implicit net for "RO_WE_HIGH" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_IMEM.v Line: 15
 Warning (10236): Verilog HDL Implicit Net warning at _Registers8bit.v(11): created implicit net for "vcc_signal" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Registers8bit.v Line: 11
-Info (12127): Elaborating entity "_4x8BitRegisters" for the top level hierarchy
-Info (12128): Elaborating entity "_2to4DecoderWithEnable" for hierarchy "_2to4DecoderWithEnable:RegDec" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4x8BitRegisters.v Line: 11
-Info (12128): Elaborating entity "_Registers8bit" for hierarchy "_Registers8bit:A" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4x8BitRegisters.v Line: 13
-Info (12128): Elaborating entity "_2to1mux" for hierarchy "_Registers8bit:A|_2to1mux:rmux[0].regMux" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Registers8bit.v Line: 15
-Warning (12125): Using design file _8wide4to1busmux.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: _8Wide4To1BusMux File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_8wide4to1busmux.v Line: 1
-Info (12128): Elaborating entity "_8Wide4To1BusMux" for hierarchy "_8Wide4To1BusMux:Output1" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4x8BitRegisters.v Line: 18
-Warning (12125): Using design file _8widebusmux.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: _8WideBusMux File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_8widebusmux.v Line: 1
-Info (12128): Elaborating entity "_8WideBusMux" for hierarchy "_8Wide4To1BusMux:Output1|_8WideBusMux:mux0" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_8wide4to1busmux.v Line: 10
+Info (12127): Elaborating entity "_Video_Card" for the top level hierarchy
+Warning (12125): Using design file _4widebusmux.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: _4WideBusMux File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4widebusmux.v Line: 1
+Info (12128): Elaborating entity "_4WideBusMux" for hierarchy "_4WideBusMux:BusMux0" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 44
+Info (12128): Elaborating entity "_2to1mux" for hierarchy "_4WideBusMux:BusMux0|_2to1mux:mux[0].mux" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_4widebusmux.v Line: 12
+Warning (12125): Using design file seven_seg_decoder_busout.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: seven_seg_decoder_BUSOUT File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/seven_seg_decoder_busout.v Line: 1
+Info (12128): Elaborating entity "seven_seg_decoder_BUSOUT" for hierarchy "seven_seg_decoder_BUSOUT:sevenBUSOUT0" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 45
+Info (12128): Elaborating entity "_7WideBusMux" for hierarchy "_7WideBusMux:SevenWideBus0" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 46
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 133 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 48 output pins
-    Info (21061): Implemented 68 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4775 megabytes
-    Info: Processing ended: Tue Oct 27 20:45:54 2020
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:15
+Warning (21074): Design contains 24 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Video_Input0[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 4
+    Warning (15610): No output dependent on input pin "Video_Input1[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 5
+    Warning (15610): No output dependent on input pin "Video_Input2[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 6
+    Warning (15610): No output dependent on input pin "Video_Input3[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 7
+    Warning (15610): No output dependent on input pin "Video_Input4[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 8
+    Warning (15610): No output dependent on input pin "Video_Input5[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 9
+    Warning (15610): No output dependent on input pin "Video_Input6[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 10
+    Warning (15610): No output dependent on input pin "Video_Input7[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 11
+    Warning (15610): No output dependent on input pin "REG_IN_A[4]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 13
+    Warning (15610): No output dependent on input pin "REG_IN_A[5]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 13
+    Warning (15610): No output dependent on input pin "REG_IN_A[6]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 13
+    Warning (15610): No output dependent on input pin "REG_IN_A[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 13
+    Warning (15610): No output dependent on input pin "REG_IN_B[4]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 14
+    Warning (15610): No output dependent on input pin "REG_IN_B[5]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 14
+    Warning (15610): No output dependent on input pin "REG_IN_B[6]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 14
+    Warning (15610): No output dependent on input pin "REG_IN_B[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 14
+    Warning (15610): No output dependent on input pin "REG_IN_C[4]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 15
+    Warning (15610): No output dependent on input pin "REG_IN_C[5]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 15
+    Warning (15610): No output dependent on input pin "REG_IN_C[6]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 15
+    Warning (15610): No output dependent on input pin "REG_IN_C[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 15
+    Warning (15610): No output dependent on input pin "REG_IN_D[4]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 16
+    Warning (15610): No output dependent on input pin "REG_IN_D[5]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 16
+    Warning (15610): No output dependent on input pin "REG_IN_D[6]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 16
+    Warning (15610): No output dependent on input pin "REG_IN_D[7]" File: D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_Video_Card.v Line: 16
+Info (21057): Implemented 282 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 98 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 128 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4767 megabytes
+    Info: Processing ended: Mon Feb 15 20:17:57 2021
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
 
 

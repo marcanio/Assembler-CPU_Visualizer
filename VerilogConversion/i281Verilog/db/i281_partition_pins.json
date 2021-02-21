@@ -4,263 +4,523 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "REG_A[0]",
+					"name" : "Video_Output0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[1]",
+					"name" : "Video_Output0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[2]",
+					"name" : "Video_Output0[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[3]",
+					"name" : "Video_Output0[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[4]",
+					"name" : "Video_Output0[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[5]",
+					"name" : "Video_Output0[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[6]",
+					"name" : "Video_Output0[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_A[7]",
+					"name" : "Video_Output1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[0]",
+					"name" : "Video_Output1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[1]",
+					"name" : "Video_Output1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[2]",
+					"name" : "Video_Output1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[3]",
+					"name" : "Video_Output1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[4]",
+					"name" : "Video_Output1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[5]",
+					"name" : "Video_Output1[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[6]",
+					"name" : "Video_Output2[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_B[7]",
+					"name" : "Video_Output2[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[0]",
+					"name" : "Video_Output2[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[1]",
+					"name" : "Video_Output2[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[2]",
+					"name" : "Video_Output2[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[3]",
+					"name" : "Video_Output2[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[4]",
+					"name" : "Video_Output2[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[5]",
+					"name" : "Video_Output3[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[6]",
+					"name" : "Video_Output3[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_C[7]",
+					"name" : "Video_Output3[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[0]",
+					"name" : "Video_Output3[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[1]",
+					"name" : "Video_Output3[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[2]",
+					"name" : "Video_Output3[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[3]",
+					"name" : "Video_Output3[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[4]",
+					"name" : "Video_Output4[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[5]",
+					"name" : "Video_Output4[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[6]",
+					"name" : "Video_Output4[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_D[7]",
+					"name" : "Video_Output4[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[0]",
+					"name" : "Video_Output4[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[1]",
+					"name" : "Video_Output4[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[2]",
+					"name" : "Video_Output4[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[3]",
+					"name" : "Video_Output5[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[4]",
+					"name" : "Video_Output5[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[5]",
+					"name" : "Video_Output5[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[6]",
+					"name" : "Video_Output5[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT0[7]",
+					"name" : "Video_Output5[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[0]",
+					"name" : "Video_Output5[5]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[1]",
+					"name" : "Video_Output5[6]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[2]",
+					"name" : "Video_Output6[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[3]",
+					"name" : "Video_Output6[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[4]",
+					"name" : "Video_Output6[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[5]",
+					"name" : "Video_Output6[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[6]",
+					"name" : "Video_Output6[4]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_OUTPUT1[7]",
+					"name" : "Video_Output6[5]",
 					"strict" : false
 				},
 				{
-					"name" : "READ_PORT0_SELECT[1]",
+					"name" : "Video_Output6[6]",
 					"strict" : false
 				},
 				{
-					"name" : "READ_PORT0_SELECT[0]",
+					"name" : "Video_Output7[0]",
 					"strict" : false
 				},
 				{
-					"name" : "READ_PORT1_SELECT[1]",
+					"name" : "Video_Output7[1]",
 					"strict" : false
 				},
 				{
-					"name" : "READ_PORT1_SELECT[0]",
+					"name" : "Video_Output7[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[0]",
+					"name" : "Video_Output7[3]",
 					"strict" : false
 				},
 				{
-					"name" : "Clock",
+					"name" : "Video_Output7[4]",
 					"strict" : false
 				},
 				{
-					"name" : "Reset",
+					"name" : "Video_Output7[5]",
 					"strict" : false
 				},
 				{
-					"name" : "WRITE_ENABLE",
+					"name" : "Video_Output7[6]",
 					"strict" : false
 				},
 				{
-					"name" : "WRITE_SELECT[1]",
+					"name" : "REG_IN_D[0]",
 					"strict" : false
 				},
 				{
-					"name" : "WRITE_SELECT[0]",
+					"name" : "Video_Input0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[1]",
+					"name" : "Register_View",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[2]",
+					"name" : "REG_IN_D[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[3]",
+					"name" : "Video_Input0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[4]",
+					"name" : "REG_IN_D[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[5]",
+					"name" : "Video_Input0[2]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[6]",
+					"name" : "REG_IN_D[3]",
 					"strict" : false
 				},
 				{
-					"name" : "REG_INPUT[7]",
+					"name" : "Video_Input0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Direct_Video_Map",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_C[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_C[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_C[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_C[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "REG_IN_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input4[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input6[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Video_Input7[6]",
 					"strict" : false
 				}
 			]

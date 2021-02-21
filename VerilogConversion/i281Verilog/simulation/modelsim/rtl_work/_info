@@ -9,53 +9,53 @@ z2
 !i10f 100
 cModel Technology
 Z0 dD:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/simulation/modelsim
-v_6BitAdder
-Z1 !s110 1603198393
+v_2to1mux
+Z1 !s110 1613387469
 !i10b 1
-!s100 ThZO]GT:0f:E=`EEz?9A_0
+!s100 M10PUj[Hz3FBz:MbI@Q@m2
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Ib8JhNIj:iS7QhMNJT6lBH0
+INOMB=cNfC>02`]i=MI<n82
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1603197400
-8D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v
-FD:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v
-!i122 1
-L0 1 35
+w1600867910
+8D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to1mux.v
+FD:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to1mux.v
+!i122 0
+L0 1 14
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1603198393.000000
-!s107 D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog|D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_6BitAdder.v|
+Z5 !s108 1613387469.000000
+!s107 D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to1mux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog|D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_2to1mux.v|
 !i113 1
 Z6 o-vlog01compat -work work
 Z7 !s92 -vlog01compat -work work +incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog
 Z8 tCvgOpt 0
-n@_6@bit@adder
-v_FullAdder
+n@_2to1mux
+v_7WideBusMux
 R1
 !i10b 1
-!s100 1b0YUVz<0?LRVnMWoJdE00
+!s100 2;jBo9dZmWlihm=3c7X`l1
 R2
-IaLPF@l3GgEL>kCESiASa82
+I9Zcg?hTCj3W[D8fKKL8?T2
 R3
 R0
-w1603195859
-8D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v
-FD:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v
-!i122 0
-L0 1 25
+w1613387402
+8D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_7WideBusMux.v
+FD:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_7WideBusMux.v
+!i122 1
+L0 1 21
 R4
 r1
 !s85 0
 31
 R5
-!s107 D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog|D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_FullAdder.v|
+!s107 D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_7WideBusMux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog|D:/school_stuff/sdmay21-38/VerilogConversion/i281Verilog/_7WideBusMux.v|
 !i113 1
 R6
 R7
 R8
-n@_@full@adder
+n@_7@wide@bus@mux
