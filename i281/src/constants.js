@@ -15,7 +15,7 @@ export const FLAGS_POLYGON = [0,0, FLAGS_WIDTH,0, FLAGS_WIDTH,FLAGS_HIEGHT, 0,FL
 export const CODE_MEM_POLYGON = [0,0, CODE_MEM_WIDTH,0, CODE_MEM_WIDTH,CODE_MEM_HEIGHT, 0,CODE_MEM_HEIGHT];
 export const DATA_MEM_POLYGON = [0,0, 350,0, 350,650, 0,650];
 export const OPCODE_DECODER_POLYGON = [0,0, 200,0, 200,100, 0,100];
-export const CONTROL_POLYGON = [0,0, 550,0, 550,100, 0,100];
+export const CONTROL_POLYGON = [0,0, 750,0, 750,100, 0,100];
 export const REGISTER_FILE_POLYGON = [0,0, REGISTER_FILE_WIDTH,0, REGISTER_FILE_WIDTH,REGISTER_FILE_HEIGHT, 0,REGISTER_FILE_HEIGHT];
 export const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const PC_UPDATE_POLYGON = [0,0, 200,0, 200,150, 0,150];
@@ -30,7 +30,7 @@ export const MUX_B = [20, 80];
 export const MUX_C = [20, 120];
 export const MUX_D = [20, 160];
 
-export const CONTROL_TPOS = [70, 30];
+export const CONTROL_TPOS = [750/2, 30];
 export const FLAG_TPOS = [70, 30];
 export const FLAG_VPOS = [0, 70];
 
@@ -124,8 +124,6 @@ export const MUX_C18_OFFSET = [MUX3_OFFSET[0] + MUX_WIDTH/2, MUX3_OFFSET[1] + (1
 
 export const CONTROL_ARROW_OFFSET = [CONTROL_OFFSET[0], CONTROL_OFFSET[1] + CONTROL_POLYGON[7]];
 
-export const ARROW_DIST_BETWEEN = 28;
-
 export const INTERSECT_RADIUS = 10;
 
 export const MUX_FALSE_TEXT = "0";
@@ -147,7 +145,7 @@ export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
-export const COMPONENT_NAME_TEXT_STYLE = "font-family: Ariel; font-size: 24px; text-anchor:middle;fill:black; ";
+export const COMPONENT_NAME_TEXT_STYLE = "font-family: Ariel; font-size: 30px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
 export const INTERSECT_STYLE = {"fill":"black"};
 

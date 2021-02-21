@@ -13,6 +13,8 @@ import IMEM_SVG from "./IMEM_SVG.js";
 import PCUpdateSVG from "./PCUpdateSVG.js";
 import OpcodeDeCoderSVG from "./OpcodeDecoderSVG.js";
 import CircleSVG from "./CircleSVG.js";
+import ControlSVG from "./ControlSVG.js";
+
 
 
 function init() {
@@ -63,12 +65,12 @@ window.addEventListener("load", function() {
 	var mux4 = new Mux2_1SVG(Constants.MUX4_ID, Constants.MUX4_TRUE_ID, Constants.MUX4_FALSE_ID, Constants.MUX4_OFFSET);
 
 
-	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.COMPONENT_NAME_TEXT_STYLE, Constants.CONTROL_OFFSET);
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
 
+	
 	var alu = new ALU_SVG();
 	var code_mem = new IMEM_SVG();
-	var control = new PolygonSVG(Constants.CONTROL_ID, Constants.CONTROL_POLYGON, Constants.BLOCK_STYLE, Constants.CONTROL_OFFSET);
+	var control =  new ControlSVG();
 	var dmem = new DMEM_SVG();
 	var opcode_decoder = new OpcodeDeCoderSVG();
 	var pc_value = new PCValueSVG();
@@ -136,25 +138,7 @@ window.addEventListener("load", function() {
 	var dmem_c17 = new PolygonSVG(Constants.DMEM_C17_ID, [...Constants.ARROW], Constants.ARROW_STYLE, Constants.DMEM_C17_OFFSET);
 	var mux_c18 = new PolygonSVG(Constants.MUX_C18_ID, [...Constants.ARROW], Constants.ARROW_STYLE, Constants.MUX_C18_OFFSET);
 
-	var control_c1 = new PolygonSVG(Constants.CONTROL_C1, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 1 * Constants.ARROW_DIST_BETWEEN , Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c2 = new PolygonSVG(Constants.CONTROL_C2, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 2 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c3 = new PolygonSVG(Constants.CONTROL_C3, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 3 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c4 = new PolygonSVG(Constants.CONTROL_C4, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 4 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c5 = new PolygonSVG(Constants.CONTROL_C5, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 5 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c6 = new PolygonSVG(Constants.CONTROL_C6, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 6 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c7 = new PolygonSVG(Constants.CONTROL_C7, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 7 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c8 = new PolygonSVG(Constants.CONTROL_C8, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 8 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c9 = new PolygonSVG(Constants.CONTROL_C9, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 9 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c10 = new PolygonSVG(Constants.CONTROL_C10, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 10 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c11 = new PolygonSVG(Constants.CONTROL_C11, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 11 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c12 = new PolygonSVG(Constants.CONTROL_C12, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 12 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c13 = new PolygonSVG(Constants.CONTROL_C13, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 13 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c14 = new PolygonSVG(Constants.CONTROL_C14, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 14 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c15 = new PolygonSVG(Constants.CONTROL_C15, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 15 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c16 = new PolygonSVG(Constants.CONTROL_C16, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 16 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c17 = new PolygonSVG(Constants.CONTROL_C17, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 17 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-	var control_c18 = new PolygonSVG(Constants.CONTROL_C18, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 18 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
-
+	
 	var intersect_1 = new CircleSVG("testid", Constants.INTERSECT_1_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
 	var intersect_2 = new CircleSVG("testid", Constants.INTERSECT_2_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
 	var intersect_3 = new CircleSVG("testid", Constants.INTERSECT_3_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
@@ -176,8 +160,7 @@ window.addEventListener("load", function() {
 	flags.get_all_nodes().forEach( x => svg.appendChild(x));
 	code_mem.get_all_nodes().forEach( x => svg.appendChild(x));
 	opcode_decoder.get_all_nodes().forEach( x => svg.appendChild(x));
-	svg.appendChild(control.node);
-	svg.appendChild(control_text.node);
+	control.get_all_nodes().forEach( x => svg.appendChild(x));
 	reg_file.get_all_nodes().forEach(x => svg.appendChild(x));
 	pc_value.get_all_nodes().forEach(x => svg.appendChild(x));
 	pc_update.get_all_nodes().forEach(x => svg.appendChild(x));
@@ -208,24 +191,6 @@ window.addEventListener("load", function() {
 	svg.appendChild(flags_c14.node);
 	svg.appendChild(dmem_c17.node);
 	svg.appendChild(pc_value_c3.node);
-	svg.appendChild(control_c1.node);
-	svg.appendChild(control_c2.node);
-	svg.appendChild(control_c3.node);
-	svg.appendChild(control_c4.node);
-	svg.appendChild(control_c5.node);
-	svg.appendChild(control_c6.node);
-	svg.appendChild(control_c7.node);
-	svg.appendChild(control_c8.node);
-	svg.appendChild(control_c9.node);
-	svg.appendChild(control_c10.node);
-	svg.appendChild(control_c11.node);
-	svg.appendChild(control_c12.node);
-	svg.appendChild(control_c13.node);
-	svg.appendChild(control_c14.node);
-	svg.appendChild(control_c15.node);
-	svg.appendChild(control_c16.node);
-	svg.appendChild(control_c17.node);
-	svg.appendChild(control_c18.node);
 	svg.appendChild(imem_c1.node);
 	svg.appendChild(flag_control_wire.node);
 	svg.appendChild(mux_imem_wire.node);
