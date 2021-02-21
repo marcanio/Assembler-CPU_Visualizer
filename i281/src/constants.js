@@ -10,6 +10,7 @@ const FLAGS_WIDTH = 150;
 const FLAGS_HIEGHT = 100;
 
 export const MUX_POLYGON = [0,0, MUX_WIDTH,MUX_MIN_HEIGHT, MUX_WIDTH,MUX_MAX_HEIGHT - MUX_MIN_HEIGHT, 0,MUX_MAX_HEIGHT];
+export const MUX4_POlYGON = [0, 0, MUX_WIDTH, MUX_MIN_HEIGHT, MUX_WIDTH, 150 - MUX_MIN_HEIGHT, 0, 150];
 export const ALU_POLYGON = [0,0, 125,50, 125,250, 0,300, 0,200, 50, 175, 50,125, 0,100 ];
 export const FLAGS_POLYGON = [0,0, FLAGS_WIDTH,0, FLAGS_WIDTH,FLAGS_HIEGHT, 0,FLAGS_HIEGHT];
 export const CODE_MEM_POLYGON = [0,0, CODE_MEM_WIDTH,0, CODE_MEM_WIDTH,CODE_MEM_HEIGHT, 0,CODE_MEM_HEIGHT];
@@ -23,12 +24,12 @@ export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,50, 0,40, 5,40];
 export const REGISTER_BOX = [0, 0, 120, 0, 120, 30, 0, 30];
 export const IMEM_BOX = [0, 0, 250, 0, 250, 30, 0, 30];
 
-export const MUX_FALSE = [20, 60];
-export const MUX_TRUE = [20, 140];
+export const MUX_FALSE = [20, 50];
+export const MUX_TRUE = [20, 130];
 export const MUX_A = [20, 40];
-export const MUX_B = [20, 80];
-export const MUX_C = [20, 120];
-export const MUX_D = [20, 160];
+export const MUX_B = [20, 70];
+export const MUX_C = [20, 100];
+export const MUX_D = [20, 130];
 
 export const CONTROL_TPOS = [750/2, 30];
 export const FLAG_TPOS = [70, 30];
