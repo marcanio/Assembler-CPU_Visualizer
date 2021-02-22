@@ -15,7 +15,6 @@ cpu.iMem.setRegister(6, '0101000000000001');  // ADDI  A, 1
 cpu.iMem.setRegister(7, '1110000011111011');  // JUMP  Loop
 cpu.iMem.setRegister(8, '1010010000000010');  // STORE [sum], B
 cpu.iMem.setWriteEnable(0);
-cpu.dMem.setWriteEnable(1);
 
 let numCycles = 31;
 

@@ -57,11 +57,19 @@ export class CPU {
      * 
     */
     singleCycle() {
+        // ====================
+        // FETCH
+        // ====================
+
         // Get the pc
         let pc = this.pc.getPC();
 
         // Fetch the opcode from iMem
         let opcode = this.iMem.getRegister(pc);
+
+        // ====================
+        // DECODE
+        // ====================
 
         // Decode the opcode
         let decodedOpcode = this.ocd.getDecodedOpCode(opcode);
@@ -71,21 +79,26 @@ export class CPU {
         let controlSignals = this.control.getControl();
         
         // Set the muxes in the correct state (These won't really be used in the sim, they are just for display)
-        this.regMux0.setState(this.control.get('c4c5'));
+        this.regMux0.setState(parseInt(this.control.get('c4c5'),2));
         this.regMux1.setState(parseInt(this.control.get('c6c7'),2));
 
         // Setup the registers' mux sources
+        // Idea, these values are never uses. This might be needed for the display, but if not, cut here.
         for(var i=0; i < 4; i++) {
             this.regMux0.setSource(i, this.registers.getRegister(i))
             this.regMux1.setSource(i, this.registers.getRegister(i))
         }
 
+        // ====================
+        // Execute
+        // ====================
+
+        // Update the mux for the alu (I purposely avoided using the muxes which frees them)
+        this.aluSourceMux.setSource(0, this.registers.getRegister(parseInt(this.control.get('c6c7'),2)));
+        this.aluSourceMux.setSource(1, opcode.substring(8,17));
+
         // Set the state of the multiplexer before the alu.
         this.aluSourceMux.setState(controlSignals[11]);
-
-        // Update the mux for the alu
-        this.aluSourceMux.setSource(0, this.regMux1.getOutput());
-        this.aluSourceMux.setSource(1, opcode.substring(8,17));
 
         // Setup the alu inputs and get the result
         let aluOpA = this.registers.getRegister(parseInt(this.control.get('c4c5'),2));
@@ -104,14 +117,31 @@ export class CPU {
         this.aluResultMux.setSource(0, this.alu.result);
         this.aluResultMux.setSource(1, opcode.substring(8,17));
         this.aluResultMux.setState(controlSignals[15]);
-        let aluSourceMuxOutput = this.aluResultMux.getOutput();
+        let aluResultMuxOutput = this.aluResultMux.getOutput();
+
+        // ====================
+        // MEMORY
+        // ====================
 
         // Calculate dmem address
-        let dmemAddr = parseInt(aluSourceMuxOutput.substring(4,8),2);
+        let dmemAddr = parseInt(aluResultMuxOutput.substring(4,8),2);
 
+        // Update dmem input mux
+        //this.dmemInputMux.setSource(0, this.regMux1.getOutput());
+        this.dmemInputMux.setSource(0, this.registers.getRegister(parseInt(this.control.get('c6c7'),2)));
+        this.dmemInputMux.setSource(1, this.switchInput);
+        this.dmemInputMux.setState(controlSignals[16]);
+
+        // Update dmem
+        this.dMem.setWriteEnable(controlSignals[17]);
+        this.dMem.setRegister(dmemAddr, this.dmemInputMux.getOutput());     
+
+        // ====================
+        // WRITEBACK
+        // ====================
+        
         // Update the final mux
-        this.regWritebackMux.setSource(0, aluSourceMuxOutput);
-        //let registerSource = parseInt(aluSourceMuxOutput.substring(0,4), 2);
+        this.regWritebackMux.setSource(0, aluResultMuxOutput);
         this.regWritebackMux.setSource(1, this.dMem.getRegister(dmemAddr));
         this.regWritebackMux.setState(controlSignals[18]);
         let writebackResult = this.regWritebackMux.getOutput();
@@ -121,15 +151,6 @@ export class CPU {
         let targetRegister = parseInt(this.control.get('c8c9'), 2);
         this.registers.setRegister(targetRegister, writebackResult);
         
-        // Update dmem input mux
-        this.dmemInputMux.setSource(0, this.regMux1.getOutput());
-        this.dmemInputMux.setSource(1, this.switchInput);
-        this.dmemInputMux.setState(controlSignals[16]);
-
-        // Update dmem
-        this.dMem.setWriteEnable(controlSignals[17]);
-        this.dMem.setRegister(dmemAddr, this.dmemInputMux.getOutput());        
-
         // Update pc
         this.pc.process(opcode, controlSignals[2]);
     }
