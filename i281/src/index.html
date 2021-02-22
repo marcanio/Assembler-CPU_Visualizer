@@ -20,13 +20,12 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
     <input type="text" id="instruction">
     <label type="text" id="result"></label>
     <p id="counter">0</p>
-    <script src="./load.js" type="module"></script>
 
     <script>
       function test(){
         var doc = document.getElementById("counter")
-        var wire = document.getElementById("imem_decoder_wire_id")
-        wire.style.stroke = "red"
+        //var wire = document.getElementById("test")
+        //wire.style.stroke = "red"
         var counter = doc.innerHTML
         console.log(counter)
         var cur = "i"+counter
