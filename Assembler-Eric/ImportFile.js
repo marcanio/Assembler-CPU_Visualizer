@@ -1075,10 +1075,25 @@ $(".dropdown-menu a.dropdown-toggle").on("click", function (e) {
 
 function toggleSyntaxHighlight() {
   let toggle = document.getElementById("toggleSyntax").value;
+  let table = document.getElementById("assemblyTable");
 
   if (toggle.localeCompare("Syntax highlight: OFF") == 0) {
     document.getElementById("toggleSyntax").value = "Syntax highlight: ON";
+
+    for (let i = codeSegmentStart; i < table.rows.length; i++) {
+      let firstCol = table.rows[i].cells[1].textContent;
+      //Check for opcodes in the first column
+      if (instructionSet.includes(firstCol)) {
+        table.rows[i].cells[1].style.color = "Red";
+      }
+      //table.rows[i].cells[1].textContent
+    }
   } else {
     document.getElementById("toggleSyntax").value = "Syntax highlight: OFF";
+    for (let i = codeSegmentStart; i < table.rows.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        table.rows[i].cells[j].style.color = "Black";
+      }
+    }
   }
 }
