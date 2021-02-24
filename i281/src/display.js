@@ -12,6 +12,7 @@ import FlagsSVG from "./FlagsSVG.js";
 import IMEM_SVG from "./IMEM_SVG.js";
 import PCUpdateSVG from "./PCUpdateSVG.js";
 import OpcodeDeCoderSVG from "./OpcodeDecoderSVG.js";
+import CircleSVG from "./CircleSVG.js";
 
 
 function init() {
@@ -62,7 +63,7 @@ window.addEventListener("load", function() {
 	var mux4 = new Mux2_1SVG(Constants.MUX4_ID, Constants.MUX4_TRUE_ID, Constants.MUX4_FALSE_ID, Constants.MUX4_OFFSET);
 
 
-	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.TEXT_STYLE, Constants.CONTROL_OFFSET);
+	var control_text = new TextSVG(Constants.CONTROL_TPOS[0], Constants.CONTROL_TPOS[1], Constants.CONTROL_TEXT_ID, Constants.CONTROL_TEXT, Constants.COMPONENT_NAME_TEXT_STYLE, Constants.CONTROL_OFFSET);
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.TEXT_STYLE);
 
 	var alu = new ALU_SVG();
@@ -154,6 +155,15 @@ window.addEventListener("load", function() {
 	var control_c17 = new PolygonSVG(Constants.CONTROL_C17, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 17 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
 	var control_c18 = new PolygonSVG(Constants.CONTROL_C18, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + 18 * Constants.ARROW_DIST_BETWEEN, Constants.CONTROL_ARROW_OFFSET[1]]);
 
+	var intersect_1 = new CircleSVG("testid", Constants.INTERSECT_1_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_2 = new CircleSVG("testid", Constants.INTERSECT_2_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_3 = new CircleSVG("testid", Constants.INTERSECT_3_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_4 = new CircleSVG("testid", Constants.INTERSECT_4_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_5 = new CircleSVG("testid", Constants.INTERSECT_5_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_6 = new CircleSVG("testid", Constants.INTERSECT_6_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_7 = new CircleSVG("testid", Constants.INTERSECT_7_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_8 = new CircleSVG("testid", Constants.INTERSECT_8_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_9 = new CircleSVG("testid", Constants.INTERSECT_9_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
 
 	var svg = document.getElementById("canvas");
 	mux0.get_all_nodes().forEach( x => svg.appendChild(x));
@@ -234,4 +244,14 @@ window.addEventListener("load", function() {
 	svg.appendChild(imem_mux1_wire.node);
 	svg.appendChild(switches_mux1_wire.node);
 	svg.appendChild(switches_text.node);
+	svg.appendChild(intersect_1.node);
+	svg.appendChild(intersect_2.node);
+	svg.appendChild(intersect_3.node);
+	svg.appendChild(intersect_4.node);
+	svg.appendChild(intersect_5.node);
+	svg.appendChild(intersect_6.node);
+	svg.appendChild(intersect_7.node);
+	svg.appendChild(intersect_8.node);
+	svg.appendChild(intersect_9.node);
+
 });

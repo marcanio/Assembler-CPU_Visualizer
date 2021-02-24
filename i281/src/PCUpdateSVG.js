@@ -9,9 +9,9 @@ const BOX_OFFSET = [Constants.PC_UPDATE_OFFSET[0] + PC_VAL[0] - 50, Constants.PC
 export default class PCUpdateSVG {
 	constructor() {
 		this.pc_update = new PolygonSVG(Constants.PC_UPDATE_ID, Constants.PC_UPDATE_POLYGON, Constants.BLOCK_STYLE, Constants.PC_UPDATE_OFFSET);
-		this.top_text = new TextSVG(PC_TPOS[0], PC_TPOS[1], Constants.PC_UPDATE_TEXT_ID, "PC", Constants.TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
-		this.middle_text = new TextSVG(PC_TPOS[0], PC_TPOS[1]+ 30, Constants.PC_UPDATE_TEXT_ID, "Update", Constants.TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
-		this.bottom_text = new TextSVG(PC_TPOS[0], PC_TPOS[1] + 60, Constants.PC_UPDATE_TEXT_ID, "Logic", Constants.TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
+		this.top_text = new TextSVG(PC_TPOS[0], PC_TPOS[1], Constants.PC_UPDATE_TEXT_ID, "PC", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
+		this.middle_text = new TextSVG(PC_TPOS[0], PC_TPOS[1]+ 30, Constants.PC_UPDATE_TEXT_ID, "Update", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
+		this.bottom_text = new TextSVG(PC_TPOS[0], PC_TPOS[1] + 60, Constants.PC_UPDATE_TEXT_ID, "Logic", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.PC_UPDATE_OFFSET);
 	}
     
 	get_all_nodes() {

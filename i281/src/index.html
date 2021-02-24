@@ -13,16 +13,28 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 </head>
   <body >
     <h1>i281 CPU</h1>
-<button onclick="test()">Cycle</button>
 
     <svg id="canvas" height="1600" width="3000">
     </svg> 
+    <!-- Menu -->
+    <br>
     <input type="checkbox" id="show_arrows">
-    <label for="show_arrows"> Hide Arrows</label><br>
+    <label for="show_arrows"> Hide Arrows</label>
+    <input type="checkbox" id="show_bus_info">
+    <label for="show_bus_info"> Show Bus Width</label>
+    <br>
+    <button id="goto_assembler" onclick="location.href='./ImportFile.html'">Assembler</button>
+    <button id="goto_altera_board">Altera Board</button>
+    <br>
 
     <input type="text" id="instruction">
     <label type="text" id="result"></label>
-    <p id="counter">0</p>
+    <br> 
+    <div> 
+      <button onclick="test()">Cycle</button>
+      <p id="counter">0</p>
+    </div>
+    
     <script src="./load.js" type="module"></script>
 
     <script>

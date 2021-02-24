@@ -18,7 +18,7 @@ export default class RegisterFileSVG {
 
 	constructor() {
 		this.reg_file = new PolygonSVG(Constants.REG_FILE_ID, Constants.REGISTER_FILE_POLYGON, Constants.BLOCK_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.register_text = new TextSVG(REG_TPOS[0], REG_TPOS[1], Constants.REG_TEXT_ID, Constants.REG_TEXT, Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.register_text = new TextSVG(REG_TPOS[0], REG_TPOS[1], Constants.REG_TEXT_ID, Constants.REG_TEXT, Constants.COMPONENT_NAME_TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
 
 		this.reg_a_label = new TextSVG(REG_A[0] - 80, REG_A[1], Constants.REG_A_LABEL_ID, "A", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
 		this.reg_b_label = new TextSVG(REG_B[0] - 80, REG_B[1], Constants.REG_B_LABEL_ID, "B", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
