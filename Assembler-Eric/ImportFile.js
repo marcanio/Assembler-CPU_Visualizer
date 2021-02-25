@@ -334,17 +334,29 @@ function mainMethod() {
       eachLine[3] = eachLine[2];
       eachLine[2] = eachLine[1];
       eachLine[1] = eachLine[0];
-      eachLine[0] = AssemblyLine;
+      eachLine[0] =
+        '<span style="font-weight: bold;">' +
+        AssemblyLine +
+        "</span>" +
+        "&nbsp &nbsp &nbsp &nbsp";
     } else if (eachLine.length == 2) {
       eachLine[3] = "";
       eachLine[2] = eachLine[1];
       eachLine[1] = eachLine[0];
-      eachLine[0] = AssemblyLine;
+      eachLine[0] =
+        '<span style="font-weight: bold;">' +
+        AssemblyLine +
+        "</span>" +
+        "&nbsp &nbsp &nbsp &nbsp";
     } else {
       eachLine[3] = "";
       eachLine[2] = "";
       eachLine[1] = eachLine[0];
-      eachLine[0] = AssemblyLine;
+      eachLine[0] =
+        '<span style="font-weight: bold;">' +
+        AssemblyLine +
+        "</span>" +
+        "&nbsp &nbsp &nbsp &nbsp";
     }
 
     //Do not count .data in the line numbers. Start after .code
@@ -1075,25 +1087,61 @@ $(".dropdown-menu a.dropdown-toggle").on("click", function (e) {
 
 function toggleSyntaxHighlight() {
   let toggle = document.getElementById("toggleSyntax").value;
-  let table = document.getElementById("assemblyTable");
+  let Assemblytable = document.getElementById("assemblyTable");
+  let machineTable = document.getElementById("machineTable");
 
   if (toggle.localeCompare("Syntax highlight: OFF") == 0) {
     document.getElementById("toggleSyntax").value = "Syntax highlight: ON";
 
-    for (let i = codeSegmentStart; i < table.rows.length; i++) {
-      let firstCol = table.rows[i].cells[1].textContent;
+    //Table color update
+    for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
+      let firstCol = Assemblytable.rows[i].cells[1].textContent;
+      let machineCol = machineTable.rows[i].cells[0].textContent;
       //Check for opcodes in the first column
       if (instructionSet.includes(firstCol)) {
-        table.rows[i].cells[1].style.color = "Red";
+        Assemblytable.rows[i].cells[1].style.color = "Red";
       }
-      //table.rows[i].cells[1].textContent
+
+      //Make First four always red
+      for (let j = 0; j < machineCol.length; j++) {
+        //Machine table check for BRGE, BRG, BRNE
+        if (
+          firstCol.localeCompare("BRGE") == 0 ||
+          firstCol.localeCompare("BRG") == 0 ||
+          firstCol.localeCompare("BRNE") == 0
+        ) {
+          //Make first 4 and second register spot red
+          let newMachineCol = '<span style="color:red">';
+          newMachineCol += machineCol.substring(0, 4);
+          newMachineCol += "</span>";
+          newMachineCol += machineCol.substring(4, 8);
+          newMachineCol += '<span style="color:red">';
+          newMachineCol += machineCol.substring(8, 10);
+          newMachineCol += "</span>";
+          newMachineCol += machineCol.substring(10, machineCol.length);
+          machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+        } else {
+          //If not those commands only make first 4 red
+          let newMachineCol = '<span style="color:red">';
+          newMachineCol += machineCol.substring(0, 4);
+          newMachineCol += "</span>";
+          newMachineCol += machineCol.substring(4, machineCol.length);
+          machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+        }
+      }
     }
   } else {
+    let originalMachine = machineCode.split("\n");
     document.getElementById("toggleSyntax").value = "Syntax highlight: OFF";
-    for (let i = codeSegmentStart; i < table.rows.length; i++) {
+    let counter = 0;
+    for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
+      //Set all rows of assembly back to black
       for (let j = 0; j < 3; j++) {
-        table.rows[i].cells[j].style.color = "Black";
+        Assemblytable.rows[i].cells[j].style.color = "Black";
       }
+      //Place original machine code back in
+      machineTable.rows[i].cells[0].textContent = originalMachine[counter];
+      counter++;
     }
   }
 }

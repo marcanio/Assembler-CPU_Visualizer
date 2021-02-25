@@ -189,7 +189,7 @@
         </nav>
       </div>
 
-      <main class="container py-3">
+      <main class="container p-3 my-3 border">
         <section class="jumbotron text-center">
           <h1 class="display-4 mb-4" id="banner">Enter your Assembly below</h1>
 
@@ -217,10 +217,10 @@
                 Select a text file:
                 <input type="file" id="fileInput" />
               </div>
-              <div class="input-group btn-group-lg justify-content-center mb-4">
+              <div class="input-group btn-group-lg justify-content-center mb-3">
                 <input
                   type="button"
-                  class="btn btn-primary"
+                  class="btn btn-primary mb-3"
                   onclick="mainMethod()"
                   id="assemblyButton"
                   value="Assemble!"
@@ -229,7 +229,7 @@
                 <input
                   type="button"
                   id="downloadButton"
-                  class="btn btn-primary mr-1"
+                  class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="downloadMachineFile()"
                   value="Download Machine code"
@@ -238,7 +238,7 @@
                 <input
                   type="button"
                   id="downloadLow"
-                  class="btn btn-primary mr-1"
+                  class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="downloadUserCodeLow()"
                   value="Download Low"
@@ -247,7 +247,7 @@
                 <input
                   type="button"
                   id="downloadHigh"
-                  class="btn btn-primary mr-1"
+                  class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="downloadUserCodeHigh()"
                   value="Download High"
@@ -255,31 +255,32 @@
                 <input
                   type="button"
                   id="toggleSyntax"
-                  class="btn btn-primary mr-1"
+                  class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="toggleSyntaxHighlight()"
                   value="Syntax highlight: OFF"
                 />
               </div>
-              <div class="row justify-content-center">
-                <div class="col-md-6">
-                  <p id="displayAssemblytext"></p>
-                  <table
-                    id="assemblyTable"
-                    class="table table-striped text-left"
-                  ></table>
-                </div>
-
-                <div>
-                  <p id="displayMachinetext"></p>
-                  <table
-                    id="machineTable"
-                    class="table table-striped text-left"
-                  ></table>
-                </div>
-              </div>
             </div>
           </form>
+          <div class="row justify-content-center">
+            <div class="col-fluid mr-1">
+              <!--<div class="col-fluid" style="border-right: thick solid lightgrey">-->
+              <p id="displayAssemblytext"></p>
+              <table
+                id="assemblyTable"
+                class="table table-striped text-left"
+              ></table>
+            </div>
+
+            <div>
+              <p id="displayMachinetext"></p>
+              <table
+                id="machineTable"
+                class="table table-striped text-left"
+              ></table>
+            </div>
+          </div>
         </section>
       </main>
     </div>
