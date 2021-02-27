@@ -1,9 +1,12 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
+<<<<<<< HEAD
 import * as instructions from "./instructions.js"
 
 
+=======
+>>>>>>> master
 
 const ADDR = [50, 0];
 const VAL = [350/2, -24];
