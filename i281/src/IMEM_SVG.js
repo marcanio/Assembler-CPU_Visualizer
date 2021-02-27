@@ -42,7 +42,7 @@ export default class IMEM_SVG {
 
 		for(var i=0; i<addr.length; i++){
 			res.push(addr[i].get_node());
-			console.log(addr[i].get_node())
+			//console.log(addr[i].get_node())
 		}
 
 		for(var i=0; i<box.length; i++){

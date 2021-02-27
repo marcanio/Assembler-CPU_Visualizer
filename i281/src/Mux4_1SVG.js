@@ -4,7 +4,7 @@ import PolygonSVG from "./PolygonSVG.js";
 
 export default class Mux4_1SVG {
 	constructor(mux_id, a_id, b_id, c_id, d_id, offset) {
-		this.mux_polygon = 	new PolygonSVG(mux_id, [...Constants.MUX_POLYGON], Constants.BLOCK_STYLE, offset);
+		this.mux_polygon = 	new PolygonSVG(mux_id, [...Constants.MUX4_POlYGON], Constants.BLOCK_STYLE, offset);
 		this.a_text = new TextSVG(Constants.MUX_A[0],Constants.MUX_A[1], a_id, Constants.MUX_A_TEXT, Constants.TEXT_STYLE, offset);
 		this.b_text = new TextSVG(Constants.MUX_B[0],Constants.MUX_B[1], b_id, Constants.MUX_B_TEXT, Constants.TEXT_STYLE, offset);
 		this.c_text = new TextSVG(Constants.MUX_C[0],Constants.MUX_C[1], c_id, Constants.MUX_C_TEXT, Constants.TEXT_STYLE, offset);

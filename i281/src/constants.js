@@ -3,35 +3,35 @@ const CODE_MEM_WIDTH = 350;
 const CODE_MEM_HEIGHT = 1300;
 const REGISTER_FILE_WIDTH = 350;
 const REGISTER_FILE_HEIGHT = 500;
-const MUX_WIDTH = 75;
-const MUX_MIN_HEIGHT = 30;
-const MUX_MAX_HEIGHT = 200;
+const MUX_WIDTH = 70;
+const MUX_MIN_HEIGHT = 40;
+const MUX_MAX_HEIGHT = 170;
 const FLAGS_WIDTH = 150;
 const FLAGS_HIEGHT = 100;
 
 export const MUX_POLYGON = [0,0, MUX_WIDTH,MUX_MIN_HEIGHT, MUX_WIDTH,MUX_MAX_HEIGHT - MUX_MIN_HEIGHT, 0,MUX_MAX_HEIGHT];
+export const MUX4_POlYGON = [0, 0, MUX_WIDTH, MUX_MIN_HEIGHT, MUX_WIDTH, 150 - MUX_MIN_HEIGHT, 0, 150];
 export const ALU_POLYGON = [0,0, 125,50, 125,250, 0,300, 0,200, 50, 175, 50,125, 0,100 ];
 export const FLAGS_POLYGON = [0,0, FLAGS_WIDTH,0, FLAGS_WIDTH,FLAGS_HIEGHT, 0,FLAGS_HIEGHT];
 export const CODE_MEM_POLYGON = [0,0, CODE_MEM_WIDTH,0, CODE_MEM_WIDTH,CODE_MEM_HEIGHT, 0,CODE_MEM_HEIGHT];
 export const DATA_MEM_POLYGON = [0,0, 350,0, 350,650, 0,650];
 export const OPCODE_DECODER_POLYGON = [0,0, 200,0, 200,100, 0,100];
-export const CONTROL_POLYGON = [0,0, 550,0, 550,100, 0,100];
+export const CONTROL_POLYGON = [0,0, 750,0, 750,100, 0,100];
 export const REGISTER_FILE_POLYGON = [0,0, REGISTER_FILE_WIDTH,0, REGISTER_FILE_WIDTH,REGISTER_FILE_HEIGHT, 0,REGISTER_FILE_HEIGHT];
 export const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const PC_UPDATE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,50, 0,40, 5,40];
+export const REGISTER_BOX = [0, 0, 120, 0, 120, 30, 0, 30];
 export const IMEM_BOX = [0, 0, 250, 0, 250, 30, 0, 30];
-export const REGISTER_BOX = [0, 0, 140, 0, 140, 30, 0, 30];
-export const MUX_FALSE = [20, 60];
-export const MUX_TRUE = [20, 140];
-export const MUX_A = [20, 40];
-export const MUX_B = [20, 80];
-export const MUX_C = [20, 120];
-export const MUX_D = [20, 160];
 
-export const OPCODE_TPOS = [100, 30];
-export const PC_UPDATE_TPOS = [100, 30];
-export const CONTROL_TPOS = [70, 30];
+export const MUX_FALSE = [20, 50];
+export const MUX_TRUE = [20, 130];
+export const MUX_A = [20, 40];
+export const MUX_B = [20, 70];
+export const MUX_C = [20, 100];
+export const MUX_D = [20, 130];
+
+export const CONTROL_TPOS = [750/2, 30];
 export const FLAG_TPOS = [70, 30];
 export const FLAG_VPOS = [0, 70];
 
@@ -50,6 +50,16 @@ export const REGISTER_FILE_OFFSET = [600, 400];
 export const PC_VALUE_OFFSET = [1000, 1150];
 export const PC_UPDATE_OFFSET = [500, 1150];
 export const DATA_MEM_OFFSET = [1750, 900];
+
+export const INTERSECT_1_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 15, CODE_MEM_OFFSET[1] + 25];
+export const INTERSECT_2_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 15, CODE_MEM_OFFSET[1] + (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 100)];
+export const INTERSECT_3_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 15, CODE_MEM_OFFSET[1] + 25 + PC_UPDATE_OFFSET[1] + 175];
+export const INTERSECT_4_POS = [15 + MUX0_OFFSET[0] - 100 , CODE_MEM_OFFSET[1] + (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 100)];
+export const INTERSECT_5_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2]+ 400, MUX1_OFFSET[1] + 100];
+export const INTERSECT_6_POS = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 25, REGISTER_FILE_OFFSET[1] + 200];
+export const INTERSECT_7_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 25, MUX1_OFFSET[1] + 100];
+export const INTERSECT_8_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 25, MUX1_OFFSET[1] + 100 + ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 75) ];
+export const INTERSECT_9_POS = [ MUX2_OFFSET[0] - 150, MUX2_OFFSET[1] + MUX_TRUE[1] - 15];
 
 export const READ_A_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 50];
 export const READ_B_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 300];
@@ -136,12 +146,12 @@ export const READ_A_C4_OFFSET = [READ_A_MUX_OFFSET[0] + (MUX_WIDTH * 0.20), READ
 export const READ_A_C5_OFFSET = [READ_A_MUX_OFFSET[0] + (MUX_WIDTH * 0.60), READ_A_MUX_OFFSET[1] + (19-ARROW[9])];
 export const READ_B_C6_OFFSET = [READ_B_MUX_OFFSET[0] + (MUX_WIDTH * 0.20), READ_B_MUX_OFFSET[1] + (7-ARROW[9])];
 export const READ_B_C7_OFFSET = [READ_B_MUX_OFFSET[0] + (MUX_WIDTH * 0.60), READ_B_MUX_OFFSET[1] + (19-ARROW[9])];
-export const REG_FILE_C8_OFFSET = [REGISTER_FILE_OFFSET[0] + 1 * 30, REGISTER_FILE_OFFSET[1] - ARROW[9]];
-export const REG_FILE_C9_OFFSET = [REGISTER_FILE_OFFSET[0] + 2 * 30, REGISTER_FILE_OFFSET[1] - ARROW[9]];
-export const REG_FILE_C10_OFFSET = [REGISTER_FILE_OFFSET[0] + 3 * 30, REGISTER_FILE_OFFSET[1] - ARROW[9]];
+export const REG_FILE_C8_OFFSET = [REGISTER_FILE_OFFSET[0] + 3 * 30, REGISTER_FILE_OFFSET[1] - ARROW[9]];
+export const REG_FILE_C9_OFFSET = [REGISTER_FILE_OFFSET[0] + 4 * 30, REGISTER_FILE_OFFSET[1] - ARROW[9]];
+export const REG_FILE_C10_OFFSET = [REGISTER_FILE_OFFSET[0] + 8 * 30, REGISTER_FILE_OFFSET[1] - ARROW[9]];
 export const MUX_C11_OFFSET = [MUX0_OFFSET[0] + MUX_WIDTH/2, MUX0_OFFSET[1] + (16 - ARROW[9])];
-export const ALU_C12_OFFSET = [ALU_OFFSET[0] + 1 * 25, ALU_OFFSET[1] - ARROW[9]];
-export const ALU_C13_OFFSET = [ALU_OFFSET[0] + 2 * 25, ALU_OFFSET[1] - ARROW[9]];
+export const ALU_C12_OFFSET = [ALU_OFFSET[0] + (1 * 30), ALU_OFFSET[1] - ARROW[9] + 12];
+export const ALU_C13_OFFSET = [ALU_OFFSET[0] + (2 * 30), ALU_OFFSET[1] - ARROW[9] + 24];
 export const FLAGS_C14_OFFSET = [FLAGS_POLYGON[2]/2 + FLAGS_OFFSET[0], FLAGS_OFFSET[1] - ARROW[9]];
 export const MUX_C15_OFFSET = [MUX1_OFFSET[0] + MUX_WIDTH/2, MUX1_OFFSET[1] + (16 - ARROW[9])];
 export const MUX_C16_OFFSET = [MUX2_OFFSET[0] + MUX_WIDTH/2, MUX2_OFFSET[1] + (16 - ARROW[9])];
@@ -150,8 +160,7 @@ export const MUX_C18_OFFSET = [MUX3_OFFSET[0] + MUX_WIDTH/2, MUX3_OFFSET[1] + (1
 
 export const CONTROL_ARROW_OFFSET = [CONTROL_OFFSET[0], CONTROL_OFFSET[1] + CONTROL_POLYGON[7]];
 
-export const ARROW_DIST_BETWEEN = 28;
-
+export const INTERSECT_RADIUS = 10;
 
 export const MUX_FALSE_TEXT = "0";
 export const MUX_TRUE_TEXT = "1";
@@ -169,10 +178,12 @@ export const MUX_D_TEXT = "D";
 
 
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
-export const WIRE_STYLE = {"stroke":"black", "stroke-width":"1.5px", "fill":"none"};
+export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
+export const COMPONENT_NAME_TEXT_STYLE = "font-family: Ariel; font-size: 30px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
+export const INTERSECT_STYLE = {"fill":"black"};
 
 export const ID_ATTR = "id";
 export const STYLE_ATTR = "style";

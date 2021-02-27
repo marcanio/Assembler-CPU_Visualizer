@@ -46,8 +46,13 @@ let instructionFormat = ["0000_", // NOOP
 "1111_"  // BRGE
 ];
 
+//Objects in the DOM
+var downloadButtonObject = document.getElementById("downloadButton");
+
+
 
 window.onload = function() {
+    
     let fileInput = document.getElementById('fileInput');
     //let fileDisplayArea = document.getElementById('fileDisplayArea');
 
@@ -63,7 +68,8 @@ window.onload = function() {
 				}
 
                 reader.readAsText(file);	
-		});
+        });
+       
 }
 
 //--------------------Below deals with all of the data in the .data portion-----------
@@ -245,8 +251,9 @@ function mainMethod(){
     document.getElementById("assemblyButton").style.display = "none";
     document.getElementById("banner").innerHTML = "Successfully Assembled"
     document.getElementById("displayAssemblytext").innerHTML= "<b>Assembly Code:</b>\n";
-    //Show download buttons
-    document.getElementById("downloadButton").style.display = "block";
+    //Show download buttons 
+    downloadButtonObject.style.display = "block";
+    //document.getElementById("downloadButton").style.display = "block";
     document.getElementById("downloadLow").style.display = "block";
     document.getElementById("downloadHigh").style.display = "block";
     
@@ -343,19 +350,27 @@ function mainMethod(){
             y.innerHTML = eachLine[parts];
         } 
     }
+    
     document.getElementById("displayMachinetext").innerHTML +=  "<b>Machine Code:</b><br>";
     let formatMachine = machineCode.split("\n");
-
-    for(let line =0; line <formatMachine.length-1; line++){
+    let spaceing =0;
+    for(let line =0; line <formatMachine.length-1 + codeSegmentStart; line++){
         let x = document.getElementById('machineTable').insertRow(line);
         
         let y = x.insertCell(0);
-        let z = x.insertCell(1);
+        //let z = x.insertCell(1);
+        if(line >= codeSegmentStart){
+            y.innerHTML = formatMachine[spaceing]; 
+            spaceing++;
+        }else{
+            y.innerHTML = "|";
+            
+        }
 
-        y.innerHTML = line +1;
-        z.innerHTML = formatMachine[line];
+        
 
     }
+    
     
 }
 function formatInput(){
@@ -1021,7 +1036,7 @@ function ShowFile(){
     let T = document.getElementById("fileDiv");
     let F = document.getElementById("inputDiv");
     T.style.display ="block";
-    F.style.display ="none";
+  
 }
 /**
  * Choice to show the input box
@@ -1038,9 +1053,12 @@ function ShowTextbox(){
 function fillP(){
     let input = document.getElementById("textArea");
     let paragraph = document.getElementById("textInput");
-    paragraph.innerText = input.value;
+    
 
 }
 //TODO - Parse only the data
 function getData(){ 
 }
+
+
+
