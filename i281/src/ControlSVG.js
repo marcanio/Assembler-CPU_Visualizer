@@ -21,7 +21,7 @@ export default class ControlSVG {
 		for(let i = 1; i <= 18; ++ i)
 		{ 
 			this.arrows.push( new PolygonSVG("control_c" + i, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + i * ARROW_DIST_BETWEEN - 15, Constants.CONTROL_ARROW_OFFSET[1]]));
-			this.labels.push(new TextSVG(TPOS[0], TPOS[1], "label"+i, "c", SUBSCRIPT_TEXT_STYLE, [Constants.CONTROL_OFFSET[0] + (i-1) * ARROW_DIST_BETWEEN -15 , Constants.CONTROL_OFFSET[1]]));
+			this.labels.push(new TextSVG(TPOS[0], TPOS[1], "label"+i, "c", LABEL_TEXT_STYLE, [Constants.CONTROL_OFFSET[0] + (i-1) * ARROW_DIST_BETWEEN -15 , Constants.CONTROL_OFFSET[1]]));
 			this.subscripts.push(new TextSVG(TPOS[0] + 16, TPOS[1] + 10, "sub"+i, i, SUBSCRIPT_TEXT_STYLE, [Constants.CONTROL_OFFSET[0] + (i-1) * ARROW_DIST_BETWEEN - 15, Constants.CONTROL_OFFSET[1]]));
 			this.vals.push( new TextSVG(Constants.CONTROL_ARROW_OFFSET[0] + i * ARROW_DIST_BETWEEN - 7, Constants.CONTROL_ARROW_OFFSET[1] + 80, "c"+i+"val", "0", Constants.TEXT_STYLE ));
 		}
