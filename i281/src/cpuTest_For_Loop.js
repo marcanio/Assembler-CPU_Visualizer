@@ -21,6 +21,7 @@ let numCycles = 31;
 let t0 = performance.now();
 for(let i=0; i<numCycles; i++) {
     cpu.singleCycle();
+    console.log(cpu.registers.getRegister(1));
 }
 let t1 = performance.now();
 

@@ -13,6 +13,7 @@ export class RegisterFile {
         this.rows = rows;
         this.registers = Array(rows);
         this.writeEnable = 0;
+        this.verbose = 0;
     }
 
     getWidth() {
@@ -65,11 +66,11 @@ export class RegisterFile {
     setRegister(dest, value) {
         if (this.writeEnable == 1) {
             if (0 <= dest && dest <= this.rows) this.registers[dest] = value;
-            else throw 'Invaid dest register';
+            else throw 'Invalid dest register';
         }
 
         else {
-            console.warn("Attempt to write to register without enabling write (this may be expected)");
+            if (this.verbose) {console.warn("Attempt to write to register without enabling write (this may be expected)")};
         }
 
     }

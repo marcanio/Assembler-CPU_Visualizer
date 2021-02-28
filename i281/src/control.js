@@ -74,7 +74,7 @@ export class Control {
         if(decodedOpCode.charAt(19) == 1) this.c = [null, 0, b1, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // bre/brz
         if(decodedOpCode.charAt(20) == 1) this.c = [null, 0, b2, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brne/brnz
         if(decodedOpCode.charAt(21) == 1) this.c = [null, 0, b3, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brg
-        if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  //brge
+        if(decodedOpCode.charAt(22) == 1) this.c = [null, 0, b4, 1,  0,  0,  0,  0,  0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0];  // brge
     }
 
     /**

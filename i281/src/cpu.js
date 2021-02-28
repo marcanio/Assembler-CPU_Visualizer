@@ -16,7 +16,7 @@ export class CPU {
     constructor() {
         // The constructor will create a processor object with all needed subcomponents
         this.pc = new PC();
-        this.iMem = new RegisterFile(16, 16);
+        this.iMem = new RegisterFile(16, 32);
         this.ocd = new OpCodeDecoder();
         this.control = new Control();
         this.registers = new RegisterFile(8, 4);
@@ -79,14 +79,16 @@ export class CPU {
         let controlSignals = this.control.getControl();
         
         // Set the muxes in the correct state (These won't really be used in the sim, they are just for display)
-        this.regMux0.setState(parseInt(this.control.get('c4c5'),2));
-        this.regMux1.setState(parseInt(this.control.get('c6c7'),2));
+        let c4c5 = parseInt(this.control.get('c4c5'),2);
+        let c6c7 = parseInt(this.control.get('c6c7'),2);
+        this.regMux0.setState(c4c5);
+        this.regMux1.setState(c6c7);
 
         // Setup the registers' mux sources
         // Idea, these values are never uses. This might be needed for the display, but if not, cut here.
         for(var i=0; i < 4; i++) {
-            this.regMux0.setSource(i, this.registers.getRegister(i))
-            this.regMux1.setSource(i, this.registers.getRegister(i))
+            this.regMux0.setSource(i, this.registers.getRegister(i));
+            this.regMux1.setSource(i, this.registers.getRegister(i));
         }
 
         // ====================
@@ -94,14 +96,14 @@ export class CPU {
         // ====================
 
         // Update the mux for the alu (I purposely avoided using the muxes which frees them)
-        this.aluSourceMux.setSource(0, this.registers.getRegister(parseInt(this.control.get('c6c7'),2)));
+        this.aluSourceMux.setSource(0, this.registers.getRegister(c6c7));
         this.aluSourceMux.setSource(1, opcode.substring(8,17));
 
         // Set the state of the multiplexer before the alu.
         this.aluSourceMux.setState(controlSignals[11]);
 
         // Setup the alu inputs and get the result
-        let aluOpA = this.registers.getRegister(parseInt(this.control.get('c4c5'),2));
+        let aluOpA = this.registers.getRegister(c4c5);
         let aluOpB = this.aluSourceMux.getOutput();
         this.alu.setOps(aluOpA, aluOpB);
         this.alu.process(this.control.get('c12c13'));
@@ -127,8 +129,7 @@ export class CPU {
         let dmemAddr = parseInt(aluResultMuxOutput.substring(4,8),2);
 
         // Update dmem input mux
-        //this.dmemInputMux.setSource(0, this.regMux1.getOutput());
-        this.dmemInputMux.setSource(0, this.registers.getRegister(parseInt(this.control.get('c6c7'),2)));
+        this.dmemInputMux.setSource(0, this.registers.getRegister(c6c7));
         this.dmemInputMux.setSource(1, this.switchInput);
         this.dmemInputMux.setState(controlSignals[16]);
 
@@ -139,7 +140,7 @@ export class CPU {
         // ====================
         // WRITEBACK
         // ====================
-        
+
         // Update the final mux
         this.regWritebackMux.setSource(0, aluResultMuxOutput);
         this.regWritebackMux.setSource(1, this.dMem.getRegister(dmemAddr));

@@ -90,7 +90,6 @@ export class Alu {
 
 		// Add/sub
 		else if(control[0] == 1) {
-			
 			let tempResult = new Array(8);  // This will hold the result
 			let carryArray = new Array(9);  // This will hold the carry results
 
