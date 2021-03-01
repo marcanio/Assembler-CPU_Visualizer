@@ -8,7 +8,7 @@ import PathSVG from "./PathSVG.js";
 
 
 const SLASH_STYLE = {"stroke":"black", "stroke-width":"3px", "fill":"none"};
-const LABEL_TEXT_STYLE = "font-family: Ariel; font-size: 22px; text-anchor:middle;fill:black; ";
+const LABEL_TEXT_STYLE = "font-family: Times New Roman; font-size: 22px; text-anchor:middle;fill:black; ";
 
 export default class BussInfoSVG {
 	constructor(wire_id, position, bus_width, text_orientation) {

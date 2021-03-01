@@ -7,8 +7,10 @@ const PC_VAL = [100, 75];
 const BOX = [0, 0, 100, 0, 100, 40, 0, 40];
 const BOX_OFFSET = [Constants.PC_VALUE_OFFSET[0] + PC_VAL[0] - 50, Constants.PC_VALUE_OFFSET[1] + PC_VAL[1] - 28];
 const ARROW_DIST_BETWEEN = 40;
-const LABEL_TEXT_STYLE = "font-family: Ariel; font-size: 26px; text-anchor:middle;fill:black; ";
-const SUBSCRIPT_TEXT_STYLE = "font-family: Ariel; font-size: 20px; text-anchor:middle;fill:black; ";
+const LABEL_TEXT_STYLE = "font-family: Times New Roman; font-size: 28px; text-anchor:middle;fill:black; ";
+const SUBSCRIPT_TEXT_STYLE = "font-family: Times New Roman; font-size: 20px; text-anchor:middle;fill:black; ";
+const VALUE_STYLE = "font-family: Times New Roman; font-size: 28px; text-anchor:middle;fill:black; ";
+
 
 export default class ControlSVG {
 	constructor() {
@@ -23,7 +25,7 @@ export default class ControlSVG {
 			this.arrows.push( new PolygonSVG("control_c" + i, [...Constants.ARROW], Constants.ARROW_STYLE, [Constants.CONTROL_ARROW_OFFSET[0] + i * ARROW_DIST_BETWEEN - 15, Constants.CONTROL_ARROW_OFFSET[1]]));
 			this.labels.push(new TextSVG(TPOS[0], TPOS[1], "label"+i, "c", LABEL_TEXT_STYLE, [Constants.CONTROL_OFFSET[0] + (i-1) * ARROW_DIST_BETWEEN -15 , Constants.CONTROL_OFFSET[1]]));
 			this.subscripts.push(new TextSVG(TPOS[0] + 16, TPOS[1] + 10, "sub"+i, i, SUBSCRIPT_TEXT_STYLE, [Constants.CONTROL_OFFSET[0] + (i-1) * ARROW_DIST_BETWEEN - 15, Constants.CONTROL_OFFSET[1]]));
-			this.vals.push( new TextSVG(Constants.CONTROL_ARROW_OFFSET[0] + i * ARROW_DIST_BETWEEN - 7, Constants.CONTROL_ARROW_OFFSET[1] + 80, "c"+i+"val", "0", Constants.TEXT_STYLE ));
+			this.vals.push( new TextSVG(Constants.CONTROL_ARROW_OFFSET[0] + i * ARROW_DIST_BETWEEN - 7, Constants.CONTROL_ARROW_OFFSET[1] + 90, "c"+i+"val", "0", VALUE_STYLE ));
 		}
 
 	}

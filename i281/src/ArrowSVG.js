@@ -6,8 +6,9 @@ import PolygonSVG from "./PolygonSVG.js";
 const FLAGS_DIST_BETWEEN = 30;
 const BOX = [0, 0, 120, 0, 120, 40, 0, 40];
 const BOX_OFFSET = [Constants.FLAGS_OFFSET[0] + Constants.FLAG_VPOS[0] + 15, Constants.FLAGS_OFFSET[1] + Constants.FLAG_VPOS[1] - 28];
-const LABEL_TEXT_STYLE = "font-family: Ariel; font-size: 20px; text-anchor:middle;fill:black; ";
-const SUBSCRIPT_TEXT_STYLE = "font-family: Ariel; font-size: 20px; text-anchor:middle;fill:black; ";
+const LABEL_TEXT_STYLE = "font-family: Times New Roman; font-size: 28px; text-anchor:middle;fill:black; ";
+const SUBSCRIPT_TEXT_STYLE = "font-family: Times New Roman; font-size: 20px; text-anchor:middle;fill:black; ";
+
 export default class ArrowSVG {
 	constructor(arrow_id, i, text_pos, offset) {
         let TPOS;
@@ -15,12 +16,12 @@ export default class ArrowSVG {
         if(text_pos.toLowerCase() === "left")
             TPOS = [-30, 30];
         else if (text_pos.toLowerCase() === "right")
-            TPOS = [20, 30];
+            TPOS = [25, 30];
         else 
             TPOS = [0, -10];
 
         this.arrow = new PolygonSVG(arrow_id, Constants.ARROW, Constants.ARROW_STYLE, offset);
-		this.text = new TextSVG(TPOS[0], TPOS[1], "arrow" + i, "C", LABEL_TEXT_STYLE, offset);
+		this.text = new TextSVG(TPOS[0], TPOS[1], "arrow" + i, "c", LABEL_TEXT_STYLE, offset);
         this.subscript = new TextSVG(TPOS[0] + 16, TPOS[1] + 10, "arrowsub" + i, i, SUBSCRIPT_TEXT_STYLE, offset);
 
 	}
