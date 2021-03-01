@@ -26,12 +26,12 @@ export default class IMEM_SVG {
 		}
 
 		for(var i=0; i<Inst.instructions.length; i++){
-			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0]-20, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
+			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0]-5, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
 			box.push(cur)
 		}
 		
 		for(var i=0; i<Inst.instructions.length; i++){
-			var cur = new TextSVG(220, (BETWEEN_DIST * (i+1)), "imem_val"+i, Inst.instructions[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+			var cur = new TextSVG(245, (BETWEEN_DIST * (i+1)), "imem_val"+i, Inst.instructions[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
 			mem.push(cur)
 		}
 	}
