@@ -1,5 +1,5 @@
 Analysis & Synthesis report for i281_CPU
-Thu Oct 08 18:58:17 2020
+Mon Feb 22 15:53:16 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -45,7 +45,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Oct 08 18:58:17 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 22 15:53:16 2021       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281_CPU                                    ;
 ; Top-level Entity Name              ; i281_CPU                                    ;
@@ -173,58 +173,58 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                         ;
-+---------------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path      ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                                                    ; Library ;
-+---------------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+---------+
-; Clock_dividers.bdf                    ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/Clock_dividers.bdf                    ;         ;
-; Clock_divider_512.bdf                 ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/Clock_divider_512.bdf                 ;         ;
-; Clock_divider_4_16_and_64.bdf         ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/Clock_divider_4_16_and_64.bdf         ;         ;
-; i281_cpu.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/i281_cpu.bdf                          ;         ;
-; programcounter.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/programcounter.bdf                    ;         ;
-; block3.bdf                            ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/block3.bdf                            ;         ;
-; control_fsm.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/control_fsm.bdf                       ;         ;
-; alu.bdf                               ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/alu.bdf                               ;         ;
-; flag_registers.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/flag_registers.bdf                    ;         ;
-; alu_flag_calculator.bdf               ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/alu_flag_calculator.bdf               ;         ;
-; 8widwidebusmux.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8widwidebusmux.bdf                    ;         ;
-; shiftnodff.bdf                        ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/shiftnodff.bdf                        ;         ;
-; 8bitadder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8bitadder.bdf                         ;         ;
-; fulladder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/fulladder.bdf                         ;         ;
-; 4x8bitregisters.bdf                   ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/4x8bitregisters.bdf                   ;         ;
-; registers8bit.bdf                     ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/registers8bit.bdf                     ;         ;
-; 2bitdecoderwithenable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/2bitdecoderwithenable.bdf             ;         ;
-; 8wide4to1busmux.bdf                   ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8wide4to1busmux.bdf                   ;         ;
-; imem.bdf                              ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/imem.bdf                              ;         ;
-; 16wide4to1busmux.bdf                  ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/16wide4to1busmux.bdf                  ;         ;
-; sixteenwidebusmux.bdf                 ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/sixteenwidebusmux.bdf                 ;         ;
-; readonly_16x16_register_file_low.bdf  ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/readonly_16x16_register_file_low.bdf  ;         ;
-; c16to1busmux.bdf                      ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/c16to1busmux.bdf                      ;         ;
-; registers16bit.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/registers16bit.bdf                    ;         ;
-; ones.v                                ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/ones.v                                ;         ;
-; 4to16decoderwithenable.bdf            ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/4to16decoderwithenable.bdf            ;         ;
-; pong_code_0.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_0.v                         ;         ;
-; 2to4decoderwithenable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/2to4decoderwithenable.bdf             ;         ;
-; readonly_16x16_register_file_high.bdf ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/readonly_16x16_register_file_high.bdf ;         ;
-; pong_code_1.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_1.v                         ;         ;
-; imem_low.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/imem_low.bdf                          ;         ;
-; pong_code_2.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_2.v                         ;         ;
-; imem_high.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/imem_high.bdf                         ;         ;
-; pong_code_3.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_3.v                         ;         ;
-; dmem.bdf                              ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/dmem.bdf                              ;         ;
-; 8wide16to1busmux.bdf                  ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8wide16to1busmux.bdf                  ;         ;
-; pong_data.v                           ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_data.v                           ;         ;
-; opcode_decoder.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/opcode_decoder.bdf                    ;         ;
-; 1to2decoderwithenable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/1to2decoderwithenable.bdf             ;         ;
-; 6widebusmux.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/6widebusmux.bdf                       ;         ;
-; 6bitadder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/6bitadder.bdf                         ;         ;
-; video_card.bdf                        ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/video_card.bdf                        ;         ;
-; 7widwidebusmux.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/7widwidebusmux.bdf                    ;         ;
-; busnot.bdf                            ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/busnot.bdf                            ;         ;
-; seven_seg_decoder_busout.v            ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/seven_seg_decoder_busout.v            ;         ;
-; 4widebusmux.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/4widebusmux.bdf                       ;         ;
-+---------------------------------------+-----------------+------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                         ;
++---------------------------------------+-----------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path      ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                                                                    ; Library ;
++---------------------------------------+-----------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Clock_dividers.bdf                    ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/Clock_dividers.bdf                    ;         ;
+; Clock_divider_512.bdf                 ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/Clock_divider_512.bdf                 ;         ;
+; Clock_divider_4_16_and_64.bdf         ; yes             ; User Block Diagram/Schematic File        ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/Clock_divider_4_16_and_64.bdf         ;         ;
+; i281_cpu.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/i281_cpu.bdf                          ;         ;
+; programcounter.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/programcounter.bdf                    ;         ;
+; block3.bdf                            ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/block3.bdf                            ;         ;
+; control_fsm.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/control_fsm.bdf                       ;         ;
+; alu.bdf                               ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/alu.bdf                               ;         ;
+; flag_registers.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/flag_registers.bdf                    ;         ;
+; alu_flag_calculator.bdf               ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/alu_flag_calculator.bdf               ;         ;
+; 8widwidebusmux.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8widwidebusmux.bdf                    ;         ;
+; shiftnodff.bdf                        ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/shiftnodff.bdf                        ;         ;
+; 8bitadder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8bitadder.bdf                         ;         ;
+; fulladder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/fulladder.bdf                         ;         ;
+; 4x8bitregisters.bdf                   ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/4x8bitregisters.bdf                   ;         ;
+; registers8bit.bdf                     ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/registers8bit.bdf                     ;         ;
+; 2bitdecoderwithenable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/2bitdecoderwithenable.bdf             ;         ;
+; 8wide4to1busmux.bdf                   ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8wide4to1busmux.bdf                   ;         ;
+; imem.bdf                              ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/imem.bdf                              ;         ;
+; 16wide4to1busmux.bdf                  ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/16wide4to1busmux.bdf                  ;         ;
+; sixteenwidebusmux.bdf                 ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/sixteenwidebusmux.bdf                 ;         ;
+; readonly_16x16_register_file_low.bdf  ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/readonly_16x16_register_file_low.bdf  ;         ;
+; c16to1busmux.bdf                      ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/c16to1busmux.bdf                      ;         ;
+; registers16bit.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/registers16bit.bdf                    ;         ;
+; ones.v                                ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/ones.v                                ;         ;
+; 4to16decoderwithenable.bdf            ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/4to16decoderwithenable.bdf            ;         ;
+; pong_code_0.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_0.v                         ;         ;
+; 2to4decoderwithenable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/2to4decoderwithenable.bdf             ;         ;
+; readonly_16x16_register_file_high.bdf ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/readonly_16x16_register_file_high.bdf ;         ;
+; pong_code_1.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_1.v                         ;         ;
+; imem_low.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/imem_low.bdf                          ;         ;
+; pong_code_2.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_2.v                         ;         ;
+; imem_high.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/imem_high.bdf                         ;         ;
+; pong_code_3.v                         ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_3.v                         ;         ;
+; dmem.bdf                              ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/dmem.bdf                              ;         ;
+; 8wide16to1busmux.bdf                  ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/8wide16to1busmux.bdf                  ;         ;
+; pong_data.v                           ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_data.v                           ;         ;
+; opcode_decoder.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/opcode_decoder.bdf                    ;         ;
+; 1to2decoderwithenable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/1to2decoderwithenable.bdf             ;         ;
+; 6widebusmux.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/6widebusmux.bdf                       ;         ;
+; 6bitadder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/6bitadder.bdf                         ;         ;
+; video_card.bdf                        ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/video_card.bdf                        ;         ;
+; 7widwidebusmux.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/7widwidebusmux.bdf                    ;         ;
+; busnot.bdf                            ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/busnot.bdf                            ;         ;
+; seven_seg_decoder_busout.v            ; yes             ; Auto-Found Verilog HDL File              ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/seven_seg_decoder_busout.v            ;         ;
+; 4widebusmux.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/4widebusmux.bdf                       ;         ;
++---------------------------------------+-----------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------+
@@ -1252,7 +1252,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Oct 08 18:58:04 2020
+    Info: Processing started: Mon Feb 22 15:53:03 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off i281_CPU -c i281_CPU
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Warning (12019): Can't analyze file -- file output_files/Serial_slow.bdf is missing
@@ -1337,13 +1337,13 @@ Warning (12125): Using design file registers16bit.bdf, which is not specified as
     Info (12023): Found entity 1: Registers16bit
 Info (12128): Elaborating entity "Registers16bit" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|Registers16bit:inst22"
 Warning (12125): Using design file ones.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ONES File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/ones.v Line: 1
+    Info (12023): Found entity 1: ONES File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/ones.v Line: 1
 Info (12128): Elaborating entity "ONES" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|ONES:inst1"
 Warning (12125): Using design file 4to16decoderwithenable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: 4to16DecoderWithEnable
 Info (12128): Elaborating entity "4to16DecoderWithEnable" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|4to16DecoderWithEnable:inst37"
 Warning (12125): Using design file pong_code_0.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: PONG_Code_0 File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_0.v Line: 1
+    Info (12023): Found entity 1: PONG_Code_0 File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_0.v Line: 1
 Info (12128): Elaborating entity "PONG_Code_0" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|PONG_Code_0:inst2"
 Warning (12125): Using design file 2to4decoderwithenable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: 2to4DecoderWithEnable
@@ -1352,19 +1352,19 @@ Warning (12125): Using design file readonly_16x16_register_file_high.bdf, which 
     Info (12023): Found entity 1: ReadOnly_16x16_Register_File_High
 Info (12128): Elaborating entity "ReadOnly_16x16_Register_File_High" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_High:inst251"
 Warning (12125): Using design file pong_code_1.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: PONG_Code_1 File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_1.v Line: 1
+    Info (12023): Found entity 1: PONG_Code_1 File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_1.v Line: 1
 Info (12128): Elaborating entity "PONG_Code_1" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_High:inst251|PONG_Code_1:inst1"
 Warning (12125): Using design file imem_low.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: IMEM_low
 Info (12128): Elaborating entity "IMEM_low" for hierarchy "IMEM:inst22|IMEM_low:inst5"
 Warning (12125): Using design file pong_code_2.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: PONG_Code_2 File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_2.v Line: 1
+    Info (12023): Found entity 1: PONG_Code_2 File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_2.v Line: 1
 Info (12128): Elaborating entity "PONG_Code_2" for hierarchy "IMEM:inst22|IMEM_low:inst5|PONG_Code_2:inst"
 Warning (12125): Using design file imem_high.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: IMEM_high
 Info (12128): Elaborating entity "IMEM_high" for hierarchy "IMEM:inst22|IMEM_high:inst1"
 Warning (12125): Using design file pong_code_3.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: PONG_Code_3 File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_3.v Line: 1
+    Info (12023): Found entity 1: PONG_Code_3 File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_code_3.v Line: 1
 Info (12128): Elaborating entity "PONG_Code_3" for hierarchy "IMEM:inst22|IMEM_high:inst1|PONG_Code_3:inst"
 Warning (12125): Using design file dmem.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: DMEM
@@ -1373,7 +1373,7 @@ Warning (12125): Using design file 8wide16to1busmux.bdf, which is not specified 
     Info (12023): Found entity 1: 8wide16to1BusMUX
 Info (12128): Elaborating entity "8wide16to1BusMUX" for hierarchy "DMEM:inst8|8wide16to1BusMUX:inst24"
 Warning (12125): Using design file pong_data.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: PONG_Data File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_data.v Line: 1
+    Info (12023): Found entity 1: PONG_Data File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/pong_data.v Line: 1
 Info (12128): Elaborating entity "PONG_Data" for hierarchy "DMEM:inst8|PONG_Data:inst5"
 Warning (12125): Using design file opcode_decoder.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: Opcode_Decoder
@@ -1399,7 +1399,7 @@ Warning (12125): Using design file busnot.bdf, which is not specified as a desig
     Info (12023): Found entity 1: BusNot
 Info (12128): Elaborating entity "BusNot" for hierarchy "Video_Card:inst7|7WidWideBusMux:inst43|BusNot:inst1"
 Warning (12125): Using design file seven_seg_decoder_busout.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: seven_seg_decoder_BUSOUT File: D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/seven_seg_decoder_busout.v Line: 1
+    Info (12023): Found entity 1: seven_seg_decoder_BUSOUT File: D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/seven_seg_decoder_busout.v Line: 1
 Info (12128): Elaborating entity "seven_seg_decoder_BUSOUT" for hierarchy "Video_Card:inst7|seven_seg_decoder_BUSOUT:inst2"
 Warning (12125): Using design file 4widebusmux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: 4WideBusMux
@@ -1416,9 +1416,9 @@ Info (21057): Implemented 1681 device resources after synthesis - the final reso
     Info (21059): Implemented 82 output pins
     Info (21061): Implemented 1576 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
-    Info: Peak virtual memory: 4884 megabytes
-    Info: Processing ended: Thu Oct 08 18:58:17 2020
+    Info: Peak virtual memory: 4888 megabytes
+    Info: Processing ended: Mon Feb 22 15:53:16 2021
     Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:22
 
 

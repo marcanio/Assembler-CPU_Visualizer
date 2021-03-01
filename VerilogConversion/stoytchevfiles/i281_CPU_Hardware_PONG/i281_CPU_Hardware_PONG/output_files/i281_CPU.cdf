@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("D:/school_stuff/SeniorDesign/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/output_files/") File("i281_CPU.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("D:/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/i281_CPU_Hardware_PONG/output_files/") File("i281_CPU.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Mar 01 21:21:58 2021
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : i281_CPU
+Top-level Entity Name : i281_CPU
+Family : Cyclone IV E
+Total logic elements : 1,519
+    Total combinational functions : 899
+    Dedicated logic registers : 710
+Total registers : 710
+Total pins : 105
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

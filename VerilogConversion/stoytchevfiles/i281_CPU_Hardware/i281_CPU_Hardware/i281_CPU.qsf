@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY Clock_divider_512
+set_global_assignment -name TOP_LEVEL_ENTITY i281_CPU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:01:35  NOVEMBER 07, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"

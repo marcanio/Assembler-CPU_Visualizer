@@ -4,9 +4,9 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2020  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -16,7 +16,8 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 */
 (header "graphic" (version "1.4"))
 (pin
@@ -72,7 +73,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 3968 1016 4136 1032)
+	(rect 3800 1016 3968 1032)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "Register_View" (rect 5 0 73 17)(font "Intel Clear" ))
 	(pt 168 8)
@@ -85,7 +86,7 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 3968 976 4032 1000))
+	(annotation_block (location)(rect 3800 976 3864 1000))
 )
 (pin
 	(input)
@@ -3638,10 +3639,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 4136 1024)
-	(pt 4160 1024)
-)
-(connector
 	(text "Video_Map" (rect 4000 1024 4054 1041)(font "Intel Clear" ))
 	(pt 3984 1040)
 	(pt 4160 1040)
@@ -4072,6 +4069,10 @@ refer to the applicable agreement for further details.
 	(pt 2568 1408)
 	(pt 2016 1408)
 	(bus)
+)
+(connector
+	(pt 3968 1024)
+	(pt 4160 1024)
 )
 (junction (pt 2800 800))
 (junction (pt 1240 944))
