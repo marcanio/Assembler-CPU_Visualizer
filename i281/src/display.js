@@ -136,6 +136,12 @@ window.addEventListener("load", function() {
 	var imem_in_top = new BussInfoSVG("imem_in_top", [90, 215], 6, LEFT);
 	var imem_in_middle = new BussInfoSVG("imem_in_middle", [95, 315], 16, LEFT);
 	var imem_in_bottom = new BussInfoSVG("imem_in_bottom", [97, 415], 6, LEFT);
+
+	var mux0_out = new BussInfoSVG("mux0_out", [1350, 765], 8, LEFT);
+	var mux1_out = new BussInfoSVG("mux1_out", [1700, 720], 8, LEFT);
+	var mux2_out = new BussInfoSVG("mux2_out", [1725, 1065], 8, LEFT);
+	var mux3_out = new BussInfoSVG("mux3_out", [97, 415], 8, LEFT);
+
 	/*
 	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
 	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
@@ -237,6 +243,11 @@ window.addEventListener("load", function() {
 	imem_in_top.get_all_nodes().forEach(x => svg.appendChild(x));
 	imem_in_middle.get_all_nodes().forEach(x => svg.appendChild(x));
 	imem_in_bottom.get_all_nodes().forEach(x => svg.appendChild(x));
+
+	mux0_out.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux1_out.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux2_out.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux3_out.get_all_nodes().forEach(x => svg.appendChild(x));
 
 	svg.appendChild(flag_control_wire.node);
 	svg.appendChild(mux_imem_wire.node);
