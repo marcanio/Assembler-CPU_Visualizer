@@ -13,8 +13,8 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 </head>
   <body >
     <h1>i281 CPU</h1>
-
-    <svg id="canvas" height="1600" width="3000">
+    <button onclick="test()">Cycle</button>
+    <svg id="canvas" height="1600" width="2400">
     </svg> 
     <!-- Menu -->
     <br>
@@ -29,19 +29,13 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 
     <input type="text" id="instruction">
     <label type="text" id="result"></label>
-    <br> 
-    <div> 
-      <button onclick="test()">Cycle</button>
-      <p id="counter">0</p>
-    </div>
-    
-    <script src="./load.js" type="module"></script>
+    <p id="counter">0</p>
 
     <script>
       function test(){
         var doc = document.getElementById("counter")
-        var wire = document.getElementById("imem_decoder_wire_id")
-        wire.style.stroke = "red"
+        //var wire = document.getElementById("test")
+        //wire.style.stroke = "red"
         var counter = doc.innerHTML
         console.log(counter)
         var cur = "i"+counter
