@@ -1096,38 +1096,96 @@ function toggleSyntaxHighlight() {
     //Table color update
     for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
       let firstCol = Assemblytable.rows[i].cells[1].textContent;
+      let secondCol = Assemblytable.rows[i].cells[2].textContent;
       let machineCol = machineTable.rows[i].cells[0].textContent;
-      //Check for opcodes in the first column
+
+      //Assembly coloring for op codes ->
       if (instructionSet.includes(firstCol)) {
         Assemblytable.rows[i].cells[1].style.color = "Red";
       }
-
-      //Make First four always red
-      for (let j = 0; j < machineCol.length; j++) {
-        //Machine table check for BRGE, BRG, BRNE
-        if (
-          firstCol.localeCompare("BRGE") == 0 ||
-          firstCol.localeCompare("BRG") == 0 ||
-          firstCol.localeCompare("BRNE") == 0
-        ) {
-          //Make first 4 and second register spot red
-          let newMachineCol = '<span style="color:red">';
-          newMachineCol += machineCol.substring(0, 4);
-          newMachineCol += "</span>";
-          newMachineCol += machineCol.substring(4, 8);
-          newMachineCol += '<span style="color:red">';
-          newMachineCol += machineCol.substring(8, 10);
-          newMachineCol += "</span>";
-          newMachineCol += machineCol.substring(10, machineCol.length);
-          machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-        } else {
-          //If not those commands only make first 4 red
-          let newMachineCol = '<span style="color:red">';
-          newMachineCol += machineCol.substring(0, 4);
-          newMachineCol += "</span>";
-          newMachineCol += machineCol.substring(4, machineCol.length);
-          machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-        }
+      //Machine coloring Move, CMP, ADD, and SUB
+      if (
+        firstCol.localeCompare("MOVE") == 0 ||
+        firstCol.localeCompare("CMP") == 0 ||
+        firstCol.localeCompare("ADD") == 0 ||
+        firstCol.localeCompare("SUB") == 0
+      ) {
+        //Assembly Code
+        Assemblytable.rows[i].cells[2].style.color = "blue";
+        Assemblytable.rows[i].cells[3].style.color = "green";
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 5);
+        newMachineCol += '<span style="color:blue">';
+        newMachineCol += machineCol.substring(5, 7);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(7, 8);
+        newMachineCol += '<span style="color:Green">';
+        newMachineCol += machineCol.substring(8, 10);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(10, machineCol.length);
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if (
+        firstCol.localeCompare("LOADI") == 0 ||
+        firstCol.localeCompare("ADDI") == 0 ||
+        firstCol.localeCompare("SUBI") == 0 ||
+        firstCol.localeCompare("LOAD") == 0
+      ) {
+        //Assembly Code
+        Assemblytable.rows[i].cells[2].style.color = "blue";
+        Assemblytable.rows[i].cells[3].style.color = "purple";
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 5);
+        newMachineCol += '<span style="color:blue">';
+        newMachineCol += machineCol.substring(5, 7);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(7, 11);
+        newMachineCol += '<span style="color:purple">';
+        newMachineCol += machineCol.substring(11, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if (firstCol.localeCompare("JUMP") == 0) {
+        //Assembly Code
+        Assemblytable.rows[i].cells[2].style.color = "purple";
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 11);
+        newMachineCol += '<span style="color:purple">';
+        newMachineCol += machineCol.substring(11, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if (
+        firstCol.localeCompare("BRE") == 0 ||
+        firstCol.localeCompare("BRNE") == 0 ||
+        firstCol.localeCompare("BRG") == 0 ||
+        firstCol.localeCompare("BRGE") == 0
+      ) {
+        //Assembly Code
+        Assemblytable.rows[i].cells[2].style.color = "purple";
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 8);
+        newMachineCol += '<span style="color:red">';
+        newMachineCol += machineCol.substring(8, 10);
+        newMachineCol += "</span>";
+        newMachineCol += '<span style="color:purple">';
+        newMachineCol += machineCol.substring(10, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if (firstCol.localeCompare("NOOP") == 0) {
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       }
     }
   } else {
@@ -1136,7 +1194,7 @@ function toggleSyntaxHighlight() {
     let counter = 0;
     for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
       //Set all rows of assembly back to black
-      for (let j = 0; j < 3; j++) {
+      for (let j = 0; j < 4; j++) {
         Assemblytable.rows[i].cells[j].style.color = "Black";
       }
       //Place original machine code back in
