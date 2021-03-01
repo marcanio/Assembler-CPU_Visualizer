@@ -48,22 +48,22 @@ export default class DMEM_SVG {
 		this.val13_box = new PolygonSVG(Constants.DMEM_BOX13_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 14)]);
 		this.val14_box = new PolygonSVG(Constants.DMEM_BOX14_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 15)]);
 		this.val15_box = new PolygonSVG(Constants.DMEM_BOX15_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 16)]);        
-		this.val0 = new TextSVG(VAL[0], (BETWEEN_DIST * 1), Constants.DMEM_VAL0_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val1 = new TextSVG(VAL[0], (BETWEEN_DIST * 2), Constants.DMEM_VAL1_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val2 = new TextSVG(VAL[0], (BETWEEN_DIST * 3), Constants.DMEM_VAL2_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val3 = new TextSVG(VAL[0], (BETWEEN_DIST * 4), Constants.DMEM_VAL3_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val4 = new TextSVG(VAL[0], (BETWEEN_DIST * 5), Constants.DMEM_VAL4_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val5 = new TextSVG(VAL[0], (BETWEEN_DIST * 6), Constants.DMEM_VAL5_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val6 = new TextSVG(VAL[0], (BETWEEN_DIST * 7), Constants.DMEM_VAL6_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val7 = new TextSVG(VAL[0], (BETWEEN_DIST * 8), Constants.DMEM_VAL7_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val8 = new TextSVG(VAL[0], (BETWEEN_DIST * 9), Constants.DMEM_VAL8_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val9 = new TextSVG(VAL[0], (BETWEEN_DIST * 10), Constants.DMEM_VAL9_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val10 = new TextSVG(VAL[0], (BETWEEN_DIST * 11), Constants.DMEM_VAL10_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val11 = new TextSVG(VAL[0], (BETWEEN_DIST * 12), Constants.DMEM_VAL11_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val12 = new TextSVG(VAL[0], (BETWEEN_DIST * 13), Constants.DMEM_VAL12_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val13 = new TextSVG(VAL[0], (BETWEEN_DIST * 14), Constants.DMEM_VAL13_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val14 = new TextSVG(VAL[0], (BETWEEN_DIST * 15), Constants.DMEM_VAL14_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val15 = new TextSVG(VAL[0], (BETWEEN_DIST * 16), Constants.DMEM_VAL15_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val0 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 1), Constants.DMEM_VAL0_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val1 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 2), Constants.DMEM_VAL1_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val2 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 3), Constants.DMEM_VAL2_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val3 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 4), Constants.DMEM_VAL3_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val4 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 5), Constants.DMEM_VAL4_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val5 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 6), Constants.DMEM_VAL5_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val6 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 7), Constants.DMEM_VAL6_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val7 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 8), Constants.DMEM_VAL7_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val8 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 9), Constants.DMEM_VAL8_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val9 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 10), Constants.DMEM_VAL9_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val10 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 11), Constants.DMEM_VAL10_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val11 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 12), Constants.DMEM_VAL11_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val12 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 13), Constants.DMEM_VAL12_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val13 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 14), Constants.DMEM_VAL13_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val14 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 15), Constants.DMEM_VAL14_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
+		this.val15 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 16), Constants.DMEM_VAL15_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
         
 	}
     
