@@ -1,64 +1,24 @@
-html {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 100%;
-    background: #333;
-  }
-  
-  #page-wrapper {
-    width: 700px;
-    background: #FFF;
-    padding: 1em;
-    margin: 1em auto;
-    min-height: 300px;
-    border-top: 5px solid #2342ce;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
-  }
-  
-  h1 {
-      margin-top: 0;
-      text-align: center;
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  #fileDisplayArea {
-    margin-top: 2em;
-    width: 100%;
-    overflow-x: auto;
-  }
-  
-  .button {
-    display: inline-block;
-    background-color: #2342ce;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .mainButtons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .fileWords{
-    text-align: center;
-    padding: 10px;
-  }
-  table {
-    font-family:sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 10px;
-  }
+body {
+  background: lightgrey !important;
+}
+
+.dropdown-menu > .dropdown a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 0.9rem;
+  top: 0.9rem;
+}
+
+.dropdown-menu > .dropdown .dropdown-menu {
+  top: -0.7rem;
+  left: 100%;
+  border-radius: 0 0.25rem 0.25rem 0.25rem;
+}
+
+#assemblyTable > tbody > tr > :nth-child(1) {
+}
+
+tr {
+  line-height: 12px;
+  height: 25px;
+}
