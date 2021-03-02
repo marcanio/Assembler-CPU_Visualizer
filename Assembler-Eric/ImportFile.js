@@ -1186,6 +1186,12 @@ function toggleSyntaxHighlight() {
         newMachineCol += machineCol.substring(0, machineCol.length);
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else {
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, machineCol.length);
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       }
     }
   } else {
