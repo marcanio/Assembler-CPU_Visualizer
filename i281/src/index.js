@@ -1,6 +1,9 @@
 import * as http from 'http';
 import fs from 'fs';
 import * as path from 'path';
+import { CPU } from './cpu.js';
+
+let cpu = new CPU();
 
 http.createServer(function (request, response) {
     console.log('request ', request.url);

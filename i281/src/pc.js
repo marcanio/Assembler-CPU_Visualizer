@@ -6,9 +6,10 @@
 */
 
 export class PC {
-    constructor() {
+    constructor(maxPC) {
         this.currentPC = 0;
-        this.step = 1;
+		this.step = 1;
+		this.maxPC = maxPC;
     }
 	
 
@@ -37,6 +38,10 @@ export class PC {
 		if(branchControl == 1) {
 			let offsetInt = ~~parseInt(offset, 2);
 			this.currentPC += offsetInt;
+		}
+
+		if(this.currentPC > this.maxPC - 1) {
+			this.currentPC = 0;
 		}
     }
 };

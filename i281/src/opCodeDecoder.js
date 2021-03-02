@@ -4,7 +4,6 @@
  * @author Bryce Snell
  * 
 */
-import {Decoder} from "./decoder.js"
 
 export class OpCodeDecoder {
     constructor() {

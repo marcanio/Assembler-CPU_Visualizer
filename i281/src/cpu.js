@@ -15,7 +15,7 @@ import {PC} from "./pc.js"
 export class CPU {
     constructor() {
         // The constructor will create a processor object with all needed subcomponents
-        this.pc = new PC();
+        this.pc = new PC(32);  // Matches the iMem size.
         this.iMem = new RegisterFile(16, 32);
         this.ocd = new OpCodeDecoder();
         this.control = new Control();
@@ -37,6 +37,8 @@ export class CPU {
         this.regWritebackMux = new Multiplexer(2);
 
         this.switchInput;  // TODO these are not defined should come from Jacob.
+        
+        this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
     }
 
     setup() {
@@ -156,3 +158,5 @@ export class CPU {
         this.pc.process(opcode, controlSignals[2]);
     }
 };
+
+window.cpu = new CPU();
