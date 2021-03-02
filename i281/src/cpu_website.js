@@ -92,7 +92,7 @@ let iMem_data = Object.keys(iMem[0]);
 let register_data = Object.keys(registers[0]);
 let dMem_data = Object.keys(dMem[0]);
 
-window.onclick = nextCycle;
+document.getElementById('nextCycle').onclick = nextCycle;
 document.getElementById("pc").innerHTML = "pc = " + cpu.pc.currentPC;
 
 function nextCycle() {
