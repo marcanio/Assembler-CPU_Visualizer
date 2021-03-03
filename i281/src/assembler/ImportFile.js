@@ -9,6 +9,7 @@ let arrayNames = new Array();
 let dataValues = new Array();
 let varibleNames = new Array();
 let printBranch = 0;
+let savedInstructions = new Array();
 
 let machineCode = "";
 
@@ -300,7 +301,7 @@ function mainMethod() {
   for (let line = 0; line < withoutComments.length; line++) {
     let eachLine = withoutComments[line].split(" ");
     eachLine = removeEmpty(eachLine);
-
+    
     //Format the array to have 3 parts
     if (eachLine.length > 2) {
       if (eachLine[1].localeCompare("[") == 1) {
@@ -325,9 +326,15 @@ function mainMethod() {
         }
       }
     }
-
+    //Save instruction for the CPU
+    savedInstructions.push(eachLine);
+    
     //Place into the table
     eachLine = removeEmpty(eachLine);
+
+    
+    
+
     let x = document.getElementById("assemblyTable").insertRow(line);
 
     //Add line numbers
@@ -411,23 +418,7 @@ function mainMethod() {
   }
 
   //Save machine code for simulator
-  let tempMachineCode = machineCode.replace(/\_/g, "");
-  let savedMachineCode = tempMachineCode.split("\n");
-  savedMachineCode = savedMachineCode.filter(function(e){return e}); 
-  let fixedsavedMachineCode = new Array(32);
-
-  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
-    if(i < savedMachineCode.length){
-      fixedsavedMachineCode[i] = savedMachineCode[i];
-    }else{
-      fixedsavedMachineCode[i] = "0000000000000000";
-    }
-  }
-
-  console.log(savedMachineCode);
-  console.log(fixedsavedMachineCode);
-  sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
-
+  saveData();
   
 
 }
@@ -1224,4 +1215,34 @@ function toggleSyntaxHighlight() {
       counter++;
     }
   }
+}
+
+
+function saveData(){
+  let tempMachineCode = machineCode.replace(/\_/g, "");
+  let savedMachineCode = tempMachineCode.split("\n");
+  savedMachineCode = savedMachineCode.filter(function(e){return e}); 
+  let fixedsavedMachineCode = new Array(32);
+
+
+  //Add 0's to fill the memory up with 32 instructions
+  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
+    if(i < savedMachineCode.length){
+      fixedsavedMachineCode[i] = savedMachineCode[i];
+    }else{
+      fixedsavedMachineCode[i] = "0000000000000000";
+    }
+  }
+
+  savedInstructions.splice(0,codeSegmentStart);
+  for(let i = 0; i < savedInstructions.length; i++){
+    savedInstructions[i] = removeEmpty(savedInstructions[i]);
+  }
+  
+  console.log(savedInstructions);
+  //console.log(fixedsavedMachineCode);
+  sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
+  sessionStorage.setItem("savedInstructions", JSON.stringify(savedInstructions));
+
+  console.log(JSON.parse(sessionStorage.getItem("savedInstructions")));
 }
