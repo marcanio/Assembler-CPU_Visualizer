@@ -159,4 +159,4 @@ export class CPU {
     }
 };
 
-window.cpu = new CPU();
+//window.cpu = new CPU();
