@@ -271,6 +271,7 @@ function mainMethod() {
   document.getElementById("downloadLow").style.display = "block";
   document.getElementById("downloadHigh").style.display = "block";
   document.getElementById("toggleSyntax").style.display = "block";
+  document.getElementById("navigateCPU").style.display = "block";
 
   let count = 0;
   //Remove white spaces
@@ -408,6 +409,15 @@ function mainMethod() {
       y.innerHTML = "&emsp;";
     }
   }
+
+  //Save machine code for simulator
+  let tempMachineCode = machineCode.replace(/\_/g, "");
+  let savedMachineCode = tempMachineCode.split("\n");
+  console.log(savedMachineCode);
+
+  sessionStorage.setItem("savedMachineCode", JSON.stringify(savedMachineCode));
+  
+
 }
 function formatInput() {
   let inputP = document.getElementById("textInput");
