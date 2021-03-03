@@ -1223,9 +1223,9 @@ function saveData(){
   let savedMachineCode = tempMachineCode.split("\n");
   savedMachineCode = savedMachineCode.filter(function(e){return e}); 
   let fixedsavedMachineCode = new Array(32);
+  let savedDataMemory = new Array(16);
 
-
-  //Add 0's to fill the memory up with 32 instructions
+  //Add 0's to fill the code memory up with 32 instructions
   for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
     if(i < savedMachineCode.length){
       fixedsavedMachineCode[i] = savedMachineCode[i];
@@ -1238,11 +1238,20 @@ function saveData(){
   for(let i = 0; i < savedInstructions.length; i++){
     savedInstructions[i] = removeEmpty(savedInstructions[i]);
   }
+
+
+  //Fill in the data memory and convert to binary
+  for(let i =0; i< savedDataMemory.length; i++){
+    if(i<dataValues.length){
+      savedDataMemory[i] = convertStringToBinary(dataValues[i]);
+    }
+  }
   
-  console.log(savedInstructions);
+  //console.log(savedInstructions);
   //console.log(fixedsavedMachineCode);
   sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
   sessionStorage.setItem("savedInstructions", JSON.stringify(savedInstructions));
-
-  console.log(JSON.parse(sessionStorage.getItem("savedInstructions")));
+  sessionStorage.setItem("savedDataMemory", JSON.stringify(savedDataMemory));
+  console.log(savedDataMemory);
+   
 }
