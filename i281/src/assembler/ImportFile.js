@@ -413,6 +413,7 @@ function mainMethod() {
   //Save machine code for simulator
   let tempMachineCode = machineCode.replace(/\_/g, "");
   let savedMachineCode = tempMachineCode.split("\n");
+  savedMachineCode = savedMachineCode.filter(function(e){return e}); 
   console.log(savedMachineCode);
 
   sessionStorage.setItem("savedMachineCode", JSON.stringify(savedMachineCode));
