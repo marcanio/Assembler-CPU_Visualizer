@@ -41,7 +41,7 @@ window.cpu = cpu;
 cpu.setup();
 
 cpu.iMem.registers = JSON.parse(sessionStorage.getItem("savedMachineCode"));  // This right here loads in the assembler instructions
-
+cpu.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // These are the instructions in text form
 // Initialize dmem
 cpu.dMem.setWriteEnable(1);
 cpu.dMem.setRegister(0, '00000010');  // Array
@@ -67,8 +67,8 @@ let dMem_data = Object.keys(dMem[0]);
 
 document.getElementById('nextCycle').onclick = nextCycle;
 document.getElementById("pc").innerHTML = "pc = " + cpu.pc.currentPC;
+document.getElementById("currentInstruction").innerHTML = (cpu.instructions[cpu.pc.currentPC] === undefined) ? "NOOP" : cpu.instructions[cpu.pc.currentPC].join(" ");
 
-document.getElementById("pc").innerHTML = "pc = " + cpu.pc.currentPC;
 iMem = createData(cpu.iMem.registers);
 iMem_table = document.getElementById("iMem");
 iMem_table.innerHTML = "";
@@ -90,6 +90,7 @@ generateTable(dMem_table, dMem);
 function nextCycle() {
     cpu.singleCycle();
     document.getElementById("pc").innerHTML = "pc = " + cpu.pc.currentPC;
+    document.getElementById("currentInstruction").innerHTML = (cpu.instructions[cpu.pc.currentPC] === undefined) ? "NOOP" : cpu.instructions[cpu.pc.currentPC].join(" ");
     iMem = createData(cpu.iMem.registers);
     iMem_table = document.getElementById("iMem");
     iMem_table.innerHTML = "";
