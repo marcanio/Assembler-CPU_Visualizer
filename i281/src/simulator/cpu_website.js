@@ -40,16 +40,9 @@ window.cpu = cpu;
 
 cpu.setup();
 
-cpu.iMem.registers = JSON.parse(sessionStorage.getItem("savedMachineCode"));  // This right here loads in the assembler instructions
-cpu.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // These are the instructions in text form
-// Initialize dmem
-cpu.dMem.setWriteEnable(1);
-cpu.dMem.setRegister(0, '00000010');  // Array
-cpu.dMem.setRegister(1, '00000011');
-cpu.dMem.setRegister(2, '00000100');
-cpu.dMem.setRegister(3, '00000001');
-cpu.dMem.setRegister(4, '00000011');  // last
-cpu.dMem.setWriteEnable(0);
+cpu.iMem.registers = JSON.parse(sessionStorage.getItem("savedMachineCode"));  // Load iMem from assembler
+cpu.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+cpu.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
 
 let numCycles = 119;
 
