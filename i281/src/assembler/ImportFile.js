@@ -1244,6 +1244,8 @@ function saveData(){
   for(let i =0; i< savedDataMemory.length; i++){
     if(i<dataValues.length){
       savedDataMemory[i] = convertStringToBinary(dataValues[i]);
+    }else{
+      savedDataMemory[i] = "00000000";
     }
   }
   
