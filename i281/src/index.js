@@ -1,7 +1,7 @@
 import * as http from 'http';
 import fs from 'fs';
 import * as path from 'path';
-import { CPU } from './cpu.js';
+import { CPU } from './simulator/cpu.js';
 
 let cpu = new CPU();
 
@@ -10,8 +10,9 @@ http.createServer(function (request, response) {
 
     var filePath = './src' + request.url;
     if (filePath == './src/') {
-        filePath = './src/index.html';
+        filePath = './src/assembler/ImportFile.html';
     }
+
     var extname = String(path.extname(filePath)).toLowerCase();
     var mimeTypes = {
         '.html': 'text/html',
