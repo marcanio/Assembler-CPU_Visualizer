@@ -150,19 +150,19 @@ window.addEventListener("load", function() {
 	const TOP = "top";
 
 	/* Bus Infomation */
-	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [550, 140], 16, LEFT);
-	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [700, 140], "8 high", LEFT);
-	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [520, 200], "8 low", RIGHT);
+	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [520, 140], 16, LEFT);
+	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", LEFT);
+	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 200], "8 low", RIGHT);
 
 	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1100, 140], 27, LEFT);
-	var flags_control_info = new BussInfoSVG("flags_control_info", [1190, 300], 4, LEFT);
+	var flags_control_info = new BussInfoSVG("flags_control_info", [1290, 290], 4, LEFT);
 
 	var imem_in_top = new BussInfoSVG("imem_in_top", [65, 185], 6, LEFT);
 	var imem_in_middle = new BussInfoSVG("imem_in_middle", [65, 315], 16, LEFT);
 	var imem_in_bottom = new BussInfoSVG("imem_in_bottom", [67, 415], 6, LEFT);
 
 	var mux0_out_info = new BussInfoSVG("mux0_out", [1325, 800], 8, LEFT);
-	var mux1_out_info = new BussInfoSVG("mux1_out", [1700, 720], 8, LEFT);
+	var mux1_out_info = new BussInfoSVG("mux1_out", [1715, 715], 8, LEFT);
 	var mux2_out_info = new BussInfoSVG("mux2_out", [1725, 1065], 8, LEFT);
 	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 600], 8, LEFT);
 
