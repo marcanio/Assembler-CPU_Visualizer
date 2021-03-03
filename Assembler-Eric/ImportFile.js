@@ -414,9 +414,20 @@ function mainMethod() {
   let tempMachineCode = machineCode.replace(/\_/g, "");
   let savedMachineCode = tempMachineCode.split("\n");
   savedMachineCode = savedMachineCode.filter(function(e){return e}); 
-  console.log(savedMachineCode);
+  let fixedsavedMachineCode = new Array(32);
 
-  sessionStorage.setItem("savedMachineCode", JSON.stringify(savedMachineCode));
+  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
+    if(i < savedMachineCode.length){
+      fixedsavedMachineCode[i] = savedMachineCode[i];
+    }else{
+      fixedsavedMachineCode[i] = "0000000000000000";
+    }
+  }
+
+  console.log(savedMachineCode);
+  console.log(fixedsavedMachineCode);
+  sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
+
   
 
 }
