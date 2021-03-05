@@ -23,7 +23,10 @@ import BussInfoSVG from "./GUI/BusInfoSVG.js";
 function init() {
 	//const btn = document.getElementById("btn");
 	//btn.onclick = compute;
-	show_arrows.onchange = toggle_arrow_visablitity
+	show_arrows.onchange = toggle_arrow_visablitity;
+	modal.onclick = () => {
+		modal.style.visibility = "hidden";
+	}
 }
 
 function toggle_arrow_visablitity(checkbox) {

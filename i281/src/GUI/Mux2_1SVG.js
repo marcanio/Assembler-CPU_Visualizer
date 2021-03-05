@@ -2,9 +2,19 @@ import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
 
+function onClick (evt) {
+	var modal = document.getElementById("modal");
+	modal.style.visibility = "visible";
+	modal.innerHTML = "";
+	let img = document.createElement("img");
+	img.src = "./GUI/img/mux.png";
+	img.id = "mux_img";
+	modal.append(img);
+}
+
 export default class Mux2_1SVG {
 	constructor(mux_id, true_id, false_id, offset) {
-		this.mux_polygon = new PolygonSVG(mux_id, [...Constants.MUX_POLYGON], Constants.BLOCK_STYLE, offset);
+		this.mux_polygon = new PolygonSVG(mux_id, [...Constants.MUX_POLYGON], Constants.BLOCK_STYLE, offset, onClick);
 		this.false_text = new TextSVG(Constants.MUX_FALSE[0], Constants.MUX_FALSE[1], false_id, Constants.MUX_FALSE_TEXT, Constants.TEXT_STYLE, offset);
 		this.true_text = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], true_id, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE, offset);
 		this.selected = 0;
