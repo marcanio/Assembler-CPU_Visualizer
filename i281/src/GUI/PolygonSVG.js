@@ -1,7 +1,8 @@
 import * as Constants from "./constants.js";
 
+
 export default class PolygonSVG {
-	constructor(id, points, style_obj, offset) {
+	constructor(id, points, style_obj, offset, onClick) {
 		this.id = id;
 		this.node = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
 		this.node.setAttribute(Constants.ID_ATTR, id);
@@ -15,6 +16,7 @@ export default class PolygonSVG {
 			if(offset)
 				this.translate(offset[0], offset[1]);
 		}
+		this.node.addEventListener('click', onClick);
 	}
 
 	build_style(style_obj) {
