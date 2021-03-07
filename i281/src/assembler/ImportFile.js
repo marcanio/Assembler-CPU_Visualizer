@@ -291,11 +291,12 @@ function mainMethod() {
   //console.log(withoutComments);
   //console.log(lineNumber);
   //console.log(machineCode);
-  console.log(codeSegmentStart);
-  console.log(Array.from(branchDest.keys()));
-  console.log(branchDest.values());
+  //console.log(codeSegmentStart);
+  //console.log(Array.from(branchDest.keys()));
+  //console.log(branchDest.values());
 
-  let AssemblyLine = 1;
+  let AssemblyLine = 0;
+  let dataLine = 0;
   //fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
 
   for (let line = 0; line < withoutComments.length; line++) {
@@ -367,10 +368,14 @@ function mainMethod() {
         "&nbsp &nbsp &nbsp &nbsp";
     }
 
+    
+
     //Do not count .data in the line numbers. Start after .code
     if (line >= codeSegmentStart) {
       AssemblyLine++;
-    } else {
+    } else if (line != 0 && line + 1 != codeSegmentStart) {
+      eachLine[0] = '<span style="font-weight: bold;">' + dataLine++ + "</span>";
+    }else{
       eachLine[0] = "";
     }
 
@@ -405,7 +410,7 @@ function mainMethod() {
     //let z = x.insertCell(1);
     if (line == 0) {
       y.innerHTML =
-        '<span style="font-weight: bold;">' + "Data Memory:" + "</span>";
+        '<a type="button" style="text-decoration-line:underline;text-decoration-color: blue;font-weight: bold;"data-toggle="modal" data-target="#myModal">' + "View Data Memory" + "</a>";
     } else if (line + 1 == codeSegmentStart) {
       y.innerHTML =
         '<span style="font-weight: bold;">' + "Code Segment:" + "</span>";
@@ -419,7 +424,7 @@ function mainMethod() {
 
   //Save machine code for simulator
   saveData();
-  
+  fillDataMemoryTable();
 
 }
 function formatInput() {
@@ -1112,6 +1117,13 @@ function toggleSyntaxHighlight() {
       let secondCol = Assemblytable.rows[i].cells[2].textContent;
       let machineCol = machineTable.rows[i].cells[0].textContent;
 
+      //Bold all fields for better visability ->
+      for(let j =1; j < 4; j++){
+        Assemblytable.rows[i].cells[j].style.fontWeight = 'bold';
+      }
+      machineTable.rows[i].cells[0].style.fontWeight = 'bold';
+   
+
       //Assembly coloring for op codes ->
       if (instructionSet.includes(firstCol)) {
         Assemblytable.rows[i].cells[1].style.color = "Red";
@@ -1209,9 +1221,11 @@ function toggleSyntaxHighlight() {
       //Set all rows of assembly back to black
       for (let j = 0; j < 4; j++) {
         Assemblytable.rows[i].cells[j].style.color = "Black";
+        Assemblytable.rows[i].cells[j].style.fontWeight = '';
       }
       //Place original machine code back in
       machineTable.rows[i].cells[0].textContent = originalMachine[counter];
+      machineTable.rows[i].cells[0].style.fontWeight = '';
       counter++;
     }
   }
@@ -1254,6 +1268,89 @@ function saveData(){
   sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
   sessionStorage.setItem("savedInstructions", JSON.stringify(savedInstructions));
   sessionStorage.setItem("savedDataMemory", JSON.stringify(savedDataMemory));
-  console.log(savedDataMemory);
+  //console.log(savedDataMemory);
    
+}
+
+
+function fillDataMemoryTable(){
+  const dataSpots = ["0000", "0001", "0010", "0011", "0100","0101","0110", "0111","1000", "1001", "1010", "1011","1100", "1101", "1110","1111"];
+ 
+   //2D array. If [][].length > 1 variable is an array
+   
+
+  let groupedVariables = new Array();
+  let groupCount =0;
+ 
+  //Add the first element
+  groupedVariables.push(new Array());
+ 
+  //Group variables together in arrays
+  for(let i=0; i < varibleNames.length; i++){
+    if(i+1 < varibleNames.length){
+      if(varibleNames[i].localeCompare(varibleNames[i+1]) == 0){
+        groupedVariables[groupCount].push(varibleNames[i]);
+        
+      }else if(varibleNames[i].localeCompare(varibleNames[i-1]) == 0){
+        groupedVariables[groupCount].push(varibleNames[i]);
+      }else{
+        groupedVariables.push(new Array());
+        groupCount++;
+        groupedVariables[groupCount].push(varibleNames[i]);
+      }
+    }else{
+      if(varibleNames[i].localeCompare(varibleNames[i-1]) == 0){
+        groupedVariables[groupCount].push(varibleNames[i]);
+      }else{
+        groupedVariables.push(new Array());
+        groupCount++;
+        groupedVariables[groupCount].push(varibleNames[i]);
+      }
+    }
+  }
+
+  //Add brackets to arrays
+  for(let i =0; i < groupedVariables.length; i++){
+    let arrayCount = 0;
+    if(groupedVariables[i].length > 1){
+      for(let j = 0; j < groupedVariables[i].length; j++){
+        groupedVariables[i][j] += "[" + arrayCount + "]";
+        arrayCount++;
+      }
+    }
+  }
+
+  //Combine array
+  let finalVariables = new Array();
+  for(let i =0; i < groupedVariables.length; i++ ){
+    for(let j =0; j < groupedVariables[i].length; j++){
+      finalVariables.push(groupedVariables[i][j]);
+    }
+  }
+
+
+  console.log(finalVariables);
+
+
+  //Fill in table
+  for(let i =0; i < 16; i++){
+    //Add a row after the header (Thats why plus 1)
+    let row = document.getElementById("dataTable").insertRow(i+1);
+
+    let columnOne = row.insertCell(0);
+    let columnTwo = row.insertCell(1);
+    let columnThree = row.insertCell(2);
+
+    //Pull Data from memory since it is already formatted
+    let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
+    columnOne.innerHTML = dataSpots[i];
+    columnTwo.innerHTML = savedData[i];
+    if(i < finalVariables.length){
+      columnThree.innerHTML = finalVariables[i];
+    }
+    
+
+  }
+
+  
 }
