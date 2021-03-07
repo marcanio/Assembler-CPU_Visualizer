@@ -1,7 +1,6 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
-import * as instructions from "./instructions.js"
 
 
 

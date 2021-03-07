@@ -1,22 +1,22 @@
-import * as Constants from "./constants.js";
-import TextSVG from "./TextSVG.js";
-import PolygonSVG from "./PolygonSVG.js";
-import PathSVG from "./PathSVG.js";
-import Mux2_1SVG from "./Mux2_1SVG.js";
-import RegisterFileSVG from "./RegisterFileSVG.js";
-import PCValueSVG from "./PCValueSVG.js";
-import DMEM_SVG from "./DMEM_SVG.js";
-import ALU_SVG from "./ALU_SVG.js";
+import * as Constants from "./GUI/constants.js";
+import TextSVG from "./GUI/TextSVG.js";
+import PolygonSVG from "./GUI/PolygonSVG.js";
+import PathSVG from "./GUI/PathSVG.js";
+import Mux2_1SVG from "./GUI/Mux2_1SVG.js";
+import RegisterFileSVG from "./GUI/RegisterFileSVG.js";
+import PCValueSVG from "./GUI/PCValueSVG.js";
+import DMEM_SVG from "./GUI/DMEM_SVG.js";
+import ALU_SVG from "./GUI/ALU_SVG.js";
 
-import FlagsSVG from "./FlagsSVG.js";
-import IMEM_SVG from "./IMEM_SVG.js";
-import Mux2_1_BackwardsSVG from "./Mux2_1_BackwardsSVG.js"
-import PCUpdateSVG from "./PCUpdateSVG.js";
-import OpcodeDeCoderSVG from "./OpcodeDecoderSVG.js";
-import CircleSVG from "./CircleSVG.js";
-import ControlSVG from "./ControlSVG.js";
-import ArrowSVG from "./ArrowSVG.js";
-import BussInfoSVG from "./BusInfoSVG.js";
+import FlagsSVG from "./GUI/FlagsSVG.js";
+import IMEM_SVG from "./GUI/IMEM_SVG.js";
+import Mux2_1_BackwardsSVG from "./GUI/Mux2_1_BackwardsSVG.js"
+import PCUpdateSVG from "./GUI/PCUpdateSVG.js";
+import OpcodeDeCoderSVG from "./GUI/OpcodeDecoderSVG.js";
+import CircleSVG from "./GUI/CircleSVG.js";
+import ControlSVG from "./GUI/ControlSVG.js";
+import ArrowSVG from "./GUI/ArrowSVG.js";
+import BussInfoSVG from "./GUI/BusInfoSVG.js";
 
 
 
@@ -150,19 +150,19 @@ window.addEventListener("load", function() {
 	const TOP = "top";
 
 	/* Bus Infomation */
-	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [550, 140], 16, LEFT);
-	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [700, 140], "8 high", LEFT);
-	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [520, 200], "8 low", RIGHT);
+	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [520, 140], 16, LEFT);
+	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", LEFT);
+	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 200], "8 low", RIGHT);
 
 	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1100, 140], 27, LEFT);
-	var flags_control_info = new BussInfoSVG("flags_control_info", [1190, 300], 4, LEFT);
+	var flags_control_info = new BussInfoSVG("flags_control_info", [1290, 290], 4, LEFT);
 
 	var imem_in_top = new BussInfoSVG("imem_in_top", [65, 185], 6, LEFT);
 	var imem_in_middle = new BussInfoSVG("imem_in_middle", [65, 315], 16, LEFT);
 	var imem_in_bottom = new BussInfoSVG("imem_in_bottom", [67, 415], 6, LEFT);
 
 	var mux0_out_info = new BussInfoSVG("mux0_out", [1325, 800], 8, LEFT);
-	var mux1_out_info = new BussInfoSVG("mux1_out", [1700, 720], 8, LEFT);
+	var mux1_out_info = new BussInfoSVG("mux1_out", [1715, 715], 8, LEFT);
 	var mux2_out_info = new BussInfoSVG("mux2_out", [1725, 1065], 8, LEFT);
 	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 600], 8, LEFT);
 
