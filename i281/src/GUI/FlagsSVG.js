@@ -13,7 +13,7 @@ export default class FlagsSVG {
 		this.zero_flag = new TextSVG(Constants.FLAG_VPOS[0] + 2 * FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.ZERO_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
 		this.overflow_flag = new TextSVG(Constants.FLAG_VPOS[0] + 3 * FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.OVERFLOW_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
 		this.parity_flag = new TextSVG(Constants.FLAG_VPOS[0] + 4 * FLAGS_DIST_BETWEEN,Constants.FLAG_VPOS[1], Constants.PARITY_FLAG_ID, "0", Constants.TEXT_STYLE, Constants.FLAGS_OFFSET);
-		this.box = new PolygonSVG(Constants.PC_VAL_BOX_ID, BOX, Constants.BLOCK_STYLE, BOX_OFFSET);
+		this.box = new PolygonSVG(Constants.PC_VAL_BOX_ID, BOX, Constants.THIN_BLOCK_STYLE, BOX_OFFSET);
 
 	}
     

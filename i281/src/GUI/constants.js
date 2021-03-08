@@ -38,7 +38,7 @@ export const FLAG_VPOS = [0, 70];
 export const MUX0_OFFSET = [1200 , 700];
 export const MUX1_OFFSET = [1600, 625];
 export const MUX2_OFFSET = [1600, 1025];
-export const MUX3_OFFSET = [2250, 650];
+export const MUX3_OFFSET = [2250, 665];
 export const MUX4_OFFSET = [900 , 1150];
 
 export const ALU_OFFSET = [1350, 500];
@@ -50,16 +50,16 @@ export const CONTROL_OFFSET = [1300, 100];
 export const REGISTER_FILE_OFFSET = [600, 420];
 export const PC_VALUE_OFFSET = [1050, 1150];
 export const PC_UPDATE_OFFSET = [600, 1150];
-export const DATA_MEM_OFFSET = [1800, 900];
+export const DATA_MEM_OFFSET = [1800, 850];
 
 export const INTERSECT_1_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 70, CODE_MEM_OFFSET[1] + 25];
 export const INTERSECT_2_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 70, CODE_MEM_OFFSET[1] + (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 200)];
 export const INTERSECT_3_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 70, CODE_MEM_OFFSET[1] + 25 + PC_UPDATE_OFFSET[1] + 150];
 export const INTERSECT_4_POS = [MUX0_OFFSET[0] - 65 , CODE_MEM_OFFSET[1] + (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 200)];
-export const INTERSECT_5_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2]+ 480, MUX1_OFFSET[1] + 75];
+export const INTERSECT_5_POS = [MUX1_OFFSET[0] + MUX_WIDTH+ 480, MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2];
 export const INTERSECT_6_POS = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 25, REGISTER_FILE_OFFSET[1] + 378];
-export const INTERSECT_7_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 60, MUX1_OFFSET[1] + 75];
-export const INTERSECT_8_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 60, MUX1_OFFSET[1] + 100 + ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 65) ];
+export const INTERSECT_7_POS = [MUX1_OFFSET[0] + MUX_WIDTH + 60, MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2];
+export const INTERSECT_8_POS = [MUX1_OFFSET[0] + MUX_WIDTH + 60, MUX1_OFFSET[1] + 100 + ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 65) ];
 export const INTERSECT_9_POS = [ MUX2_OFFSET[0] - 150, MUX2_OFFSET[1] + MUX_TRUE[1] - 15];
 
 export const READ_A_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 50];
@@ -117,13 +117,13 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
     //END READ_B SEGMENTS
 
     //MUX1 DMEM SEGMENTS
-    export const MUX1_OUT = ["M", 1670,700, "l", 60,0]
-    export const MUX1_OUT_TO_MUX3_IMEM_JUNCTION = ["M", INTERSECT_7_POS[0],700, "l", 450,0]
-    export const MUX1_OUT_TO_DMEM_JUNCTION = ["M", INTERSECT_7_POS[0],700, "l", 0,235]
-    export const JUNCTION_TO_DMEM_A = ["M", INTERSECT_7_POS[0], 700+235, "l", 70,0]
-    export const JUNCTION_TO_DMEM_B = ["M", INTERSECT_7_POS[0], 700+235, "l", 0,40, 70,0]
-    export const JUNCTION_TO_IMEM = ["M", INTERSECT_5_POS[0], 700, "l", 0,-680, -2130,0, 0,150, 50,0]
-    export const JUNCTION_TO_MUX3 = ["M", INTERSECT_5_POS[0], 700, "l", 100,0]
+    export const MUX1_OUT = ["M", MUX1_OFFSET[0] + MUX_WIDTH, MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2, "l", 60,0]
+    export const MUX1_OUT_TO_MUX3_IMEM_JUNCTION = ["M", INTERSECT_7_POS[0], MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2, "l", 425,0]
+    export const MUX1_OUT_TO_DMEM_JUNCTION = ["M", INTERSECT_7_POS[0],MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2, "l", 0,235]
+    export const JUNCTION_TO_DMEM_A = ["M", INTERSECT_7_POS[0], MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2+235, "l", 70,0]
+    export const JUNCTION_TO_DMEM_B = ["M", INTERSECT_7_POS[0], MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2+235, "l", 0,40, 70,0]
+    export const JUNCTION_TO_IMEM = ["M", INTERSECT_5_POS[0],  MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2, "l", 0,-680, -2130,0, 0,150, 50,0]
+    export const JUNCTION_TO_MUX3 = ["M", INTERSECT_5_POS[0],  MUX1_OFFSET[1] + MUX_MAX_HEIGHT/2, "l", 100,0]
 
 
 export const READ_A_WIRE = [0, 0, ALU_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH), 0];
@@ -181,6 +181,7 @@ export const MUX_D_TEXT = "D";
 
 
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"5px"};
+export const THIN_BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";

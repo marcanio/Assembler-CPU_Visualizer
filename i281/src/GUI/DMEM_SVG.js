@@ -9,7 +9,6 @@ const VAL = [350/2, -24];
 
 const BOX_OFFSET = [Constants.DATA_MEM_OFFSET[0] + VAL[0] - 60, Constants.DATA_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
-const POLY_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 
 const res = []
 
@@ -32,22 +31,22 @@ export default class DMEM_SVG {
 		this.addr13 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 14), Constants.DMEM_ADDR13_ID, "1101", Constants.BLUE_TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.addr14 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 15), Constants.DMEM_ADDR14_ID, "1110", Constants.BLUE_TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.addr15 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 16), Constants.DMEM_ADDR15_ID, "1111", Constants.BLUE_TEXT_STYLE, Constants.DATA_MEM_OFFSET);
-		this.val0_box = new PolygonSVG(Constants.DMEM_BOX0_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 1)]);
-		this.val1_box = new PolygonSVG(Constants.DMEM_BOX1_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 2)]);
-		this.val2_box = new PolygonSVG(Constants.DMEM_BOX2_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 3)]);
-		this.val3_box = new PolygonSVG(Constants.DMEM_BOX3_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 4)]);
-		this.val4_box = new PolygonSVG(Constants.DMEM_BOX4_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 5)]);
-		this.val5_box = new PolygonSVG(Constants.DMEM_BOX5_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 6)]);
-		this.val6_box = new PolygonSVG(Constants.DMEM_BOX6_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 7)]);
-		this.val7_box = new PolygonSVG(Constants.DMEM_BOX7_ID, [...Constants.REGISTER_BOX],POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 8)]);
-		this.val8_box = new PolygonSVG(Constants.DMEM_BOX8_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 9)]);
-		this.val9_box = new PolygonSVG(Constants.DMEM_BOX9_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 10)]);
-		this.val10_box = new PolygonSVG(Constants.DMEM_BOX10_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 11)]);
-		this.val11_box = new PolygonSVG(Constants.DMEM_BOX11_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 12)]);
-		this.val12_box = new PolygonSVG(Constants.DMEM_BOX12_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 13)]);
-		this.val13_box = new PolygonSVG(Constants.DMEM_BOX13_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 14)]);
-		this.val14_box = new PolygonSVG(Constants.DMEM_BOX14_ID, [...Constants.REGISTER_BOX], POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 15)]);
-		this.val15_box = new PolygonSVG(Constants.DMEM_BOX15_ID, [...Constants.REGISTER_BOX],POLY_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 16)]);        
+		this.val0_box = new PolygonSVG(Constants.DMEM_BOX0_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 1)]);
+		this.val1_box = new PolygonSVG(Constants.DMEM_BOX1_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 2)]);
+		this.val2_box = new PolygonSVG(Constants.DMEM_BOX2_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 3)]);
+		this.val3_box = new PolygonSVG(Constants.DMEM_BOX3_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 4)]);
+		this.val4_box = new PolygonSVG(Constants.DMEM_BOX4_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 5)]);
+		this.val5_box = new PolygonSVG(Constants.DMEM_BOX5_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 6)]);
+		this.val6_box = new PolygonSVG(Constants.DMEM_BOX6_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 7)]);
+		this.val7_box = new PolygonSVG(Constants.DMEM_BOX7_ID, [...Constants.REGISTER_BOX],Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 8)]);
+		this.val8_box = new PolygonSVG(Constants.DMEM_BOX8_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 9)]);
+		this.val9_box = new PolygonSVG(Constants.DMEM_BOX9_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 10)]);
+		this.val10_box = new PolygonSVG(Constants.DMEM_BOX10_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 11)]);
+		this.val11_box = new PolygonSVG(Constants.DMEM_BOX11_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 12)]);
+		this.val12_box = new PolygonSVG(Constants.DMEM_BOX12_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 13)]);
+		this.val13_box = new PolygonSVG(Constants.DMEM_BOX13_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 14)]);
+		this.val14_box = new PolygonSVG(Constants.DMEM_BOX14_ID, [...Constants.REGISTER_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 15)]);
+		this.val15_box = new PolygonSVG(Constants.DMEM_BOX15_ID, [...Constants.REGISTER_BOX],Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0], BOX_OFFSET[1] + (BETWEEN_DIST * 16)]);        
 		this.val0 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 1), Constants.DMEM_VAL0_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.val1 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 2), Constants.DMEM_VAL1_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		this.val2 = new TextSVG(VAL[0]+10, (BETWEEN_DIST * 3), Constants.DMEM_VAL2_ID, "00000000", Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);

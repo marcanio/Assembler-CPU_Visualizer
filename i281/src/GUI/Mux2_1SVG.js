@@ -3,13 +3,17 @@ import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
 
 function onClick (evt) {
-	var modal = document.getElementById("modal");
+	var modal = document.getElementById("modal_content");
+	var modal_content = document.getElementById("modal_content");
 	modal.style.visibility = "visible";
-	modal.innerHTML = "";
+	modal.style.display = "block";
+
+	modal_content.innerHTML = "";
 	let img = document.createElement("img");
 	img.src = "./GUI/img/mux.png";
 	img.id = "mux_img";
-	modal.append(img);
+	img.style = "justify-content: center; align-items: center;";
+	modal_content.append(img);
 }
 
 export default class Mux2_1SVG {

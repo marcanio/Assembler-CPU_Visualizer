@@ -11,7 +11,6 @@ let addr = []
 let box = []
 let mem = [];
 
-const POLY_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 
 
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
@@ -27,7 +26,7 @@ export default class IMEM_SVG {
 		}
 
 		for(var i=0; i<Inst.instructions.length; i++){
-			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], POLY_STYLE, [BOX_OFFSET[0]-5, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
+			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0]-5, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
 			box.push(cur)
 		}
 		

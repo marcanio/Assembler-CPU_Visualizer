@@ -11,7 +11,7 @@ export default class PCValueSVG {
 		this.pc_update = new PolygonSVG(Constants.PC_VALUE_ID, Constants.PC_VALUE_POLYGON, Constants.BLOCK_STYLE, Constants.PC_VALUE_OFFSET);
 		this.pc_text = new TextSVG(PC_TPOS[0], PC_TPOS[1], Constants.REG_TEXT_ID, "PC", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.PC_VALUE_OFFSET);
 		this.pc_val = new TextSVG(PC_VAL[0], PC_VAL[1], Constants.PC_VAL_ID, "000000", Constants.TEXT_STYLE, Constants.PC_VALUE_OFFSET);
-		this.pc_val_box = new PolygonSVG(Constants.PC_VAL_BOX_ID, BOX, Constants.BLOCK_STYLE, BOX_OFFSET);
+		this.pc_val_box = new PolygonSVG(Constants.PC_VAL_BOX_ID, BOX, Constants.THIN_BLOCK_STYLE, BOX_OFFSET);
 	}
     
 	get_all_nodes() {

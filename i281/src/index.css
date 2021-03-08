@@ -1,6 +1,6 @@
 .modal {
-  visibility: hidden; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  visibility: hidden; 
+  position: absolute;
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
@@ -12,3 +12,11 @@
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+  height: 30%;
+}
