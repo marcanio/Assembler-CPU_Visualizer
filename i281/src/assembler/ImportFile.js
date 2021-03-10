@@ -1211,6 +1211,69 @@ function toggleSyntaxHighlight() {
         newMachineCol += machineCol.substring(0, machineCol.length);
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if(firstCol.localeCompare("LOADF") == 0){
+        //Assembly Code
+        Assemblytable.rows[i].cells[2].style.color = "blue";
+        let plusLocation = Assemblytable.rows[i].cells[3].innerHTML.indexOf("+") + 1;
+        let regLength = Assemblytable.rows[i].cells[3].innerHTML.length;
+        let newReg = '<span style="color:purple">';
+        newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(0,plusLocation);
+        newReg += "</span>";
+        newReg += '<span style="color:green">';
+        newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(plusLocation,plusLocation+1);
+        newReg += "</span>";
+        newReg += '<span style="color:purple">';
+        newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(plusLocation+1,regLength);
+        newReg += "</span>";
+        Assemblytable.rows[i].cells[3].innerHTML = newReg;
+        console.log(newReg);
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 5);
+        newMachineCol += '<span style="color:blue">';
+        newMachineCol += machineCol.substring(5, 7);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(7, 8);
+        newMachineCol += '<span style="color:Green">';
+        newMachineCol += machineCol.substring(8, 10);
+        newMachineCol += "</span>";
+        newMachineCol += '<span style="color:purple">';
+        newMachineCol += machineCol.substring(10, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if(firstCol.localeCompare("STOREF") == 0){
+        //Assembly code
+        Assemblytable.rows[i].cells[3].style.color = "blue";
+        let plusLocation = Assemblytable.rows[i].cells[2].innerHTML.indexOf("+") + 1;
+        let regLength = Assemblytable.rows[i].cells[2].innerHTML.length;
+        let newReg = '<span style="color:purple">';
+        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(0,plusLocation);
+        newReg += "</span>";
+        newReg += '<span style="color:green">';
+        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation,plusLocation+1);
+        newReg += "</span>";
+        newReg += '<span style="color:purple">';
+        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation+1,regLength);
+        newReg += "</span>";
+        Assemblytable.rows[i].cells[2].innerHTML = newReg;
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 5);
+        newMachineCol += '<span style="color:blue">';
+        newMachineCol += machineCol.substring(5, 7);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(7, 8);
+        newMachineCol += '<span style="color:Green">';
+        newMachineCol += machineCol.substring(8, 10);
+        newMachineCol += "</span>";
+        newMachineCol += '<span style="color:purple">';
+        newMachineCol += machineCol.substring(10, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       }
     }
   } else {
