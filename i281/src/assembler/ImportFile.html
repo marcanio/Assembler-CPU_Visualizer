@@ -12,7 +12,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="ImportFile.css" />
+    <link rel="stylesheet" href="assembler/ImportFile.css" />
   </head>
   <body>
     <div>
@@ -260,6 +260,14 @@
                   onclick="toggleSyntaxHighlight()"
                   value="Syntax highlight: OFF"
                 />
+                <input
+                type="button"
+                id="navigateCPU"
+                class="btn btn-primary mr-1 mb-3"
+                style="display: none"
+                onclick="location.href='./simulator/cpu.html'"
+                value="Go to CPU"
+              />
               </div>
             </div>
           </form>
@@ -284,6 +292,35 @@
         </section>
       </main>
     </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Data Memory</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+              <table class="table table-striped" id="dataTable" >
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Data Memory</th>
+            <th>Variable</th>
+          </tr>
+        </thead>
+       
+      </table>
+      </div>
+    
+       
+    
+        </div>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -299,7 +336,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="ImportFile.js" type="text/javascript"></script>
-    <script src="Examples.js" type="text/javascript"></script>
+    <script src="./assembler/ImportFile.js" type="text/javascript"></script>
+    <script src="./assembler/Examples.js" type="text/javascript"></script>
   </body>
 </html>
