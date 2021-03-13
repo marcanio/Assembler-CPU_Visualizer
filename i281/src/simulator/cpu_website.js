@@ -40,10 +40,6 @@ window.cpu = cpu;
 
 cpu.setup();
 
-cpu.iMem.registers = JSON.parse(sessionStorage.getItem("savedMachineCode"));  // Load iMem from assembler
-cpu.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
-cpu.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
-
 let iMem_table = null;
 let register_table = null;
 let dMem_table = null;

@@ -50,6 +50,10 @@ export class CPU {
         this.registers.initialize();
         this.flags.initialize();
 
+        this.iMem.registers = JSON.parse(sessionStorage.getItem("savedMachineCode"));  // Load iMem from assembler
+        this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+        this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
+
         this.alu.setControl(this.control.get, 'c12c13');
     }
 
