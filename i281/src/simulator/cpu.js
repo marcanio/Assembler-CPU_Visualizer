@@ -14,9 +14,10 @@ import {PC} from "./pc.js"
 
 export class CPU {
     constructor() {
+        let iMemSize = 64;
         // The constructor will create a processor object with all needed subcomponents
-        this.pc = new PC(32);  // Matches the iMem size.
-        this.iMem = new RegisterFile(16, 32);
+        this.pc = new PC(iMemSize);  // Matches the iMem size.
+        this.iMem = new RegisterFile(16, iMemSize);
         this.ocd = new OpCodeDecoder();
         this.control = new Control();
         this.registers = new RegisterFile(8, 4);
@@ -158,5 +159,3 @@ export class CPU {
         this.pc.process(opcode, controlSignals[2]);
     }
 };
-
-//window.cpu = new CPU();

@@ -44,8 +44,6 @@ cpu.iMem.registers = JSON.parse(sessionStorage.getItem("savedMachineCode"));  //
 cpu.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
 cpu.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
 
-let numCycles = 119;
-
 let iMem_table = null;
 let register_table = null;
 let dMem_table = null;
@@ -102,6 +100,3 @@ function nextCycle() {
     generateTableHead(dMem_table, dMem_data);
     generateTable(dMem_table, dMem);
 }
-
-
-
