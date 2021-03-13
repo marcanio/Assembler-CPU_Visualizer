@@ -12,11 +12,12 @@ http.createServer(function (request, response) {
     if (filePath == './src/') {
         filePath = './src/assembler/ImportFile.html';
     }
-
+    /*
 	var filePath = "./src" + request.url;
 	if (filePath == "./src/") {
 		filePath = "./src/index.html";
 	}
+    */
 	var extname = String(path.extname(filePath)).toLowerCase();
 	var mimeTypes = {
 		".html": "text/html",

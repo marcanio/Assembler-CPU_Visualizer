@@ -1,25 +1,25 @@
-import * as Constants from "./GUI/constants.js";
-import TextSVG from "./GUI/TextSVG.js";
-import PolygonSVG from "./GUI/PolygonSVG.js";
-import PathSVG from "./GUI/PathSVG.js";
-import Mux2_1SVG from "./GUI/Mux2_1SVG.js";
-import RegisterFileSVG from "./GUI/RegisterFileSVG.js";
-import PCValueSVG from "./GUI/PCValueSVG.js";
-import DMEM_SVG from "./GUI/DMEM_SVG.js";
-import ALU_SVG from "./GUI/ALU_SVG.js";
+import * as Constants from "./constants.js";
+import TextSVG from "./TextSVG.js";
+import PolygonSVG from "./PolygonSVG.js";
+import PathSVG from "./PathSVG.js";
+import Mux2_1SVG from "./Mux2_1SVG.js";
+import RegisterFileSVG from "./RegisterFileSVG.js";
+import PCValueSVG from "./PCValueSVG.js";
+import DMEM_SVG from "./DMEM_SVG.js";
+import ALU_SVG from "./ALU_SVG.js";
 
-import FlagsSVG from "./GUI/FlagsSVG.js";
-import IMEM_SVG from "./GUI/IMEM_SVG.js";
-import Mux2_1_BackwardsSVG from "./GUI/Mux2_1_BackwardsSVG.js"
-import PCUpdateSVG from "./GUI/PCUpdateSVG.js";
-import OpcodeDeCoderSVG from "./GUI/OpcodeDecoderSVG.js";
-import CircleSVG from "./GUI/CircleSVG.js";
-import ControlSVG from "./GUI/ControlSVG.js";
-import ArrowSVG from "./GUI/ArrowSVG.js";
-import BussInfoSVG from "./GUI/BusInfoSVG.js";
-import LongArrowSVG from "./GUI/LongArrowSVG.js"
-import ALULongArrowSVG from "./GUI/ALULongArrowSVG.js"
-
+import FlagsSVG from "./FlagsSVG.js";
+import IMEM_SVG from "./IMEM_SVG.js";
+import Mux2_1_BackwardsSVG from "./Mux2_1_BackwardsSVG.js"
+import PCUpdateSVG from "./PCUpdateSVG.js";
+import OpcodeDeCoderSVG from "./OpcodeDecoderSVG.js";
+import CircleSVG from "./CircleSVG.js";
+import ControlSVG from "./ControlSVG.js";
+import ArrowSVG from "./ArrowSVG.js";
+import BussInfoSVG from "./BusInfoSVG.js";
+import LongArrowSVG from "./LongArrowSVG.js"
+import ALULongArrowSVG from "./ALULongArrowSVG.js"
+import {CPU} from "../simulator/cpu.js";
 
 function init() {
 	//const btn = document.getElementById("btn");
@@ -61,6 +61,14 @@ function toggle_arrow_visablitity(checkbox) {
 window.addEventListener("load", function() {
 	init();
 
+	// Set up cpu simulation
+	let cpu = new CPU();
+
+	window.cpu = cpu;
+	
+	cpu.setup();
+
+	//
 
 	var mux_alu_wire = new PolygonSVG(Constants.MUX_ALU_WIRE_ID, Constants.MUX_ALU_WIRE, Constants.BLOCK_STYLE);
 	mux_alu_wire.translate(Constants.MUX_ALU_WIRE_OFFSET[0],Constants.MUX_ALU_WIRE_OFFSET[1]);
