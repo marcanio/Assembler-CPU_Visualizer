@@ -1,15 +1,25 @@
 import * as Constants from "./constants.js";
 
 export default class PathSVG {
-	constructor(id, path, style_obj) {
+	constructor(id, path, style_obj, offset) {
 		this.id = id;
 		this.node = document.createElementNS("http://www.w3.org/2000/svg", "path");
 		this.node.setAttribute(Constants.ID_ATTR, id);
 		this.style = Object.assign({}, style_obj);
 		this.build_style(this.style);
-		this.node.setAttribute(Constants.STYLE_ATTR, this.curr_style);
+		var list = []
 		if(path)
-			this.node.setAttribute("d", this.build(path));
+			path.forEach(val => list.push(val));
+		
+		this.node.setAttribute(Constants.STYLE_ATTR, this.curr_style);
+
+		if(offset){
+			console.log(id + " " + offset[0] + " "+ offset[1])
+			console.log(path[1]+" "+path[2])
+			this.translate(list, offset[0], offset[1]);
+		}
+		if(path)
+			this.node.setAttribute("d", this.build(list));
 	}
 	
 	build_style(style_obj) {
@@ -38,14 +48,17 @@ export default class PathSVG {
 		throw "Not Implemented";
 	}
 
-	translate() {
-		throw "Not Implemented";
+	translate(arg, x, y) {
+		arg[1]+=x;
+		arg[2]+=y
 	}
     
 	build(arg) {
 		var res = "";
-		for (let i = 0, l = arg.length; i < l; i++)
+		for (let i = 0, l = arg.length; i < l; i++){
+			//console.log(arg[i] + " " + this.id)
 			res = res.concat(arg[i] + " ");
+		}
 		return res;
 	}
 }
