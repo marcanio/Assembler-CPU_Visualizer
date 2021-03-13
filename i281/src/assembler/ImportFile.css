@@ -15,10 +15,7 @@ body {
   border-radius: 0 0.25rem 0.25rem 0.25rem;
 }
 
-#assemblyTable > tbody > tr > :nth-child(1) {
-}
-
 tr {
-  line-height: 13px;
+  line-height: 12px;
   height: 25px;
 }

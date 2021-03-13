@@ -9,7 +9,6 @@ let arrayNames = new Array();
 let dataValues = new Array();
 let varibleNames = new Array();
 let printBranch = 0;
-let savedInstructions = new Array();
 
 let machineCode = "";
 
@@ -291,18 +290,17 @@ function mainMethod() {
   //console.log(withoutComments);
   //console.log(lineNumber);
   //console.log(machineCode);
-  //console.log(codeSegmentStart);
-  //console.log(Array.from(branchDest.keys()));
-  //console.log(branchDest.values());
+  console.log(codeSegmentStart);
+  console.log(Array.from(branchDest.keys()));
+  console.log(branchDest.values());
 
-  let AssemblyLine = 0;
-  let dataLine = 0;
+  let AssemblyLine = 1;
   //fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
 
   for (let line = 0; line < withoutComments.length; line++) {
     let eachLine = withoutComments[line].split(" ");
     eachLine = removeEmpty(eachLine);
-    
+
     //Format the array to have 3 parts
     if (eachLine.length > 2) {
       if (eachLine[1].localeCompare("[") == 1) {
@@ -327,15 +325,10 @@ function mainMethod() {
         }
       }
     }
-    //Save instruction for the CPU
-    savedInstructions.push(eachLine);
-    
+  }
+
     //Place into the table
     eachLine = removeEmpty(eachLine);
-
-    
-    
-
     let x = document.getElementById("assemblyTable").insertRow(line);
 
     //Add line numbers
@@ -368,14 +361,10 @@ function mainMethod() {
         "&nbsp &nbsp &nbsp &nbsp";
     }
 
-    
-
     //Do not count .data in the line numbers. Start after .code
     if (line >= codeSegmentStart) {
       AssemblyLine++;
-    } else if (line != 0 && line + 1 != codeSegmentStart) {
-      eachLine[0] = '<span style="font-weight: bold;">' + dataLine++ + "</span>";
-    }else{
+    } else {
       eachLine[0] = "";
     }
 
@@ -410,7 +399,7 @@ function mainMethod() {
     //let z = x.insertCell(1);
     if (line == 0) {
       y.innerHTML =
-        '<a type="button" style="text-decoration-line:underline;text-decoration-color: blue;font-weight: bold;"data-toggle="modal" data-target="#myModal">' + "View Data Memory" + "</a>";
+        '<span style="font-weight: bold;">' + "Data Memory:" + "</span>";
     } else if (line + 1 == codeSegmentStart) {
       y.innerHTML =
         '<span style="font-weight: bold;">' + "Code Segment:" + "</span>";
@@ -423,8 +412,24 @@ function mainMethod() {
   }
 
   //Save machine code for simulator
-  saveData();
-  fillDataMemoryTable();
+  let tempMachineCode = machineCode.replace(/\_/g, "");
+  let savedMachineCode = tempMachineCode.split("\n");
+  savedMachineCode = savedMachineCode.filter(function(e){return e}); 
+  let fixedsavedMachineCode = new Array(32);
+
+  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
+    if(i < savedMachineCode.length){
+      fixedsavedMachineCode[i] = savedMachineCode[i];
+    }else{
+      fixedsavedMachineCode[i] = "0000000000000000";
+    }
+  }
+
+  console.log(savedMachineCode);
+  console.log(fixedsavedMachineCode);
+  sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
+
+  console.log(withComments);
 
 }
 function formatInput() {
@@ -1117,13 +1122,6 @@ function toggleSyntaxHighlight() {
       let secondCol = Assemblytable.rows[i].cells[2].textContent;
       let machineCol = machineTable.rows[i].cells[0].textContent;
 
-      //Bold all fields for better visability ->
-      for(let j =1; j < 4; j++){
-        Assemblytable.rows[i].cells[j].style.fontWeight = 'bold';
-      }
-      machineTable.rows[i].cells[0].style.fontWeight = 'bold';
-   
-
       //Assembly coloring for op codes ->
       if (instructionSet.includes(firstCol)) {
         Assemblytable.rows[i].cells[1].style.color = "Red";
@@ -1211,69 +1209,6 @@ function toggleSyntaxHighlight() {
         newMachineCol += machineCol.substring(0, machineCol.length);
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-      } else if(firstCol.localeCompare("LOADF") == 0){
-        //Assembly Code
-        Assemblytable.rows[i].cells[2].style.color = "blue";
-        let plusLocation = Assemblytable.rows[i].cells[3].innerHTML.indexOf("+") + 1;
-        let regLength = Assemblytable.rows[i].cells[3].innerHTML.length;
-        let newReg = '<span style="color:purple">';
-        newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(0,plusLocation);
-        newReg += "</span>";
-        newReg += '<span style="color:green">';
-        newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(plusLocation,plusLocation+1);
-        newReg += "</span>";
-        newReg += '<span style="color:purple">';
-        newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(plusLocation+1,regLength);
-        newReg += "</span>";
-        Assemblytable.rows[i].cells[3].innerHTML = newReg;
-        console.log(newReg);
-        //Machine Code
-        let newMachineCol = '<span style="color:red">';
-        newMachineCol += machineCol.substring(0, 4);
-        newMachineCol += "</span>";
-        newMachineCol += machineCol.substring(4, 5);
-        newMachineCol += '<span style="color:blue">';
-        newMachineCol += machineCol.substring(5, 7);
-        newMachineCol += "</span>";
-        newMachineCol += machineCol.substring(7, 8);
-        newMachineCol += '<span style="color:Green">';
-        newMachineCol += machineCol.substring(8, 10);
-        newMachineCol += "</span>";
-        newMachineCol += '<span style="color:purple">';
-        newMachineCol += machineCol.substring(10, machineCol.length);
-        newMachineCol += "</span>";
-        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-      } else if(firstCol.localeCompare("STOREF") == 0){
-        //Assembly code
-        Assemblytable.rows[i].cells[3].style.color = "blue";
-        let plusLocation = Assemblytable.rows[i].cells[2].innerHTML.indexOf("+") + 1;
-        let regLength = Assemblytable.rows[i].cells[2].innerHTML.length;
-        let newReg = '<span style="color:purple">';
-        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(0,plusLocation);
-        newReg += "</span>";
-        newReg += '<span style="color:green">';
-        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation,plusLocation+1);
-        newReg += "</span>";
-        newReg += '<span style="color:purple">';
-        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation+1,regLength);
-        newReg += "</span>";
-        Assemblytable.rows[i].cells[2].innerHTML = newReg;
-        //Machine Code
-        let newMachineCol = '<span style="color:red">';
-        newMachineCol += machineCol.substring(0, 4);
-        newMachineCol += "</span>";
-        newMachineCol += machineCol.substring(4, 5);
-        newMachineCol += '<span style="color:blue">';
-        newMachineCol += machineCol.substring(5, 7);
-        newMachineCol += "</span>";
-        newMachineCol += machineCol.substring(7, 8);
-        newMachineCol += '<span style="color:Green">';
-        newMachineCol += machineCol.substring(8, 10);
-        newMachineCol += "</span>";
-        newMachineCol += '<span style="color:purple">';
-        newMachineCol += machineCol.substring(10, machineCol.length);
-        newMachineCol += "</span>";
-        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       }
     }
   } else {
@@ -1284,136 +1219,10 @@ function toggleSyntaxHighlight() {
       //Set all rows of assembly back to black
       for (let j = 0; j < 4; j++) {
         Assemblytable.rows[i].cells[j].style.color = "Black";
-        Assemblytable.rows[i].cells[j].style.fontWeight = '';
       }
       //Place original machine code back in
       machineTable.rows[i].cells[0].textContent = originalMachine[counter];
-      machineTable.rows[i].cells[0].style.fontWeight = '';
       counter++;
     }
   }
-}
-
-
-function saveData(){
-  let tempMachineCode = machineCode.replace(/\_/g, "");
-  let savedMachineCode = tempMachineCode.split("\n");
-  savedMachineCode = savedMachineCode.filter(function(e){return e}); 
-  let fixedsavedMachineCode = new Array(32);
-  let savedDataMemory = new Array(16);
-
-  //Add 0's to fill the code memory up with 32 instructions
-  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
-    if(i < savedMachineCode.length){
-      fixedsavedMachineCode[i] = savedMachineCode[i];
-    }else{
-      fixedsavedMachineCode[i] = "0000000000000000";
-    }
-  }
-
-  savedInstructions.splice(0,codeSegmentStart);
-  for(let i = 0; i < savedInstructions.length; i++){
-    savedInstructions[i] = removeEmpty(savedInstructions[i]);
-  }
-
-
-  //Fill in the data memory and convert to binary
-  for(let i =0; i< savedDataMemory.length; i++){
-    if(i<dataValues.length){
-      savedDataMemory[i] = convertStringToBinary(dataValues[i]);
-    }else{
-      savedDataMemory[i] = "00000000";
-    }
-  }
-  
-  //console.log(savedInstructions);
-  //console.log(fixedsavedMachineCode);
-  sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
-  sessionStorage.setItem("savedInstructions", JSON.stringify(savedInstructions));
-  sessionStorage.setItem("savedDataMemory", JSON.stringify(savedDataMemory));
-  //console.log(savedDataMemory);
-   
-}
-
-
-function fillDataMemoryTable(){
-  const dataSpots = ["0000", "0001", "0010", "0011", "0100","0101","0110", "0111","1000", "1001", "1010", "1011","1100", "1101", "1110","1111"];
- 
-   //2D array. If [][].length > 1 variable is an array
-   
-
-  let groupedVariables = new Array();
-  let groupCount =0;
- 
-  //Add the first element
-  groupedVariables.push(new Array());
- 
-  //Group variables together in arrays
-  for(let i=0; i < varibleNames.length; i++){
-    if(i+1 < varibleNames.length){
-      if(varibleNames[i].localeCompare(varibleNames[i+1]) == 0){
-        groupedVariables[groupCount].push(varibleNames[i]);
-        
-      }else if(varibleNames[i].localeCompare(varibleNames[i-1]) == 0){
-        groupedVariables[groupCount].push(varibleNames[i]);
-      }else{
-        groupedVariables.push(new Array());
-        groupCount++;
-        groupedVariables[groupCount].push(varibleNames[i]);
-      }
-    }else{
-      if(varibleNames[i].localeCompare(varibleNames[i-1]) == 0){
-        groupedVariables[groupCount].push(varibleNames[i]);
-      }else{
-        groupedVariables.push(new Array());
-        groupCount++;
-        groupedVariables[groupCount].push(varibleNames[i]);
-      }
-    }
-  }
-
-  //Add brackets to arrays
-  for(let i =0; i < groupedVariables.length; i++){
-    let arrayCount = 0;
-    if(groupedVariables[i].length > 1){
-      for(let j = 0; j < groupedVariables[i].length; j++){
-        groupedVariables[i][j] += "[" + arrayCount + "]";
-        arrayCount++;
-      }
-    }
-  }
-
-  //Combine array
-  let finalVariables = new Array();
-  for(let i =0; i < groupedVariables.length; i++ ){
-    for(let j =0; j < groupedVariables[i].length; j++){
-      finalVariables.push(groupedVariables[i][j]);
-    }
-  }
-
-
-  console.log(finalVariables);
-
-
-  //Fill in table
-  for(let i =0; i < 16; i++){
-    //Add a row after the header (Thats why plus 1)
-    let row = document.getElementById("dataTable").insertRow(i+1);
-
-    let columnOne = row.insertCell(0);
-    let columnTwo = row.insertCell(1);
-    let columnThree = row.insertCell(2);
-
-    //Pull Data from memory since it is already formatted
-    let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
-    columnOne.innerHTML = dataSpots[i];
-    columnTwo.innerHTML = savedData[i];
-    if(i < finalVariables.length){
-      columnThree.innerHTML = finalVariables[i];
-    }
-    
-
-  }
-
-  
 }
