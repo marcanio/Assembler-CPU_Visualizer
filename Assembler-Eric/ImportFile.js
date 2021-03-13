@@ -325,6 +325,7 @@ function mainMethod() {
         }
       }
     }
+  }
 
     //Place into the table
     eachLine = removeEmpty(eachLine);
