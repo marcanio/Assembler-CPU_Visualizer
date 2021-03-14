@@ -31,10 +31,10 @@ export default class RegisterFileSVG {
 		this.reg_d_box = new PolygonSVG(Constants.REG_D_BOX_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, REG_D_BOX_OFFSET);
 
     
-		this.reg_a_text = new TextSVG(REG_A[0]+10, REG_A[1], Constants.REG_A_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_b_text = new TextSVG(REG_B[0]+10, REG_B[1], Constants.REG_B_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_c_text = new TextSVG(REG_C[0]+10, REG_C[1], Constants.REG_C_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_d_text = new TextSVG(REG_D[0]+10, REG_D[1], Constants.REG_D_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_a_text = new TextSVG(REG_A[0]+10, REG_A[1], Constants.REG_A_ID, cpu.registers.getRegister(0), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_b_text = new TextSVG(REG_B[0]+10, REG_B[1], Constants.REG_B_ID, cpu.registers.getRegister(1), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_c_text = new TextSVG(REG_C[0]+10, REG_C[1], Constants.REG_C_ID, cpu.registers.getRegister(2), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_d_text = new TextSVG(REG_D[0]+10, REG_D[1], Constants.REG_D_ID, cpu.registers.getRegister(3), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
     
 		this.read_a_mux = new Mux4_1SVG(Constants.READ_A_MUX_ID, Constants.READ_A_MUX_A_ID, Constants.READ_A_MUX_B_ID, Constants.READ_A_MUX_C_ID, Constants.READ_A_MUX_D_ID, Constants.READ_A_MUX_OFFSET);
 		this.read_b_mux = new Mux4_1SVG(Constants.READ_B_MUX_ID, Constants.READ_B_MUX_A_ID, Constants.READ_B_MUX_B_ID, Constants.READ_B_MUX_C_ID, Constants.READ_B_MUX_D_ID, Constants.READ_B_MUX_OFFSET);
