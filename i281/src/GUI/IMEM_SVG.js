@@ -20,7 +20,7 @@ export default class IMEM_SVG {
 	constructor() {
 		this.imem = new PolygonSVG(Constants.IMEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
 
-		var code = cpu.iMem.registers
+		var code = cpu.iMem.registers.slice(32, 64)
 
 		for(var i=0; i<code.length; i++){
 			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+i, (i+32).toString(2), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET) 
