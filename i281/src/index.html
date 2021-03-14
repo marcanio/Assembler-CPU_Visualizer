@@ -48,7 +48,9 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
         console.log(cur)
 
         if(counter < 32) {
-          prev -= 32;
+          if(prev > 31) {
+            prev -= 32;
+          }
           var prev = "imem_val"+prev
           document.getElementById(prev).style.fill = "black"
           return;
