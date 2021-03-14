@@ -10,6 +10,7 @@ let dataValues = new Array();
 let varibleNames = new Array();
 let printBranch = 0;
 let savedInstructions = new Array();
+let formattedVariables;
 
 let machineCode = "";
 
@@ -423,8 +424,9 @@ function mainMethod() {
   }
 
   //Save machine code for simulator
-  saveData();
   fillDataMemoryTable();
+  saveData();
+  
 
 }
 function formatInput() {
@@ -466,34 +468,7 @@ function downloadMachineFile() {
 function downloadUserCodeLow() {
   let element = document.createElement("a");
   let fileName = "User_Code_Low.v";
-  let machineCodeFormatted = machineCode.split("\n");
-  let output =
-    "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" +
-    "\r\n" +
-    "output [15:0] b0I;\r\n" +
-    "output [15:0] b1I;\r\n" +
-    "output [15:0] b2I;\r\n" +
-    "output [15:0] b3I;\r\n" +
-    "output [15:0] b4I;\r\n" +
-    "output [15:0] b5I;\r\n" +
-    "output [15:0] b6I;\r\n" +
-    "output [15:0] b7I;\r\n" +
-    "output [15:0] b8I;\r\n" +
-    "output [15:0] b9I;\r\n" +
-    "output [15:0] b10I;\r\n" +
-    "output [15:0] b11I;\r\n" +
-    "output [15:0] b12I;\r\n" +
-    "output [15:0] b13I;\r\n" +
-    "output [15:0] b14I;\r\n" +
-    "output [15:0] b15I;\r\n\n";
-  let i = 0;
-  for (i = 0; machineCodeFormatted.length - 1 > i && i < 16; i++) {
-    let line = machineCodeFormatted[i];
-    output += "assign b" + i + "I[15:0] = 16'b" + line + ";\n";
-  }
-  for (; i < 16; i++) {
-    output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
-  }
+  let output = createUserCodeLow();
 
   element.setAttribute(
     "href",
@@ -510,34 +485,8 @@ function downloadUserCodeLow() {
 function downloadUserCodeHigh() {
   let fileName = "User_Code_High.v";
   let element = document.createElement("a");
-  let machineCodeFormatted = machineCode.split("\n");
-  let output =
-    "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" +
-    "\r\n" +
-    "output [15:0] b0I;\r\n" +
-    "output [15:0] b1I;\r\n" +
-    "output [15:0] b2I;\r\n" +
-    "output [15:0] b3I;\r\n" +
-    "output [15:0] b4I;\r\n" +
-    "output [15:0] b5I;\r\n" +
-    "output [15:0] b6I;\r\n" +
-    "output [15:0] b7I;\r\n" +
-    "output [15:0] b8I;\r\n" +
-    "output [15:0] b9I;\r\n" +
-    "output [15:0] b10I;\r\n" +
-    "output [15:0] b11I;\r\n" +
-    "output [15:0] b12I;\r\n" +
-    "output [15:0] b13I;\r\n" +
-    "output [15:0] b14I;\r\n" +
-    "output [15:0] b15I;\r\n\n";
-  let i = 16;
-  for (i = 16; machineCodeFormatted.length - 1 > i && i < 32; i++) {
-    let line = machineCodeFormatted[i];
-    output += "assign b" + i + "I[15:0] = 16'b" + line + ";\n";
-  }
-  for (; i < 32; i++) {
-    output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
-  }
+ 
+  let output = createUserCodeHigh();
 
   element.setAttribute(
     "href",
@@ -1294,6 +1243,103 @@ function toggleSyntaxHighlight() {
   }
 }
 
+function createUserCodeHigh(){
+  let machineCodeFormatted = machineCode.split("\n");
+  let output =
+  "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" +
+  "\r\n" +
+  "output [15:0] b0I;\r\n" +
+  "output [15:0] b1I;\r\n" +
+  "output [15:0] b2I;\r\n" +
+  "output [15:0] b3I;\r\n" +
+  "output [15:0] b4I;\r\n" +
+  "output [15:0] b5I;\r\n" +
+  "output [15:0] b6I;\r\n" +
+  "output [15:0] b7I;\r\n" +
+  "output [15:0] b8I;\r\n" +
+  "output [15:0] b9I;\r\n" +
+  "output [15:0] b10I;\r\n" +
+  "output [15:0] b11I;\r\n" +
+  "output [15:0] b12I;\r\n" +
+  "output [15:0] b13I;\r\n" +
+  "output [15:0] b14I;\r\n" +
+  "output [15:0] b15I;\r\n\n";
+let i = 16;
+for (i = 16; machineCodeFormatted.length - 1 > i && i < 32; i++) {
+  let line = machineCodeFormatted[i];
+  output += "assign b" + i + "I[15:0] = 16'b" + line + ";\n";
+}
+for (; i < 32; i++) {
+  output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
+}
+
+  return output;
+}
+
+function createUserCodeLow(){
+  let machineCodeFormatted = machineCode.split("\n");
+  let output =
+    "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" +
+    "\r\n" +
+    "output [15:0] b0I;\r\n" +
+    "output [15:0] b1I;\r\n" +
+    "output [15:0] b2I;\r\n" +
+    "output [15:0] b3I;\r\n" +
+    "output [15:0] b4I;\r\n" +
+    "output [15:0] b5I;\r\n" +
+    "output [15:0] b6I;\r\n" +
+    "output [15:0] b7I;\r\n" +
+    "output [15:0] b8I;\r\n" +
+    "output [15:0] b9I;\r\n" +
+    "output [15:0] b10I;\r\n" +
+    "output [15:0] b11I;\r\n" +
+    "output [15:0] b12I;\r\n" +
+    "output [15:0] b13I;\r\n" +
+    "output [15:0] b14I;\r\n" +
+    "output [15:0] b15I;\r\n\n";
+  let i = 0;
+  for (i = 0; machineCodeFormatted.length - 1 > i && i < 16; i++) {
+    let line = machineCodeFormatted[i];
+    output += "assign b" + i + "I[15:0] = 16'b" + line + ";\n";
+  }
+  for (; i < 16; i++) {
+    output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
+  }
+  return output;
+}
+
+function createUserData(){
+  let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
+  let output =
+  "module User_Code_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);\r\n" +
+  "\r\n" +
+  "output [7:0] b0I;\r\n" +
+  "output [7:0] b1I;\r\n" +
+  "output [7:0] b2I;\r\n" +
+  "output [7:0] b3I;\r\n" +
+  "output [7:0] b4I;\r\n" +
+  "output [7:0] b5I;\r\n" +
+  "output [7:0] b6I;\r\n" +
+  "output [7:0] b7I;\r\n" +
+  "output [7:0] b8I;\r\n" +
+  "output [7:0] b9I;\r\n" +
+  "output [7:0] b10I;\r\n" +
+  "output [7:0] b11I;\r\n" +
+  "output [7:0] b12I;\r\n" +
+  "output [7:0] b13I;\r\n" +
+  "output [7:0] b14I;\r\n" +
+  "output [7:0] b15I;\r\n\n";
+
+  for(let i =0; i < 16; i++){
+    if(formattedVariables.length > i){
+      output += "assign b" + i + "I[7:0] = 8'b" + savedData[i] + "; //" + formattedVariables[i] + "\n";
+    }else{
+      output += "assign b" + i + "I[7:0] = 8'b00000000;\n"
+    }
+  }
+  return output;
+}
+
 
 function saveData(){
   let tempMachineCode = machineCode.replace(/\_/g, "");
@@ -1326,12 +1372,23 @@ function saveData(){
     }
   }
   
+  //Save user code high and low->
+
+  let saveUserCodeHigh = createUserCodeHigh();
+  let saveUserCodeLow = createUserCodeLow();
+  let saveUserData = createUserData();
+
+
+
   //console.log(savedInstructions);
   //console.log(fixedsavedMachineCode);
   sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
   sessionStorage.setItem("savedInstructions", JSON.stringify(savedInstructions));
   sessionStorage.setItem("savedDataMemory", JSON.stringify(savedDataMemory));
-  //console.log(savedDataMemory);
+  sessionStorage.setItem("savedUserCodeHigh", JSON.stringify(saveUserCodeHigh));
+  sessionStorage.setItem("savedUserCodeLow", JSON.stringify(saveUserCodeLow));
+  sessionStorage.setItem("savedUserData", JSON.stringify(saveUserData));
+  console.log(saveUserData);
    
 }
 
@@ -1391,8 +1448,9 @@ function fillDataMemoryTable(){
     }
   }
 
-
-  console.log(finalVariables);
+  //Save for user data
+  formattedVariables = finalVariables;
+  
 
 
   //Fill in table
