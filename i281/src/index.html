@@ -39,23 +39,33 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
         var doc = document.getElementById("counter")
         //var wire = document.getElementById("test")
         //wire.style.stroke = "red"
-        var counter = doc.innerHTML
+        var prev = cpu.pc.getPC();
+        cpu.singleCycle();
+        var counter = cpu.pc.getPC();
+
         console.log(counter)
         var cur = "i"+counter
         console.log(cur)
-        if(counter==0){
-            var i0 = document.getElementById("imem_val0")
-            i0.style.fill = "red"
-           }
-        else{
-            var prev = counter-1
-            var current = "imem_val"+counter
-            var prev = "imem_val"+prev
-            document.getElementById(prev).style.fill = "black"
-            document.getElementById(current).style.fill = "red"
+
+        if(counter < 32) {
+          return;
+        }
+
+        else {
+          counter -= 32;
+          prev -= 32;
+          if(counter==0){
+              var i0 = document.getElementById("imem_val0")
+              i0.style.fill = "red"
             }
-        counter++
-        doc.innerHTML=counter
+          else{
+              var current = "imem_val"+counter
+              var prev = "imem_val"+prev
+              document.getElementById(prev).style.fill = "black"
+              document.getElementById(current).style.fill = "red"
+              }
+        }
+
       }
     </script>
     
