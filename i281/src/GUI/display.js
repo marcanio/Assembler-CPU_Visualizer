@@ -174,7 +174,7 @@ window.addEventListener("load", function() {
 	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 200], "8 low", RIGHT);
 
 	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1100, 140], 27, LEFT);
-	var flags_control_info = new BussInfoSVG("flags_control_info", [1290, 290], 4, LEFT);
+	var flags_control_info = new BussInfoSVG("flags_control_info", [1290, 250], 4, LEFT);
 
 	var imem_in_top = new BussInfoSVG("imem_in_top", [65, 185], 6, LEFT);
 	var imem_in_middle = new BussInfoSVG("imem_in_middle", [75, 315], 16, LEFT);
@@ -182,12 +182,41 @@ window.addEventListener("load", function() {
 
 	var mux0_out_info = new BussInfoSVG("mux0_out", [1325, 800], 8, LEFT);
 	var mux1_out_info = new BussInfoSVG("mux1_out", [1715, 715], 8, LEFT);
-	var mux2_out_info = new BussInfoSVG("mux2_out", [1725, 1065], 8, LEFT);
-	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 600], 8, LEFT);
+	var mux2_out_info = new BussInfoSVG("mux2_out", [1725, 1125], 8, LEFT);
+	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 500], 8, LEFT);
+	var alu_in_top_info = new BussInfoSVG("alu_in_top_info", [1325, 570], 8, LEFT);
+	var alu_out_top_info = new BussInfoSVG("alu_out_top_info", [1573, 550], 8, LEFT);
+	var alu_out_bottom_info = new BussInfoSVG("alu_out_bottom_info", [1550, 670], 8, LEFT);
+
+	var mux4_out_info = new BussInfoSVG("mux4_out_info", [1020 , 1250], 6, LEFT);
+	var mux1_feedback_info = new BussInfoSVG("mux1_feedback_info", [2165, 600], "6 low", RIGHT);
+	var mux1_intermediate_info = new BussInfoSVG("mux1_intermediate_info", [1900, 715], 8, LEFT);
+
+	var mux3_in_top_info = new BussInfoSVG("mux3_in_top_info", [2220, 715], 8, LEFT);
+	var mux3_in_bottom_info = new BussInfoSVG("mux3_in_bottom_info", [2220, 805], 8, LEFT);
+
+	var pc_update_in_info = new BussInfoSVG("pc_update_in_info", [Constants.INTERSECT_1_POS[0] + 15, 1100], "6 low", RIGHT);
+	var pc_update_in_bottom_info = new BussInfoSVG("pc_update_in_bottom_info", [Constants.INTERSECT_1_POS[0] + 40, 1285], "6", LEFT);
+
+	
+	var dmem_in_top_info = new BussInfoSVG("test", [1775, 950], 4, LEFT);
+	var dmem_in_bottom_info = new BussInfoSVG("test", [1800, 990], 4, LEFT);
+	
+	var pc_logic_out_top_info = new BussInfoSVG("test", [850, 1205], 6, LEFT);
+	var pc_logic_out_bottom_info = new BussInfoSVG("test", [850, 1295], 6, LEFT);
+	var pc_val_out_info = new BussInfoSVG("test", [1300, 1240], 6, LEFT);
+
+	var mux0_in_top_info = new BussInfoSVG("mux0_in_top_info", [1100, 755], 8, LEFT);
+	var mux0_in_bottom_info = new BussInfoSVG("mux0_in_bottom_info", [1170, 875], 8, LEFT);
+	
+	var mux1_in_bottom_info = new BussInfoSVG("mux1_in_bottom_info", [1575, 875], 8, LEFT);
+	var mux2_in_top_info = new BussInfoSVG("mux2_in_top_info", [1575, 1080], 8, LEFT);
+	var mux2_in_bottom_info = new BussInfoSVG("mux2_in_bottom_info", [1575, 1170], 8, LEFT);
+	
+	var switches_info = new BussInfoSVG("switches_info", [1425, 1170], 16, LEFT);
+
 
 	/*
-	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
-	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
 	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
 	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
 	var info = new BussInfoSVG("test", [100, 200], 8, LEFT);
@@ -325,6 +354,27 @@ window.addEventListener("load", function() {
 	mux2_out_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	mux3_out_info.get_all_nodes().forEach(x => svg.appendChild(x));
 
+	mux1_intermediate_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux4_out_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	alu_out_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	alu_out_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	dmem_in_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	dmem_in_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	pc_val_out_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	pc_logic_out_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	pc_logic_out_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	alu_in_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux1_feedback_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux3_in_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux3_in_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	pc_update_in_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	pc_update_in_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux0_in_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux0_in_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux1_in_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux2_in_top_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	mux2_in_bottom_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	switches_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	svg.appendChild(flag_control_wire.node);
 	//svg.appendChild(mux_imem_wire.node);
 	svg.appendChild(mux_reg_file_wire.node);
