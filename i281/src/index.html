@@ -8,6 +8,7 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
     <title>i281 CPU</title>
     <link rel="stylesheet" href="./GUI/index.css">
     <script src="./GUI/display.js" type="module"></script>
+    <script src="./GUI/UIFunc.js" type="module"></script>
     
 </head>
   <body >
@@ -17,10 +18,387 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
       <div id="modal_content" class="modal-content">
       </div>
     </div>
-    <svg id="canvas" height="1600" width="2400">
+    <svg id="canvas" height="1600" width="3400">
+             <!-- Display 1 x -->
+             <line id="topT1" x1="2445" y1="20" x2="2475" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL1" x1="2435" y1="25" x2="2435" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR1" x1="2485" y1="25" x2="2485" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM1" x1="2445" y1="70" x2="2475" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB1" x1="2445" y1="120" x2="2475" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL1" x1="2435" y1="75" x2="2435" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR1" x1="2485" y1="75" x2="2485" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT1L" points="2445,25 2440,20 2445,15" style="fill: lightgrey;"/>
+             <polygon id="topT1R" points="2475,25 2480,20 2475,15" style="fill: lightgrey;"/>
+             <polygon id="topL1T" points="2430,25 2435,20 2440,25" style="fill: lightgrey;" />
+             <polygon id="topL1B" points="2430,65 2435,70 2440,65" style="fill: lightgrey;" />
+             <polygon id="midM1L" points="2445,75 2440,70 2445,65" style="fill: lightgrey;" />  
+             <polygon id="midM1R" points="2475,75 2480,70 2475,65" style="fill: lightgrey;" />
+             <polygon id="botL1T" points="2430,75 2435,70 2440,75" style="fill: lightgrey;" /> 
+             <polygon id="botL1B" points="2430,115 2435,120 2440,115" style="fill: lightgrey;" />
+             <polygon id="botR1T" points="2480,75 2485,70 2490,75" style="fill: lightgrey;" />
+             <polygon id="botR1B" points="2480,115 2485,120 2490,115" style="fill: lightgrey;" />
+             <polygon id="botB1R" points="2475,115 2480,120 2475,125" style="fill: lightgrey;" />
+             <polygon id="botB1L" points="2445,125 2440,120 2445,115" style="fill: lightgrey;" />
+             <polygon id="topR1T" points="2480,25 2485,20 2490,25" style="fill: lightgrey;" />
+             <polygon id="topR1B" points="2480,65 2485,70 2490,65" style="fill: lightgrey;" />
+
+             <!-- Display 2 x+70 -->
+             <line id="topT2" x1="2515" y1="20" x2="2545" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL2" x1="2505" y1="25" x2="2505" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR2" x1="2555" y1="25" x2="2555" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM2" x1="2515" y1="70" x2="2545" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB2" x1="2515" y1="120" x2="2545" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL2" x1="2505" y1="75" x2="2505" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR2" x1="2555" y1="75" x2="2555" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT2L" points="2515,25 2510,20 2515,15" style="fill: lightgrey;"/>
+             <polygon id="topT2R" points="2545,25 2550,20 2545,15" style="fill: lightgrey;"/>
+             <polygon id="topL2T" points="2500,25 2505,20 2510,25" style="fill: lightgrey;" />
+             <polygon id="topL2B" points="2500,65 2505,70 2510,65" style="fill: lightgrey;" />
+             <polygon id="midM2L" points="2515,75 2510,70 2515,65" style="fill: lightgrey;" />  
+             <polygon id="midM2R" points="2545,75 2550,70 2545,65" style="fill: lightgrey;" />
+             <polygon id="botL2T" points="2500,75 2505,70 2510,75" style="fill: lightgrey;" /> 
+             <polygon id="botL2B" points="2500,115 2505,120 2510,115" style="fill: lightgrey;" />
+             <polygon id="botR2T" points="2550,75 2555,70 2560,75" style="fill: lightgrey;" />
+             <polygon id="botR2B" points="2550,115 2555,120 2560,115" style="fill: lightgrey;" />
+             <polygon id="botB2R" points="2545,115 2550,120 2545,125" style="fill: lightgrey;" />
+             <polygon id="botB2L" points="2515,125 2510,120 2515,115" style="fill: lightgrey;" />
+             <polygon id="topR2T" points="2550,25 2555,20 2560,25" style="fill: lightgrey;" />
+             <polygon id="topR2B" points="2550,65 2555,70 2560,65" style="fill: lightgrey;" />
+     
+             <!-- Display 3 x+210 -->
+             <line id="topT3" x1="2655" y1="20" x2="2685" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL3" x1="2645" y1="25" x2="2645" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR3" x1="2695" y1="25" x2="2695" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM3" x1="2655" y1="70" x2="2685" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB3" x1="2655" y1="120" x2="2685" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL3" x1="2645" y1="75" x2="2645" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR3" x1="2695" y1="75" x2="2695" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT3L" points="2655,25 2650,20 2655,15" style="fill: lightgrey;"/>
+             <polygon id="topT3R" points="2685,25 2690,20 2685,15" style="fill: lightgrey;"/>
+             <polygon id="topL3T" points="2640,25 2645,20 2650,25" style="fill: lightgrey;" />
+             <polygon id="topL3B" points="2640,65 2645,70 2650,65" style="fill: lightgrey;" />
+             <polygon id="midM3L" points="2655,75 2650,70 2655,65" style="fill: lightgrey;" />  
+             <polygon id="midM3R" points="2685,75 2690,70 2685,65" style="fill: lightgrey;" />
+             <polygon id="botL3T" points="2640,75 2645,70 2650,75" style="fill: lightgrey;" /> 
+             <polygon id="botL3B" points="2640,115 2645,120 2650,115" style="fill: lightgrey;" />
+             <polygon id="botR3T" points="2690,75 2695,70 2700,75" style="fill: lightgrey;" />
+             <polygon id="botR3B" points="2690,115 2695,120 2700,115" style="fill: lightgrey;" />
+             <polygon id="botB3R" points="2685,115 2690,120 2685,125" style="fill: lightgrey;" />
+             <polygon id="botB3L" points="2655,125 2650,120 2655,115" style="fill: lightgrey;" />
+             <polygon id="topR3T" points="2690,25 2695,20 2700,25" style="fill: lightgrey;" />
+             <polygon id="topR3B" points="2690,65 2695,70 2700,65" style="fill: lightgrey;" />
+     
+             <!-- Display 4 x+280 -->
+             <line id="topT4" x1="2725" y1="20" x2="2755" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL4" x1="2715" y1="25" x2="2715" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR4" x1="2765" y1="25" x2="2765" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM4" x1="2725" y1="70" x2="2755" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB4" x1="2725" y1="120" x2="2755" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL4" x1="2715" y1="75" x2="2715" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR4" x1="2765" y1="75" x2="2765" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT4L" points="2725,25 2720,20 2725,15" style="fill: lightgrey;"/>
+             <polygon id="topT4R" points="2755,25 2760,20 2755,15" style="fill: lightgrey;"/>
+             <polygon id="topL4T" points="2710,25 2715,20 2720,25" style="fill: lightgrey;" />
+             <polygon id="topL4B" points="2710,65 2715,70 2720,65" style="fill: lightgrey;" />
+             <polygon id="midM4L" points="2725,75 2720,70 2725,65" style="fill: lightgrey;" />  
+             <polygon id="midM4R" points="2755,75 2760,70 2755,65" style="fill: lightgrey;" />
+             <polygon id="botL4T" points="2710,75 2715,70 2720,75" style="fill: lightgrey;" /> 
+             <polygon id="botL4B" points="2710,115 2715,120 2720,115" style="fill: lightgrey;" />
+             <polygon id="botR4T" points="2760,75 2765,70 2770,75" style="fill: lightgrey;" />
+             <polygon id="botR4B" points="2760,115 2765,120 2770,115" style="fill: lightgrey;" />
+             <polygon id="botB4R" points="2755,115 2760,120 2755,125" style="fill: lightgrey;" />
+             <polygon id="botB4L" points="2725,125 2720,120 2725,115" style="fill: lightgrey;" />
+             <polygon id="topR4T" points="2760,25 2765,20 2770,25" style="fill: lightgrey;" />
+             <polygon id="topR4B" points="2760,65 2765,70 2770,65" style="fill: lightgrey;" />
+     
+             <!-- Display 5 x+420 -->
+             <line id="topT5" x1="2865" y1="20" x2="2895" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL5" x1="2855" y1="25" x2="2855" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR5" x1="2905" y1="25" x2="2905" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM5" x1="2865" y1="70" x2="2895" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB5" x1="2865" y1="120" x2="2895" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL5" x1="2855" y1="75" x2="2855" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR5" x1="2905" y1="75" x2="2905" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT5L" points="2865,25 2860,20 2865,15" style="fill: lightgrey;"/>
+             <polygon id="topT5R" points="2895,25 2900,20 2895,15" style="fill: lightgrey;"/>
+             <polygon id="topL5T" points="2850,25 2855,20 2860,25" style="fill: lightgrey;" />
+             <polygon id="topL5B" points="2850,65 2855,70 2860,65" style="fill: lightgrey;" />
+             <polygon id="midM5L" points="2865,75 2860,70 2865,65" style="fill: lightgrey;" />  
+             <polygon id="midM5R" points="2895,75 2900,70 2895,65" style="fill: lightgrey;" />
+             <polygon id="botL5T" points="2850,75 2855,70 2860,75" style="fill: lightgrey;" /> 
+             <polygon id="botL5B" points="2850,115 2855,120 2860,115" style="fill: lightgrey;" />
+             <polygon id="botR5T" points="2900,75 2905,70 2910,75" style="fill: lightgrey;" />
+             <polygon id="botR5B" points="2900,115 2905,120 2910,115" style="fill: lightgrey;" />
+             <polygon id="botB5R" points="2895,115 2900,120 2895,125" style="fill: lightgrey;" />
+             <polygon id="botB5L" points="2865,125 2860,120 2865,115" style="fill: lightgrey;" />
+             <polygon id="topR5T" points="2900,25 2905,20 2910,25" style="fill: lightgrey;" />
+             <polygon id="topR5B" points="2900,65 2905,70 2910,65" style="fill: lightgrey;" />
+             
+             <!-- Display 6 x+490 -->
+             <line id="topT6" x1="2935" y1="20" x2="2965" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL6" x1="2925" y1="25" x2="2925" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR6" x1="2975" y1="25" x2="2975" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM6" x1="2935" y1="70" x2="2965" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB6" x1="2935" y1="120" x2="2965" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL6" x1="2925" y1="75" x2="2925" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR6" x1="2975" y1="75" x2="2975" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT6L" points="2935,25 2930,20 2935,15" style="fill: lightgrey;"/>
+             <polygon id="topT6R" points="2965,25 2970,20 2965,15" style="fill: lightgrey;"/>
+             <polygon id="topL6T" points="2920,25 2925,20 2930,25" style="fill: lightgrey;" />
+             <polygon id="topL6B" points="2920,65 2925,70 2930,65" style="fill: lightgrey;" />
+             <polygon id="midM6L" points="2935,75 2930,70 2935,65" style="fill: lightgrey;" />  
+             <polygon id="midM6R" points="2965,75 2970,70 2965,65" style="fill: lightgrey;" />
+             <polygon id="botL6T" points="2920,75 2925,70 2930,75" style="fill: lightgrey;" /> 
+             <polygon id="botL6B" points="2920,115 2925,120 2930,115" style="fill: lightgrey;" />
+             <polygon id="botR6T" points="2970,75 2975,70 2980,75" style="fill: lightgrey;" />
+             <polygon id="botR6B" points="2970,115 2975,120 2980,115" style="fill: lightgrey;" />
+             <polygon id="botB6R" points="2965,115 2970,120 2965,125" style="fill: lightgrey;" />
+             <polygon id="botB6L" points="2935,125 2930,120 2935,115" style="fill: lightgrey;" />
+             <polygon id="topR6T" points="2970,25 2975,20 2980,25" style="fill: lightgrey;" />
+             <polygon id="topR6B" points="2970,65 2975,70 2980,65" style="fill: lightgrey;" />
+             
+             <!-- Display 7 x+560 -->
+             <line id="topT7" x1="3005" y1="20" x2="3035" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL7" x1="2995" y1="25" x2="2995" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR7" x1="3045" y1="25" x2="3045" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM7" x1="3005" y1="70" x2="3035" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB7" x1="3005" y1="120" x2="3035" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL7" x1="2995" y1="75" x2="2995" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR7" x1="3045" y1="75" x2="3045" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT7L" points="3005,25 3000,20 3005,15" style="fill: lightgrey;"/>
+             <polygon id="topT7R" points="3035,25 3040,20 3035,15" style="fill: lightgrey;"/>
+             <polygon id="topL7T" points="2990,25 2995,20 3000,25" style="fill: lightgrey;" />
+             <polygon id="topL7B" points="2990,65 2995,70 3000,65" style="fill: lightgrey;" />
+             <polygon id="midM7L" points="3005,75 3000,70 3005,65" style="fill: lightgrey;" />  
+             <polygon id="midM7R" points="3035,75 3040,70 3035,65" style="fill: lightgrey;" />
+             <polygon id="botL7T" points="2990,75 2995,70 3000,75" style="fill: lightgrey;" /> 
+             <polygon id="botL7B" points="2990,115 2995,120 3000,115" style="fill: lightgrey;" />
+             <polygon id="botR7T" points="3040,75 3045,70 3050,75" style="fill: lightgrey;" />
+             <polygon id="botR7B" points="3040,115 3045,120 3050,115" style="fill: lightgrey;" />
+             <polygon id="botB7R" points="3035,115 3040,120 3035,125" style="fill: lightgrey;" />
+             <polygon id="botB7L" points="3005,125 3000,120 3005,115" style="fill: lightgrey;" />
+             <polygon id="topR7T" points="3040,25 3045,20 3050,25" style="fill: lightgrey;" />
+             <polygon id="topR7B" points="3040,65 3045,70 3050,65" style="fill: lightgrey;" />
+     
+             <!-- Display 8 x+630 -->
+             <line id="topT8" x1="3075" y1="20" x2="3105" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
+             <line id="topL8" x1="3065" y1="25" x2="3065" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="topR8" x1="3115" y1="25" x2="3115" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="midM8" x1="3075" y1="70" x2="3105" y2="70" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botB8" x1="3075" y1="120" x2="3105" y2="120" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botL8" x1="3065" y1="75" x2="3065" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <line id="botR8" x1="3115" y1="75" x2="3115" y2="115" style="stroke: lightgrey;stroke-width: 8;"/>
+             <polygon id="topT8L" points="3075,25 3070,20 3075,15" style="fill: lightgrey;"/>
+             <polygon id="topT8R" points="3105,25 3110,20 3105,15" style="fill: lightgrey;"/>
+             <polygon id="topL8T" points="3060,25 3065,20 3070,25" style="fill: lightgrey;" />
+             <polygon id="topL8B" points="3060,65 3065,70 3070,65" style="fill: lightgrey;" />
+             <polygon id="midM8L" points="3075,75 3070,70 3075,65" style="fill: lightgrey;" />  
+             <polygon id="midM8R" points="3105,75 3110,70 3105,65" style="fill: lightgrey;" />
+             <polygon id="botL8T" points="3060,75 3065,70 3070,75" style="fill: lightgrey;" /> 
+             <polygon id="botL8B" points="3060,115 3065,120 3070,115" style="fill: lightgrey;" />
+             <polygon id="botR8T" points="3110,75 3115,70 3120,75" style="fill: lightgrey;" />
+             <polygon id="botR8B" points="3110,115 3115,120 3120,115" style="fill: lightgrey;" />
+             <polygon id="botB8R" points="3105,115 3110,120 3105,125" style="fill: lightgrey;" />
+             <polygon id="botB8L" points="3075,125 3070,120 3075,115" style="fill: lightgrey;" />
+             <polygon id="topR8T" points="3110,25 3115,20 3120,25" style="fill: lightgrey;" />
+             <polygon id="topR8B" points="3110,65 3115,70 3120,65" style="fill: lightgrey;" />
+
+     <foreignObject x="2420" y="130" width="900px" height="200px" id = "switchCanv">
+       <div switchGroup>
+           <element id="switchGroup">
+               <label class="switch">
+                   <input type="checkbox" id="bit00"  onchange="switchChange(this,'bit0In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 17</span>
+                   </label>
+               
+                   <label class="switch">
+                   <input type="checkbox" id="bit01"  onchange="switchChange(this,'bit1In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 16</span>
+                   </label>
+               </el>
+           <element id="switchGroup">
+               <label class="switch">
+                   <input type="checkbox" id="bit02"  onchange="switchChange(this,'bit2In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 15</span>
+                   </label>
+               
+                   <label class="switch">
+                   <input type="checkbox" id="bit03"  onchange="switchChange(this,'bit3In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 14</span>
+                   </label>
+                   
+                   <label class="switch">
+                   <input type="checkbox" id="bit04"  onchange="switchChange(this,'bit4In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 13</span>
+                   </label>
+                   
+                   <label class="switch">
+                   <input type="checkbox" id="bit05"  onchange="switchChange(this,'bit5In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 12</span>
+                   </label>
+                
+                   <label class="switch">
+                   <input type="checkbox" id="bit06" onchange="switchChange(this,'bit6In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 11</span>
+                   </label>
+                   
+                   <label class="switch">
+                   <input type="checkbox" id="bit07" onchange="switchChange(this,'bit7In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 10</span>
+                   </label>
+   
+                   <label class="switch">
+                   <input type="checkbox" id="bit08" onchange="switchChange(this,'bit8In')"> 
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 9</span>
+                   </label>
+               
+                   <label class="switch">
+                   <input type="checkbox" id="bit09" onchange="switchChange(this,'bit9In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 8</span>
+                   </label>
+               </el>
+           <element id="switchGroup">
+               <label class="switch">
+                   <input type="checkbox" id="bit10" onchange="switchChange(this,'bit10In')"> 
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 7</span>
+                   </label>
+                   
+                  <label class="switch">
+                   <input type="checkbox" id="bit11" onchange="switchChange(this,'bit11In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 6</span>
+                   </label>
+               
+                   <label class="switch">
+                   <input type="checkbox" id="bit12" onchange="switchChange(this,'bit12In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 5</span>
+                   </label>
+                       
+                   <label class="switch">
+                   <input type="checkbox" id="bit13" onchange="switchChange(this,'bit13In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 4</span>
+                   </label>
+                       
+                   <label class="switch">
+                   <input type="checkbox" id="bit14" onchange="switchChange(this,'bit14In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 3</span>
+                   </label>
+                       
+                   <label class="switch">
+                   <input type="checkbox" id="bit15"  onchange="switchChange(this,'bit15In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 2</span>
+                   </label>
+                           
+                   <label class="switch">
+                   <input type="checkbox" id="bit16" onchange="switchChange(this,'bit16In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 1</span>
+                   </label>  
+                       
+                   <label class="switch">
+                   <input type="checkbox" id="bit17" onchange="switchChange(this,'bit17In')">
+                   <span class="slider"></span>
+                   <span class="tooltiptext">Switch 0</span>
+                   </label>
+               </el>
+       </div>
+
+       <ul id="wrapper">
+         <element id="wrapper">
+             <input type="text" maxlength = "1" id="bit0In" oninput="switchKeystroke(this,'bit00')" name="0In" value="0">
+             <input type="text" maxlength = "1" id="bit1In" oninput="switchKeystroke(this,'bit01')" name="1In" value="0">
+         </element>
+         <element id="wrapper">
+             <input type="text" maxlength = "1" id="bit2In" oninput="switchKeystroke(this,'bit02')" name="2In" value="0">
+             <input type="text" maxlength = "1" id="bit3In" oninput="switchKeystroke(this,'bit03')" name="3In" value="0">
+             <input type="text" maxlength = "1" id="bit4In" oninput="switchKeystroke(this,'bit04')" name="4In" value="0">
+             <input type="text" maxlength = "1" id="bit5In" oninput="switchKeystroke(this,'bit05')" name="5In" value="0">
+             <input type="text" maxlength = "1" id="bit6In" oninput="switchKeystroke(this,'bit06')" name="6In" value="0">
+             <input type="text" maxlength = "1" id="bit7In" oninput="switchKeystroke(this,'bit07')" name="7In" value="0">
+             <input type="text" maxlength = "1" id="bit8In" oninput="switchKeystroke(this,'bit08')" name="8In" value="0">
+             <input type="text" maxlength = "1" id="bit9In" oninput="switchKeystroke(this,'bit09')" name="9In" value="0">
+         </element>
+         <element id="wrapper">
+             <input type="text" maxlength = "1" id="bit10In" oninput="switchKeystroke(this,'bit10')"  name="10In" value="0">
+             <input type="text" maxlength = "1" id="bit11In" oninput="switchKeystroke(this,'bit11')" name="11In" value="0">
+             <input type="text" maxlength = "1" id="bit12In" oninput="switchKeystroke(this,'bit12')" name="12In" value="0">
+             <input type="text" maxlength = "1" id="bit13In" oninput="switchKeystroke(this,'bit13')" name="13In" value="0">
+             <input type="text" maxlength = "1" id="bit14In" oninput="switchKeystroke(this,'bit14')" name="14In" value="0">
+             <input type="text" maxlength = "1" id="bit15In" oninput="switchKeystroke(this,'bit15')" name="15In" value="0">
+             <input type="text" maxlength = "1" id="bit16In" oninput="switchKeystroke(this,'bit16')" name="16In" value="0">
+             <input type="text" maxlength = "1" id="bit17In" oninput="switchKeystroke(this,'bit17')" name="17In" value="0">
+         </element>
+     </ul>
+
+
+   </foreignObject>
+
+     <foreignObject x="2420" y="330" width="300px" height="150px" id = "switchCanv">
+       <label class="push">
+           <input type="button" id="push1">
+           <span class="pushin" id="pushin1"></span>
+           <span class="tooltiptext">Push Button 1, key u</span>
+       </label>
+       <label class="push">
+           <input type="button" id="push2">
+           <span class="pushin" id="pushin2"></span>
+           <span class="tooltiptext">Push Button 2, key i</span>
+       </label>
+       <label class="push">
+           <input type="button" id="push3">
+           <span class="pushin" id="pushin3"></span>
+           <span class="tooltiptext">Push Button 3, key o</span>
+       </label>
+       <label class="push">
+           <input type="button" id="push4">
+           <span class="pushin" id="pushin4"></span>
+           <span class="tooltiptext">Push Button 4, key p</span>
+       </label>
+
+       <div style="clear: both;">
+               <a style="font-family:'Courier New';font-size:x-large">Step</a>
+       </div>
+   </foreignObject>
+
+   <foreignObject x="2800" y="350" width="500px" height="100px" id = "switchCanvSpeed">
+       <input type="range" min="1" max="100" value="50" class="speed" id="speedSld">
+         <p style="font-family:'Courier New';font-size:xx-large;font-weight:bold">Speed:<span id="SimSpeed"></span></p>
+   </foreignObject>
+
+   <foreignObject x="2420" y="500" width="500px" height="200px" id = "Menu">
+    <br>
+    <input type="checkbox" id="show_arrows" style="height: 25px;width: 25px;">
+    <label for="show_arrows" style="font-size: xx-large;"> Hide Arrows</label>
+    <input type="checkbox" id="show_bus_info" style="height: 25px;width: 25px;">
+    <label for="show_bus_info" style="font-size: xx-large;"> Show Bus Width</label>
+    <br>
+    <button id="goto_assembler" style="font-size: xx-large;" onclick="location.href='./ImportFile.html'">Assembler</button>
+    <button id="goto_altera_board" style="font-size: xx-large;">Altera Board</button>
+    <br>
+
+    <input type="text" style="font-size: x-large;" id="instruction">
+    <label type="text" style="font-size: x-large;" id="result"></label>
+    <p id="counter" style="font-size: x-large;">0</p>
+   </foreignObject>
+
     </svg> 
     <!-- Menu -->
-    <br>
+    <!-- <br>
     <input type="checkbox" id="show_arrows">
     <label for="show_arrows"> Hide Arrows</label>
     <input type="checkbox" id="show_bus_info">
@@ -32,7 +410,7 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 
     <input type="text" id="instruction">
     <label type="text" id="result"></label>
-    <p id="counter">0</p>
+    <p id="counter">0</p> -->
 
     <script>
       function test(){
