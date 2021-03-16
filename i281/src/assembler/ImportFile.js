@@ -424,8 +424,10 @@ function mainMethod() {
   }
 
   //Save machine code for simulator
-  fillDataMemoryTable();
+  formattedVariables = formatVariables();
   saveData();
+  fillDataMemoryTable();
+  
   
 
 }
@@ -1330,6 +1332,7 @@ function createUserData(){
   "output [7:0] b14I;\r\n" +
   "output [7:0] b15I;\r\n\n";
 
+  
   for(let i =0; i < 16; i++){
     if(formattedVariables.length > i){
       output += "assign b" + i + "I[7:0] = 8'b" + savedData[i] + "; //" + formattedVariables[i] + "\n";
@@ -1417,8 +1420,34 @@ function fillDataMemoryTable(){
   const dataSpots = ["0000", "0001", "0010", "0011", "0100","0101","0110", "0111","1000", "1001", "1010", "1011","1100", "1101", "1110","1111"];
  
    //2D array. If [][].length > 1 variable is an array
-   
+   console.log(formattedVariables);
 
+  //Fill in table
+  for(let i =0; i < 16; i++){
+    //Add a row after the header (Thats why plus 1)
+    let row = document.getElementById("dataTable").insertRow(i+1);
+
+    let columnOne = row.insertCell(0);
+    let columnTwo = row.insertCell(1);
+    let columnThree = row.insertCell(2);
+
+    //Pull Data from memory since it is already formatted
+    let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
+    columnOne.innerHTML = dataSpots[i];
+    columnTwo.innerHTML = savedData[i];
+    if(i < formattedVariables.length){
+      columnThree.innerHTML = formattedVariables[i];
+    }
+    
+
+  }
+
+  
+}
+
+//Format Variables
+function formatVariables(){
+  
   let groupedVariables = new Array();
   let groupCount =0;
  
@@ -1467,31 +1496,5 @@ function fillDataMemoryTable(){
       finalVariables.push(groupedVariables[i][j]);
     }
   }
-
-  //Save for user data
-  formattedVariables = finalVariables;
-  
-
-
-  //Fill in table
-  for(let i =0; i < 16; i++){
-    //Add a row after the header (Thats why plus 1)
-    let row = document.getElementById("dataTable").insertRow(i+1);
-
-    let columnOne = row.insertCell(0);
-    let columnTwo = row.insertCell(1);
-    let columnThree = row.insertCell(2);
-
-    //Pull Data from memory since it is already formatted
-    let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
-    columnOne.innerHTML = dataSpots[i];
-    columnTwo.innerHTML = savedData[i];
-    if(i < finalVariables.length){
-      columnThree.innerHTML = finalVariables[i];
-    }
-    
-
-  }
-
-  
+  return finalVariables;
 }
