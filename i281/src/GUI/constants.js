@@ -193,6 +193,7 @@ export const MUX_D_TEXT = "D";
 
 
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"5px"};
+export const THIN_BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";

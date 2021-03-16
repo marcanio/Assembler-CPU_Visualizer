@@ -20,10 +20,10 @@ export default class RegisterFileSVG {
 		this.reg_file = new PolygonSVG(Constants.REG_FILE_ID, Constants.REGISTER_FILE_POLYGON, Constants.BLOCK_STYLE, Constants.REGISTER_FILE_OFFSET);
 		this.register_text = new TextSVG(REG_TPOS[0], REG_TPOS[1], Constants.REG_TEXT_ID, Constants.REG_TEXT, Constants.COMPONENT_NAME_TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
 
-		this.reg_a_label = new TextSVG(REG_A[0] - 80, REG_A[1], Constants.REG_A_LABEL_ID, "A", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_b_label = new TextSVG(REG_B[0] - 80, REG_B[1], Constants.REG_B_LABEL_ID, "B", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_c_label = new TextSVG(REG_C[0] - 80, REG_C[1], Constants.REG_C_LABEL_ID, "C", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_d_label = new TextSVG(REG_D[0] - 80, REG_D[1], Constants.REG_D_LABEL_ID, "D", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_a_label = new TextSVG(REG_A[0] - 80, REG_A[1], Constants.REG_A_LABEL_ID, "A", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_b_label = new TextSVG(REG_B[0] - 80, REG_B[1], Constants.REG_B_LABEL_ID, "B", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_c_label = new TextSVG(REG_C[0] - 80, REG_C[1], Constants.REG_C_LABEL_ID, "C", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_d_label = new TextSVG(REG_D[0] - 80, REG_D[1], Constants.REG_D_LABEL_ID, "D", Constants.COMPONENT_NAME_TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
         
 		this.reg_a_box = new PolygonSVG(Constants.REG_A_BOX_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, REG_A_BOX_OFFSET);
 		this.reg_b_box = new PolygonSVG(Constants.REG_B_BOX_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, REG_B_BOX_OFFSET);
@@ -31,10 +31,10 @@ export default class RegisterFileSVG {
 		this.reg_d_box = new PolygonSVG(Constants.REG_D_BOX_ID, [...Constants.REGISTER_BOX], Constants.BLOCK_STYLE, REG_D_BOX_OFFSET);
 
     
-		this.reg_a_text = new TextSVG(REG_A[0]+10, REG_A[1], Constants.REG_A_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_b_text = new TextSVG(REG_B[0]+10, REG_B[1], Constants.REG_B_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_c_text = new TextSVG(REG_C[0]+10, REG_C[1], Constants.REG_C_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
-		this.reg_d_text = new TextSVG(REG_D[0]+10, REG_D[1], Constants.REG_D_ID, "00000000", Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_a_text = new TextSVG(REG_A[0]+10, REG_A[1], Constants.REG_A_ID, cpu.registers.getRegister(0), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_b_text = new TextSVG(REG_B[0]+10, REG_B[1], Constants.REG_B_ID, cpu.registers.getRegister(1), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_c_text = new TextSVG(REG_C[0]+10, REG_C[1], Constants.REG_C_ID, cpu.registers.getRegister(2), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
+		this.reg_d_text = new TextSVG(REG_D[0]+10, REG_D[1], Constants.REG_D_ID, cpu.registers.getRegister(3), Constants.TEXT_STYLE, Constants.REGISTER_FILE_OFFSET);
     
 		this.read_a_mux = new Mux4_1SVG(Constants.READ_A_MUX_ID, Constants.READ_A_MUX_A_ID, Constants.READ_A_MUX_B_ID, Constants.READ_A_MUX_C_ID, Constants.READ_A_MUX_D_ID, Constants.READ_A_MUX_OFFSET);
 		this.read_b_mux = new Mux4_1SVG(Constants.READ_B_MUX_ID, Constants.READ_B_MUX_A_ID, Constants.READ_B_MUX_B_ID, Constants.READ_B_MUX_C_ID, Constants.READ_B_MUX_D_ID, Constants.READ_B_MUX_OFFSET);

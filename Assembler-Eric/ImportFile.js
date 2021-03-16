@@ -271,6 +271,7 @@ function mainMethod() {
   document.getElementById("downloadLow").style.display = "block";
   document.getElementById("downloadHigh").style.display = "block";
   document.getElementById("toggleSyntax").style.display = "block";
+  document.getElementById("navigateCPU").style.display = "block";
 
   let count = 0;
   //Remove white spaces
@@ -324,6 +325,7 @@ function mainMethod() {
         }
       }
     }
+  }
 
     //Place into the table
     eachLine = removeEmpty(eachLine);
@@ -408,6 +410,27 @@ function mainMethod() {
       y.innerHTML = "&emsp;";
     }
   }
+
+  //Save machine code for simulator
+  let tempMachineCode = machineCode.replace(/\_/g, "");
+  let savedMachineCode = tempMachineCode.split("\n");
+  savedMachineCode = savedMachineCode.filter(function(e){return e}); 
+  let fixedsavedMachineCode = new Array(32);
+
+  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
+    if(i < savedMachineCode.length){
+      fixedsavedMachineCode[i] = savedMachineCode[i];
+    }else{
+      fixedsavedMachineCode[i] = "0000000000000000";
+    }
+  }
+
+  console.log(savedMachineCode);
+  console.log(fixedsavedMachineCode);
+  sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
+
+  console.log(withComments);
+
 }
 function formatInput() {
   let inputP = document.getElementById("textInput");
@@ -1185,12 +1208,6 @@ function toggleSyntaxHighlight() {
         let newMachineCol = '<span style="color:red">';
         newMachineCol += machineCol.substring(0, machineCol.length);
         newMachineCol += "</span>";
-        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-      } else {
-        let newMachineCol = '<span style="color:red">';
-        newMachineCol += machineCol.substring(0, 4);
-        newMachineCol += "</span>";
-        newMachineCol += machineCol.substring(4, machineCol.length);
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       }
     }

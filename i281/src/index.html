@@ -6,15 +6,16 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 <head>
     
     <title>i281 CPU</title>
-    <link rel="stylesheet" href="./index.css">
-    <script src="./simulator.js" type="module"></script>
-    <script src="./display.js" type="module"></script>
+    <link rel="stylesheet" href="./GUI/index.css">
+    <script src="./GUI/display.js" type="module"></script>
     
 </head>
   <body >
     <h1>i281 CPU</h1>
     <button onclick="test()">Cycle</button>
     <div id="modal" class="modal">
+      <div id="modal_content" class="modal-content">
+      </div>
     </div>
     <svg id="canvas" height="1600" width="2400">
     </svg> 
@@ -38,23 +39,38 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
         var doc = document.getElementById("counter")
         //var wire = document.getElementById("test")
         //wire.style.stroke = "red"
-        var counter = doc.innerHTML
+        var prev = cpu.pc.getPC();
+        cpu.singleCycle();
+        var counter = cpu.pc.getPC();
+
         console.log(counter)
         var cur = "i"+counter
         console.log(cur)
-        if(counter==0){
-            var i0 = document.getElementById("imem_val0")
-            i0.style.fill = "red"
-           }
-        else{
-            var prev = counter-1
-            var current = "imem_val"+counter
-            var prev = "imem_val"+prev
-            document.getElementById(prev).style.fill = "black"
-            document.getElementById(current).style.fill = "red"
+
+        if(counter < 32) {
+          if(prev > 31) {
+            prev -= 32;
+          }
+          var prev = "imem_val"+prev
+          document.getElementById(prev).style.fill = "black"
+          return;
+        }
+
+        else {
+          counter -= 32;
+          prev -= 32;
+          if(counter==0){
+              var i0 = document.getElementById("imem_val0")
+              i0.style.fill = "red"
             }
-        counter++
-        doc.innerHTML=counter
+          else{
+              var current = "imem_val"+counter
+              var prev = "imem_val"+prev
+              document.getElementById(prev).style.fill = "black"
+              document.getElementById(current).style.fill = "red"
+              }
+        }
+
       }
     </script>
     

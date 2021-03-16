@@ -1,8 +1,8 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
-import * as Inst from "./instructions.js"
-
+import * as Inst from "./instructions.js";
+import {CPU} from "../simulator/cpu.js";
 
 const ADDR = [50, 0];
 const VAL = [350/2, -24];
@@ -11,7 +11,6 @@ let addr = []
 let box = []
 let mem = [];
 
-const POLY_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 
 
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
@@ -21,18 +20,20 @@ export default class IMEM_SVG {
 	constructor() {
 		this.imem = new PolygonSVG(Constants.IMEM_ID, Constants.CODE_MEM_POLYGON, Constants.BLOCK_STYLE, Constants.CODE_MEM_OFFSET);
 
-		for(var i=0; i<Inst.instructions.length; i++){
+		var code = cpu.iMem.registers.slice(32, 64)
+
+		for(var i=0; i<code.length; i++){
 			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+i, (i+32).toString(2), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET) 
 			addr.push(cur)
 		}
 
-		for(var i=0; i<Inst.instructions.length; i++){
-			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], POLY_STYLE, [BOX_OFFSET[0]-5, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
+		for(var i=0; i<code.length; i++){
+			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0]-5, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
 			box.push(cur)
 		}
 		
-		for(var i=0; i<Inst.instructions.length; i++){
-			var cur = new TextSVG(245, (BETWEEN_DIST * (i+1)), "imem_val"+i, Inst.instructions[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+		for(var i=0; i<code.length; i++){
+			var cur = new TextSVG(245, (BETWEEN_DIST * (i+1)), "imem_val"+i, code[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
 			mem.push(cur)
 		}
 	}
