@@ -37,7 +37,7 @@ export class CPU {
 
         this.regWritebackMux = new Multiplexer(2);
 
-        this.switchInput;  // TODO these are not defined should come from Jacob.
+        this.switchInput = Array(8);  // TODO these are not defined should come from Jacob.
         
         this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
     }
@@ -132,6 +132,15 @@ export class CPU {
         // ====================
         // MEMORY
         // ====================
+        //Get switch values
+        this.switchInput(0) = document.getElementById("bit17").checked;
+        this.switchInput(1) = document.getElementById("bit16").checked;   
+        this.switchInput(2) = document.getElementById("bit15").checked;
+        this.switchInput(3) = document.getElementById("bit14").checked;
+        this.switchInput(4) = document.getElementById("bit13").checked;
+        this.switchInput(5) = document.getElementById("bit12").checked;
+        this.switchInput(6) = document.getElementById("bit11").checked;
+        this.switchInput(7) = document.getElementById("bit10").checked;
 
         // Calculate dmem address
         let dmemAddr = parseInt(aluResultMuxOutput.substring(4,8),2);
