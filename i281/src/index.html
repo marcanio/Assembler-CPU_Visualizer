@@ -419,6 +419,7 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
         var prev = cpu.pc.getPC();
         cpu.singleCycle();
         var counter = cpu.pc.getPC();
+        uiMode();
 
         console.log(counter)
         var cur = "i"+counter
