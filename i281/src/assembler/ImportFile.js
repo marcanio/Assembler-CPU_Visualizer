@@ -369,17 +369,27 @@ function mainMethod() {
         "&nbsp &nbsp &nbsp &nbsp";
     }
 
-    
+  
 
     //Do not count .data in the line numbers. Start after .code
     if (line >= codeSegmentStart) {
       AssemblyLine++;
     } else if (line != 0 && line + 1 != codeSegmentStart) {
-      eachLine[0] = '<span style="font-weight: bold;">' + dataLine++ + "</span>";
+      let temp = eachLine[3].replace(/,/g,"");
+      //Make line number correspond to data location
+      if(temp.length > 1){
+        
+        //Starts at 0
+        let tempLength = temp.length-1;
+        eachLine[0] =  '<span style="font-weight: bold;">' + dataLine + ".." + tempLength + "</span>";
+        dataLine += temp.length;
+      }else{
+        eachLine[0] = '<span style="font-weight: bold;">' + dataLine++ + "</span>";
+      }
     }else{
       eachLine[0] = "";
     }
-
+    
     //Add branches to line numbers
     let branchNames = Array.from(branchDest.keys());
     let branchNumbers = Array.from(branchDest.values());
@@ -394,6 +404,7 @@ function mainMethod() {
 
       y.innerHTML = eachLine[parts];
     }
+    
   }
 
   document.getElementById("displayMachinetext").innerHTML +=
@@ -424,8 +435,10 @@ function mainMethod() {
   }
 
   //Save machine code for simulator
-  fillDataMemoryTable();
+  formattedVariables = formatVariables();
   saveData();
+  fillDataMemoryTable();
+  
   
 
 }
@@ -1067,7 +1080,7 @@ function toggleSyntaxHighlight() {
       let machineCol = machineTable.rows[i].cells[0].textContent;
 
       //Bold all fields for better visability ->
-      for(let j =1; j < 4; j++){
+      for(let j =0; j < 4; j++){
         Assemblytable.rows[i].cells[j].style.fontWeight = 'bold';
       }
       machineTable.rows[i].cells[0].style.fontWeight = 'bold';
@@ -1175,7 +1188,7 @@ function toggleSyntaxHighlight() {
         newReg += Assemblytable.rows[i].cells[3].innerHTML.substring(plusLocation+1,regLength);
         newReg += "</span>";
         Assemblytable.rows[i].cells[3].innerHTML = newReg;
-        console.log(newReg);
+        
         //Machine Code
         let newMachineCol = '<span style="color:red">';
         newMachineCol += machineCol.substring(0, 4);
@@ -1234,6 +1247,12 @@ function toggleSyntaxHighlight() {
       for (let j = 0; j < 4; j++) {
         Assemblytable.rows[i].cells[j].style.color = "Black";
         Assemblytable.rows[i].cells[j].style.fontWeight = '';
+        //Keep line number formatting but change everything else
+        if(j != 0){
+          Assemblytable.rows[i].cells[j].innerHTML = Assemblytable.rows[i].cells[j].innerHTML.replace(/<\/?span[^>]*>/g,"");
+        }
+        
+        
       }
       //Place original machine code back in
       machineTable.rows[i].cells[0].textContent = originalMachine[counter];
@@ -1330,6 +1349,7 @@ function createUserData(){
   "output [7:0] b14I;\r\n" +
   "output [7:0] b15I;\r\n\n";
 
+  
   for(let i =0; i < 16; i++){
     if(formattedVariables.length > i){
       output += "assign b" + i + "I[7:0] = 8'b" + savedData[i] + "; //" + formattedVariables[i] + "\n";
@@ -1417,8 +1437,34 @@ function fillDataMemoryTable(){
   const dataSpots = ["0000", "0001", "0010", "0011", "0100","0101","0110", "0111","1000", "1001", "1010", "1011","1100", "1101", "1110","1111"];
  
    //2D array. If [][].length > 1 variable is an array
-   
+   //console.log(formattedVariables);
 
+  //Fill in table
+  for(let i =0; i < 16; i++){
+    //Add a row after the header (Thats why plus 1)
+    let row = document.getElementById("dataTable").insertRow(i+1);
+
+    let columnOne = row.insertCell(0);
+    let columnTwo = row.insertCell(1);
+    let columnThree = row.insertCell(2);
+
+    //Pull Data from memory since it is already formatted
+    let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
+    columnOne.innerHTML = dataSpots[i];
+    columnTwo.innerHTML = savedData[i];
+    if(i < formattedVariables.length){
+      columnThree.innerHTML = formattedVariables[i];
+    }
+    
+
+  }
+
+  
+}
+
+//Format Variables
+function formatVariables(){
+  
   let groupedVariables = new Array();
   let groupCount =0;
  
@@ -1467,31 +1513,5 @@ function fillDataMemoryTable(){
       finalVariables.push(groupedVariables[i][j]);
     }
   }
-
-  //Save for user data
-  formattedVariables = finalVariables;
-  
-
-
-  //Fill in table
-  for(let i =0; i < 16; i++){
-    //Add a row after the header (Thats why plus 1)
-    let row = document.getElementById("dataTable").insertRow(i+1);
-
-    let columnOne = row.insertCell(0);
-    let columnTwo = row.insertCell(1);
-    let columnThree = row.insertCell(2);
-
-    //Pull Data from memory since it is already formatted
-    let savedData = JSON.parse(sessionStorage.getItem("savedDataMemory"));
-    columnOne.innerHTML = dataSpots[i];
-    columnTwo.innerHTML = savedData[i];
-    if(i < finalVariables.length){
-      columnThree.innerHTML = finalVariables[i];
-    }
-    
-
-  }
-
-  
+  return finalVariables;
 }

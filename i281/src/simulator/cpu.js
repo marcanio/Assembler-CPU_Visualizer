@@ -51,7 +51,7 @@ export class CPU {
         this.flags.initialize();
         
         this.iMem.registers = JSON.parse(sessionStorage.getItem("savedBios"));  // Load bios from assembler
-        this.iMem.registers = this.iMem.registers.concat(JSON.parse(sessionStorage.getItem("savedMachineCode")));  // Load iMem from assembler
+        this.iMem.registers = this.iMem.registers.concat(JSON.parse(sessionStorage.getItem("savedMachineCode")) || "");  // Load iMem from assembler
         this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
         this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
 
