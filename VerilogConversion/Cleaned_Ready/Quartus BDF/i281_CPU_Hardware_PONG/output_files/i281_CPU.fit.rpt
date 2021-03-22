@@ -1,5 +1,5 @@
 Fitter report for i281_CPU
-Fri Mar 19 16:14:37 2021
+Tue Mar 23 01:20:58 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Fri Mar 19 16:14:37 2021       ;
+; Fitter Status                      ; Successful - Tue Mar 23 01:20:58 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281_CPU                                    ;
 ; Top-level Entity Name              ; i281_CPU                                    ;
@@ -197,7 +197,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in /media/aiman/1CCE44F4CE44C82A/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/output_files/i281_CPU.pin.
+The pin-out file can be found in /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware_PONG/output_files/i281_CPU.pin.
 
 
 +-----------------------------------------------------------------------+
@@ -2716,16 +2716,16 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
-Info (11888): Total time spent on timing analysis during the Fitter is 1.50 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.52 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
-Info (144001): Generated suppressed messages file /media/aiman/1CCE44F4CE44C82A/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/output_files/i281_CPU.fit.smsg
+Info (144001): Generated suppressed messages file /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware_PONG/output_files/i281_CPU.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 801 megabytes
-    Info: Processing ended: Fri Mar 19 16:14:37 2021
+    Info: Peak virtual memory: 802 megabytes
+    Info: Processing ended: Tue Mar 23 01:20:59 2021
     Info: Elapsed time: 00:00:25
     Info: Total CPU time (on all processors): 00:00:26
 
@@ -2733,6 +2733,6 @@ Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in /media/aiman/1CCE44F4CE44C82A/school_stuff/sdmay21-38/VerilogConversion/stoytchevfiles/i281_CPU_Hardware_PONG/output_files/i281_CPU.fit.smsg.
+The suppressed messages can be found in /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware_PONG/output_files/i281_CPU.fit.smsg.
 
 

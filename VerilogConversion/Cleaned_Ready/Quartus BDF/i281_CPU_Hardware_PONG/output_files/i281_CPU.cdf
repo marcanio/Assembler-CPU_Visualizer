@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("/home/aiman/Downloads/i281_CPU_Hardware_PONG/output_files/") File("i281_CPU.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("/home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware_PONG/output_files/") File("i281_CPU.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

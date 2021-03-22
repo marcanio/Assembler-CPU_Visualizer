@@ -1,5 +1,5 @@
 Analysis & Synthesis report for i281_CPU
-Mon Mar 22 19:57:39 2021
+Tue Mar 23 01:23:34 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -46,7 +46,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 22 19:57:39 2021       ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 23 01:23:34 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; i281_CPU                                    ;
 ; Top-level Entity Name              ; i281_CPU                                    ;
@@ -161,58 +161,58 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                              ;
-+---------------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path      ; Used in Netlist ; File Type                                ; File Name with Absolute Path                                                                                                         ; Library ;
-+---------------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
-; DMEM.BDF                              ; yes             ; User Block Diagram/Schematic File        ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/DMEM.BDF                              ;         ;
-; Clock_dividers.bdf                    ; yes             ; User Block Diagram/Schematic File        ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Clock_dividers.bdf                    ;         ;
-; Clock_divider_512.bdf                 ; yes             ; User Block Diagram/Schematic File        ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Clock_divider_512.bdf                 ;         ;
-; Clock_divider_4_16_and_64.bdf         ; yes             ; User Block Diagram/Schematic File        ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Clock_divider_4_16_and_64.bdf         ;         ;
-; i281_CPU.bdf                          ; yes             ; User Block Diagram/Schematic File        ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/i281_CPU.bdf                          ;         ;
-; ProgramCounter.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ProgramCounter.bdf                    ;         ;
-; _2to1mux.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/_2to1mux.bdf                          ;         ;
-; Control_FSM.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Control_FSM.bdf                       ;         ;
-; ALU.bdf                               ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ALU.bdf                               ;         ;
-; Flag_Registers.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Flag_Registers.bdf                    ;         ;
-; ALU_Flag_Calculator.bdf               ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ALU_Flag_Calculator.bdf               ;         ;
-; 8WidWideBusMux.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8WidWideBusMux.bdf                    ;         ;
-; ShiftNoDff.bdf                        ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ShiftNoDff.bdf                        ;         ;
-; 8bitAdder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8bitAdder.bdf                         ;         ;
-; FullAdder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/FullAdder.bdf                         ;         ;
-; 4x8BitRegisters.bdf                   ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/4x8BitRegisters.bdf                   ;         ;
-; Registers8bit.bdf                     ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Registers8bit.bdf                     ;         ;
-; 2BitDecoderWithEnable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/2BitDecoderWithEnable.bdf             ;         ;
-; 8wide4to1BusMUX.bdf                   ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8wide4to1BusMUX.bdf                   ;         ;
-; IMEM.bdf                              ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/IMEM.bdf                              ;         ;
-; 16Wide4To1BusMux.bdf                  ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/16Wide4To1BusMux.bdf                  ;         ;
-; SixteenWideBusMux.bdf                 ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/SixteenWideBusMux.bdf                 ;         ;
-; ReadOnly_16x16_Register_File_Low.bdf  ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ReadOnly_16x16_Register_File_Low.bdf  ;         ;
-; C16to1BusMUX.bdf                      ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/C16to1BusMUX.bdf                      ;         ;
-; Registers16bit.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Registers16bit.bdf                    ;         ;
-; ONES.v                                ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ONES.v                                ;         ;
-; 4to16DecoderWithEnable.bdf            ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/4to16DecoderWithEnable.bdf            ;         ;
-; BIOS_Hardcoded_Low.v                  ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_Low.v                  ;         ;
-; 2to4DecoderWithEnable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/2to4DecoderWithEnable.bdf             ;         ;
-; ReadOnly_16x16_Register_File_High.bdf ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ReadOnly_16x16_Register_File_High.bdf ;         ;
-; BIOS_Hardcoded_High.v                 ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_High.v                 ;         ;
-; IMEM_low.bdf                          ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/IMEM_low.bdf                          ;         ;
-; User_Code_Low.v                       ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_Low.v                       ;         ;
-; IMEM_high.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/IMEM_high.bdf                         ;         ;
-; User_Code_High.v                      ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_High.v                      ;         ;
-; 8wide16to1BusMUX.bdf                  ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8wide16to1BusMUX.bdf                  ;         ;
-; User_Data.v                           ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Data.v                           ;         ;
-; Opcode_Decoder.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Opcode_Decoder.bdf                    ;         ;
-; 1to2DecoderWithEnable.bdf             ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/1to2DecoderWithEnable.bdf             ;         ;
-; 6WideBusMux.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/6WideBusMux.bdf                       ;         ;
-; 6bitAdder.bdf                         ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/6bitAdder.bdf                         ;         ;
-; Video_Card.bdf                        ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Video_Card.bdf                        ;         ;
-; 7WidWideBusMux.bdf                    ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/7WidWideBusMux.bdf                    ;         ;
-; BusNot.bdf                            ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BusNot.bdf                            ;         ;
-; seven_seg_decoder_BUSOUT.v            ; yes             ; Auto-Found Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/seven_seg_decoder_BUSOUT.v            ;         ;
-; 4WideBusMux.bdf                       ; yes             ; Auto-Found Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/4WideBusMux.bdf                       ;         ;
-+---------------------------------------+-----------------+------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                        ;
++---------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path      ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                         ; Library ;
++---------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Video_Card.bdf                        ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Video_Card.bdf                        ;         ;
+; User_Data.v                           ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Data.v                           ;         ;
+; User_Code_Low.v                       ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_Low.v                       ;         ;
+; User_Code_High.v                      ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_High.v                      ;         ;
+; SixteenWideBusMux.bdf                 ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/SixteenWideBusMux.bdf                 ;         ;
+; ShiftNoDff.bdf                        ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ShiftNoDff.bdf                        ;         ;
+; seven_seg_decoder_BUSOUT.v            ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/seven_seg_decoder_BUSOUT.v            ;         ;
+; Registers16bit.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Registers16bit.bdf                    ;         ;
+; Registers8bit.bdf                     ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Registers8bit.bdf                     ;         ;
+; ReadOnly_16x16_Register_File_Low.bdf  ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ReadOnly_16x16_Register_File_Low.bdf  ;         ;
+; ReadOnly_16x16_Register_File_High.bdf ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ReadOnly_16x16_Register_File_High.bdf ;         ;
+; ProgramCounter.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ProgramCounter.bdf                    ;         ;
+; Opcode_Decoder.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Opcode_Decoder.bdf                    ;         ;
+; ONES.v                                ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ONES.v                                ;         ;
+; IMEM_low.bdf                          ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/IMEM_low.bdf                          ;         ;
+; IMEM_high.bdf                         ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/IMEM_high.bdf                         ;         ;
+; IMEM.bdf                              ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/IMEM.bdf                              ;         ;
+; i281_CPU.bdf                          ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/i281_CPU.bdf                          ;         ;
+; FullAdder.bdf                         ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/FullAdder.bdf                         ;         ;
+; Flag_Registers.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Flag_Registers.bdf                    ;         ;
+; DMEM.BDF                              ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/DMEM.BDF                              ;         ;
+; Control_FSM.bdf                       ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Control_FSM.bdf                       ;         ;
+; Clock_dividers.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Clock_dividers.bdf                    ;         ;
+; Clock_divider_512.bdf                 ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Clock_divider_512.bdf                 ;         ;
+; Clock_divider_4_16_and_64.bdf         ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/Clock_divider_4_16_and_64.bdf         ;         ;
+; C16to1BusMUX.bdf                      ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/C16to1BusMUX.bdf                      ;         ;
+; BusNot.bdf                            ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BusNot.bdf                            ;         ;
+; BIOS_Hardcoded_Low.v                  ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_Low.v                  ;         ;
+; BIOS_Hardcoded_High.v                 ; yes             ; User Verilog HDL File              ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_High.v                 ;         ;
+; ALU_Flag_Calculator.bdf               ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ALU_Flag_Calculator.bdf               ;         ;
+; ALU.bdf                               ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ALU.bdf                               ;         ;
+; _2to1mux.bdf                          ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/_2to1mux.bdf                          ;         ;
+; 16Wide4To1BusMux.bdf                  ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/16Wide4To1BusMux.bdf                  ;         ;
+; 8WidWideBusMux.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8WidWideBusMux.bdf                    ;         ;
+; 8wide16to1BusMUX.bdf                  ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8wide16to1BusMUX.bdf                  ;         ;
+; 8wide4to1BusMUX.bdf                   ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8wide4to1BusMUX.bdf                   ;         ;
+; 8bitAdder.bdf                         ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/8bitAdder.bdf                         ;         ;
+; 7WidWideBusMux.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/7WidWideBusMux.bdf                    ;         ;
+; 6WideBusMux.bdf                       ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/6WideBusMux.bdf                       ;         ;
+; 6bitAdder.bdf                         ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/6bitAdder.bdf                         ;         ;
+; 4x8BitRegisters.bdf                   ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/4x8BitRegisters.bdf                   ;         ;
+; 4WideBusMux.bdf                       ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/4WideBusMux.bdf                       ;         ;
+; 4to16DecoderWithEnable.bdf            ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/4to16DecoderWithEnable.bdf            ;         ;
+; 2to4DecoderWithEnable.bdf             ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/2to4DecoderWithEnable.bdf             ;         ;
+; 2BitDecoderWithEnable.bdf             ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/2BitDecoderWithEnable.bdf             ;         ;
+; 1to2DecoderWithEnable.bdf             ; yes             ; User Block Diagram/Schematic File  ; /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/1to2DecoderWithEnable.bdf             ;         ;
++---------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------+
@@ -2030,157 +2030,190 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Mar 22 19:57:29 2021
+    Info: Processing started: Tue Mar 23 01:23:24 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off i281_CPU -c i281_CPU
 Warning (12473): User specified to use only one processors but 24 processors were detected which could be used to decrease run time.
-Info (12021): Found 1 design units, including 1 entities, in source file DMEM.BDF
-    Info (12023): Found entity 1: DMEM
-Warning (12019): Can't analyze file -- file output_files/Serial_slow.bdf is missing
-Warning (12019): Can't analyze file -- file Serial_slow.bdf is missing
-Warning (12019): Can't analyze file -- file output_files/1024_Slow.bdf is missing
-Warning (12019): Can't analyze file -- file Clock_divider_8_and_16.bdf is missing
-Warning (12019): Can't analyze file -- file Clock_divider_1024.bdf is missing
-Info (12021): Found 1 design units, including 1 entities, in source file Clock_dividers.bdf
-    Info (12023): Found entity 1: Clock_dividers
-Warning (12019): Can't analyze file -- file Clock_divider_4_and_16.bdf is missing
-Info (12021): Found 1 design units, including 1 entities, in source file Clock_divider_512.bdf
-    Info (12023): Found entity 1: Clock_divider_512
-Warning (12019): Can't analyze file -- file output_files/Clock_divider_4_8_and_32.bdf is missing
-Info (12021): Found 1 design units, including 1 entities, in source file Clock_divider_4_16_and_64.bdf
-    Info (12023): Found entity 1: Clock_divider_4_16_and_64
+Info (12021): Found 1 design units, including 1 entities, in source file ZEROS.v
+    Info (12023): Found entity 1: ZEROS File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ZEROS.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Video_Card.bdf
+    Info (12023): Found entity 1: Video_Card
+Info (12021): Found 1 design units, including 1 entities, in source file User_Data.v
+    Info (12023): Found entity 1: User_Data File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Data.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file User_Code_Low.v
+    Info (12023): Found entity 1: User_Code_Low File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_Low.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file User_Code_High.v
+    Info (12023): Found entity 1: User_Code_High File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_High.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file SixteenWideBusMux.bdf
+    Info (12023): Found entity 1: SixteenWideBusMux
+Info (12021): Found 1 design units, including 1 entities, in source file ShiftNoDff.bdf
+    Info (12023): Found entity 1: ShiftNoDff
+Info (12021): Found 1 design units, including 1 entities, in source file seven_seg_decoder_BUSOUT.v
+    Info (12023): Found entity 1: seven_seg_decoder_BUSOUT File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/seven_seg_decoder_BUSOUT.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Registers16bit.bdf
+    Info (12023): Found entity 1: Registers16bit
+Info (12021): Found 1 design units, including 1 entities, in source file Registers8bit_with_preset.bdf
+    Info (12023): Found entity 1: Registers8bit_with_preset
+Info (12021): Found 1 design units, including 1 entities, in source file Registers8bit.bdf
+    Info (12023): Found entity 1: Registers8bit
+Info (12021): Found 1 design units, including 1 entities, in source file ReadOnly_RegisterFile.bdf
+    Info (12023): Found entity 1: ReadOnly_RegisterFile
+Info (12021): Found 1 design units, including 1 entities, in source file ReadOnly_16x16_Register_File_Low.bdf
+    Info (12023): Found entity 1: ReadOnly_16x16_Register_File_Low
+Info (12021): Found 1 design units, including 1 entities, in source file ReadOnly_16x16_Register_File_High.bdf
+    Info (12023): Found entity 1: ReadOnly_16x16_Register_File_High
+Info (12021): Found 1 design units, including 1 entities, in source file ReadOnly_16x16_Register_File.bdf
+    Info (12023): Found entity 1: ReadOnly_16x16_Register_File
+Info (12021): Found 1 design units, including 1 entities, in source file ProgramCounter.bdf
+    Info (12023): Found entity 1: ProgramCounter
+Info (12021): Found 1 design units, including 1 entities, in source file PONG_Data.v
+    Info (12023): Found entity 1: PONG_Data File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/PONG_Data.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file PONG_Code_3.v
+    Info (12023): Found entity 1: PONG_Code_3 File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/PONG_Code_3.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file PONG_Code_2.v
+    Info (12023): Found entity 1: PONG_Code_2 File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/PONG_Code_2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file PONG_Code_1.v
+    Info (12023): Found entity 1: PONG_Code_1 File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/PONG_Code_1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file PONG_Code_0.v
+    Info (12023): Found entity 1: PONG_Code_0 File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/PONG_Code_0.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Opcode_Decoder.bdf
+    Info (12023): Found entity 1: Opcode_Decoder
+Info (12021): Found 1 design units, including 1 entities, in source file ONES.v
+    Info (12023): Found entity 1: ONES File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ONES.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file IMEM_no_preset.bdf
+    Info (12023): Found entity 1: IMEM_no_preset
+Info (12021): Found 1 design units, including 1 entities, in source file IMEM_low.bdf
+    Info (12023): Found entity 1: IMEM_low
+Info (12021): Found 1 design units, including 1 entities, in source file IMEM_high.bdf
+    Info (12023): Found entity 1: IMEM_high
+Info (12021): Found 1 design units, including 1 entities, in source file IMEM.bdf
+    Info (12023): Found entity 1: IMEM
 Info (12021): Found 1 design units, including 1 entities, in source file i281_CPU.bdf
     Info (12023): Found entity 1: i281_CPU
-Info (12127): Elaborating entity "i281_CPU" for the top level hierarchy
-Warning (12125): Using design file ProgramCounter.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ProgramCounter
-Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:inst17"
-Warning (12125): Using design file _2to1mux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+Info (12021): Found 1 design units, including 1 entities, in source file FullAdder.bdf
+    Info (12023): Found entity 1: FullAdder
+Info (12021): Found 1 design units, including 1 entities, in source file FSM_BDF.bdf
+    Info (12023): Found entity 1: FSM_BDF
+Info (12021): Found 1 design units, including 1 entities, in source file Flag_Registers.bdf
+    Info (12023): Found entity 1: Flag_Registers
+Info (12021): Found 1 design units, including 1 entities, in source file EightWideBusMux.bdf
+    Info (12023): Found entity 1: EightWideBusMux
+Info (12021): Found 1 design units, including 1 entities, in source file DMEM_with_preset.BDF
+    Info (12023): Found entity 1: DMEM_with_preset
+Info (12021): Found 1 design units, including 1 entities, in source file DMEM.BDF
+    Info (12023): Found entity 1: DMEM
+Info (12021): Found 1 design units, including 1 entities, in source file Debouncer.bdf
+    Info (12023): Found entity 1: Debouncer
+Info (12021): Found 1 design units, including 1 entities, in source file Control_FSM.bdf
+    Info (12023): Found entity 1: Control_FSM
+Info (12021): Found 1 design units, including 1 entities, in source file clock_generator.bdf
+    Info (12023): Found entity 1: clock_generator
+Info (12021): Found 1 design units, including 1 entities, in source file Clock_dividers.bdf
+    Info (12023): Found entity 1: Clock_dividers
+Info (12021): Found 1 design units, including 1 entities, in source file Clock_divider_512.bdf
+    Info (12023): Found entity 1: Clock_divider_512
+Info (12021): Found 1 design units, including 1 entities, in source file Clock_divider_4_16_and_64.bdf
+    Info (12023): Found entity 1: Clock_divider_4_16_and_64
+Info (12021): Found 1 design units, including 1 entities, in source file C16to1BusMUX.bdf
+    Info (12023): Found entity 1: C16to1BusMUX
+Info (12021): Found 1 design units, including 1 entities, in source file C16dmuxer.bdf
+    Info (12023): Found entity 1: C16dmuxer
+Info (12021): Found 1 design units, including 1 entities, in source file C8to1BusMUX.bdf
+    Info (12023): Found entity 1: C8to1BusMUX
+Info (12021): Found 1 design units, including 1 entities, in source file BusNot.bdf
+    Info (12023): Found entity 1: BusNot
+Info (12021): Found 1 design units, including 1 entities, in source file BIOS_Hardcoded_Low.v
+    Info (12023): Found entity 1: BIOS_Hardcoded_Low File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_Low.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file BIOS_Hardcoded_High.v
+    Info (12023): Found entity 1: BIOS_Hardcoded_High File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_High.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ALU_Flag_Calculator.bdf
+    Info (12023): Found entity 1: ALU_Flag_Calculator
+Info (12021): Found 1 design units, including 1 entities, in source file ALU.bdf
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 1 design units, including 1 entities, in source file _2to1mux.bdf
     Info (12023): Found entity 1: _2to1mux
+Info (12021): Found 1 design units, including 1 entities, in source file 16Wide4To1BusMux.bdf
+    Info (12023): Found entity 1: 16Wide4To1BusMux
+Info (12021): Found 1 design units, including 1 entities, in source file 8WidWideBusMux.bdf
+    Info (12023): Found entity 1: 8WidWideBusMux
+Info (12021): Found 1 design units, including 1 entities, in source file 8wide16to1BusMUX.bdf
+    Info (12023): Found entity 1: 8wide16to1BusMUX
+Info (12021): Found 1 design units, including 1 entities, in source file 8wide4to1BusMUX.bdf
+    Info (12023): Found entity 1: 8wide4to1BusMUX
+Info (12021): Found 1 design units, including 1 entities, in source file 8bitAdder.bdf
+    Info (12023): Found entity 1: 8bitAdder
+Info (12021): Found 1 design units, including 1 entities, in source file 7WidWideBusMux.bdf
+    Info (12023): Found entity 1: 7WidWideBusMux
+Info (12021): Found 1 design units, including 1 entities, in source file 6WideBusMux.bdf
+    Info (12023): Found entity 1: 6WideBusMux
+Info (12021): Found 1 design units, including 1 entities, in source file 6bitAdder.bdf
+    Info (12023): Found entity 1: 6bitAdder
+Info (12021): Found 1 design units, including 1 entities, in source file 4x8BitRegisters.bdf
+    Info (12023): Found entity 1: 4x8BitRegisters
+Info (12021): Found 1 design units, including 1 entities, in source file 4x8BitRegister.bdf
+    Info (12023): Found entity 1: 4x8BitRegister
+Info (12021): Found 1 design units, including 1 entities, in source file 4WideBusMux.bdf
+    Info (12023): Found entity 1: 4WideBusMux
+Info (12021): Found 1 design units, including 1 entities, in source file 4to16DecoderWithEnable.bdf
+    Info (12023): Found entity 1: 4to16DecoderWithEnable
+Info (12021): Found 1 design units, including 1 entities, in source file 4to1Mux.bdf
+    Info (12023): Found entity 1: 4to1Mux
+Info (12021): Found 1 design units, including 1 entities, in source file 2to4DecoderWithEnable.bdf
+    Info (12023): Found entity 1: 2to4DecoderWithEnable
+Info (12021): Found 1 design units, including 1 entities, in source file 2BitUpCounter.bdf
+    Info (12023): Found entity 1: 2BitUpCounter
+Info (12021): Found 1 design units, including 1 entities, in source file 2BitDecoderWithEnable.bdf
+    Info (12023): Found entity 1: 2BitDecoderWithEnable
+Info (12021): Found 1 design units, including 1 entities, in source file 1to2DecoderWithEnable.bdf
+    Info (12023): Found entity 1: 1to2DecoderWithEnable
+Info (12127): Elaborating entity "i281_CPU" for the top level hierarchy
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:inst17"
 Info (12128): Elaborating entity "_2to1mux" for hierarchy "ProgramCounter:inst17|_2to1mux:inst1"
 Info (12128): Elaborating entity "Clock_dividers" for hierarchy "Clock_dividers:inst4"
 Info (12128): Elaborating entity "Clock_divider_4_16_and_64" for hierarchy "Clock_dividers:inst4|Clock_divider_4_16_and_64:inst4"
 Info (12128): Elaborating entity "Clock_divider_512" for hierarchy "Clock_dividers:inst4|Clock_divider_512:inst"
-Warning (12125): Using design file Control_FSM.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Control_FSM
 Info (12128): Elaborating entity "Control_FSM" for hierarchy "Control_FSM:inst23"
 Warning (275009): Pin "NOOP" not connected
 Warning (275009): Pin "CARRY_FLAG" not connected
-Warning (12125): Using design file ALU.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ALU
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:inst6"
-Warning (12125): Using design file Flag_Registers.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Flag_Registers
 Info (12128): Elaborating entity "Flag_Registers" for hierarchy "ALU:inst6|Flag_Registers:inst1"
-Warning (12125): Using design file ALU_Flag_Calculator.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ALU_Flag_Calculator
 Info (12128): Elaborating entity "ALU_Flag_Calculator" for hierarchy "ALU:inst6|ALU_Flag_Calculator:inst3"
-Warning (12125): Using design file 8WidWideBusMux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 8WidWideBusMux
 Info (12128): Elaborating entity "8WidWideBusMux" for hierarchy "ALU:inst6|8WidWideBusMux:inst4"
-Warning (12125): Using design file ShiftNoDff.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ShiftNoDff
 Info (12128): Elaborating entity "ShiftNoDff" for hierarchy "ALU:inst6|ShiftNoDff:inst"
-Warning (12125): Using design file 8bitAdder.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 8bitAdder
 Info (12128): Elaborating entity "8bitAdder" for hierarchy "ALU:inst6|8bitAdder:inst5"
-Warning (12125): Using design file FullAdder.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: FullAdder
 Info (12128): Elaborating entity "FullAdder" for hierarchy "ALU:inst6|8bitAdder:inst5|FullAdder:inst32"
-Warning (12125): Using design file 4x8BitRegisters.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 4x8BitRegisters
 Info (12128): Elaborating entity "4x8BitRegisters" for hierarchy "4x8BitRegisters:inst"
-Warning (12125): Using design file Registers8bit.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Registers8bit
 Info (12128): Elaborating entity "Registers8bit" for hierarchy "4x8BitRegisters:inst|Registers8bit:A"
-Warning (12125): Using design file 2BitDecoderWithEnable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 2BitDecoderWithEnable
 Info (12128): Elaborating entity "2BitDecoderWithEnable" for hierarchy "4x8BitRegisters:inst|2BitDecoderWithEnable:inst"
-Warning (12125): Using design file 8wide4to1BusMUX.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 8wide4to1BusMUX
 Info (12128): Elaborating entity "8wide4to1BusMUX" for hierarchy "4x8BitRegisters:inst|8wide4to1BusMUX:inst5"
-Warning (12125): Using design file IMEM.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: IMEM
 Info (12128): Elaborating entity "IMEM" for hierarchy "IMEM:inst22"
-Warning (12125): Using design file 16Wide4To1BusMux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 16Wide4To1BusMux
 Info (12128): Elaborating entity "16Wide4To1BusMux" for hierarchy "IMEM:inst22|16Wide4To1BusMux:inst252"
-Warning (12125): Using design file SixteenWideBusMux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: SixteenWideBusMux
 Info (12128): Elaborating entity "SixteenWideBusMux" for hierarchy "IMEM:inst22|16Wide4To1BusMux:inst252|SixteenWideBusMux:inst10"
-Warning (12125): Using design file ReadOnly_16x16_Register_File_Low.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ReadOnly_16x16_Register_File_Low
 Info (12128): Elaborating entity "ReadOnly_16x16_Register_File_Low" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2"
-Warning (12125): Using design file C16to1BusMUX.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: C16to1BusMUX
 Info (12128): Elaborating entity "C16to1BusMUX" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|C16to1BusMUX:inst35"
-Warning (12125): Using design file Registers16bit.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Registers16bit
 Info (12128): Elaborating entity "Registers16bit" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|Registers16bit:inst22"
-Warning (12125): Using design file ONES.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ONES File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/ONES.v Line: 1
 Info (12128): Elaborating entity "ONES" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|ONES:inst1"
-Warning (12125): Using design file 4to16DecoderWithEnable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 4to16DecoderWithEnable
 Info (12128): Elaborating entity "4to16DecoderWithEnable" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|4to16DecoderWithEnable:inst37"
-Warning (12125): Using design file BIOS_Hardcoded_Low.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: BIOS_Hardcoded_Low File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_Low.v Line: 1
 Info (12128): Elaborating entity "BIOS_Hardcoded_Low" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_Low:inst2|BIOS_Hardcoded_Low:inst"
-Warning (12125): Using design file 2to4DecoderWithEnable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 2to4DecoderWithEnable
 Info (12128): Elaborating entity "2to4DecoderWithEnable" for hierarchy "IMEM:inst22|2to4DecoderWithEnable:inst7"
-Warning (12125): Using design file ReadOnly_16x16_Register_File_High.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: ReadOnly_16x16_Register_File_High
 Info (12128): Elaborating entity "ReadOnly_16x16_Register_File_High" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_High:inst251"
-Warning (12125): Using design file BIOS_Hardcoded_High.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: BIOS_Hardcoded_High File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/BIOS_Hardcoded_High.v Line: 1
 Info (12128): Elaborating entity "BIOS_Hardcoded_High" for hierarchy "IMEM:inst22|ReadOnly_16x16_Register_File_High:inst251|BIOS_Hardcoded_High:inst"
-Warning (12125): Using design file IMEM_low.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: IMEM_low
 Info (12128): Elaborating entity "IMEM_low" for hierarchy "IMEM:inst22|IMEM_low:inst5"
-Warning (12125): Using design file User_Code_Low.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: User_Code_Low File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_Low.v Line: 1
 Info (12128): Elaborating entity "User_Code_Low" for hierarchy "IMEM:inst22|IMEM_low:inst5|User_Code_Low:inst"
-Warning (12125): Using design file IMEM_high.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: IMEM_high
 Info (12128): Elaborating entity "IMEM_high" for hierarchy "IMEM:inst22|IMEM_high:inst1"
-Warning (12125): Using design file User_Code_High.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: User_Code_High File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Code_High.v Line: 1
 Info (12128): Elaborating entity "User_Code_High" for hierarchy "IMEM:inst22|IMEM_high:inst1|User_Code_High:inst3"
 Info (12128): Elaborating entity "DMEM" for hierarchy "DMEM:inst8"
-Warning (12125): Using design file 8wide16to1BusMUX.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 8wide16to1BusMUX
 Info (12128): Elaborating entity "8wide16to1BusMUX" for hierarchy "DMEM:inst8|8wide16to1BusMUX:inst24"
-Warning (12125): Using design file User_Data.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: User_Data File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/User_Data.v Line: 1
 Info (12128): Elaborating entity "User_Data" for hierarchy "DMEM:inst8|User_Data:inst5"
-Warning (12125): Using design file Opcode_Decoder.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Opcode_Decoder
 Info (12128): Elaborating entity "Opcode_Decoder" for hierarchy "Opcode_Decoder:inst1"
-Warning (12125): Using design file 1to2DecoderWithEnable.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 1to2DecoderWithEnable
 Info (12128): Elaborating entity "1to2DecoderWithEnable" for hierarchy "Opcode_Decoder:inst1|1to2DecoderWithEnable:inst6"
-Warning (12125): Using design file 6WideBusMux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 6WideBusMux
 Info (12128): Elaborating entity "6WideBusMux" for hierarchy "6WideBusMux:Program_Counter_Multiplexer"
 Warning (275011): Block or symbol "_2to1mux" of instance "inst5" overlaps another block or symbol
-Warning (12125): Using design file 6bitAdder.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 6bitAdder
 Info (12128): Elaborating entity "6bitAdder" for hierarchy "6bitAdder:Program_Counter_Increment_By_1"
-Warning (12125): Using design file Video_Card.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: Video_Card
 Info (12128): Elaborating entity "Video_Card" for hierarchy "Video_Card:inst7"
-Warning (12125): Using design file 7WidWideBusMux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 7WidWideBusMux
 Info (12128): Elaborating entity "7WidWideBusMux" for hierarchy "Video_Card:inst7|7WidWideBusMux:inst43"
 Warning (275011): Block or symbol "BusNot" of instance "inst1" overlaps another block or symbol
-Warning (12125): Using design file BusNot.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: BusNot
 Info (12128): Elaborating entity "BusNot" for hierarchy "Video_Card:inst7|7WidWideBusMux:inst43|BusNot:inst1"
-Warning (12125): Using design file seven_seg_decoder_BUSOUT.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: seven_seg_decoder_BUSOUT File: /home/aiman/Documents/sdmay21-38/VerilogConversion/Cleaned_Ready/Quartus BDF/i281_CPU_Hardware/seven_seg_decoder_BUSOUT.v Line: 1
 Info (12128): Elaborating entity "seven_seg_decoder_BUSOUT" for hierarchy "Video_Card:inst7|seven_seg_decoder_BUSOUT:inst2"
-Warning (12125): Using design file 4WideBusMux.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: 4WideBusMux
 Info (12128): Elaborating entity "4WideBusMux" for hierarchy "Video_Card:inst7|4WideBusMux:inst37"
 Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer _2to1mux:inst12|inst3~0
@@ -2202,10 +2235,10 @@ Info (21057): Implemented 743 device resources after synthesis - the final resou
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 82 output pins
     Info (21061): Implemented 638 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 66 warnings
-    Info: Peak virtual memory: 425 megabytes
-    Info: Processing ended: Mon Mar 22 19:57:40 2021
-    Info: Elapsed time: 00:00:11
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 427 megabytes
+    Info: Processing ended: Tue Mar 23 01:23:34 2021
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:21
 
 
