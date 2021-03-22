@@ -22,7 +22,7 @@ function switchChange(actSw,swNum){
     {
         document.getElementById(swNum).value = '0';
     }
-    sevenSegUpdate(actSw);
+    //sevenSegUpdate(actSw);
 }
 
 var slider = document.getElementById("speedSld");
@@ -190,7 +190,7 @@ function arrowWork(event)
                     break;
             }
         }
-        sevenSegUpdate(this);
+        //sevenSegUpdate(this);
 }
 
 function getRelevantBox(swNum)
@@ -256,12 +256,13 @@ function getRelevantBox(swNum)
     }    
 }    
 
-document.getElementById("bit00").onclick = uiMode();
-document.getElementById("bit01").onclick = uiMode();
+
 
 function uiMode(){
     var viewSw = document.getElementById("bit00");
     var gameSw = document.getElementById("bit01");
+
+    alert("ui");
 
     // if(gameSw.checked)//Game Mode
     // {
