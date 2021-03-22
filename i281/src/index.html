@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"
+http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/>
+
+<html lang="en">
+<head>
+    
+    <title>i281 CPU</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./simulator.js" type="module"></script>
+    <script src="./display.js" type="module"></script>
+    
+</head>
+  <body >
+    <h1>i281 CPU</h1>
+    <button onclick="test()">Cycle</button>
+    <div id="modal" class="modal">
+    </div>
+    <svg id="canvas" height="1600" width="2400">
+    </svg> 
+    <!-- Menu -->
+    <br>
+    <input type="checkbox" id="show_arrows">
+    <label for="show_arrows"> Hide Arrows</label>
+    <input type="checkbox" id="show_bus_info">
+    <label for="show_bus_info"> Show Bus Width</label>
+    <br>
+    <button id="goto_assembler" onclick="location.href='./ImportFile.html'">Assembler</button>
+    <button id="goto_altera_board">Altera Board</button>
+    <br>
+
+    <input type="text" id="instruction">
+    <label type="text" id="result"></label>
+    <p id="counter">0</p>
+
+    <script>
+      function test(){
+        var doc = document.getElementById("counter")
+        //var wire = document.getElementById("test")
+        //wire.style.stroke = "red"
+        var counter = doc.innerHTML
+        console.log(counter)
+        var cur = "i"+counter
+        console.log(cur)
+        if(counter==0){
+            var i0 = document.getElementById("imem_val0")
+            i0.style.fill = "red"
+           }
+        else{
+            var prev = counter-1
+            var current = "imem_val"+counter
+            var prev = "imem_val"+prev
+            document.getElementById(prev).style.fill = "black"
+            document.getElementById(current).style.fill = "red"
+            }
+        counter++
+        doc.innerHTML=counter
+      }
+    </script>
+    
+  </body>
+</html>
