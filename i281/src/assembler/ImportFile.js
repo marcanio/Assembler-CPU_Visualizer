@@ -1205,20 +1205,29 @@ function toggleSyntaxHighlight() {
         newMachineCol += machineCol.substring(10, machineCol.length);
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-      } else if(firstCol.localeCompare("STOREF") == 0){
+      } else if(firstCol.localeCompare("STOREF") == 0 ||firstCol.localeCompare("STORE") == 0){
         //Assembly code
         Assemblytable.rows[i].cells[3].style.color = "blue";
         let plusLocation = Assemblytable.rows[i].cells[2].innerHTML.indexOf("+") + 1;
         let regLength = Assemblytable.rows[i].cells[2].innerHTML.length;
-        let newReg = '<span style="color:purple">';
-        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(0,plusLocation);
-        newReg += "</span>";
-        newReg += '<span style="color:green">';
-        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation,plusLocation+1);
-        newReg += "</span>";
-        newReg += '<span style="color:purple">';
-        newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation+1,regLength);
-        newReg += "</span>";
+
+        let newReg = "";
+        if(plusLocation != 0){
+          newReg = '<span style="color:purple">';
+          newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(0,plusLocation);
+          newReg += "</span>";
+          newReg += '<span style="color:green">';
+          newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation,plusLocation+1);
+          newReg += "</span>";
+          newReg += '<span style="color:purple">';
+          newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(plusLocation+1,regLength);
+          newReg += "</span>";
+        }else{
+          newReg += '<span style="color:purple">';
+          newReg += Assemblytable.rows[i].cells[2].innerHTML.substring(0,regLength);
+          newReg += "</span>";
+        }
+        
         Assemblytable.rows[i].cells[2].innerHTML = newReg;
         //Machine Code
         let newMachineCol = '<span style="color:red">';
@@ -1236,6 +1245,24 @@ function toggleSyntaxHighlight() {
         newMachineCol += machineCol.substring(10, machineCol.length);
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+      } else if(firstCol.localeCompare("SHIFTR") == 0|| firstCol.localeCompare("SHIFTL") == 0){
+        //Assembly code
+        Assemblytable.rows[i].cells[2].style.color = "blue";
+
+        //Machine code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 5);
+        newMachineCol += '<span style="color:blue">';
+        newMachineCol += machineCol.substring(5, 7);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(7, 8);
+        newMachineCol += '<span style="color:red">';
+        newMachineCol += machineCol.substring(8, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
+
       }
     }
   } else {
@@ -1408,7 +1435,7 @@ function saveData(){
       savedDataMemory[i] = "00000000";
     }
   }
-  
+  sessionStorage.setItem("savedDataMemory", JSON.stringify(savedDataMemory));
   //Save user code high and low->
 
   let saveUserCodeHigh = createUserCodeHigh();
@@ -1422,7 +1449,7 @@ function saveData(){
   //console.log(fixedsavedMachineCode);
   sessionStorage.setItem("savedMachineCode", JSON.stringify(fixedsavedMachineCode));
   sessionStorage.setItem("savedInstructions", JSON.stringify(savedInstructions));
-  sessionStorage.setItem("savedDataMemory", JSON.stringify(savedDataMemory));
+  
   sessionStorage.setItem("savedUserCodeHigh", JSON.stringify(saveUserCodeHigh));
   sessionStorage.setItem("savedUserCodeLow", JSON.stringify(saveUserCodeLow));
   sessionStorage.setItem("savedUserData", JSON.stringify(saveUserData));
