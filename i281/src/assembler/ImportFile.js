@@ -287,6 +287,7 @@ function mainMethod() {
 
   //Run commands to assemble code
   withoutComments = getJumps(withoutComments);
+  withoutComments= withoutComments.filter(e => String(e).trim()); 
   findDataStart(withoutComments);
   parseCodeSegment(withoutComments);
   //console.log(withoutComments);
