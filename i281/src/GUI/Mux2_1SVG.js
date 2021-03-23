@@ -24,7 +24,8 @@ export default class Mux2_1SVG {
 		this.true_text = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], true_id, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE, offset);
 		this.true_wire = new PathSVG (mux_id+"_"+Constants.MUX_TRUE_WIRE_ID, Constants.MUX_TRUE_WIRE, Constants.WIRE_STYLE, offset);
 		this.false_wire = new PathSVG(mux_id+"_"+Constants.MUX_FALSE_WIRE_ID, Constants.MUX_FALSE_WIRE, Constants.WIRE_STYLE, offset);
-		this.selected = 0;
+		this.selected = -1;
+		this.mux_id = mux_id;
 	}
     
 	get_all_nodes() {
@@ -37,13 +38,25 @@ export default class Mux2_1SVG {
 		return res;
 	}
 
-	get_selected() {
+	getSelected() {
 		return this.selected;
 	}
 
-	set_selected(val) {
-		this.selected = val;
-		// TODO: highlight selected value
+	select(val) {
+		this.selected = val
+		//console.log("in the mux after selecting "+this.selected);
+		var t =  document.getElementById(this.mux_id+"_true_wire");
+		var f = document.getElementById(this.mux_id+"_false_wire");
+		
+		if(val==0){
+		t.style.visibility = "hidden";
+		f.style.visibility = "visible"
+		}
+
+		else{
+			t.style.visibility = "visible";
+			f.style.visibility = "hidden";
+		}
 	}
     
 

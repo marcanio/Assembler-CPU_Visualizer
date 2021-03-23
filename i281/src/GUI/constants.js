@@ -68,8 +68,8 @@ export const READ_A_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH 
 export const READ_B_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 315];
 
 
-export const MUX_TRUE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.23, "l", 72,48]
-export const MUX_FALSE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.77, "l", 72,-48]
+export const MUX_FALSE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.23, "l", 72,48]
+export const MUX_TRUE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.77, "l", 72,-48]
 
 export const MUX_ALU_WIRE = [0, 0, ALU_OFFSET[0] - (MUX0_OFFSET[0] + MUX_POLYGON[2]), 0];
 export const ALU_RESULT_WIRE = [0, 0, MUX1_OFFSET[0] - (ALU_OFFSET[0] + ALU_POLYGON[2]), 0];
@@ -106,6 +106,7 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
     export const TO_PC_UPDATE = ["M", INTERSECT_1_POS[0],125+825, "l", 0,250, 50,0]
     //END IMEM segments
 
+    export const IMEM_OUT_TO_MUXES_SEGS = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"];
     //IMEM MUX2 SEGMENTS
     export const IMEM_MUX2_JUNCTION = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -70,0, 0,1200, (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 30),0, 0,-340]
     //END IMEM MUX2 SEGMENTS
@@ -177,8 +178,8 @@ export const INTERSECT_RADIUS = 10;
 
 export const MUX_FALSE_TEXT = "0";
 export const MUX_TRUE_TEXT = "1";
-export const MUX_TRUE_WIRE_ID = "mux_true_line";
-export const MUX_FALSE_WIRE_ID = "mux_false_line";
+export const MUX_TRUE_WIRE_ID = "true_wire";
+export const MUX_FALSE_WIRE_ID = "false_wire";
 export const OPCODE_TEXT = "Opcode Decoder";
 export const FLAG_TEXT = "Flags";
 export const REG_TEXT = "Registers";

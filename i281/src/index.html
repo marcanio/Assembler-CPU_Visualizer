@@ -8,15 +8,18 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
     <title>i281 CPU</title>
     <link rel="stylesheet" href="./GUI/index.css">
     <script src="./GUI/display.js" type="module"></script>
+
     
 </head>
-  <body >
     <h1>i281 CPU</h1>
-    <button onclick="test()">Cycle</button>
+    <h1 id="assembly_inst">inst</h1>
     <div id="modal" class="modal">
       <div id="modal_content" class="modal-content">
       </div>
     </div>
+    <button onclick="high()">User Code</button>
+    <button onclick="low()">Bios Code</button>
+    <button onclick="test()">Cycle</button>
     <svg id="canvas" height="1600" width="2400">
     </svg> 
     <!-- Menu -->
@@ -32,46 +35,66 @@ http-equiv="X-UA-Compatible" content="ie=edge" X-Content-Type-Options="nosniff"/
 
     <input type="text" id="instruction">
     <label type="text" id="result"></label>
-    <p id="counter">0</p>
+
 
     <script>
       function test(){
-        var doc = document.getElementById("counter")
-        //var wire = document.getElementById("test")
-        //wire.style.stroke = "red"
-        var prev = cpu.pc.getPC();
         cpu.singleCycle();
-        var counter = cpu.pc.getPC();
-
-        console.log(counter)
-        var cur = "i"+counter
-        console.log(cur)
-
-        if(counter < 32) {
-          if(prev > 31) {
-            prev -= 32;
-          }
-          var prev = "imem_val"+prev
-          document.getElementById(prev).style.fill = "black"
-          return;
+        let curInst = cpu.pc.currentPC;
+        console.log(cpu.pc.currentPC);
+        let controls = cpu.control.c;
+        highlightTest(controls);
+        if(cpu.pc.currentPC>31){
+          document.getElementById("assembly_inst").innerHTML= (cpu.instructions[cpu.pc.currentPC-32]);
+        }
+        for(var i=1; i<controls.length; i++){
+          document.getElementById("c"+i+"val").innerHTML = controls[i];
+          //console.log(controls[i]);
         }
 
-        else {
-          counter -= 32;
-          prev -= 32;
-          if(counter==0){
-              var i0 = document.getElementById("imem_val0")
-              i0.style.fill = "red"
-            }
-          else{
-              var current = "imem_val"+counter
-              var prev = "imem_val"+prev
-              document.getElementById(prev).style.fill = "black"
-              document.getElementById(current).style.fill = "red"
-              }
-        }
+        mux0.select(controls[11]);
+        mux1.select(controls[15]);
+        mux2.select(controls[16]);
+        mux3.select(controls[18]);
+        mux4.select(controls[2]);
 
+        console.log(curInst);
+        var prev = curInst-1;
+        var cur = "imem_val"+curInst;
+        var prev = "imem_val"+prev;
+        document.getElementById(prev).style.fill = "black";
+        document.getElementById(prev).setAttribute("font-weight", "normal")
+        document.getElementById(cur).style.fill = "red";
+        document.getElementById(cur).setAttribute("font-weight", "bold");
+
+        document.getElementById("pc_val_id").innerHTML = pad((cpu.pc.currentPC).toString(2), 6);
       }
+      function low(){
+        code_mem.switchToBios()
+      }
+      function high(){
+        code_mem.switchToUser()
+      }
+      function pad(n, width, z) {
+		    z = z || '0';
+		    n = n + '';
+		    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+	  }
+    function highlightTest(controls){
+      var wires = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"]
+      var i;
+      for(i=0; i<wires.length; i++){
+        document.getElementById(wires[i]).style.stroke = "purple";
+      }
+      if (controls[15]==1){
+        console.log("hello")
+        document.getElementById("mux1_true_wire").style.stroke = "purple";
+      }
+      var otherWires = ["mux1_out", "mux1_out_to_dmem_junction", "junction_to_dmem_a", "junction_to_dmem_b"]
+      for(i=0; i<otherWires.length; i++){
+        document.getElementById(otherWires[i]).style.stroke = "purple"
+      }
+    }
     </script>
     
   </body>

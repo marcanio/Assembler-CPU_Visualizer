@@ -65,7 +65,7 @@ window.addEventListener("load", function() {
 	let cpu = new CPU();
 
 	window.cpu = cpu;
-	
+
 	cpu.setup();
 
 	//
@@ -76,10 +76,15 @@ window.addEventListener("load", function() {
 	var flags = new FlagsSVG();
 
 	var mux0 = new Mux2_1SVG(Constants.MUX0_ID, Constants.MUX0_TRUE_ID, Constants.MUX0_FALSE_ID, Constants.MUX0_OFFSET);
+	window.mux0 = mux0
 	var mux1 = new Mux2_1SVG(Constants.MUX1_ID, Constants.MUX1_TRUE_ID, Constants.MUX1_FALSE_ID, Constants.MUX1_OFFSET);
+	window.mux1 = mux1
 	var mux2 = new Mux2_1SVG(Constants.MUX2_ID, Constants.MUX2_TRUE_ID, Constants.MUX2_FALSE_ID, Constants.MUX2_OFFSET);
+	window.mux2 = mux2
 	var mux3 = new Mux2_1SVG(Constants.MUX3_ID, Constants.MUX3_TRUE_ID, Constants.MUX3_FALSE_ID, Constants.MUX3_OFFSET);
+	window.mux3 = mux3
 	var mux4 = new Mux2_1_BackwardsSVG(Constants.MUX4_ID, Constants.MUX4_TRUE_ID, Constants.MUX4_FALSE_ID, Constants.MUX4_OFFSET);
+	window.mux4 = mux4
 
 
 	var switches_text = new TextSVG(Constants.MUX2_OFFSET[0] - 200 - 60, Constants.MUX2_OFFSET[1] + Constants.MUX_TRUE[1] - 10, Constants.SWITCHES_ID, Constants.SWITCHES_TEXT, Constants.ARIAL_TEXT_STYLE);
@@ -87,6 +92,7 @@ window.addEventListener("load", function() {
 	
 	var alu = new ALU_SVG();
 	var code_mem = new IMEM_SVG();
+	window.code_mem = code_mem;
 	var control =  new ControlSVG();
 	var dmem = new DMEM_SVG();
 	var opcode_decoder = new OpcodeDeCoderSVG();
@@ -437,4 +443,5 @@ window.addEventListener("load", function() {
 	svg.appendChild(junction_to_pc_update.node)
 	svg.appendChild(junction_to_pc.node)
 
+	code_mem.switchToUser();
 });

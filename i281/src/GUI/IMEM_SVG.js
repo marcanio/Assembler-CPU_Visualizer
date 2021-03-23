@@ -23,8 +23,10 @@ export default class IMEM_SVG {
 		var code = cpu.iMem.registers.slice(32, 64)
 
 		for(var i=0; i<code.length; i++){
-			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+i, (i+32).toString(2), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET) 
-			addr.push(cur)
+			var bios = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+(i), this.pad((i).toString(2), 6), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET)
+			var user = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+(i+32), (i+32).toString(2), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET) 
+			addr.push(bios)
+			addr.push(user)
 		}
 
 		for(var i=0; i<code.length; i++){
@@ -33,12 +35,20 @@ export default class IMEM_SVG {
 		}
 		
 		for(var i=0; i<code.length; i++){
-			var cur = new TextSVG(245, (BETWEEN_DIST * (i+1)), "imem_val"+i, code[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-			mem.push(cur)
+			var bios = new TextSVG(245, (BETWEEN_DIST * (i+1)), "imem_val"+(i), "0000000000000000", Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+			var user = new TextSVG(245, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32), code[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+			mem.push(bios);
+			mem.push(user);
 		}
 		this.label = new TextSVG(280, 1390, "imem_label", "INSTRUCTION MEMORY", Constants.ARIAL_TEXT_STYLE);
 	}
-    
+
+    pad(n, width, z) {
+		z = z || '0';
+		n = n + '';
+		return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+	  }
+
 	get_all_nodes() {
 		let res=[]
 		res.push(this.imem.get_node());
@@ -57,6 +67,24 @@ export default class IMEM_SVG {
 		}
 		res.push(this.label.get_node());
 		return res;
+	}
+	switchToUser(){
+		for(var i=0; i<32; i++){
+			document.getElementById("imem_val"+i).style.visibility = "hidden";
+			document.getElementById("imem_val"+(i+32)).style.visibility = "visible";
+			document.getElementById("imem_addr"+(i)).style.visibility = "hidden";
+			document.getElementById("imem_addr"+(i+32)).style.visibility = "visible";
+		}
+
+	}
+	switchToBios(){
+		for(var i=0; i<32; i++){
+			console.log("imem_val"+i)
+			document.getElementById("imem_val"+i).style.visibility = "visible";
+			document.getElementById("imem_val"+(i+32)).style.visibility = "hidden";
+			document.getElementById("imem_addr"+(i)).style.visibility = "visible";
+			document.getElementById("imem_addr"+(i+32)).style.visibility = "hidden";
+		}
 	}
 
 }
