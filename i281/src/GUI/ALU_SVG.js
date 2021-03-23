@@ -2,7 +2,7 @@ import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
 
-const TPOS = [90, 150];
+const TPOS = [95, 170];
 
 const FLAGS_DIST_BETWEEN = 30;
 const BOX = [0, 0, 120, 0, 120, 40, 0, 40];

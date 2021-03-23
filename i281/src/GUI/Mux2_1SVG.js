@@ -4,13 +4,17 @@ import PolygonSVG from "./PolygonSVG.js";
 import PathSVG from "./PathSVG.js"
 
 function onClick (evt) {
-	var modal = document.getElementById("modal");
+	var modal = document.getElementById("modal_content");
+	var modal_content = document.getElementById("modal_content");
 	modal.style.visibility = "visible";
-	modal.innerHTML = "";
+	modal.style.display = "block";
+
+	modal_content.innerHTML = "";
 	let img = document.createElement("img");
 	img.src = "./GUI/img/mux.png";
 	img.id = "mux_img";
-	modal.append(img);
+	img.style = "justify-content: center; align-items: center;";
+	modal_content.append(img);
 }
 
 export default class Mux2_1SVG {
@@ -20,7 +24,8 @@ export default class Mux2_1SVG {
 		this.true_text = new TextSVG(Constants.MUX_TRUE[0], Constants.MUX_TRUE[1], true_id, Constants.MUX_TRUE_TEXT, Constants.TEXT_STYLE, offset);
 		this.true_wire = new PathSVG (mux_id+"_"+Constants.MUX_TRUE_WIRE_ID, Constants.MUX_TRUE_WIRE, Constants.WIRE_STYLE, offset);
 		this.false_wire = new PathSVG(mux_id+"_"+Constants.MUX_FALSE_WIRE_ID, Constants.MUX_FALSE_WIRE, Constants.WIRE_STYLE, offset);
-		this.selected = 0;
+		this.selected = -1;
+		this.mux_id = mux_id;
 	}
     
 	get_all_nodes() {
@@ -33,13 +38,25 @@ export default class Mux2_1SVG {
 		return res;
 	}
 
-	get_selected() {
+	getSelected() {
 		return this.selected;
 	}
 
-	set_selected(val) {
-		this.selected = val;
-		// TODO: highlight selected value
+	select(val) {
+		this.selected = val
+		//console.log("in the mux after selecting "+this.selected);
+		var t =  document.getElementById(this.mux_id+"_true_wire");
+		var f = document.getElementById(this.mux_id+"_false_wire");
+		
+		if(val==0){
+		t.style.visibility = "hidden";
+		f.style.visibility = "visible"
+		}
+
+		else{
+			t.style.visibility = "visible";
+			f.style.visibility = "hidden";
+		}
 	}
     
 

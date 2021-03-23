@@ -25,8 +25,10 @@ function init() {
 	//const btn = document.getElementById("btn");
 	//btn.onclick = compute;
 	show_arrows.onchange = toggle_arrow_visablitity;
-	modal.onclick = () => {
+	document.getElementById("modal").onclick = () => {
 		modal.style.visibility = "hidden";
+		document.getElementById("modal_content").style.visibility = "hidden";
+
 	}
 }
 

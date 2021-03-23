@@ -14,8 +14,8 @@ export default class PathSVG {
 		this.node.setAttribute(Constants.STYLE_ATTR, this.curr_style);
 
 		if(offset){
-			console.log(id + " " + offset[0] + " "+ offset[1])
-			console.log(path[1]+" "+path[2])
+			//console.log(id + " " + offset[0] + " "+ offset[1])
+			//console.log(path[1]+" "+path[2])
 			this.translate(list, offset[0], offset[1]);
 		}
 		if(path)
