@@ -1,3 +1,5 @@
+import {CPU} from "../simulator/cpu.js";
+
 function switchKeystroke(swNum, actSw){
     var text = swNum.value;
     if(text == "1")
@@ -52,8 +54,6 @@ document.getElementById("bit15").addEventListener("keydown", arrowWork);
 document.getElementById("bit16").addEventListener("keydown", arrowWork);
 document.getElementById("bit17").addEventListener("keydown", arrowWork);
 
-
-
 function arrowWork(event)
 {
     //alert(2);
@@ -64,7 +64,7 @@ function arrowWork(event)
             document.getElementById(getRelevantBox(this)).value = '0';
         }
         else if(event.keyCode == 38)//UP
-        {
+        { 
             this.checked = true;
             document.getElementById(getRelevantBox(this)).value = '1';
         }
@@ -264,21 +264,21 @@ function uiMode(){
 
     alert("ui");
 
-    // if(gameSw.checked)//Game Mode
-    // {
-    //     Pong(); //Need
-    // }
-    // else{//View Mode, ignored if we are in game mode
+    if(gameSw.checked)//Game Mode
+    {
+        Pong(); //Need
+    }
+    else{//View Mode, ignored if we are in game mode
+        if(viewSw.checked)
+        {
+            regView();
+        }
+        else
+        {
+            memView();
+        }
+    }
 
-    // }
-    if(viewSw.checked)//RegView
-    {
-        regView();
-    }
-    else
-    {
-        memView();
-    }
 }
 
 document.addEventListener("keydown", pushButtonKey)
@@ -330,7 +330,7 @@ function msgChk(id){
 }
 
 function Pong(){
-
+    gameView();
 }
 
 function memView(){
@@ -1148,8 +1148,108 @@ function regView(){
                 botRTriT = document.getElementById("botR4T");
                 botRTriB = document.getElementById("botR4B");
             }
+            case(4):
+            {
+                topLine = document.getElementById("topT5");
+                topL = document.getElementById("topL5");
+                topR = document.getElementById("topR5");
+                midLine = document.getElementById("midM5");
+                botLine = document.getElementById("botB5");
+                botL = document.getElementById("botL5");
+                botR = document.getElementById("botR5");
+    
+                topLineTriL = document.getElementById("topT5L");
+                topLineTriR = document.getElementById("topT5R");
+                topLTriT = document.getElementById("topL5T");
+                topLTriB = document.getElementById("topL5B");
+                topRTriT = document.getElementById("topR5T");
+                topRTriB = document.getElementById("topR5B");
+                midLineTriL = document.getElementById("midM5L");
+                midLineTriR = document.getElementById("midM5R");
+                botLineTriL = document.getElementById("botB5L");
+                botLineTriR = document.getElementById("botB5R");
+                botLTriT = document.getElementById("botL5T");
+                botLTriB = document.getElementById("botL5B");
+                botRTriT = document.getElementById("botR5T");
+                botRTriB = document.getElementById("botR5B");
+            }
+            case(5):
+            {
+                topLine = document.getElementById("topT6");
+                topL = document.getElementById("topL6");
+                topR = document.getElementById("topR6");
+                midLine = document.getElementById("midM6");
+                botLine = document.getElementById("botB6");
+                botL = document.getElementById("botL6");
+                botR = document.getElementById("botR6");
+    
+                topLineTriL = document.getElementById("topT6L");
+                topLineTriR = document.getElementById("topT6R");
+                topLTriT = document.getElementById("topL6T");
+                topLTriB = document.getElementById("topL6B");
+                topRTriT = document.getElementById("topR6T");
+                topRTriB = document.getElementById("topR6B");
+                midLineTriL = document.getElementById("midM6L");
+                midLineTriR = document.getElementById("midM6R");
+                botLineTriL = document.getElementById("botB6L");
+                botLineTriR = document.getElementById("botB6R");
+                botLTriT = document.getElementById("botL6T");
+                botLTriB = document.getElementById("botL6B");
+                botRTriT = document.getElementById("botR6T");
+                botRTriB = document.getElementById("botR6B");
+            }
+            case(6):
+            {
+                topLine = document.getElementById("topT7");
+                topL = document.getElementById("topL7");
+                topR = document.getElementById("topR7");
+                midLine = document.getElementById("midM7");
+                botLine = document.getElementById("botB7");
+                botL = document.getElementById("botL7");
+                botR = document.getElementById("botR7");
+    
+                topLineTriL = document.getElementById("topT57");
+                topLineTriR = document.getElementById("topT57");
+                topLTriT = document.getElementById("topL57");
+                topLTriB = document.getElementById("topL57");
+                topRTriT = document.getElementById("topR57");
+                topRTriB = document.getElementById("topR57");
+                midLineTriL = document.getElementById("midM57");
+                midLineTriR = document.getElementById("midM57");
+                botLineTriL = document.getElementById("botB57");
+                botLineTriR = document.getElementById("botB57");
+                botLTriT = document.getElementById("botL57");
+                botLTriB = document.getElementById("botL57");
+                botRTriT = document.getElementById("botR57");
+                botRTriB = document.getElementById("botR57");
+            }
+            case(7):
+            {
+                topLine = document.getElementById("topT8");
+                topL = document.getElementById("topL8");
+                topR = document.getElementById("topR8");
+                midLine = document.getElementById("midM8");
+                botLine = document.getElementById("botB8");
+                botL = document.getElementById("botL8");
+                botR = document.getElementById("botR8");
+    
+                topLineTriL = document.getElementById("topT8L");
+                topLineTriR = document.getElementById("topT8R");
+                topLTriT = document.getElementById("topL8T");
+                topLTriB = document.getElementById("topL8B");
+                topRTriT = document.getElementById("topR8T");
+                topRTriB = document.getElementById("topR8B");
+                midLineTriL = document.getElementById("midM8L");
+                midLineTriR = document.getElementById("midM8R");
+                botLineTriL = document.getElementById("botB8L");
+                botLineTriR = document.getElementById("botB8R");
+                botLTriT = document.getElementById("botL8T");
+                botLTriB = document.getElementById("botL8B");
+                botRTriT = document.getElementById("botR8T");
+                botRTriB = document.getElementById("botR8B");
+            }
         }
-        if(i < 4)
+        if(i > 3)
         {
             currentRegVal = regHolder.getRegister[i];
             if(currentRegVal[3] == '1')//8 case in here (8,9,A,B,C,D,E,F)
@@ -1928,7 +2028,7 @@ function gameView(){
                 topLTriB.style.fill = 'lightgrey';
                 topLTriT.style.fill = 'lightgrey';
             }
-            if(currentRegVal[6] = '1') //Top Line
+            if(currentRegVal[6] = '1') //Middle Line
             {
                 midLine.style.stroke = 'red';
                 midLineTriL.style.fill = 'red';
