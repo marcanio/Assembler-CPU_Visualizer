@@ -226,11 +226,15 @@
                   value="Assemble!"
                 />
 
-                <input
+                <button class="btn btn-primary mr-1 mb-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: none">
+                  Downloads
+                </button>
+                
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <input
                   type="button"
                   id="downloadButton"
-                  class="btn btn-primary mr-1 mb-3"
-                  style="display: none"
+                  class="dropdown-item"
                   onclick="downloadMachineFile()"
                   value="Download Machine code"
                 />
@@ -238,8 +242,7 @@
                 <input
                   type="button"
                   id="downloadLow"
-                  class="btn btn-primary mr-1 mb-3"
-                  style="display: none"
+                  class="dropdown-item"
                   onclick="downloadUserCodeLow()"
                   value="Download Low"
                 />
@@ -247,11 +250,12 @@
                 <input
                   type="button"
                   id="downloadHigh"
-                  class="btn btn-primary mr-1 mb-3"
-                  style="display: none"
+                  class="dropdown-item"
                   onclick="downloadUserCodeHigh()"
                   value="Download High"
                 />
+                </div>
+                
                 <input
                   type="button"
                   id="toggleSyntax"
@@ -263,10 +267,10 @@
                 <input
                 type="button"
                 id="navigateCPU"
-                class="btn btn-primary mr-1 mb-3"
+                class="btn btn-success mr-1 mb-3"
                 style="display: none"
                 onclick="location.href='./index.html'"
-                value="Go to CPU"
+                value="Go to CPU &#8594;"
               />
               </div>
             </div>

@@ -71,8 +71,7 @@ let instructionFormat = [
   "1111_", // BRGE
 ];
 
-//Objects in the DOM
-var downloadButtonObject = document.getElementById("downloadButton");
+
 
 window.onload = function () {
   let fileInput = document.getElementById("fileInput");
@@ -268,10 +267,7 @@ function mainMethod() {
   document.getElementById("displayAssemblytext").innerHTML =
     "<b>Assembly Code:</b>\n";
   //Show download buttons
-  downloadButtonObject.style.display = "block";
-  //document.getElementById("downloadButton").style.display = "block";
-  document.getElementById("downloadLow").style.display = "block";
-  document.getElementById("downloadHigh").style.display = "block";
+  document.getElementById("dropdownMenuButton").style.display = "block";
   document.getElementById("toggleSyntax").style.display = "block";
   document.getElementById("navigateCPU").style.display = "block";
 
