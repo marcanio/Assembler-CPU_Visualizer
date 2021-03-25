@@ -300,6 +300,7 @@ function mainMethod() {
   let AssemblyLine = 0;
   let dataLine = 0;
   //fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
+  let totalLength = 0;
 
   for (let line = 0; line < withoutComments.length; line++) {
     let eachLine = withoutComments[line].split(" ");
@@ -370,21 +371,27 @@ function mainMethod() {
         "&nbsp &nbsp &nbsp &nbsp";
     }
 
-  
+    
 
     //Do not count .data in the line numbers. Start after .code
     if (line >= codeSegmentStart) {
       AssemblyLine++;
     } else if (line != 0 && line + 1 != codeSegmentStart) {
-      let temp = eachLine[3].replace(/,/g,"");
+      let temp = (eachLine[3].match(/,/g) || []).length;
+     
+      if(totalLength !=0){
+        temp++; //Add one to everything other than the first since it starts at 0
+      }
       //Make line number correspond to data location
-      if(temp.length > 1){
+      if(temp> 1){
         
         //Starts at 0
-        let tempLength = temp.length-1;
-        eachLine[0] =  '<span style="font-weight: bold;">' + dataLine + ".." + tempLength + "</span>";
-        dataLine += temp.length;
+        
+        totalLength += temp;
+        eachLine[0] =  '<span style="font-weight: bold;">' + dataLine + ".." + totalLength + "</span>";
+        dataLine = totalLength+1;
       }else{
+        totalLength++;
         eachLine[0] = '<span style="font-weight: bold;">' + dataLine++ + "</span>";
       }
     }else{
