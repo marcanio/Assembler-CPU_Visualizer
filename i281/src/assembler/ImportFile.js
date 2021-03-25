@@ -1544,10 +1544,12 @@ function formatVariables(){
         
       }else if(varibleNames[i].localeCompare(varibleNames[i-1]) == 0){
         groupedVariables[groupCount].push(varibleNames[i]);
-      }else{
         groupedVariables.push(new Array());
         groupCount++;
+      }else{
+        groupedVariables.push(new Array());
         groupedVariables[groupCount].push(varibleNames[i]);
+        groupCount++;
       }
     }else{
       if(varibleNames[i].localeCompare(varibleNames[i-1]) == 0){
