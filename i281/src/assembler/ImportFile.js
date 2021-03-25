@@ -646,6 +646,35 @@ function parseLOADP(code) {
   machineCode += convertStringToBinary(dataLocation);
   machineCode += "\n";
 }
+function parseINPUTD(code){
+  let temp = "";
+  
+  
+  getLeftBracket(code[1]);
+  let dataKey = code[2];
+  let next = code[3];
+  if (next.localeCompare("+") == 0) {
+    let offset = parseInt(code[4]);
+    let newOffset = valueMapping.get(dataKey) + offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[5]);
+  }else if(next.localeCompare("-") == 0){
+    let offset = parseInt(code[4]);
+    let newOffset = valueMapping.get(dataKey) - offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[5]);
+  }else if(next.localeCompare("]") == 0){
+    temp += convertStringToBinary(valueMapping.get(dataKey));
+  }else{
+    errorMessage("Expecting +,-, or ]");
+  }
+  machineCode += "00_10_";
+  machineCode += temp;
+  machineCode += "\n";
+
+}
 function parseSTOREF(code) {
   let temp = "";
   getLeftBracket(code[1]);
@@ -973,7 +1002,7 @@ function parseCodeSegment(code) {
       //parseINPUTCF(lineScanner);
     } else if (opcode.localeCompare("INPUTD") == 0) {
       getOpCodeBits("INPUTD");
-      //parseINPUTD(lineScanner);
+      parseINPUTD(lineScanner);
     } else if (opcode.localeCompare("INPUTDF") == 0) {
       getOpCodeBits("INPUTDF");
       //parseINPUTDF(lineScanner);
@@ -1160,7 +1189,8 @@ function toggleSyntaxHighlight() {
         firstCol.localeCompare("BRE") == 0 ||
         firstCol.localeCompare("BRNE") == 0 ||
         firstCol.localeCompare("BRG") == 0 ||
-        firstCol.localeCompare("BRGE") == 0
+        firstCol.localeCompare("BRGE") == 0 ||
+        firstCol.localeCompare("INPUTD") == 0
       ) {
         //Assembly Code
         Assemblytable.rows[i].cells[2].style.color = "purple";
