@@ -1,5 +1,5 @@
 /**
- * This class simulates an arithmetic logic cunit.
+ * This class simulates an arithmetic logic unit.
  * @since 1.0
  * @author Bryce Snell
  * 
@@ -9,8 +9,6 @@ export class Alu {
     constructor() {
 		this.opA;
 		this.opB;
-		this.controlCallback;
-		this.controlCBParams;
 		this.result;
 		this.zero = 0;
 		this.negative = 0;
@@ -20,47 +18,26 @@ export class Alu {
     }
     
 
-    /**
-     * This function sets the operands
+    /**-
+     * This function sets the operands. This should be called before the process function is called.
      * @since 1.0
-	 * @param A: 8 bit operand
-	 * @param B: 8 bit operand
-     * @returns: the current state of the register
+	 * @param {string} A: 8 bit operand
+	 * @param {string} B: 8 bit operand
      * @author Bryce Snell
      * 
     */
     setOps(A, B) {
 		this.opA = A;
 		this.opB = B;
-	}
-
-
-    /**
-     * This function adds a callback function and parameters to get the control values
-     * @param callback: function to get control values
-	 * @param params: string (in the i281 processor there is only one)
-     * @since 1.0
-     * @author Bryce Snell
-     * 
-    */
-    setControl(callback, params) {
-		this.controlCallback = callback;
-		this.controlCBParams = params;
-	}
-	
-
-	/**
-	 * This function can be used as a callback to get the result dynamically.
-	 * @since 1.0
-	 * @author Bryce Snell
-	 */
-	getResult() {
-		return this.pad(this.result.toString(2), 8);
-	}
+	}	
 
     /**
-     * This function gets the results of the processor
-	 * @param: control - Control bits for cpu
+     * This function calculates the ALU result for given control signals and operands. 
+	 * This needs to have the setOps function called before it runs. 
+	 * This function also creates the flag values.
+	 * @param {string} control - Control bits for cpu
+	 * @returns {Error} Adder Error
+	 * @returns {Error} ALU Control Error
      * @since: 1.0
      * @author Bryce Snell
      */
@@ -122,7 +99,7 @@ export class Alu {
 					carryArray[i-1] = 1;
 				}
 
-				else throw new Error('The adder had a massive mistake: ' + sum);
+				else return new Error('Adder Error: ' + sum);
 			}
 
 			this.result = tempResult.join("");
@@ -134,13 +111,13 @@ export class Alu {
 			this.negative = tempResult[0];
 		}
 
-		else throw new Error('Unknown control state for alu: ' + control);
+		else return new Error('ALU Control Error: ' + control);
 	}
 	
 	/**
      * A little helper function for padding strings.
-     * @param: input - input string to pad
-     * @param: size - Size to pad it to.
+     * @param {string} input - input string to pad
+     * @param {number} size - Size to pad it to.
      */
     pad(input, size) {
         while (input.length < size) {input= '0' + input;}

@@ -1,5 +1,5 @@
 /**
- * this.c =lass simulates the control module.
+ * This class simulates the control module.
  * @since 1.0
  * @author Bryce Snell
  * 
@@ -9,7 +9,7 @@ export class Control {
     constructor() {
         /**
          * Things to know about this array. It comes from slide 47 in 41_i281_CPU.ppt.
-         * C[0] is always null, because Stoytchev didn't start at 0...
+         * C[0] is always null, because Dr. Stoytchev didn't start at 0...
          * C[1] maps to IMEM_WRITE_ENABLE
          * C[18] maps to REG_WRITEBACK_MUX
          * Sorry for the confusion...
@@ -21,7 +21,7 @@ export class Control {
     /**
      * This function returns the control bits
      * @since 1.0
-     * @returns: the control bits
+     * @returns {Array}: Control bits as binary integers (aka 0 or 1)
      * @author Bryce Snell
      * 
     */
@@ -31,11 +31,12 @@ export class Control {
 
 
     /**
-     * This function creates the control output bits
-     * @param decodedOpCode: output from opCodeDecoder (literally opCodeDecoder.output)
-     * @param zeroFlag: Either a 1 or 0, integer
-     * @param negativeFlag: Either a 1 or 0, integer
-     * @param overflowFlag: Either a 1 or 0, integer
+     * This function creates the control output bits.
+     * These control bits will be stored in a local variable. This can be accessed by either the getControl function or the .c parameter
+     * @param {string} decodedOpCode: output from opCodeDecoder (literally opCodeDecoder.output)
+     * @param {number} zeroFlag: Either a 1 or 0
+     * @param {number} negativeFlag: Either a 1 or 0
+     * @param {number} overflowFlag: Either a 1 or 0
      * @since 1.0
      * @author Bryce Snell
      * 
@@ -78,21 +79,16 @@ export class Control {
     }
 
     /**
-     * A little helper function for padding strings.
-     * @param: input - input string to pad
-     * @param: size - Size to pad it to.
-     * 
+     * Useful function to get pairs of control bits. It simplifies the top level design.
+     * @param {string} target - One of the following options ['c4c5', 'c6c7', 'c8c9', 'c12c13']
+     * @returns {string} 2 control bits in order 
+     * @returns {Error} Invalid Control Group
      */
-    pad(input, size) { // TODO, this is unused, clean it up later!
-        while (input.length < (size || 2)) {input= '0' + input;}
-        return input;
-    }
-
     get(target) {
         if(target == 'c4c5') return (String(this.c[4]) + String(this.c[5]));
         if(target == 'c6c7') return (String(this.c[6]) + String(this.c[7]));
         if(target == 'c8c9') return (String(this.c[8]) + String(this.c[9]));
         if(target == 'c12c13') return (String(this.c[12]) + String(this.c[13]));
-        else throw new Error("Invalid target: %s", target);
+        else throw new Error("Invalid Control Group: %s", target);
     }
 };

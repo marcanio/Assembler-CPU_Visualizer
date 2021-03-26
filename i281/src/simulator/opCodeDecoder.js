@@ -37,10 +37,10 @@ export class OpCodeDecoder {
     
 
     /**
-     * This function returns the control bits
+     * This function returns the one hot encoded opcode post decoding
+     * @param {string} opCode: XXXX op code for for an instruction
+     * @returns {Array}: The one hot encoded output for the opcode
      * @since 1.0
-     * @param opCode: XXXX op code for for an instruction
-     * @returns: the control bits
      * @author Bryce Snell
      * 
     */
@@ -88,8 +88,9 @@ export class OpCodeDecoder {
     
 
     /**
-     * This function takes all of the control bits and makes them a string
+     * This function takes the one hot encoded opcode and makes a string
      * Helper function for getDecodedOpCode
+     * @private
      * @since 1.0
      * @author Bryce Snell
      * 
@@ -129,8 +130,9 @@ export class OpCodeDecoder {
     }
 
     /**
-     * This function resets the control outputs
+     * This function resets the control outputs.
      * DO NOT CALL EXTERNALLY
+     * @private
      * @since 1.0
      * @author Bryce Snell
      * 

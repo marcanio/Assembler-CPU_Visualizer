@@ -1,18 +1,24 @@
 /**
- * This class simulates a decoder.
- * @param size: Sets the size of a decoder, must be power of 2
- * @since 1.0
+ * Deprecated and completely unused. This class simulates a decoder.
+ * Left in the repository as a reference for future work if that ever happens.
+ * Documentation was left unfinished to free up time; however, it should be enough to understand.
+ * @since 1.1 - Deprecated and completely unused. 
  * @author Bryce Snell
  * 
 */
 
 export class Decoder {
+    /**
+     * 
+     * @param {number} outputSize: Sets the size of a decoder, must be power of 2
+     * @returns {Error} 'Decoder Power of Two Error' if the desired output is not a power of 2.
+     */
     constructor(outputSize) {
     
         if(this.powerOfTwo(outputSize) == true) {
             this.outputSize = outputSize;
         }
-        else throw 'Decoder size is not a power of two';
+        else return new Error('Decoder Power of Two Error');
 
         this.outputs = new Array(this.outputSize);
     }
@@ -21,7 +27,7 @@ export class Decoder {
     /**
      * This function returns the outputs as an array
      * @since 1.0
-     * @returns: the current output values as an array
+     * @returns {string} Output the current output values as an array
      * @author Bryce Snell
      * 
     */
@@ -33,6 +39,7 @@ export class Decoder {
     /**
      * This function returns the outputs at a location
      * @since 1.0
+     * @param {number} i: 
      * @returns: the current output value at a location
      * @author Bryce Snell
      * 
