@@ -23,9 +23,11 @@ export class PC {
 	}
 
     /**
-     * This function calculates the PC
-     * @param: opcode - 16 bits from the instruction memory
-     * @param: branchControl - binary integer for branch control signal
+     * This function calculates the PC.
+	 * Either increases by a set number (likely 1) or handles jumps.
+	 * Like the hardware this represents, a jump includes an offset and a plus 1.
+     * @param {string} opcode - 16 bits from the instruction memory
+     * @param {number} branchControl - binary integer for branch control signal
      * @since: 1.0
      * @author Bryce Snell
      */
@@ -36,10 +38,11 @@ export class PC {
 
 		// Add branch offset
 		if(branchControl == 1) {
-			let offsetInt = ~~parseInt(offset, 2);
+			let offsetInt = ~~parseInt(offset, 2);  // This should be explained. parseInt converts the offset to decimal. The ~~ makes it signed
 			this.currentPC += offsetInt;
 		}
-
+		
+		// This handles loop logic
 		if(this.currentPC > this.maxPC - 1) {
 			this.currentPC = 0;
 		}

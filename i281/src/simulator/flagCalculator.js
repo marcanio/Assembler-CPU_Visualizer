@@ -1,6 +1,8 @@
 /**
- * This class simulates an arithmetic logic cunit.
- * @since 1.0
+ * Deprecated and completely unused. This class simulates an arithmetic logic cunit.
+ * Left in the repository as a reference for future work if that ever happens.
+ * Documentation was left unfinished to free up time; however, it should be enough to understand.
+ * @since 1.1 - Deprecated and completely unused.
  * @author Bryce Snell
  * 
 */

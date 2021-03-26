@@ -1,9 +1,4 @@
-/**
- * This class simulates a single cycle cpu.
- * @since 1.0
- * @author Bryce Snell
- * 
-*/
+
 
 import {RegisterFile} from "./registerFile.js"
 import {Multiplexer} from "./mux.js"
@@ -12,6 +7,12 @@ import {OpCodeDecoder} from "./opCodeDecoder.js"
 import {Control} from "./control.js"
 import {PC} from "./pc.js"
 
+/**
+ * This class simulates a single cycle cpu.
+ * @since 1.0
+ * @author Bryce Snell
+ * 
+*/
 export class CPU {
     constructor() {
         let iMemSize = 64;
@@ -42,6 +43,10 @@ export class CPU {
         this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
     }
 
+    /**
+     * Call this function to initalize the CPU object with values from the assembler. 
+     * This confirms that there are defined values throughout the processor.
+     */
     setup() {
         // Initialize the register files
         // TODO this may be unneeded for the iMem after we get code from Eric
@@ -54,8 +59,6 @@ export class CPU {
         this.iMem.registers = this.iMem.registers.concat(JSON.parse(sessionStorage.getItem("savedMachineCode")) || "");  // Load iMem from assembler
         this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
         this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
-
-        this.alu.setControl(this.control.get, 'c12c13');
     }
 
     /**
