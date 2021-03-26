@@ -1,7 +1,49 @@
 import {CPU} from "../simulator/cpu.js";
 
+document.addEventListener("DOMContentLoaded", function (){
+    startListen();
+}
+)
+
+function startListen(){     
+    uiMode();
+}
+
+
+var slider = document.getElementById("speedSld");
+var output = document.getElementById("SimSpeed");
+output.innerHTML = slider.value;
+
+let cpu = new CPU();
+window.cpu = cpu;
+cpu.setup();
+
+
+slider.oninput = function() {
+    output.innerHTML = this.value;
+}
+
+document.getElementById("bit00").addEventListener("change", switchChange("bit00","bit0In"));
+document.getElementById("bit01").addEventListener("change", switchChange("bit01","bit1In"));
+document.getElementById("bit02").addEventListener("change", switchChange("bit02","bit2In"));
+document.getElementById("bit03").addEventListener("change", switchChange("bit03","bit3In"));
+document.getElementById("bit04").addEventListener("change", switchChange("bit04","bit4In"));
+document.getElementById("bit05").addEventListener("change", switchChange("bit05","bit5In"));
+document.getElementById("bit06").addEventListener("change", switchChange("bit06","bit6In"));
+document.getElementById("bit07").addEventListener("change", switchChange("bit07","bit7In"));
+document.getElementById("bit08").addEventListener("change", switchChange("bit08","bit8In"));
+document.getElementById("bit09").addEventListener("change", switchChange("bit09","bit9In"));
+document.getElementById("bit10").addEventListener("change", switchChange("bit10","bit10In"));
+document.getElementById("bit11").addEventListener("change", switchChange("bit11","bit11In"));
+document.getElementById("bit12").addEventListener("change", switchChange("bit12","bit12In"));
+document.getElementById("bit13").addEventListener("change", switchChange("bit13","bit13In"));
+document.getElementById("bit14").addEventListener("change", switchChange("bit14","bit14In"));
+document.getElementById("bit15").addEventListener("change", switchChange("bit15","bit15In"));
+document.getElementById("bit16").addEventListener("change", switchChange("bit16","bit16In"));
+document.getElementById("bit17").addEventListener("change", switchChange("bit17","bit17In"));
+
 function switchKeystroke(swNum, actSw){
-    var text = swNum.value;
+    var text = document.getElementById(swNum).value;
     if(text == "1")
     {
         document.getElementById(actSw).checked = true;
@@ -14,7 +56,7 @@ function switchKeystroke(swNum, actSw){
 }
 
 function switchChange(actSw,swNum){
-    var ch = actSw.checked;
+    var ch = document.getElementById(actSw).checked;
     
     if(ch)
     {
@@ -25,14 +67,6 @@ function switchChange(actSw,swNum){
         document.getElementById(swNum).value = '0';
     }
     //sevenSegUpdate(actSw);
-}
-
-var slider = document.getElementById("speedSld");
-var output = document.getElementById("SimSpeed");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-    output.innerHTML = this.value;
 }
 
 document.getElementById("bit00").addEventListener("keydown", arrowWork);
@@ -53,6 +87,9 @@ document.getElementById("bit14").addEventListener("keydown", arrowWork);
 document.getElementById("bit15").addEventListener("keydown", arrowWork);
 document.getElementById("bit16").addEventListener("keydown", arrowWork);
 document.getElementById("bit17").addEventListener("keydown", arrowWork);
+document.getElementById("push1").addEventListener("click", uiMode);
+document.getElementById("bit00").addEventListener("change", uiMode);
+document.getElementById("bit01").addEventListener("change", uiMode);
 
 function arrowWork(event)
 {
@@ -257,12 +294,9 @@ function getRelevantBox(swNum)
 }    
 
 
-
 function uiMode(){
-    var viewSw = document.getElementById("bit00");
-    var gameSw = document.getElementById("bit01");
-
-    alert("ui");
+    var viewSw = document.getElementById("bit01");
+    var gameSw = document.getElementById("bit00");
 
     if(gameSw.checked)//Game Mode
     {
@@ -278,7 +312,6 @@ function uiMode(){
             memView();
         }
     }
-
 }
 
 document.addEventListener("keydown", pushButtonKey)
@@ -334,9 +367,9 @@ function Pong(){
 }
 
 function memView(){
-    var dmemdata = cpu.dMem.registers;
+    var dmemdata = cpu.dMem.registers
 
-    var currentRegVal;
+    //alert(dmemdata[i]);
 
     var topLine;
     var topL;
@@ -365,7 +398,7 @@ function memView(){
     {
         switch(i)
         {
-            case(0):
+            case 7:
             {
                 topLine = document.getElementById("topT1");
                 topL = document.getElementById("topL1");
@@ -389,8 +422,9 @@ function memView(){
                 botLTriB = document.getElementById("botL1B");
                 botRTriT = document.getElementById("botR1T");
                 botRTriB = document.getElementById("botR1B");
+                break;
             }
-            case(1):
+            case 6:
             {
                 topLine = document.getElementById("topT2");
                 topL = document.getElementById("topL2");
@@ -414,8 +448,9 @@ function memView(){
                 botLTriB = document.getElementById("botL2B");
                 botRTriT = document.getElementById("botR2T");
                 botRTriB = document.getElementById("botR2B");
+                break;
             }
-            case(2):
+            case 5:
             {
                 topLine = document.getElementById("topT3");
                 topL = document.getElementById("topL3");
@@ -439,8 +474,9 @@ function memView(){
                 botLTriB = document.getElementById("botL3B");
                 botRTriT = document.getElementById("botR3T");
                 botRTriB = document.getElementById("botR3B");
+                break;
             }
-            case(3):
+            case 4:
             {
                 topLine = document.getElementById("topT4");
                 topL = document.getElementById("topL4");
@@ -464,8 +500,9 @@ function memView(){
                 botLTriB = document.getElementById("botL4B");
                 botRTriT = document.getElementById("botR4T");
                 botRTriB = document.getElementById("botR4B");
+                break;
             }
-            case(4):
+            case 3:
             {
                 topLine = document.getElementById("topT5");
                 topL = document.getElementById("topL5");
@@ -489,8 +526,9 @@ function memView(){
                 botLTriB = document.getElementById("botL5B");
                 botRTriT = document.getElementById("botR5T");
                 botRTriB = document.getElementById("botR5B");
+                break;
             }
-            case(5):
+            case 2:
             {
                 topLine = document.getElementById("topT6");
                 topL = document.getElementById("topL6");
@@ -514,8 +552,9 @@ function memView(){
                 botLTriB = document.getElementById("botL6B");
                 botRTriT = document.getElementById("botR6T");
                 botRTriB = document.getElementById("botR6B");
+                break;
             }
-            case(6):
+            case 1:
             {
                 topLine = document.getElementById("topT7");
                 topL = document.getElementById("topL7");
@@ -525,22 +564,23 @@ function memView(){
                 botL = document.getElementById("botL7");
                 botR = document.getElementById("botR7");
     
-                topLineTriL = document.getElementById("topT57");
-                topLineTriR = document.getElementById("topT57");
-                topLTriT = document.getElementById("topL57");
-                topLTriB = document.getElementById("topL57");
-                topRTriT = document.getElementById("topR57");
-                topRTriB = document.getElementById("topR57");
-                midLineTriL = document.getElementById("midM57");
-                midLineTriR = document.getElementById("midM57");
-                botLineTriL = document.getElementById("botB57");
-                botLineTriR = document.getElementById("botB57");
-                botLTriT = document.getElementById("botL57");
-                botLTriB = document.getElementById("botL57");
-                botRTriT = document.getElementById("botR57");
-                botRTriB = document.getElementById("botR57");
+                topLineTriL = document.getElementById("topT7L");
+                topLineTriR = document.getElementById("topT7R");
+                topLTriT = document.getElementById("topL7T");
+                topLTriB = document.getElementById("topL7B");
+                topRTriT = document.getElementById("topR7T");
+                topRTriB = document.getElementById("topR7B");
+                midLineTriL = document.getElementById("midM7L");
+                midLineTriR = document.getElementById("midM7R");
+                botLineTriL = document.getElementById("botB7L");
+                botLineTriR = document.getElementById("botB7R");
+                botLTriT = document.getElementById("botL7T");
+                botLTriB = document.getElementById("botL7B");
+                botRTriT = document.getElementById("botR7T");
+                botRTriB = document.getElementById("botR7B");
+                break;
             }
-            case(7):
+            case 0:
             {
                 topLine = document.getElementById("topT8");
                 topL = document.getElementById("topL8");
@@ -564,19 +604,25 @@ function memView(){
                 botLTriB = document.getElementById("botL8B");
                 botRTriT = document.getElementById("botR8T");
                 botRTriB = document.getElementById("botR8B");
+                break;
             }
             
         }
-        currentRegVal = dmemdata.getRegister(i);
+        
+        var bit3 = dmemdata[i][4] == '1'
+        var bit2 = dmemdata[i][5] == '1'
+        var bit1 = dmemdata[i][6] == '1'
+        var bit0 = dmemdata[i][7] == '1'
 
-        if(currentRegVal[3] == '1')//8 case in here (8,9,A,B,C,D,E,F)
+
+        if(bit3)//8 case in here (8,9,A,B,C,D,E,F)
         {
-            if(currentRegVal[2] == '1')
+            if(bit2)
             {
-                if(currentRegVal[1] == '1')
+                if(bit1)
                 {
 
-                    if(currentRegVal[0] == '1')//F
+                    if(bit0)//F
                     {
                         topLine.style.stroke = 'red';
                         topL.style.stroke = 'red';
@@ -629,7 +675,7 @@ function memView(){
                 }
                 else
                 {
-                    if(currentRegVal[0] == '1')//D
+                    if(bit0)//D
                     {
                         topLine.style.stroke = 'lightgrey';
                         topL.style.stroke = 'lightgrey';
@@ -683,9 +729,9 @@ function memView(){
             }
             else
             {
-                if(currentRegVal[1] == '1')
+                if(bit1)
                 {
-                    if(currentRegVal[0] == '1')//B
+                    if(bit0)//B
                     {
                         topLine.style.stroke = 'lightgrey';
                         topL.style.stroke = 'red';
@@ -738,7 +784,7 @@ function memView(){
                 }
                 else
                 {
-                    if(currentRegVal[0] == '1')//9
+                    if(bit0)//9
                     {
                         topLine.style.stroke = 'red';
                         topL.style.stroke = 'red';
@@ -793,11 +839,11 @@ function memView(){
         }
         else//8 Case in here, (0,1,2,3,4,5,6,7)
         {
-            if(currentRegVal[2] == '1')
+            if(bit2)
             {
-                if(currentRegVal[1] == '1')
+                if(bit1)
                 {
-                    if(currentRegVal[0] == '1')//7
+                    if(bit0)//7
                     {
                         topLine.style.stroke = 'red';
                         topL.style.stroke = 'lightgrey';
@@ -850,7 +896,7 @@ function memView(){
                 }
                 else
                 {
-                    if(currentRegVal[0] == '1')//5
+                    if(bit0)//5
                     {
                         topLine.style.stroke = 'red';
                         topL.style.stroke = 'red';
@@ -904,9 +950,9 @@ function memView(){
             }
             else
             {
-                if(currentRegVal[1] == '1')
+                if(bit1)
                 {
-                    if(currentRegVal[0] == '1')//3
+                    if(bit0)//3
                     {
                         topLine.style.stroke = 'red';
                         topL.style.stroke = 'lightgrey';
@@ -959,7 +1005,7 @@ function memView(){
                 }
                 else
                 {
-                    if(currentRegVal[0] == '1')//1
+                    if(bit0)//1
                     {
                         topLine.style.stroke = 'lightgrey';
                         topL.style.stroke = 'lightgrey';
@@ -1019,6 +1065,8 @@ function memView(){
 function regView(){
     var regHolder = cpu.registers.registers;
 
+    //alert("regView");
+
     var currentRegVal;
 
     var topLine;
@@ -1048,218 +1096,232 @@ function regView(){
     {
         switch(i)
         {
-            case(0):
-            {
-                topLine = document.getElementById("topT1");
-                topL = document.getElementById("topL1");
-                topR = document.getElementById("topR1");
-                midLine = document.getElementById("midM1");
-                botLine = document.getElementById("botB1");
-                botL = document.getElementById("botL1");
-                botR = document.getElementById("botR1");
-    
-                topLineTriL = document.getElementById("topT1L");
-                topLineTriR = document.getElementById("topT1R");
-                topLTriT = document.getElementById("topL1T");
-                topLTriB = document.getElementById("topL1B");
-                topRTriT = document.getElementById("topR1T");
-                topRTriB = document.getElementById("topR1B");
-                midLineTriL = document.getElementById("midM1L");
-                midLineTriR = document.getElementById("midM1R");
-                botLineTriL = document.getElementById("botB1L");
-                botLineTriR = document.getElementById("botB1R");
-                botLTriT = document.getElementById("botL1T");
-                botLTriB = document.getElementById("botL1B");
-                botRTriT = document.getElementById("botR1T");
-                botRTriB = document.getElementById("botR1B");
-            }
-            case(1):
-            {
-                topLine = document.getElementById("topT2");
-                topL = document.getElementById("topL2");
-                topR = document.getElementById("topR2");
-                midLine = document.getElementById("midM2");
-                botLine = document.getElementById("botB2");
-                botL = document.getElementById("botL2");
-                botR = document.getElementById("botR2");
-    
-                topLineTriL = document.getElementById("topT2L");
-                topLineTriR = document.getElementById("topT2R");
-                topLTriT = document.getElementById("topL2T");
-                topLTriB = document.getElementById("topL2B");
-                topRTriT = document.getElementById("topR2T");
-                topRTriB = document.getElementById("topR2B");
-                midLineTriL = document.getElementById("midM2L");
-                midLineTriR = document.getElementById("midM2R");
-                botLineTriL = document.getElementById("botB2L");
-                botLineTriR = document.getElementById("botB2R");
-                botLTriT = document.getElementById("botL2T");
-                botLTriB = document.getElementById("botL2B");
-                botRTriT = document.getElementById("botR2T");
-                botRTriB = document.getElementById("botR2B");
-            }
-            case(2):
-            {
-                topLine = document.getElementById("topT3");
-                topL = document.getElementById("topL3");
-                topR = document.getElementById("topR3");
-                midLine = document.getElementById("midM3");
-                botLine = document.getElementById("botB3");
-                botL = document.getElementById("botL3");
-                botR = document.getElementById("botR3");
-    
-                topLineTriL = document.getElementById("topT3L");
-                topLineTriR = document.getElementById("topT3R");
-                topLTriT = document.getElementById("topL3T");
-                topLTriB = document.getElementById("topL3B");
-                topRTriT = document.getElementById("topR3T");
-                topRTriB = document.getElementById("topR3B");
-                midLineTriL = document.getElementById("midM3L");
-                midLineTriR = document.getElementById("midM3R");
-                botLineTriL = document.getElementById("botB3L");
-                botLineTriR = document.getElementById("botB3R");
-                botLTriT = document.getElementById("botL3T");
-                botLTriB = document.getElementById("botL3B");
-                botRTriT = document.getElementById("botR3T");
-                botRTriB = document.getElementById("botR3B");
-            }
-            case(3):
-            {
-                topLine = document.getElementById("topT4");
-                topL = document.getElementById("topL4");
-                topR = document.getElementById("topR4");
-                midLine = document.getElementById("midM4");
-                botLine = document.getElementById("botB4");
-                botL = document.getElementById("botL4");
-                botR = document.getElementById("botR4");
-    
-                topLineTriL = document.getElementById("topT4L");
-                topLineTriR = document.getElementById("topT4R");
-                topLTriT = document.getElementById("topL4T");
-                topLTriB = document.getElementById("topL4B");
-                topRTriT = document.getElementById("topR4T");
-                topRTriB = document.getElementById("topR4B");
-                midLineTriL = document.getElementById("midM4L");
-                midLineTriR = document.getElementById("midM4R");
-                botLineTriL = document.getElementById("botB4L");
-                botLineTriR = document.getElementById("botB4R");
-                botLTriT = document.getElementById("botL4T");
-                botLTriB = document.getElementById("botL4B");
-                botRTriT = document.getElementById("botR4T");
-                botRTriB = document.getElementById("botR4B");
-            }
-            case(4):
-            {
-                topLine = document.getElementById("topT5");
-                topL = document.getElementById("topL5");
-                topR = document.getElementById("topR5");
-                midLine = document.getElementById("midM5");
-                botLine = document.getElementById("botB5");
-                botL = document.getElementById("botL5");
-                botR = document.getElementById("botR5");
-    
-                topLineTriL = document.getElementById("topT5L");
-                topLineTriR = document.getElementById("topT5R");
-                topLTriT = document.getElementById("topL5T");
-                topLTriB = document.getElementById("topL5B");
-                topRTriT = document.getElementById("topR5T");
-                topRTriB = document.getElementById("topR5B");
-                midLineTriL = document.getElementById("midM5L");
-                midLineTriR = document.getElementById("midM5R");
-                botLineTriL = document.getElementById("botB5L");
-                botLineTriR = document.getElementById("botB5R");
-                botLTriT = document.getElementById("botL5T");
-                botLTriB = document.getElementById("botL5B");
-                botRTriT = document.getElementById("botR5T");
-                botRTriB = document.getElementById("botR5B");
-            }
-            case(5):
-            {
-                topLine = document.getElementById("topT6");
-                topL = document.getElementById("topL6");
-                topR = document.getElementById("topR6");
-                midLine = document.getElementById("midM6");
-                botLine = document.getElementById("botB6");
-                botL = document.getElementById("botL6");
-                botR = document.getElementById("botR6");
-    
-                topLineTriL = document.getElementById("topT6L");
-                topLineTriR = document.getElementById("topT6R");
-                topLTriT = document.getElementById("topL6T");
-                topLTriB = document.getElementById("topL6B");
-                topRTriT = document.getElementById("topR6T");
-                topRTriB = document.getElementById("topR6B");
-                midLineTriL = document.getElementById("midM6L");
-                midLineTriR = document.getElementById("midM6R");
-                botLineTriL = document.getElementById("botB6L");
-                botLineTriR = document.getElementById("botB6R");
-                botLTriT = document.getElementById("botL6T");
-                botLTriB = document.getElementById("botL6B");
-                botRTriT = document.getElementById("botR6T");
-                botRTriB = document.getElementById("botR6B");
-            }
-            case(6):
-            {
-                topLine = document.getElementById("topT7");
-                topL = document.getElementById("topL7");
-                topR = document.getElementById("topR7");
-                midLine = document.getElementById("midM7");
-                botLine = document.getElementById("botB7");
-                botL = document.getElementById("botL7");
-                botR = document.getElementById("botR7");
-    
-                topLineTriL = document.getElementById("topT57");
-                topLineTriR = document.getElementById("topT57");
-                topLTriT = document.getElementById("topL57");
-                topLTriB = document.getElementById("topL57");
-                topRTriT = document.getElementById("topR57");
-                topRTriB = document.getElementById("topR57");
-                midLineTriL = document.getElementById("midM57");
-                midLineTriR = document.getElementById("midM57");
-                botLineTriL = document.getElementById("botB57");
-                botLineTriR = document.getElementById("botB57");
-                botLTriT = document.getElementById("botL57");
-                botLTriB = document.getElementById("botL57");
-                botRTriT = document.getElementById("botR57");
-                botRTriB = document.getElementById("botR57");
-            }
-            case(7):
-            {
-                topLine = document.getElementById("topT8");
-                topL = document.getElementById("topL8");
-                topR = document.getElementById("topR8");
-                midLine = document.getElementById("midM8");
-                botLine = document.getElementById("botB8");
-                botL = document.getElementById("botL8");
-                botR = document.getElementById("botR8");
-    
-                topLineTriL = document.getElementById("topT8L");
-                topLineTriR = document.getElementById("topT8R");
-                topLTriT = document.getElementById("topL8T");
-                topLTriB = document.getElementById("topL8B");
-                topRTriT = document.getElementById("topR8T");
-                topRTriB = document.getElementById("topR8B");
-                midLineTriL = document.getElementById("midM8L");
-                midLineTriR = document.getElementById("midM8R");
-                botLineTriL = document.getElementById("botB8L");
-                botLineTriR = document.getElementById("botB8R");
-                botLTriT = document.getElementById("botL8T");
-                botLTriB = document.getElementById("botL8B");
-                botRTriT = document.getElementById("botR8T");
-                botRTriB = document.getElementById("botR8B");
-            }
+            case 0:
+                {
+                    topLine = document.getElementById("topT1");
+                    topL = document.getElementById("topL1");
+                    topR = document.getElementById("topR1");
+                    midLine = document.getElementById("midM1");
+                    botLine = document.getElementById("botB1");
+                    botL = document.getElementById("botL1");
+                    botR = document.getElementById("botR1");
+        
+                    topLineTriL = document.getElementById("topT1L");
+                    topLineTriR = document.getElementById("topT1R");
+                    topLTriT = document.getElementById("topL1T");
+                    topLTriB = document.getElementById("topL1B");
+                    topRTriT = document.getElementById("topR1T");
+                    topRTriB = document.getElementById("topR1B");
+                    midLineTriL = document.getElementById("midM1L");
+                    midLineTriR = document.getElementById("midM1R");
+                    botLineTriL = document.getElementById("botB1L");
+                    botLineTriR = document.getElementById("botB1R");
+                    botLTriT = document.getElementById("botL1T");
+                    botLTriB = document.getElementById("botL1B");
+                    botRTriT = document.getElementById("botR1T");
+                    botRTriB = document.getElementById("botR1B");
+                    break;
+                }
+                case 1:
+                {
+                    topLine = document.getElementById("topT2");
+                    topL = document.getElementById("topL2");
+                    topR = document.getElementById("topR2");
+                    midLine = document.getElementById("midM2");
+                    botLine = document.getElementById("botB2");
+                    botL = document.getElementById("botL2");
+                    botR = document.getElementById("botR2");
+        
+                    topLineTriL = document.getElementById("topT2L");
+                    topLineTriR = document.getElementById("topT2R");
+                    topLTriT = document.getElementById("topL2T");
+                    topLTriB = document.getElementById("topL2B");
+                    topRTriT = document.getElementById("topR2T");
+                    topRTriB = document.getElementById("topR2B");
+                    midLineTriL = document.getElementById("midM2L");
+                    midLineTriR = document.getElementById("midM2R");
+                    botLineTriL = document.getElementById("botB2L");
+                    botLineTriR = document.getElementById("botB2R");
+                    botLTriT = document.getElementById("botL2T");
+                    botLTriB = document.getElementById("botL2B");
+                    botRTriT = document.getElementById("botR2T");
+                    botRTriB = document.getElementById("botR2B");
+                    break;
+                }
+                case 2:
+                {
+                    topLine = document.getElementById("topT3");
+                    topL = document.getElementById("topL3");
+                    topR = document.getElementById("topR3");
+                    midLine = document.getElementById("midM3");
+                    botLine = document.getElementById("botB3");
+                    botL = document.getElementById("botL3");
+                    botR = document.getElementById("botR3");
+        
+                    topLineTriL = document.getElementById("topT3L");
+                    topLineTriR = document.getElementById("topT3R");
+                    topLTriT = document.getElementById("topL3T");
+                    topLTriB = document.getElementById("topL3B");
+                    topRTriT = document.getElementById("topR3T");
+                    topRTriB = document.getElementById("topR3B");
+                    midLineTriL = document.getElementById("midM3L");
+                    midLineTriR = document.getElementById("midM3R");
+                    botLineTriL = document.getElementById("botB3L");
+                    botLineTriR = document.getElementById("botB3R");
+                    botLTriT = document.getElementById("botL3T");
+                    botLTriB = document.getElementById("botL3B");
+                    botRTriT = document.getElementById("botR3T");
+                    botRTriB = document.getElementById("botR3B");
+                    break;
+                }
+                case 3:
+                {
+                    topLine = document.getElementById("topT4");
+                    topL = document.getElementById("topL4");
+                    topR = document.getElementById("topR4");
+                    midLine = document.getElementById("midM4");
+                    botLine = document.getElementById("botB4");
+                    botL = document.getElementById("botL4");
+                    botR = document.getElementById("botR4");
+        
+                    topLineTriL = document.getElementById("topT4L");
+                    topLineTriR = document.getElementById("topT4R");
+                    topLTriT = document.getElementById("topL4T");
+                    topLTriB = document.getElementById("topL4B");
+                    topRTriT = document.getElementById("topR4T");
+                    topRTriB = document.getElementById("topR4B");
+                    midLineTriL = document.getElementById("midM4L");
+                    midLineTriR = document.getElementById("midM4R");
+                    botLineTriL = document.getElementById("botB4L");
+                    botLineTriR = document.getElementById("botB4R");
+                    botLTriT = document.getElementById("botL4T");
+                    botLTriB = document.getElementById("botL4B");
+                    botRTriT = document.getElementById("botR4T");
+                    botRTriB = document.getElementById("botR4B");
+                    break;
+                }
+                case 4:
+                {
+                    topLine = document.getElementById("topT5");
+                    topL = document.getElementById("topL5");
+                    topR = document.getElementById("topR5");
+                    midLine = document.getElementById("midM5");
+                    botLine = document.getElementById("botB5");
+                    botL = document.getElementById("botL5");
+                    botR = document.getElementById("botR5");
+        
+                    topLineTriL = document.getElementById("topT5L");
+                    topLineTriR = document.getElementById("topT5R");
+                    topLTriT = document.getElementById("topL5T");
+                    topLTriB = document.getElementById("topL5B");
+                    topRTriT = document.getElementById("topR5T");
+                    topRTriB = document.getElementById("topR5B");
+                    midLineTriL = document.getElementById("midM5L");
+                    midLineTriR = document.getElementById("midM5R");
+                    botLineTriL = document.getElementById("botB5L");
+                    botLineTriR = document.getElementById("botB5R");
+                    botLTriT = document.getElementById("botL5T");
+                    botLTriB = document.getElementById("botL5B");
+                    botRTriT = document.getElementById("botR5T");
+                    botRTriB = document.getElementById("botR5B");
+                    break;
+                }
+                case 5:
+                {
+                    topLine = document.getElementById("topT6");
+                    topL = document.getElementById("topL6");
+                    topR = document.getElementById("topR6");
+                    midLine = document.getElementById("midM6");
+                    botLine = document.getElementById("botB6");
+                    botL = document.getElementById("botL6");
+                    botR = document.getElementById("botR6");
+        
+                    topLineTriL = document.getElementById("topT6L");
+                    topLineTriR = document.getElementById("topT6R");
+                    topLTriT = document.getElementById("topL6T");
+                    topLTriB = document.getElementById("topL6B");
+                    topRTriT = document.getElementById("topR6T");
+                    topRTriB = document.getElementById("topR6B");
+                    midLineTriL = document.getElementById("midM6L");
+                    midLineTriR = document.getElementById("midM6R");
+                    botLineTriL = document.getElementById("botB6L");
+                    botLineTriR = document.getElementById("botB6R");
+                    botLTriT = document.getElementById("botL6T");
+                    botLTriB = document.getElementById("botL6B");
+                    botRTriT = document.getElementById("botR6T");
+                    botRTriB = document.getElementById("botR6B");
+                    break;
+                }
+                case 6:
+                {
+                    topLine = document.getElementById("topT7");
+                    topL = document.getElementById("topL7");
+                    topR = document.getElementById("topR7");
+                    midLine = document.getElementById("midM7");
+                    botLine = document.getElementById("botB7");
+                    botL = document.getElementById("botL7");
+                    botR = document.getElementById("botR7");
+        
+                    topLineTriL = document.getElementById("topT7L");
+                    topLineTriR = document.getElementById("topT7R");
+                    topLTriT = document.getElementById("topL7T");
+                    topLTriB = document.getElementById("topL7B");
+                    topRTriT = document.getElementById("topR7T");
+                    topRTriB = document.getElementById("topR7B");
+                    midLineTriL = document.getElementById("midM7L");
+                    midLineTriR = document.getElementById("midM7R");
+                    botLineTriL = document.getElementById("botB7L");
+                    botLineTriR = document.getElementById("botB7R");
+                    botLTriT = document.getElementById("botL7T");
+                    botLTriB = document.getElementById("botL7B");
+                    botRTriT = document.getElementById("botR7T");
+                    botRTriB = document.getElementById("botR7B");
+                    break;
+                }
+                case 7:
+                {
+                    topLine = document.getElementById("topT8");
+                    topL = document.getElementById("topL8");
+                    topR = document.getElementById("topR8");
+                    midLine = document.getElementById("midM8");
+                    botLine = document.getElementById("botB8");
+                    botL = document.getElementById("botL8");
+                    botR = document.getElementById("botR8");
+        
+                    topLineTriL = document.getElementById("topT8L");
+                    topLineTriR = document.getElementById("topT8R");
+                    topLTriT = document.getElementById("topL8T");
+                    topLTriB = document.getElementById("topL8B");
+                    topRTriT = document.getElementById("topR8T");
+                    topRTriB = document.getElementById("topR8B");
+                    midLineTriL = document.getElementById("midM8L");
+                    midLineTriR = document.getElementById("midM8R");
+                    botLineTriL = document.getElementById("botB8L");
+                    botLineTriR = document.getElementById("botB8R");
+                    botLTriT = document.getElementById("botL8T");
+                    botLTriB = document.getElementById("botL8B");
+                    botRTriT = document.getElementById("botR8T");
+                    botRTriB = document.getElementById("botR8B");
+                    break;
+                }
         }
+
+
+
         if(i > 3)
         {
-            currentRegVal = regHolder.getRegister[i];
-            if(currentRegVal[3] == '1')//8 case in here (8,9,A,B,C,D,E,F)
+            var bit3 = regHolder[i-4][4] == '1'
+            var bit2 = regHolder[i-4][5] == '1'
+            var bit1 = regHolder[i-4][6] == '1'
+            var bit0 = regHolder[i-4][7] == '1'
+            if(bit3)//8 case in here (8,9,A,B,C,D,E,F)
             {
-                if(currentRegVal[2] == '1')
+                if(bit2)
                 {
-                    if(currentRegVal[1] == '1')
+                    if(bit1)
                     {
 
-                        if(currentRegVal[0] == '1')//F
+                        if(bit0)//F
                         {
                             topLine.style.stroke = 'red';
                             topL.style.stroke = 'red';
@@ -1312,7 +1374,7 @@ function regView(){
                     }
                     else
                     {
-                        if(currentRegVal[0] == '1')//D
+                        if(bit0)//D
                         {
                             topLine.style.stroke = 'lightgrey';
                             topL.style.stroke = 'lightgrey';
@@ -1366,9 +1428,9 @@ function regView(){
                 }
                 else
                 {
-                    if(currentRegVal[1] == '1')
+                    if(bit1)
                     {
-                        if(currentRegVal[0] == '1')//B
+                        if(bit0)//B
                         {
                             topLine.style.stroke = 'lightgrey';
                             topL.style.stroke = 'red';
@@ -1421,7 +1483,7 @@ function regView(){
                     }
                     else
                     {
-                        if(currentRegVal[0] == '1')//9
+                        if(bit0)//9
                         {
                             topLine.style.stroke = 'red';
                             topL.style.stroke = 'red';
@@ -1476,11 +1538,11 @@ function regView(){
             }
             else//8 Case in here, (0,1,2,3,4,5,6,7)
             {
-                if(currentRegVal[2] == '1')
+                if(bit2)
                 {
-                    if(currentRegVal[1] == '1')
+                    if(bit1)
                     {
-                        if(currentRegVal[0] == '1')//7
+                        if(bit0)//7
                         {
                             topLine.style.stroke = 'red';
                             topL.style.stroke = 'lightgrey';
@@ -1533,7 +1595,7 @@ function regView(){
                     }
                     else
                     {
-                        if(currentRegVal[0] == '1')//5
+                        if(bit0)//5
                         {
                             topLine.style.stroke = 'red';
                             topL.style.stroke = 'red';
@@ -1587,9 +1649,9 @@ function regView(){
                 }
                 else
                 {
-                    if(currentRegVal[1] == '1')
+                    if(bit1)
                     {
-                        if(currentRegVal[0] == '1')//3
+                        if(bit0)//3
                         {
                             topLine.style.stroke = 'red';
                             topL.style.stroke = 'lightgrey';
@@ -1642,7 +1704,7 @@ function regView(){
                     }
                     else
                     {
-                        if(currentRegVal[0] == '1')//1
+                        if(bit0)//1
                         {
                             topLine.style.stroke = 'lightgrey';
                             topL.style.stroke = 'lightgrey';
@@ -1755,208 +1817,226 @@ function gameView(){
     {
         switch(i)
         {
-            case(0):
-            {
-                topLine = document.getElementById("topT1");
-                topL = document.getElementById("topL1");
-                topR = document.getElementById("topR1");
-                midLine = document.getElementById("midM1");
-                botLine = document.getElementById("botB1");
-                botL = document.getElementById("botL1");
-                botR = document.getElementById("botR1");
-    
-                topLineTriL = document.getElementById("topT1L");
-                topLineTriR = document.getElementById("topT1R");
-                topLTriT = document.getElementById("topL1T");
-                topLTriB = document.getElementById("topL1B");
-                topRTriT = document.getElementById("topR1T");
-                topRTriB = document.getElementById("topR1B");
-                midLineTriL = document.getElementById("midM1L");
-                midLineTriR = document.getElementById("midM1R");
-                botLineTriL = document.getElementById("botB1L");
-                botLineTriR = document.getElementById("botB1R");
-                botLTriT = document.getElementById("botL1T");
-                botLTriB = document.getElementById("botL1B");
-                botRTriT = document.getElementById("botR1T");
-                botRTriB = document.getElementById("botR1B");
-            }
-            case(1):
-            {
-                topLine = document.getElementById("topT2");
-                topL = document.getElementById("topL2");
-                topR = document.getElementById("topR2");
-                midLine = document.getElementById("midM2");
-                botLine = document.getElementById("botB2");
-                botL = document.getElementById("botL2");
-                botR = document.getElementById("botR2");
-    
-                topLineTriL = document.getElementById("topT2L");
-                topLineTriR = document.getElementById("topT2R");
-                topLTriT = document.getElementById("topL2T");
-                topLTriB = document.getElementById("topL2B");
-                topRTriT = document.getElementById("topR2T");
-                topRTriB = document.getElementById("topR2B");
-                midLineTriL = document.getElementById("midM2L");
-                midLineTriR = document.getElementById("midM2R");
-                botLineTriL = document.getElementById("botB2L");
-                botLineTriR = document.getElementById("botB2R");
-                botLTriT = document.getElementById("botL2T");
-                botLTriB = document.getElementById("botL2B");
-                botRTriT = document.getElementById("botR2T");
-                botRTriB = document.getElementById("botR2B");
-            }
-            case(2):
-            {
-                topLine = document.getElementById("topT3");
-                topL = document.getElementById("topL3");
-                topR = document.getElementById("topR3");
-                midLine = document.getElementById("midM3");
-                botLine = document.getElementById("botB3");
-                botL = document.getElementById("botL3");
-                botR = document.getElementById("botR3");
-    
-                topLineTriL = document.getElementById("topT3L");
-                topLineTriR = document.getElementById("topT3R");
-                topLTriT = document.getElementById("topL3T");
-                topLTriB = document.getElementById("topL3B");
-                topRTriT = document.getElementById("topR3T");
-                topRTriB = document.getElementById("topR3B");
-                midLineTriL = document.getElementById("midM3L");
-                midLineTriR = document.getElementById("midM3R");
-                botLineTriL = document.getElementById("botB3L");
-                botLineTriR = document.getElementById("botB3R");
-                botLTriT = document.getElementById("botL3T");
-                botLTriB = document.getElementById("botL3B");
-                botRTriT = document.getElementById("botR3T");
-                botRTriB = document.getElementById("botR3B");
-            }
-            case(3):
-            {
-                topLine = document.getElementById("topT4");
-                topL = document.getElementById("topL4");
-                topR = document.getElementById("topR4");
-                midLine = document.getElementById("midM4");
-                botLine = document.getElementById("botB4");
-                botL = document.getElementById("botL4");
-                botR = document.getElementById("botR4");
-    
-                topLineTriL = document.getElementById("topT4L");
-                topLineTriR = document.getElementById("topT4R");
-                topLTriT = document.getElementById("topL4T");
-                topLTriB = document.getElementById("topL4B");
-                topRTriT = document.getElementById("topR4T");
-                topRTriB = document.getElementById("topR4B");
-                midLineTriL = document.getElementById("midM4L");
-                midLineTriR = document.getElementById("midM4R");
-                botLineTriL = document.getElementById("botB4L");
-                botLineTriR = document.getElementById("botB4R");
-                botLTriT = document.getElementById("botL4T");
-                botLTriB = document.getElementById("botL4B");
-                botRTriT = document.getElementById("botR4T");
-                botRTriB = document.getElementById("botR4B");
-            }
-            case(4):
-            {
-                topLine = document.getElementById("topT5");
-                topL = document.getElementById("topL5");
-                topR = document.getElementById("topR5");
-                midLine = document.getElementById("midM5");
-                botLine = document.getElementById("botB5");
-                botL = document.getElementById("botL5");
-                botR = document.getElementById("botR5");
-    
-                topLineTriL = document.getElementById("topT5L");
-                topLineTriR = document.getElementById("topT5R");
-                topLTriT = document.getElementById("topL5T");
-                topLTriB = document.getElementById("topL5B");
-                topRTriT = document.getElementById("topR5T");
-                topRTriB = document.getElementById("topR5B");
-                midLineTriL = document.getElementById("midM5L");
-                midLineTriR = document.getElementById("midM5R");
-                botLineTriL = document.getElementById("botB5L");
-                botLineTriR = document.getElementById("botB5R");
-                botLTriT = document.getElementById("botL5T");
-                botLTriB = document.getElementById("botL5B");
-                botRTriT = document.getElementById("botR5T");
-                botRTriB = document.getElementById("botR5B");
-            }
-            case(5):
-            {
-                topLine = document.getElementById("topT6");
-                topL = document.getElementById("topL6");
-                topR = document.getElementById("topR6");
-                midLine = document.getElementById("midM6");
-                botLine = document.getElementById("botB6");
-                botL = document.getElementById("botL6");
-                botR = document.getElementById("botR6");
-    
-                topLineTriL = document.getElementById("topT6L");
-                topLineTriR = document.getElementById("topT6R");
-                topLTriT = document.getElementById("topL6T");
-                topLTriB = document.getElementById("topL6B");
-                topRTriT = document.getElementById("topR6T");
-                topRTriB = document.getElementById("topR6B");
-                midLineTriL = document.getElementById("midM6L");
-                midLineTriR = document.getElementById("midM6R");
-                botLineTriL = document.getElementById("botB6L");
-                botLineTriR = document.getElementById("botB6R");
-                botLTriT = document.getElementById("botL6T");
-                botLTriB = document.getElementById("botL6B");
-                botRTriT = document.getElementById("botR6T");
-                botRTriB = document.getElementById("botR6B");
-            }
-            case(6):
-            {
-                topLine = document.getElementById("topT7");
-                topL = document.getElementById("topL7");
-                topR = document.getElementById("topR7");
-                midLine = document.getElementById("midM7");
-                botLine = document.getElementById("botB7");
-                botL = document.getElementById("botL7");
-                botR = document.getElementById("botR7");
-    
-                topLineTriL = document.getElementById("topT57");
-                topLineTriR = document.getElementById("topT57");
-                topLTriT = document.getElementById("topL57");
-                topLTriB = document.getElementById("topL57");
-                topRTriT = document.getElementById("topR57");
-                topRTriB = document.getElementById("topR57");
-                midLineTriL = document.getElementById("midM57");
-                midLineTriR = document.getElementById("midM57");
-                botLineTriL = document.getElementById("botB57");
-                botLineTriR = document.getElementById("botB57");
-                botLTriT = document.getElementById("botL57");
-                botLTriB = document.getElementById("botL57");
-                botRTriT = document.getElementById("botR57");
-                botRTriB = document.getElementById("botR57");
-            }
-            case(7):
-            {
-                topLine = document.getElementById("topT8");
-                topL = document.getElementById("topL8");
-                topR = document.getElementById("topR8");
-                midLine = document.getElementById("midM8");
-                botLine = document.getElementById("botB8");
-                botL = document.getElementById("botL8");
-                botR = document.getElementById("botR8");
-    
-                topLineTriL = document.getElementById("topT8L");
-                topLineTriR = document.getElementById("topT8R");
-                topLTriT = document.getElementById("topL8T");
-                topLTriB = document.getElementById("topL8B");
-                topRTriT = document.getElementById("topR8T");
-                topRTriB = document.getElementById("topR8B");
-                midLineTriL = document.getElementById("midM8L");
-                midLineTriR = document.getElementById("midM8R");
-                botLineTriL = document.getElementById("botB8L");
-                botLineTriR = document.getElementById("botB8R");
-                botLTriT = document.getElementById("botL8T");
-                botLTriB = document.getElementById("botL8B");
-                botRTriT = document.getElementById("botR8T");
-                botRTriB = document.getElementById("botR8B");
-            }
+            case 0:
+                {
+                    topLine = document.getElementById("topT1");
+                    topL = document.getElementById("topL1");
+                    topR = document.getElementById("topR1");
+                    midLine = document.getElementById("midM1");
+                    botLine = document.getElementById("botB1");
+                    botL = document.getElementById("botL1");
+                    botR = document.getElementById("botR1");
+        
+                    topLineTriL = document.getElementById("topT1L");
+                    topLineTriR = document.getElementById("topT1R");
+                    topLTriT = document.getElementById("topL1T");
+                    topLTriB = document.getElementById("topL1B");
+                    topRTriT = document.getElementById("topR1T");
+                    topRTriB = document.getElementById("topR1B");
+                    midLineTriL = document.getElementById("midM1L");
+                    midLineTriR = document.getElementById("midM1R");
+                    botLineTriL = document.getElementById("botB1L");
+                    botLineTriR = document.getElementById("botB1R");
+                    botLTriT = document.getElementById("botL1T");
+                    botLTriB = document.getElementById("botL1B");
+                    botRTriT = document.getElementById("botR1T");
+                    botRTriB = document.getElementById("botR1B");
+                    break;
+                }
+                case 1:
+                {
+                    topLine = document.getElementById("topT2");
+                    topL = document.getElementById("topL2");
+                    topR = document.getElementById("topR2");
+                    midLine = document.getElementById("midM2");
+                    botLine = document.getElementById("botB2");
+                    botL = document.getElementById("botL2");
+                    botR = document.getElementById("botR2");
+        
+                    topLineTriL = document.getElementById("topT2L");
+                    topLineTriR = document.getElementById("topT2R");
+                    topLTriT = document.getElementById("topL2T");
+                    topLTriB = document.getElementById("topL2B");
+                    topRTriT = document.getElementById("topR2T");
+                    topRTriB = document.getElementById("topR2B");
+                    midLineTriL = document.getElementById("midM2L");
+                    midLineTriR = document.getElementById("midM2R");
+                    botLineTriL = document.getElementById("botB2L");
+                    botLineTriR = document.getElementById("botB2R");
+                    botLTriT = document.getElementById("botL2T");
+                    botLTriB = document.getElementById("botL2B");
+                    botRTriT = document.getElementById("botR2T");
+                    botRTriB = document.getElementById("botR2B");
+                    break;
+                }
+                case 2:
+                {
+                    topLine = document.getElementById("topT3");
+                    topL = document.getElementById("topL3");
+                    topR = document.getElementById("topR3");
+                    midLine = document.getElementById("midM3");
+                    botLine = document.getElementById("botB3");
+                    botL = document.getElementById("botL3");
+                    botR = document.getElementById("botR3");
+        
+                    topLineTriL = document.getElementById("topT3L");
+                    topLineTriR = document.getElementById("topT3R");
+                    topLTriT = document.getElementById("topL3T");
+                    topLTriB = document.getElementById("topL3B");
+                    topRTriT = document.getElementById("topR3T");
+                    topRTriB = document.getElementById("topR3B");
+                    midLineTriL = document.getElementById("midM3L");
+                    midLineTriR = document.getElementById("midM3R");
+                    botLineTriL = document.getElementById("botB3L");
+                    botLineTriR = document.getElementById("botB3R");
+                    botLTriT = document.getElementById("botL3T");
+                    botLTriB = document.getElementById("botL3B");
+                    botRTriT = document.getElementById("botR3T");
+                    botRTriB = document.getElementById("botR3B");
+                    break;
+                }
+                case 3:
+                {
+                    topLine = document.getElementById("topT4");
+                    topL = document.getElementById("topL4");
+                    topR = document.getElementById("topR4");
+                    midLine = document.getElementById("midM4");
+                    botLine = document.getElementById("botB4");
+                    botL = document.getElementById("botL4");
+                    botR = document.getElementById("botR4");
+        
+                    topLineTriL = document.getElementById("topT4L");
+                    topLineTriR = document.getElementById("topT4R");
+                    topLTriT = document.getElementById("topL4T");
+                    topLTriB = document.getElementById("topL4B");
+                    topRTriT = document.getElementById("topR4T");
+                    topRTriB = document.getElementById("topR4B");
+                    midLineTriL = document.getElementById("midM4L");
+                    midLineTriR = document.getElementById("midM4R");
+                    botLineTriL = document.getElementById("botB4L");
+                    botLineTriR = document.getElementById("botB4R");
+                    botLTriT = document.getElementById("botL4T");
+                    botLTriB = document.getElementById("botL4B");
+                    botRTriT = document.getElementById("botR4T");
+                    botRTriB = document.getElementById("botR4B");
+                    break;
+                }
+                case 4:
+                {
+                    topLine = document.getElementById("topT5");
+                    topL = document.getElementById("topL5");
+                    topR = document.getElementById("topR5");
+                    midLine = document.getElementById("midM5");
+                    botLine = document.getElementById("botB5");
+                    botL = document.getElementById("botL5");
+                    botR = document.getElementById("botR5");
+        
+                    topLineTriL = document.getElementById("topT5L");
+                    topLineTriR = document.getElementById("topT5R");
+                    topLTriT = document.getElementById("topL5T");
+                    topLTriB = document.getElementById("topL5B");
+                    topRTriT = document.getElementById("topR5T");
+                    topRTriB = document.getElementById("topR5B");
+                    midLineTriL = document.getElementById("midM5L");
+                    midLineTriR = document.getElementById("midM5R");
+                    botLineTriL = document.getElementById("botB5L");
+                    botLineTriR = document.getElementById("botB5R");
+                    botLTriT = document.getElementById("botL5T");
+                    botLTriB = document.getElementById("botL5B");
+                    botRTriT = document.getElementById("botR5T");
+                    botRTriB = document.getElementById("botR5B");
+                    break;
+                }
+                case 5:
+                {
+                    topLine = document.getElementById("topT6");
+                    topL = document.getElementById("topL6");
+                    topR = document.getElementById("topR6");
+                    midLine = document.getElementById("midM6");
+                    botLine = document.getElementById("botB6");
+                    botL = document.getElementById("botL6");
+                    botR = document.getElementById("botR6");
+        
+                    topLineTriL = document.getElementById("topT6L");
+                    topLineTriR = document.getElementById("topT6R");
+                    topLTriT = document.getElementById("topL6T");
+                    topLTriB = document.getElementById("topL6B");
+                    topRTriT = document.getElementById("topR6T");
+                    topRTriB = document.getElementById("topR6B");
+                    midLineTriL = document.getElementById("midM6L");
+                    midLineTriR = document.getElementById("midM6R");
+                    botLineTriL = document.getElementById("botB6L");
+                    botLineTriR = document.getElementById("botB6R");
+                    botLTriT = document.getElementById("botL6T");
+                    botLTriB = document.getElementById("botL6B");
+                    botRTriT = document.getElementById("botR6T");
+                    botRTriB = document.getElementById("botR6B");
+                    break;
+                }
+                case 6:
+                {
+                    topLine = document.getElementById("topT7");
+                    topL = document.getElementById("topL7");
+                    topR = document.getElementById("topR7");
+                    midLine = document.getElementById("midM7");
+                    botLine = document.getElementById("botB7");
+                    botL = document.getElementById("botL7");
+                    botR = document.getElementById("botR7");
+        
+                    topLineTriL = document.getElementById("topT7L");
+                    topLineTriR = document.getElementById("topT7R");
+                    topLTriT = document.getElementById("topL7T");
+                    topLTriB = document.getElementById("topL7B");
+                    topRTriT = document.getElementById("topR7T");
+                    topRTriB = document.getElementById("topR7B");
+                    midLineTriL = document.getElementById("midM7L");
+                    midLineTriR = document.getElementById("midM7R");
+                    botLineTriL = document.getElementById("botB7L");
+                    botLineTriR = document.getElementById("botB7R");
+                    botLTriT = document.getElementById("botL7T");
+                    botLTriB = document.getElementById("botL7B");
+                    botRTriT = document.getElementById("botR7T");
+                    botRTriB = document.getElementById("botR7B");
+                    break;
+                }
+                case 7:
+                {
+                    topLine = document.getElementById("topT8");
+                    topL = document.getElementById("topL8");
+                    topR = document.getElementById("topR8");
+                    midLine = document.getElementById("midM8");
+                    botLine = document.getElementById("botB8");
+                    botL = document.getElementById("botL8");
+                    botR = document.getElementById("botR8");
+        
+                    topLineTriL = document.getElementById("topT8L");
+                    topLineTriR = document.getElementById("topT8R");
+                    topLTriT = document.getElementById("topL8T");
+                    topLTriB = document.getElementById("topL8B");
+                    topRTriT = document.getElementById("topR8T");
+                    topRTriB = document.getElementById("topR8B");
+                    midLineTriL = document.getElementById("midM8L");
+                    midLineTriR = document.getElementById("midM8R");
+                    botLineTriL = document.getElementById("botB8L");
+                    botLineTriR = document.getElementById("botB8R");
+                    botLTriT = document.getElementById("botL8T");
+                    botLTriB = document.getElementById("botL8B");
+                    botRTriT = document.getElementById("botR8T");
+                    botRTriB = document.getElementById("botR8B");
+                    break;
+                }
+
             currentRegVal = dmemdata.getRegister[i];
-            if(currentRegVal[0] = '1') //Top Line
+            var bit6 = regHolder[i][1] == '1'
+            var bit5 = regHolder[i][2] == '1'
+            var bit4 = regHolder[i][3] == '1'
+            var bit3 = regHolder[i][4] == '1'
+            var bit2 = regHolder[i][5] == '1'
+            var bit1 = regHolder[i][6] == '1'
+            var bit0 = regHolder[i][7] == '1'
+
+
+            if(bit0) //Top Line
             {
                 topLine.style.stroke = 'red';
                 topLineTriL.style.fill = 'red';
@@ -1968,7 +2048,7 @@ function gameView(){
                 topLineTriL.style.fill = 'lightgrey';
                 topLineTriR.style.fill = 'lightgrey';
             }
-            if(currentRegVal[1] = '1') //Top Right
+            if(bit1) //Top Right
             {
                 topR.style.stroke = 'red';
                 topRTriB.style.fill = 'red';
@@ -1980,7 +2060,7 @@ function gameView(){
                 topRTriB.style.fill = 'lightgrey';
                 topRTriT.style.fill = 'lightgrey';
             }
-            if(currentRegVal[2] = '1') //Bottom Right
+            if(bit2) //Bottom Right
             {
                 botR.style.stroke = 'red';
                 botRTriB.style.fill = 'red';
@@ -1992,7 +2072,7 @@ function gameView(){
                 botRTriB.style.fill = 'lightgrey';
                 botLTriT.style.fill = 'lightgrey';
             }
-            if(currentRegVal[3] = '1') //Bottom
+            if(bit3) //Bottom
             {
                 botLine.style.stroke = 'red';
                 botLineTriL.style.fill = 'red';
@@ -2004,7 +2084,7 @@ function gameView(){
                 botLineTriL.style.fill = 'lightgrey';
                 botLineTriR.style.fill = 'lightgrey';
             }
-            if(currentRegVal[4] = '1') //Bottom Left
+            if(bit4) //Bottom Left
             {
                 botL.style.stroke = 'red';
                 botLTriB.style.fill = 'red';
@@ -2016,7 +2096,7 @@ function gameView(){
                 botLTriB.style.fill = 'lightgrey';
                 botLTriT.style.fill = 'lightgrey';
             }
-            if(currentRegVal[5] = '1') //Top Left
+            if(bit5) //Top Left
             {
                 topL.style.stroke = 'red';
                 topLTriB.style.fill = 'red';
@@ -2028,7 +2108,7 @@ function gameView(){
                 topLTriB.style.fill = 'lightgrey';
                 topLTriT.style.fill = 'lightgrey';
             }
-            if(currentRegVal[6] = '1') //Middle Line
+            if(bit6) //Middle Line
             {
                 midLine.style.stroke = 'red';
                 midLineTriL.style.fill = 'red';
