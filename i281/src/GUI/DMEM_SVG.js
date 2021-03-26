@@ -37,7 +37,7 @@ export default class DMEM_SVG {
 		this.addr15 = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * 16), Constants.DMEM_ADDR15_ID, "1111", Constants.BLUE_TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 		*/
 
-		var dmemdata = cpu.dMem.registers
+		var dmemdata = cpu.dMem.registers;
 
 		for(var i=0; i<dmemdata.length; i++){
 			var cur = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "dmem_addr"+i,this.pad((i).toString(2), 4), Constants.BLUE_TEXT_STYLE, Constants.DATA_MEM_OFFSET) 
