@@ -177,9 +177,9 @@ window.addEventListener("load", function() {
 	/* Bus Infomation */
 	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [535, 140], 16, LEFT);
 	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", LEFT);
-	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 250], "8 low", RIGHT);
+	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 250], "8 low", TOP_RIGHT);
 
-	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1100, 140], 27, LEFT);
+	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1125, 140], 27, LEFT);
 	var flags_control_info = new BussInfoSVG("flags_control_info", [1270, 250], 4, LEFT);
 
 	var imem_in_top = new BussInfoSVG("imem_in_top", [65, 185], 6, LEFT);
