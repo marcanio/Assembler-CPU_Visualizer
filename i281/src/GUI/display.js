@@ -20,42 +20,17 @@ import BussInfoSVG from "./BusInfoSVG.js";
 import LongArrowSVG from "./LongArrowSVG.js"
 import ALULongArrowSVG from "./ALULongArrowSVG.js"
 import {CPU} from "../simulator/cpu.js";
+import * as Utils from "./Utils.js";
 
 function init() {
-	//const btn = document.getElementById("btn");
-	//btn.onclick = compute;
-	show_arrows.onchange = toggle_arrow_visablitity;
+	 
+	show_arrows.onchange = Utils.toggle_arrow_visablitity;
+	show_bus_info.onchange = Utils.toggle_bus_info_visablitity;
 	document.getElementById("modal").onclick = () => {
 		modal.style.visibility = "hidden";
 		document.getElementById("modal_content").style.visibility = "hidden";
 
 	}
-}
-
-function toggle_arrow_visablitity(checkbox) {
-	let arrows = [];
-	arrows.push(document.getElementById(Constants.IMEM_C1_ID));
-	arrows.push(document.getElementById(Constants.MUX_C2_ID));
-	arrows.push(document.getElementById(Constants.PC_VALUE_C3_ID));
-	arrows.push(document.getElementById(Constants.READ_A_C4_ID));
-	arrows.push(document.getElementById(Constants.READ_A_C5_ID));
-	arrows.push(document.getElementById(Constants.READ_B_C6_ID));
-	arrows.push(document.getElementById(Constants.READ_B_C7_ID));
-	arrows.push(document.getElementById(Constants.REG_FILE_C8_ID));
-	arrows.push(document.getElementById(Constants.REG_FILE_C9_ID));
-	arrows.push(document.getElementById(Constants.REG_FILE_C10_ID));
-	arrows.push(document.getElementById(Constants.MUX_C11_ID));
-	arrows.push(document.getElementById(Constants.ALU_C12_ID));
-	arrows.push(document.getElementById(Constants.ALU_C13_ID));
-	arrows.push(document.getElementById(Constants.FLAGS_C14_ID));
-	arrows.push(document.getElementById(Constants.MUX_C15_ID));
-	arrows.push(document.getElementById(Constants.MUX_C16_ID));
-	arrows.push(document.getElementById(Constants.DMEM_C17_ID));
-	arrows.push(document.getElementById(Constants.MUX_C18_ID));
-
-	const val = (checkbox.target.checked) ? "hidden" : "visible";
-	arrows.forEach( elem => elem.style.visibility = val);
-
 }
 
 window.addEventListener("load", function() {
@@ -176,7 +151,7 @@ window.addEventListener("load", function() {
 	const FAR_LEFT = "farleft";
 
 	/* Bus Infomation */
-	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [535, 140], 16, LEFT);
+	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1", [535, 140], 16, LEFT);
 	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", "farleftlow");
 	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 250], "8 low", TOP_RIGHT);
 
@@ -206,12 +181,12 @@ window.addEventListener("load", function() {
 	var pc_update_in_bottom_info = new BussInfoSVG("pc_update_in_bottom_info", [Constants.INTERSECT_1_POS[0] + 40, 1295], "6", LEFT);
 
 	
-	var dmem_in_top_info = new BussInfoSVG("test", [1785, 910], 4, LEFT);
-	var dmem_in_bottom_info = new BussInfoSVG("test", [1785, 990], 4, LEFT);
+	var dmem_in_top_info = new BussInfoSVG("dmem_in_top_info", [1785, 910], 4, LEFT);
+	var dmem_in_bottom_info = new BussInfoSVG("dmem_in_bottom_info", [1785, 990], 4, LEFT);
 	
-	var pc_logic_out_top_info = new BussInfoSVG("test", [850, 1205], 6, LEFT);
-	var pc_logic_out_bottom_info = new BussInfoSVG("test", [850, 1295], 6, LEFT);
-	var pc_val_out_info = new BussInfoSVG("test", [1300, 1250], 6, LEFT);
+	var pc_logic_out_top_info = new BussInfoSVG("pc_logic_out_top_info", [850, 1205], 6, LEFT);
+	var pc_logic_out_bottom_info = new BussInfoSVG("pc_logic_out_bottom_info", [850, 1295], 6, LEFT);
+	var pc_val_out_info = new BussInfoSVG("pc_val_out_info", [1300, 1250], 6, LEFT);
 
 	var mux0_in_top_info = new BussInfoSVG("mux0_in_top_info", [1150, 755], 8, LEFT);
 	var mux0_in_bottom_info = new BussInfoSVG("mux0_in_bottom_info", [1170, 875], 8, FAR_LEFT);
