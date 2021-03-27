@@ -14,11 +14,11 @@ export const MUX4_POlYGON = [0, 0, MUX_WIDTH, MUX_MIN_HEIGHT, MUX_WIDTH, MUX_MAX
 export const ALU_POLYGON = [0,0, 138,55, 138,275, 0,330, 0,220, 55, 193, 55,138, 0,110 ];
 export const FLAGS_POLYGON = [0,0, FLAGS_WIDTH,0, FLAGS_WIDTH,FLAGS_HIEGHT, 0,FLAGS_HIEGHT];
 export const CODE_MEM_POLYGON = [0,0, CODE_MEM_WIDTH,0, CODE_MEM_WIDTH,CODE_MEM_HEIGHT, 0,CODE_MEM_HEIGHT];
-export const DATA_MEM_POLYGON = [0,0, 350,0, 350,650, 0,650];
+export const DATA_MEM_POLYGON = [0,0, 350,0, 350,680, 0,680];
 export const OPCODE_DECODER_POLYGON = [0,0, 200,0, 200,100, 0,100];
 export const CONTROL_POLYGON = [0,0, 750,0, 750,100, 0,100];
 export const REGISTER_FILE_POLYGON = [0,0, REGISTER_FILE_WIDTH,0, REGISTER_FILE_WIDTH,REGISTER_FILE_HEIGHT, 0,REGISTER_FILE_HEIGHT];
-export const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
+export const PC_VALUE_POLYGON = [0,0, 200,0, 200,120, 0,120];
 export const PC_UPDATE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,60, 0,40, 5,40];
 export const LONGARROW = [5,0, 10,0, 10,56, 15,56, 7.5,76, 0,56, 5,56];
@@ -50,8 +50,8 @@ var change = 10;
 export const OPCODE_DECODER_OFFSET = [850, 100];
 export const CONTROL_OFFSET = [1300, 100];
 export const REGISTER_FILE_OFFSET = [640, 405];
-export const PC_VALUE_OFFSET = [1050, 1150];
-export const PC_UPDATE_OFFSET = [600, 1150];
+export const PC_VALUE_OFFSET = [1050, 1170];
+export const PC_UPDATE_OFFSET = [600, 1160];
 export const DATA_MEM_OFFSET = [1800, 825];
 
 export const INTERSECT_1_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 60, CODE_MEM_OFFSET[1] + 25];
@@ -108,7 +108,7 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
 
     export const IMEM_OUT_TO_MUXES_SEGS = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"];
     //IMEM MUX2 SEGMENTS
-    export const IMEM_MUX2_JUNCTION = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -70,0, 0,1200, (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 30),0, 0,-340]
+    export const IMEM_MUX2_JUNCTION = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -85,0, 0,1200, (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 15),0, 0,-340]
     //END IMEM MUX2 SEGMENTS
 
     //IMEM OUT BOTTOM SEGMENTS

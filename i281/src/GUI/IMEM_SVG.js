@@ -15,6 +15,9 @@ let mem = [];
 
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
+				
+const UP_ARROW =  [2,0, 4,0, 4, -16, 6, -16, 3,-24, 0,-16, 2,-16];
+const DOWN_ARROW =  [2,0, 4,0, 4, 16, 6, 16, 3,24, 0,16, 2,16];
 
 export default class IMEM_SVG {
 	constructor() {
@@ -41,6 +44,11 @@ export default class IMEM_SVG {
 			mem.push(user);
 		}
 		this.label = new TextSVG(280, 1390, "imem_label", "INSTRUCTION MEMORY", Constants.ARIAL_TEXT_STYLE);
+		this.upper_mem_box =  new PolygonSVG('up_box', [0,0, 30,0, 30,25, 0,25] , Constants.THIN_BLOCK_STYLE, [440, 1330]);
+		this.up_arrow = new PolygonSVG("up_arrow", [...UP_ARROW], Constants.ARROW_STYLE, [453, 1330 + 24]);
+		this.low_mem_box =  new PolygonSVG('bottom_box', [0,0, 30,0, 30,25, 0,25] , Constants.THIN_BLOCK_STYLE, [440, 1365]);
+		this.down_arrow = new PolygonSVG("up_arrow", [...DOWN_ARROW], Constants.ARROW_STYLE, [453, 1365]);
+
 	}
 
     pad(n, width, z) {
@@ -66,6 +74,10 @@ export default class IMEM_SVG {
 			res.push(mem[i].get_node())
 		}
 		res.push(this.label.get_node());
+		res.push(this.upper_mem_box.get_node());
+		res.push(this.low_mem_box.get_node());
+		res.push(this.up_arrow.get_node());
+		res.push(this.down_arrow.get_node());
 		return res;
 	}
 	switchToUser(){

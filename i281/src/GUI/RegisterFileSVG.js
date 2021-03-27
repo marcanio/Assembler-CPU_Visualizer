@@ -5,9 +5,9 @@ import Mux4_1SVG from "./Mux4_1SVG.js";
 
 const REG_TPOS = [70, 30];
 const REG_A = [100, 500/5 * 1];
-const REG_B = [100, 500/5 * 2];
-const REG_C = [100, 500/5 * 3];
-const REG_D = [100, 500/5 * 4];
+const REG_B = [100, 550/5 * 2];
+const REG_C = [100, 550/5 * 3];
+const REG_D = [100, 550/5 * 4];
 
 const REG_A_BOX_OFFSET = [Constants.REGISTER_FILE_OFFSET[0] + REG_A[0] - 60, Constants.REGISTER_FILE_OFFSET[1] + REG_A[1] - 22];
 const REG_B_BOX_OFFSET = [Constants.REGISTER_FILE_OFFSET[0] + REG_B[0] - 60, Constants.REGISTER_FILE_OFFSET[1] + REG_B[1] - 22];
