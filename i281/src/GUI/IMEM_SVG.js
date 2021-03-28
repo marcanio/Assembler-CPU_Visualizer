@@ -43,9 +43,9 @@ export default class IMEM_SVG {
 			mem.push(bios);
 			mem.push(user);
 		}
-		this.label = new TextSVG(280, 1390, "imem_label", "INSTRUCTION MEMORY", Constants.ARIAL_TEXT_STYLE);
-		this.upper_mem_box =  new PolygonSVG('up_box', [0,0, 30,0, 30,25, 0,25] , Constants.THIN_BLOCK_STYLE, [440, 1330]);
-		this.up_arrow = new PolygonSVG("up_arrow", [...UP_ARROW], Constants.ARROW_STYLE, [453, 1330 + 24]);
+		this.label = new TextSVG(235, 1390, "imem_label", "INSTRUCTION MEMORY", Constants.ARIAL_TEXT_STYLE);
+		this.upper_mem_box =  new PolygonSVG('up_box', [0,0, 30,0, 30,25, 0,25] , Constants.THIN_BLOCK_STYLE, [400, 1365]);
+		this.up_arrow = new PolygonSVG("up_arrow", [...UP_ARROW], Constants.ARROW_STYLE, [413, 1365 + 24]);
 		this.low_mem_box =  new PolygonSVG('bottom_box', [0,0, 30,0, 30,25, 0,25] , Constants.THIN_BLOCK_STYLE, [440, 1365]);
 		this.down_arrow = new PolygonSVG("up_arrow", [...DOWN_ARROW], Constants.ARROW_STYLE, [453, 1365]);
 

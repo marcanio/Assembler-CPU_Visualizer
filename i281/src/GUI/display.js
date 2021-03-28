@@ -149,17 +149,17 @@ window.addEventListener("load", function() {
 	const LEFT = "left";
 	const TOP_RIGHT = "rightup";
 	const FAR_LEFT = "farleft";
-
+	const TWO_DIGIT_LEFT = "twodigitleft";
 	/* Bus Infomation */
-	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1", [535, 140], 16, LEFT);
-	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", "farleftlow");
+	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1", [535, 140], 16, TWO_DIGIT_LEFT);
+	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", TOP_RIGHT);
 	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 250], "8 low", TOP_RIGHT);
 
 	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1175, 140], 27, LEFT);
 	var flags_control_info = new BussInfoSVG("flags_control_info", [1270, 250], 4, FAR_LEFT);
 
 	var imem_in_top = new BussInfoSVG("imem_in_top", [65, 185], 6, LEFT);
-	var imem_in_middle = new BussInfoSVG("imem_in_middle", [75, 315], 16, LEFT);
+	var imem_in_middle = new BussInfoSVG("imem_in_middle", [60, 315], 16, TWO_DIGIT_LEFT);
 	var imem_in_bottom = new BussInfoSVG("imem_in_bottom", [85, 415], 6, LEFT);
 
 	var mux0_out_info = new BussInfoSVG("mux0_out", [1325, 800], 8, LEFT);
@@ -175,7 +175,7 @@ window.addEventListener("load", function() {
 	var mux1_intermediate_info = new BussInfoSVG("mux1_intermediate_info", [1900, 715], 8, LEFT);
 
 	var mux3_in_top_info = new BussInfoSVG("mux3_in_top_info", [2220, 715], 8, LEFT);
-	var mux3_in_bottom_info = new BussInfoSVG("mux3_in_bottom_info", [2220, 805], 8, LEFT);
+	var mux3_in_bottom_info = new BussInfoSVG("mux3_in_bottom_info", [2215, 875], 8, FAR_LEFT);
 
 	var pc_update_in_info = new BussInfoSVG("pc_update_in_info", [Constants.INTERSECT_1_POS[0] + 15, 1100], "6 low", TOP_RIGHT);
 	var pc_update_in_bottom_info = new BussInfoSVG("pc_update_in_bottom_info", [Constants.INTERSECT_1_POS[0] + 40, 1295], "6", LEFT);
@@ -195,10 +195,11 @@ window.addEventListener("load", function() {
 	var mux2_in_top_info = new BussInfoSVG("mux2_in_top_info", [1575, 1080], 8, LEFT);
 	var mux2_in_bottom_info = new BussInfoSVG("mux2_in_bottom_info", [1575, 1170], 8, LEFT);
 	
-	var switches_info = new BussInfoSVG("switches_info", [1450, 1175], 16, LEFT);
+	var switches_info = new BussInfoSVG("switches_info", [1450, 1175], 16, TWO_DIGIT_LEFT);
 
 	var mux_junction_info = new BussInfoSVG("mux_junct_info", [Constants.INTERSECT_2_POS[0] + 150, Constants.INTERSECT_2_POS[1] + 15], 8, LEFT);
 	var mux_dmem_info = new BussInfoSVG("mux_dmem_info", [Constants.INTERSECT_7_POS[0] + 15, Constants.INTERSECT_7_POS[1] + 100], "4 low", TOP_RIGHT);
+	var imem_mux_info = new BussInfoSVG("imem_mux_info", [1515, 1300], 16, "twodigitleftvertical");
 
 
 	/*
@@ -362,6 +363,7 @@ window.addEventListener("load", function() {
 	switches_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	mux_junction_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	mux_dmem_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	imem_mux_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	svg.appendChild(flag_control_wire.node);
 	//svg.appendChild(mux_imem_wire.node);
 	svg.appendChild(mux_reg_file_wire.node);
