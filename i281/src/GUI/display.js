@@ -423,5 +423,16 @@ window.addEventListener("load", function() {
 	svg.appendChild(junction_to_pc_update.node)
 	svg.appendChild(junction_to_pc.node)
 
+	document.getElementById("bios").addEventListener("click", bios, false);
+	document.getElementById("usr").addEventListener("click", usr, false);
+	//document.getElementById("pushin1").addEventListener("click", test, false);
 	code_mem.switchToUser();
 });
+
+function bios(){
+	code_mem.switchToBios();
+}
+
+function usr(){
+	code_mem.switchToUser();
+}

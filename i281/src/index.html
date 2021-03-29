@@ -450,23 +450,17 @@ crossorigin="anonymous"
         console.log(cpu.pc.currentPC);
         let controls = cpu.control.c;
         highlightTest(controls);
+
         if(cpu.pc.currentPC>31){
           document.getElementById("assembly_inst").innerHTML= (cpu.instructions[cpu.pc.currentPC-32]);
-        var counter = cpu.pc.getPC();
-
-
-        console.log(counter)
-        var cur = "i"+counter
-        console.log(cur)
-
-        if(counter < 32) {
-          if(prev > 31) {
-            prev -= 32;
-          }
-          var prev = "imem_val"+prev
-          document.getElementById(prev).style.fill = "black"
-          return;
         }
+        var cur = cpu.pc.getPC();
+        var prev = cpu.pc.getPreviousPC();
+        
+        console.log(cur)
+        console.log(prev);
+        highlightSyntax(cur, prev)
+
         for(var i=1; i<controls.length; i++){
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           //console.log(controls[i]);
@@ -478,23 +472,106 @@ crossorigin="anonymous"
         mux3.select(controls[18]);
         mux4.select(controls[2]);
 
-        console.log(curInst);
-        var prev = curInst-1;
-        var cur = "imem_val"+curInst;
-        var prev = "imem_val"+prev;
-        document.getElementById(prev).style.fill = "black";
-        document.getElementById(prev).setAttribute("font-weight", "normal")
-        document.getElementById(cur).style.fill = "red";
-        document.getElementById(cur).setAttribute("font-weight", "bold");
 
         document.getElementById("pc_val_id").innerHTML = pad((cpu.pc.currentPC).toString(2), 6);
       }
-      function low(){
-        code_mem.switchToBios()
+
+      function highlightSyntax(cur, prev){
+        if(cur > 31){
+          document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
+          var asm = cpu.instructions[cur-32];
+          var prevasm = cpu.instructions[prev-32];
+          console.log(asm);
+          console.log(prevasm);
+          if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "black";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="LOADI" || asm[0]=="SUBI" || asm[0]=="ADDI" || asm[0]=="LOAD"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "black";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="STOREF" || asm[0]=="STORE"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="JUMP"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="BRE" || asm[0]=="BRNE" || asm[0]=="BRG" || asm[0]=="BRGE" || asm[0]=="INPUTD"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="LOADF"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="SHIFTR" || asm[0]=="SHIFTL"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+          else if(asm[0]=="NOOP"){
+            document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+            document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
+
+            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          }
+        }
+
+        if(prev > 31){
+          document.getElementById("imem_val"+prev+"_opcode").style.fill = "black";
+          document.getElementById("imem_val"+prev+"_opcode").setAttribute("font-weight", "normal");
+
+          document.getElementById("imem_val"+prev+"_reg1").style.fill = "black";
+          document.getElementById("imem_val"+prev+"_reg2").style.fill = "black";
+          document.getElementById("imem_val"+prev+"_imm").style.fill = "black";
+
+          document.getElementById("imem_val"+prev+"_reg1").setAttribute("font-weight", "normal");
+          document.getElementById("imem_val"+prev+"_reg2").setAttribute("font-weight", "normal");
+          document.getElementById("imem_val"+prev+"_imm").setAttribute("font-weight", "normal");
+        }
       }
-      function high(){
-        code_mem.switchToUser()
-      }
+      
       function pad(n, width, z) {
 		    z = z || '0';
 		    n = n + '';
@@ -515,8 +592,6 @@ crossorigin="anonymous"
         document.getElementById(otherWires[i]).style.stroke = "purple"
       }
     }
-        
-      }
       
 function getRelevantBox(swNum)
 {
