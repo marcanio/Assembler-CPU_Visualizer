@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assembler/ImportFile.css" />
   </head>
   <body>
-    <div>
+    
       <div class="container fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
           <a class="navbar-brand" href="#" onClick="window.location.reload();"
@@ -23,7 +23,7 @@
           >
 
           <div class="" id="navbarNavDropdown">
-            <ul class="navbar-nav navbar-right">
+            <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -32,6 +32,7 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  style="font-size: large;"
                   >Examples</a
                 >
                 <ul
@@ -202,13 +203,7 @@
             >
               Import a file
             </button>
-            <button
-              class="btn btn-primary btn-lg shadow-lg"
-              onclick="ShowTextbox()"
-              id="textInputButton"
-            >
-              Enter text
-            </button>
+           
           </div>
 
           <form class="mb-4">
@@ -236,7 +231,7 @@
                   id="downloadButton"
                   class="dropdown-item"
                   onclick="downloadMachineFile()"
-                  value="Download Machine code"
+                  value="Download All Machine Code"
                 />
 
                 <input
@@ -244,7 +239,7 @@
                   id="downloadLow"
                   class="dropdown-item"
                   onclick="downloadUserCodeLow()"
-                  value="Download Low"
+                  value="Download Verilog Low"
                 />
 
                 <input
@@ -252,7 +247,15 @@
                   id="downloadHigh"
                   class="dropdown-item"
                   onclick="downloadUserCodeHigh()"
-                  value="Download High"
+                  value="Download Verilog High"
+                />
+
+                <input
+                  type="button"
+                  id="downloadAssembly"
+                  class="dropdown-item"
+                  onclick="downloadAssemblyCode()"
+                  value="Download Assembly Code"
                 />
                 </div>
                 
@@ -262,7 +265,7 @@
                   class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="toggleSyntaxHighlight()"
-                  value="Syntax highlight: OFF"
+                  value="Syntax highlighting: OFF"
                 />
                 <input
                 type="button"
@@ -282,6 +285,7 @@
               <table
                 id="assemblyTable"
                 class="table table-striped text-left"
+                style="font-weight: bold;"
               ></table>
             </div>
 
@@ -290,12 +294,13 @@
               <table
                 id="machineTable"
                 class="table table-striped text-left"
+                style="font-weight: bold;"
               ></table>
             </div>
           </div>
         </section>
       </main>
-    </div>
+   
     <div class="modal" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -312,8 +317,8 @@
         <thead>
           <tr>
             <th>Address</th>
-            <th>Data Memory</th>
-            <th>Variable</th>
+            <th>Value</th>
+            <th>Comment</th>
           </tr>
         </thead>
        

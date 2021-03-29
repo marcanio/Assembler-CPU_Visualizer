@@ -261,7 +261,7 @@ function mainMethod() {
   //Hide file input & buttons
   document.getElementById("inputField").style.display = "none";
   document.getElementById("fileInputButton").style.display = "none";
-  document.getElementById("textInputButton").style.display = "none";
+
   document.getElementById("assemblyButton").style.display = "none";
   document.getElementById("banner").innerHTML = "Successfully Assembled";
   document.getElementById("displayAssemblytext").innerHTML =
@@ -297,7 +297,7 @@ function mainMethod() {
   let dataLine = 0;
   //fileDisplayArea.innerHTML += "<b>Assembly Code:</b>\n";
   let totalLength = 0;
-
+ 
   for (let line = 0; line < withoutComments.length; line++) {
     let eachLine = withoutComments[line].split(" ");
     eachLine = removeEmpty(eachLine);
@@ -342,29 +342,17 @@ function mainMethod() {
       eachLine[3] = eachLine[2];
       eachLine[2] = eachLine[1];
       eachLine[1] = eachLine[0];
-      eachLine[0] =
-        '<span style="font-weight: bold;">' +
-        AssemblyLine +
-        "</span>" +
-        "&nbsp &nbsp &nbsp &nbsp";
+      eachLine[0] = AssemblyLine + "&nbsp &nbsp &nbsp &nbsp";
     } else if (eachLine.length == 2) {
       eachLine[3] = "";
       eachLine[2] = eachLine[1];
       eachLine[1] = eachLine[0];
-      eachLine[0] =
-        '<span style="font-weight: bold;">' +
-        AssemblyLine +
-        "</span>" +
-        "&nbsp &nbsp &nbsp &nbsp";
+      eachLine[0] = AssemblyLine+  "&nbsp &nbsp &nbsp &nbsp";
     } else {
       eachLine[3] = "";
       eachLine[2] = "";
       eachLine[1] = eachLine[0];
-      eachLine[0] =
-        '<span style="font-weight: bold;">' +
-        AssemblyLine +
-        "</span>" +
-        "&nbsp &nbsp &nbsp &nbsp";
+      eachLine[0] = AssemblyLine + "&nbsp &nbsp &nbsp &nbsp";
     }
 
     
@@ -384,11 +372,11 @@ function mainMethod() {
         //Starts at 0
         
         totalLength += temp;
-        eachLine[0] =  '<span style="font-weight: bold;">' + dataLine + ".." + totalLength + "</span>";
+        eachLine[0] =  dataLine + "..." + totalLength ;
         dataLine = totalLength+1;
       }else{
         totalLength++;
-        eachLine[0] = '<span style="font-weight: bold;">' + dataLine++ + "</span>";
+        eachLine[0] = dataLine++ ;
       }
     }else{
       eachLine[0] = "";
@@ -411,7 +399,7 @@ function mainMethod() {
     
   }
 
-  document.getElementById("displayMachinetext").innerHTML +=
+  document.getElementById("displayMachinetext").innerHTML =
     "<b>Machine Code:</b><br>";
   let formatMachine = machineCode.split("\n");
   let spaceing = 0;
@@ -428,8 +416,7 @@ function mainMethod() {
       y.innerHTML =
         '<a type="button" style="text-decoration-line:underline;text-decoration-color: blue;font-weight: bold;"data-toggle="modal" data-target="#myModal">' + "View Data Memory" + "</a>";
     } else if (line + 1 == codeSegmentStart) {
-      y.innerHTML =
-        '<span style="font-weight: bold;">' + "Code Segment:" + "</span>";
+      y.innerHTML = "Code Segment:" ;
     } else if (line >= codeSegmentStart) {
       y.innerHTML = formatMachine[spaceing];
       spaceing++;
@@ -442,7 +429,7 @@ function mainMethod() {
   formattedVariables = formatVariables();
   saveData();
   fillDataMemoryTable();
-  
+  console.log(withoutComments);
   
 
 }
@@ -463,11 +450,36 @@ function formatInput() {
     inputP.innerText += withoutComments[line] + "\n";
   }
 }
+//Downloadable Files-----------------------------------------------
+
+function downloadAssemblyCode(){
+  let element = document.createElement("a");
+  let fileName = "AssemblyCode.asm";
+  //Convert array into string
+  let output = "";
+  for(let i = 0; i < withComments.length; i++){
+    output += withComments[i] + "\n";
+  }
+  console.log(withComments);
+ 
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(output)
+  );
+  element.setAttribute("download", fileName);
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
 function downloadMachineFile() {
   let element = document.createElement("a");
   let fileName = document.getElementById("fileInput").value;
   fileName = fileName.split(".")[0];
-  fileName += ".txt";
+  fileName += ".asm";
   let tempmachineCode = machineCode.replace(/\_/g, "");
   element.setAttribute(
     "href",
@@ -1060,22 +1072,8 @@ function ShowFile() {
   let F = document.getElementById("inputDiv");
   T.style.display = "block";
 }
-/**
- * Choice to show the input box
- */
-function ShowTextbox() {
-  let F = document.getElementById("inputDiv");
-  let T = document.getElementById("fileDiv");
-  F.style.display = "block";
-  T.style.display = "none";
-}
-/**
- * Used by the input box to see a preview of what you will compile
- */
-function fillP() {
-  let input = document.getElementById("textArea");
-  let paragraph = document.getElementById("textInput");
-}
+
+
 //TODO - Parse only the data
 function getData() {}
 
@@ -1103,8 +1101,8 @@ function toggleSyntaxHighlight() {
   let Assemblytable = document.getElementById("assemblyTable");
   let machineTable = document.getElementById("machineTable");
 
-  if (toggle.localeCompare("Syntax highlight: OFF") == 0) {
-    document.getElementById("toggleSyntax").value = "Syntax highlight: ON";
+  if (toggle.localeCompare("Syntax highlighting: OFF") == 0) {
+    document.getElementById("toggleSyntax").value = "Syntax highlighting: ON";
 
     //Table color update
     for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
@@ -1112,12 +1110,7 @@ function toggleSyntaxHighlight() {
       let secondCol = Assemblytable.rows[i].cells[2].textContent;
       let machineCol = machineTable.rows[i].cells[0].textContent;
 
-      //Bold all fields for better visability ->
-      for(let j =0; j < 4; j++){
-        Assemblytable.rows[i].cells[j].style.fontWeight = 'bold';
-      }
-      machineTable.rows[i].cells[0].style.fontWeight = 'bold';
-   
+
 
       //Assembly coloring for op codes ->
       if (instructionSet.includes(firstCol)) {
@@ -1301,13 +1294,14 @@ function toggleSyntaxHighlight() {
     }
   } else {
     let originalMachine = machineCode.split("\n");
-    document.getElementById("toggleSyntax").value = "Syntax highlight: OFF";
+    document.getElementById("toggleSyntax").value = "Syntax highlighting: OFF";
     let counter = 0;
+
     for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
       //Set all rows of assembly back to black
       for (let j = 0; j < 4; j++) {
         Assemblytable.rows[i].cells[j].style.color = "Black";
-        Assemblytable.rows[i].cells[j].style.fontWeight = '';
+        
         //Keep line number formatting but change everything else
         if(j != 0){
           Assemblytable.rows[i].cells[j].innerHTML = Assemblytable.rows[i].cells[j].innerHTML.replace(/<\/?span[^>]*>/g,"");
@@ -1317,7 +1311,7 @@ function toggleSyntaxHighlight() {
       }
       //Place original machine code back in
       machineTable.rows[i].cells[0].textContent = originalMachine[counter];
-      machineTable.rows[i].cells[0].style.fontWeight = '';
+     
       counter++;
     }
   }
@@ -1577,4 +1571,38 @@ function formatVariables(){
     }
   }
   return finalVariables;
+}
+
+function reset(){
+ withComments = "";
+codeSegmentStart = "";
+withoutComments = new Array();
+branchDest = new Map();
+valueMapping = new Map();
+lineNumber = 0;
+dataLocation = 0;
+arrayNames = new Array();
+dataValues = new Array();
+varibleNames = new Array();
+printBranch = 0;
+savedInstructions = new Array();
+formattedVariables = "";
+machineCode = "";
+
+
+let tableAssembly = document.getElementById("assemblyTable");
+//or use :  var table = document.all.tableid;
+
+for(let i = tableAssembly.rows.length - 1; i >= 0; i--)
+{
+  tableAssembly.deleteRow(i);
+}
+let tableMachine = document.getElementById("machineTable");
+//or use :  var table = document.all.tableid;
+
+for(let i = tableMachine.rows.length - 1; i >= 0; i--)
+{
+  tableMachine.deleteRow(i);
+}
+
 }
