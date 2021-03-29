@@ -482,7 +482,7 @@ function downloadMachineFile() {
   document.body.removeChild(element);
 }
 
-function downloadUserCodeLowfmn() {
+function downloadUserCodeLow() {
   let element = document.createElement("a");
   let fileName = "User_Code_Low.v";
   let output = createUserCodeLow();
