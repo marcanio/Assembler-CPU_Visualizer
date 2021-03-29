@@ -14,10 +14,6 @@ var slider = document.getElementById("speedSld");
 var output = document.getElementById("SimSpeed");
 output.innerHTML = slider.value;
 
-let cpu = new CPU();
-window.cpu = cpu;
-cpu.setup();
-
 
 slider.oninput = function() {
     output.innerHTML = this.value;
