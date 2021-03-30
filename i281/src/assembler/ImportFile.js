@@ -91,30 +91,46 @@ window.onload = function () {
     reader.readAsText(file);
   });
 };
-
+function findDiff(str1, str2){ 
+  let diff= "";
+  str2.split('').forEach(function(val, i){
+    if (val != str1.charAt(i))
+      diff += val ;         
+  });
+  return diff;
+}
 //--------------------Below deals with all of the data in the .data portion-----------
 /**
  * Finds all the data after .data and passes it to be proccessed
  */
 function findDataStart(code) {
+  let foundData = false;
   for (let i = 0; i < code.length; i++) {
     lineNumber++;
     let lineRead = code[i];
-    if (lineRead.localeCompare(".data") == 0) {
+    lineRead = lineRead.replace(/^\s+|\s+$/g, '');
+    
+    if (lineRead.localeCompare('.data') == 0) {
       parseDataSegment(code);
+      foundData = true;
       break;
-    } else {
-      alert("Expecting (.data) ");
-    }
+    } 
   }
+  if(foundData == false){
+    alert("Expecting (.data) ");
+  }
+
 }
+
 /**
  * Parse the code after data
  */
 function parseDataSegment(code) {
+  
   for (let i = 0; i < code.length; i++) {
     lineNumber++;
     let asmLine = code[i];
+    asmLine = asmLine.replace(/^\s+|\s+$/g, '');
     if (asmLine.localeCompare(".code") == 0) {
       break;
     } else if (asmLine.localeCompare(".data") == 0) {
@@ -141,7 +157,7 @@ function assignDataVariable(code) {
     if (innerString.localeCompare(",") == 0) {
       arrayNames.push(varibleName);
       continue;
-    } else if (innerString.localeCompare("?") == 0) {
+    } else if (innerString.localeCompare("?") >= 0) {
       dataLocation++;
       dataValues.push(0);
       varibleNames.push(varibleName);
@@ -205,7 +221,7 @@ function getJumps(withoutComments) {
               line +
               '"'
           );
-          exit();
+          
         }
       }
       toReturn[i] = line;
@@ -252,7 +268,15 @@ function removeComments(lines) {
   }
   withComments = lines;
 }
-
+function cleanArray(actual) {
+  var newArray = new Array();
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i] && actual[i] != "") {
+      newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
 //----------------------Below is the main methods running everything--------------------
 /**
  * Main method - Formats output of the assembly and runs the code through methods
@@ -273,17 +297,12 @@ function mainMethod() {
 
   let count = 0;
   //Remove white spaces
-  for (let i = 0; i < withComments.length; i++) {
-    if (withComments[i] != "") {
-      withoutComments[count] = withComments[i];
-      count++;
-    }
-  }
+  withoutComments = cleanArray(withComments);
   //console.log(withoutComments);
-
+  withoutComments= withoutComments.filter(e => String(e).trim()); 
   //Run commands to assemble code
   withoutComments = getJumps(withoutComments);
-  withoutComments= withoutComments.filter(e => String(e).trim()); 
+ 
   findDataStart(withoutComments);
   parseCodeSegment(withoutComments);
   //console.log(withoutComments);
