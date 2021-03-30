@@ -702,6 +702,96 @@ function parseINPUTD(code){
   machineCode += "\n";
 
 }
+
+function parseINPUTC(code){
+  let temp = "";
+  getLeftBracket(code[1]);
+  let dataKey = code[2];
+  let next = code[3];
+  if (next.localeCompare("+") == 0) {
+    let offset = parseInt(code[4]);
+    let newOffset = valueMapping.get(dataKey) + offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[5]);
+  }else if(next.localeCompare("-") == 0){
+    let offset = parseInt(code[4]);
+    let newOffset = valueMapping.get(dataKey) - offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[5]);
+  }else if(next.localeCompare("]") == 0){
+    temp += convertStringToBinary(valueMapping.get(dataKey));
+  }else{
+    errorMessage("Expecting +,-, or ]");
+  }
+  machineCode += "00_00_";
+  machineCode += temp;
+  machineCode += "\n";
+}
+
+function parseINPUTCF(code){
+  let temp = "";
+  getLeftBracket(code[1]);
+  let dataKey = code[2];
+  getPlus(code[3]);
+  temp += getRegisterName(code[4]);
+  temp += "10_";
+
+  let next = code[5];
+  if (next.localeCompare("+") == 0) {
+    let offset = parseInt(code[6]);
+    let newOffset = valueMapping.get(dataKey) + offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[7]);
+  }else if(next.localeCompare("-") == 0){
+    let offset = parseInt(code[6]);
+    let newOffset = valueMapping.get(dataKey) - offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[7]);
+  }else if(next.localeCompare("]") == 0){
+    temp += convertStringToBinary(valueMapping.get(dataKey));
+  }else{
+    errorMessage("Expecting +,-, or ]");
+  }
+  machineCode += temp;
+  machineCode += "\n";
+
+}
+function parseINPUTDF(code){
+  let temp = "";
+  getLeftBracket(code[1]);
+  let dataKey = code[2];
+  getPlus(code[3]);
+  temp += getRegisterName(code[4]);
+  temp += "11_";
+
+  let next = code[5];
+  if (next.localeCompare("+") == 0) {
+    let offset = parseInt(code[6]);
+    let newOffset = valueMapping.get(dataKey) + offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[7]);
+  }else if(next.localeCompare("-") == 0){
+    let offset = parseInt(code[6]);
+    let newOffset = valueMapping.get(dataKey) - offset;
+    checkAddressOutOfBounds(newOffset);
+    temp += convertStringToBinary(newOffset);
+    getRightBracket(code[7]);
+  }else if(next.localeCompare("]") == 0){
+    temp += convertStringToBinary(valueMapping.get(dataKey));
+  }else{
+    errorMessage("Expecting +,-, or ]");
+  }
+  machineCode += temp;
+  machineCode += "\n";
+
+}
+
+
 function parseSTOREF(code) {
   let temp = "";
   getLeftBracket(code[1]);
@@ -1023,16 +1113,16 @@ function parseCodeSegment(code) {
       parseMOVE(lineScanner);
     } else if (opcode.localeCompare("INPUTC") == 0) {
       getOpCodeBits("INPUTC");
-      //parseINPUTC(lineScanner);
+      parseINPUTC(lineScanner);
     } else if (opcode.localeCompare("INPUTCF") == 0) {
       getOpCodeBits("INPUTCF");
-      //parseINPUTCF(lineScanner);
+      parseINPUTCF(lineScanner);
     } else if (opcode.localeCompare("INPUTD") == 0) {
       getOpCodeBits("INPUTD");
       parseINPUTD(lineScanner);
     } else if (opcode.localeCompare("INPUTDF") == 0) {
       getOpCodeBits("INPUTDF");
-      //parseINPUTDF(lineScanner);
+      parseINPUTDF(lineScanner);
     } else if (opcode.localeCompare("SHIFTL") == 0) {
       getOpCodeBits("SHIFTL");
       parseSHIFTL(lineScanner);
