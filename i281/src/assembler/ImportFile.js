@@ -736,7 +736,7 @@ function parseINPUTCF(code){
   let dataKey = code[2];
   getPlus(code[3]);
   temp += getRegisterName(code[4]);
-  temp += "10_";
+  temp += "01_";
 
   let next = code[5];
   if (next.localeCompare("+") == 0) {
@@ -1048,6 +1048,7 @@ function parseCodeSegment(code) {
     lineScanner = removeEmpty(lineScanner);
 
     let opcode = lineScanner[0];
+    opcode = opcode.replace(/^\s+|\s+$/g, '');
     if (opcode.localeCompare("NOOP") == 0) {
       getOpCodeBits("NOOP");
       parseNOOP();
