@@ -376,7 +376,7 @@ function mainMethod() {
 
     
 
-    //Do not count .data in the line numbers. Start after .code
+    //Data line numbers represent memory location and code is line numbers
     if (line >= codeSegmentStart) {
       AssemblyLine++;
     } else if (line != 0 && line + 1 != codeSegmentStart) {
@@ -414,6 +414,7 @@ function mainMethod() {
       let y = x.insertCell(parts);
 
       y.innerHTML = eachLine[parts];
+      
     }
     
   }

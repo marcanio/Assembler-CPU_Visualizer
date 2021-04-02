@@ -205,7 +205,7 @@
             </button>
            
           </div>
-
+          
           <form class="mb-4">
             <div style="display: none" id="fileDiv">
               <div class="fileWords p-5" id="inputField">
@@ -299,8 +299,43 @@
             </div>
           </div>
         </section>
+        <div class="bottom-right">
+          <input
+                type="button"
+                data-toggle="modal" 
+                data-target="#aboutModal"
+                class="btn btn-info mr-1 mb-3"
+                value="About"
+              />
+          </div>
       </main>
-   
+      <div class="modal" id="aboutModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">About Us</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <p>This project was created for a Senior Design project at Iowa State</p>
+              <p>Our team:</p>
+              <p>Eric Marcanio: Assembler</p>
+              <p>Aiman Priester: Verilog Conversion</p>
+              <p>Bryce Snell: JS CPU</p>
+              <p>Colby McKinley: CPU Visualizer </p>
+              <p>Brady Kolosik: CPU Visualizer</p>
+              <p>Jacob Betsworth: FPGA GUI</p>
+        </div>
+      
+         
+      
+          </div>
+        </div>
+      </div>
     <div class="modal" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
