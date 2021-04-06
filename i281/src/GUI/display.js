@@ -150,6 +150,7 @@ window.addEventListener("load", function() {
 	const TOP_RIGHT = "rightup";
 	const FAR_LEFT = "farleft";
 	const TWO_DIGIT_LEFT = "twodigitleft";
+	const SINGLE_ARROW_LEFT = "singleLeft";
 	/* Bus Infomation */
 	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1", [535, 140], 16, TWO_DIGIT_LEFT);
 	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", TOP_RIGHT);
@@ -195,7 +196,7 @@ window.addEventListener("load", function() {
 	var mux2_in_top_info = new BussInfoSVG("mux2_in_top_info", [1575, 1080], 8, LEFT);
 	var mux2_in_bottom_info = new BussInfoSVG("mux2_in_bottom_info", [1575, 1170], 8, LEFT);
 	
-	var switches_info = new BussInfoSVG("switches_info", [1450, 1175], 16, TWO_DIGIT_LEFT);
+	var switches_info = new BussInfoSVG("switches_info", [1450, 1170], 16, TWO_DIGIT_LEFT);
 
 	var mux_junction_info = new BussInfoSVG("mux_junct_info", [Constants.INTERSECT_2_POS[0] + 150, Constants.INTERSECT_2_POS[1] + 15], 8, LEFT);
 	var mux_dmem_info = new BussInfoSVG("mux_dmem_info", [Constants.INTERSECT_7_POS[0] + 15, Constants.INTERSECT_7_POS[1] + 100], "4 low", TOP_RIGHT);

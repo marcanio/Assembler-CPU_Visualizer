@@ -99,6 +99,8 @@ export function toggle_bus_info_visablitity(checkbox) {
     info.push(document.getElementById("mux_junct_infotext"));
 	info.push(document.getElementById("mux_dmem_info"));
     info.push(document.getElementById("mux_dmem_infotext"));
+	info.push(document.getElementById("imem_mux_info"));
+    info.push(document.getElementById("imem_mux_infotext"));
 
 	const val = (checkbox.target.checked) ? "hidden" : "visible";
 	info.forEach( elem => elem.style.visibility = val);

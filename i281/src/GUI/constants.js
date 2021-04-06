@@ -28,10 +28,10 @@ export const IMEM_BOX = [0, 0, 270, 0, 270, 30, 0, 30];
 
 export const MUX_FALSE = [20, 40];
 export const MUX_TRUE = [20, 145];
-export const MUX_A = [20, 40];
-export const MUX_B = [20, 70];
-export const MUX_C = [20, 100];
-export const MUX_D = [20, 130];
+export const MUX_A = [10, 25];
+export const MUX_B = [10, 60];
+export const MUX_C = [10, 95];
+export const MUX_D = [10, 130];
 
 export const CONTROL_TPOS = [750/2, 30];
 export const FLAG_TPOS = [70, 30];
@@ -71,10 +71,10 @@ export const READ_B_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH 
 export const MUX_FALSE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.23, "l", 72,48];
 export const MUX_TRUE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.77, "l", 72,-48];
 
-export const MUX_A_WIRE = ["M", 0, MUX_MAX_HEIGHT*.2, "l", MUX_WIDTH,50];
-export const MUX_B_WIRE = ["M", 0, MUX_MAX_HEIGHT*.43, "l", MUX_WIDTH,13];
-export const MUX_C_WIRE = ["M", 0, MUX_MAX_HEIGHT*.66, "l", MUX_WIDTH,-25];
-export const MUX_D_WIRE = ["M", 0, MUX_MAX_HEIGHT*.9, "l", MUX_WIDTH,-65];
+export const MUX_A_WIRE = ["M", 0, MUX_MAX_HEIGHT*.15, "l", MUX_WIDTH, 60 ];
+export const MUX_B_WIRE = ["M", 0, MUX_MAX_HEIGHT*.385, "l", MUX_WIDTH, 20 ];
+export const MUX_C_WIRE = ["M", 0, MUX_MAX_HEIGHT*.62, "l", MUX_WIDTH, -20];
+export const MUX_D_WIRE = ["M", 0, MUX_MAX_HEIGHT*.85, "l", MUX_WIDTH, -60];
 
 export const MUX_ALU_WIRE = [0, 0, ALU_OFFSET[0] - (MUX0_OFFSET[0] + MUX_POLYGON[2]), 0];
 export const ALU_RESULT_WIRE = [0, 0, MUX1_OFFSET[0] - (ALU_OFFSET[0] + ALU_POLYGON[2]), 0];
@@ -123,11 +123,11 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
     //END IMEM OUT BOTTOM SEGMENTS
     
     //READ_A SEGMENTS
-    export const READ_A_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-22,REGISTER_FILE_OFFSET[1]+150, "l", 350,0]
+    export const READ_A_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-23,REGISTER_FILE_OFFSET[1]+150, "l", 351,0]
     //END READ_A_SEGMENTS
 
     //READ_B_SEGMENTS
-    export const READ_B_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-22, REGISTER_FILE_OFFSET[1]+400, "l", 75,0]
+    export const READ_B_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-23, REGISTER_FILE_OFFSET[1]+400, "l", 76,0]
     export const B_OUT_TO_MUX0 = ["M", INTERSECT_6_POS[0], INTERSECT_6_POS[1], "l", 0,-65, 120,0]
     export const B_OUT_TO_MUX2 = ["M", INTERSECT_6_POS[0], INTERSECT_6_POS[1], "l", 0,260, 520,0]
     //END READ_B SEGMENTS
@@ -201,10 +201,12 @@ export const MUX_D_TEXT = "D";
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"5px"};
 export const THIN_BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
-export const THIN_WIRE_STYLE = {"stroke":"black", "stroke-width":"3px", "fill":"none"};
+export const THIN_WIRE_STYLE = {"stroke":"black", "stroke-width":"4px", "fill":"none"};
 
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
+export const SMALL_TEXT_STYLE = "font-family: Courier; font-size: 22px; text-anchor:middle;fill:black; ";
+
 export const ARIAL_TEXT_STYLE = "font-family: Arial; font-size: 24px; text-anchor:middle;fill:black; ";
 
 export const COMPONENT_NAME_TEXT_STYLE = "font-family: Arial; font-size: 30px; text-anchor:middle;fill:black; ";
