@@ -14,60 +14,44 @@ var slider = document.getElementById("speedSld");
 var output = document.getElementById("SimSpeed");
 output.innerHTML = slider.value;
 
-let cpu = new CPU();
-window.cpu = cpu;
-cpu.setup();
-
-
 slider.oninput = function() {
     output.innerHTML = this.value;
 }
 
-document.getElementById("bit00").addEventListener("change", switchChange("bit00","bit0In"));
-document.getElementById("bit01").addEventListener("change", switchChange("bit01","bit1In"));
-document.getElementById("bit02").addEventListener("change", switchChange("bit02","bit2In"));
-document.getElementById("bit03").addEventListener("change", switchChange("bit03","bit3In"));
-document.getElementById("bit04").addEventListener("change", switchChange("bit04","bit4In"));
-document.getElementById("bit05").addEventListener("change", switchChange("bit05","bit5In"));
-document.getElementById("bit06").addEventListener("change", switchChange("bit06","bit6In"));
-document.getElementById("bit07").addEventListener("change", switchChange("bit07","bit7In"));
-document.getElementById("bit08").addEventListener("change", switchChange("bit08","bit8In"));
-document.getElementById("bit09").addEventListener("change", switchChange("bit09","bit9In"));
-document.getElementById("bit10").addEventListener("change", switchChange("bit10","bit10In"));
-document.getElementById("bit11").addEventListener("change", switchChange("bit11","bit11In"));
-document.getElementById("bit12").addEventListener("change", switchChange("bit12","bit12In"));
-document.getElementById("bit13").addEventListener("change", switchChange("bit13","bit13In"));
-document.getElementById("bit14").addEventListener("change", switchChange("bit14","bit14In"));
-document.getElementById("bit15").addEventListener("change", switchChange("bit15","bit15In"));
-document.getElementById("bit16").addEventListener("change", switchChange("bit16","bit16In"));
-document.getElementById("bit17").addEventListener("change", switchChange("bit17","bit17In"));
 
-function switchKeystroke(swNum, actSw){
-    var text = document.getElementById(swNum).value;
-    if(text == "1")
+
+
+document.getElementById("speedSld").addEventListener("change", segTimer);
+document.getElementById("auto_on").addEventListener("change", segTimer);
+
+var segTime = 0;
+
+
+function segTimer()
+{
+  var mode = document.getElementById("auto_on").checked;
+  if(mode)
+  {
+    if(segTime == 0)
     {
-        document.getElementById(actSw).checked = true;
+      segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);//1-10 seconds
     }
     else
     {
-        document.getElementById(actSw).checked = false;
+      clearInterval(segTime);
+      segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);//1-10 seconds
+      
     }
-    sevenSegUpdate(actSw);
+  }
+  else
+  {
+    if(segTime != 0)
+    {
+      clearInterval(segTime);
+    }
+  }
 }
 
-function switchChange(actSw,swNum){
-    var ch = document.getElementById(actSw).checked;
-    
-    if(ch)
-    {
-        document.getElementById(swNum).value = '1';
-    }
-    else
-    {
-        document.getElementById(swNum).value = '0';
-    }
-    //sevenSegUpdate(actSw);
-}
 
 document.getElementById("bit00").addEventListener("keydown", arrowWork);
 document.getElementById("bit01").addEventListener("keydown", arrowWork);
@@ -300,7 +284,7 @@ function uiMode(){
 
     if(gameSw.checked)//Game Mode
     {
-        Pong(); //Need
+        gameView();
     }
     else{//View Mode, ignored if we are in game mode
         if(viewSw.checked)
@@ -331,6 +315,7 @@ function pushButtonKey(event){
     if(event.keyCode == 85)
     {
         document.getElementById("push1").click();
+        test();
         document.getElementById("pushin1").style.backgroundColor = "green";
         setTimeout(goBack, 100, "pushin1");
     }
@@ -358,16 +343,18 @@ function goBack(id){
     document.getElementById(id).style.backgroundColor = "";
 }
 
+
+
 function msgChk(id){
     alert(id)
 }
 
 function Pong(){
-    gameView();
+
 }
 
 function memView(){
-    var dmemdata = cpu.dMem.registers
+    var dmemdata = cpu.dMem.registers;
 
     //alert(dmemdata[i]);
 
@@ -1786,9 +1773,7 @@ function regView(){
 }
 
 function gameView(){
-    var dmemdata = cpu.dMem.registers;
-
-    var currentRegVal;
+    var gameHolder = cpu.dMem.registers;
 
     var topLine;
     var topL;
@@ -1817,8 +1802,9 @@ function gameView(){
     {
         switch(i)
         {
-            case 0:
+                case 0:
                 {
+                    
                     topLine = document.getElementById("topT1");
                     topL = document.getElementById("topL1");
                     topR = document.getElementById("topR1");
@@ -2025,16 +2011,15 @@ function gameView(){
                     botRTriB = document.getElementById("botR8B");
                     break;
                 }
-
-            currentRegVal = dmemdata.getRegister[i];
-            var bit6 = regHolder[i][1] == '1'
-            var bit5 = regHolder[i][2] == '1'
-            var bit4 = regHolder[i][3] == '1'
-            var bit3 = regHolder[i][4] == '1'
-            var bit2 = regHolder[i][5] == '1'
-            var bit1 = regHolder[i][6] == '1'
-            var bit0 = regHolder[i][7] == '1'
-
+            }
+            
+            var bit6 = gameHolder[i][1] == '1'
+            var bit5 = gameHolder[i][2] == '1'
+            var bit4 = gameHolder[i][3] == '1'
+            var bit3 = gameHolder[i][4] == '1'
+            var bit2 = gameHolder[i][5] == '1'
+            var bit1 = gameHolder[i][6] == '1'
+            var bit0 = gameHolder[i][7] == '1'
 
             if(bit0) //Top Line
             {
@@ -2070,7 +2055,7 @@ function gameView(){
             {
                 botR.style.stroke = 'lightgrey';
                 botRTriB.style.fill = 'lightgrey';
-                botLTriT.style.fill = 'lightgrey';
+                botRTriT.style.fill = 'lightgrey';
             }
             if(bit3) //Bottom
             {
@@ -2122,5 +2107,5 @@ function gameView(){
             }
         }        
     }
-}
+
 
