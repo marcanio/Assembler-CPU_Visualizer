@@ -1,5 +1,6 @@
 //Arithmetic Operations -> 
 function Arithmetic1(){
+   reset();
    let A1 =`.data
    x        BYTE        2
    z        BYTE        ?
@@ -15,6 +16,7 @@ function Arithmetic1(){
    mainMethod();
 }
 function Arithmetic2(){
+   reset();
    let A1 =`.data
    x        BYTE        2
    y        BYTE        3
@@ -32,6 +34,7 @@ function Arithmetic2(){
    mainMethod();
 }
 function Multiplication(){
+   reset();
    let A1 =`.data
    x        BYTE        3
    z        BYTE        ?
@@ -50,6 +53,7 @@ function Multiplication(){
    mainMethod();
 }
 function MultiplicationWithLoop(){
+   reset();
    let A1 =`.data
    x        BYTE        3
    z        BYTE        ?
@@ -74,6 +78,7 @@ End:    STORE [z], C      ; update the z value in memory`;
 
 //Arrays ->
 function Arrays(){
+   reset();
    let A1 =`.data
    array   BYTE    1, 2, 3, 4
    .code
@@ -95,6 +100,7 @@ function Arrays(){
    mainMethod();
 }
 function ArrayPlusFive(){
+   reset();
    let A1 =`.data
    array   BYTE    1, 2, 3, 4
    N       BYTE    4
@@ -118,6 +124,7 @@ End:    NOOP`;
 
 //If Statements ->
 function IfEqual(){
+   reset();
    let A1 =`.data
    x       BYTE   3
    y       BYTE   5
@@ -136,6 +143,7 @@ End:    NOOP`;
    mainMethod();
 }
 function IfGreater(){
+   reset();
    let A1 =`.data
    x       BYTE    3
    y       BYTE    5
@@ -154,6 +162,7 @@ End:    NOOP`;
    mainMethod();
 }
 function IfGreaterThanOrEqual(){
+   reset();
    let A1 =`.data
    x       BYTE    3
    y       BYTE    5
@@ -172,6 +181,7 @@ End:    NOOP`;
    mainMethod();
 }
 function IfLess(){
+   reset();
    let A1 =`.data
    x       BYTE     3
    y       BYTE     5
@@ -190,6 +200,7 @@ End:    NOOP`;
    mainMethod();
 }
 function IfLessThanOrEqual(){
+   reset();
    let A1 =`.data
    x       BYTE    3
    y       BYTE    5
@@ -208,6 +219,7 @@ End:    NOOP`;
    mainMethod();
 }
 function IfNotEqual(){
+   reset();
    let A1 =`.data
    x       BYTE    3
    y       BYTE    5
@@ -226,6 +238,7 @@ End:    NOOP`;
    mainMethod();
 }
 function IfWith2Conditions(){
+   reset();
    let A1 =`.data
    x        BYTE        5
    min      BYTE        1
@@ -251,6 +264,7 @@ End:    NOOP`;
 
 //Loops
 function DoLoop(){
+   reset();
    let A1 =`.data
    N       BYTE      5
    sum     BYTE      ?
@@ -270,6 +284,7 @@ End:    STORE [sum], B       ; store sum to memory`;
    mainMethod();
 }
 function ForLoop(){
+   reset();
    let A1 =`.data
    N        BYTE    5
    i        BYTE    ?
@@ -291,6 +306,7 @@ End:    STORE  [sum], B    ; update the memory for sum`;
    mainMethod();
 }
 function ForLoopUnrolling(){
+   reset();
    let A1 =`.data
    sum        BYTE        ?
    .code
@@ -309,6 +325,7 @@ function ForLoopUnrolling(){
    mainMethod();
 }
 function WhileLoop(){
+   reset();
    let A1 =`.data
    N       BYTE     5
    sum     BYTE     ?
@@ -331,6 +348,7 @@ End:    STORE [sum], B     ; store sum to memory`;
 
 //Search Algorithms
 function BinarySearch(){
+   reset();
    let A1 =`.data
    array      BYTE 2, 4, 5, 7, 8, 9
    found      BYTE 0
@@ -369,6 +387,7 @@ End:       NOOP                     ; Do nothing`;
    mainMethod();
 }
 function LinearSearch(){
+   reset();
    let A1 =`.data
    array   BYTE   5, 2, 7, 3, 6, 1
    found   BYTE   0
@@ -402,6 +421,7 @@ End:    NOOP`;
 
 //Struct
 function Struct(){
+   reset();
    let A1 =`.data
    point   BYTE    ?, ?, ?
    .code
@@ -420,6 +440,7 @@ function Struct(){
 
 //Switch Statement
 function Switch(){
+   reset();
    let A1 =`.data
    x        BYTE        6
    y        BYTE        ?
@@ -457,7 +478,8 @@ End:     STORE   [y], B
 //Sorting Algorithms
 
 function BubbleSort(){
-    
+
+    reset();
     var BB = `.data
     array   BYTE 7 , 3 , 2 , 1 , 6 , 4 , 5 , 8
     last    BYTE 7
@@ -492,6 +514,7 @@ End:    NOOP`;
 }
 
 function InsertionSort(){
+   reset();
    var IS =`.data
    array    BYTE    2, 3, 4, 1
    N        BYTE    4
@@ -524,6 +547,7 @@ End:        NOOP`;
 }
 
 function SelectionSort(){
+   reset();
    let SS=`.data
    array   BYTE    2, 3, 4, 1
    last    BYTE    3
@@ -555,6 +579,88 @@ Swap:   LOAD   A, [i]             ; restore i from memory
 Iinc:   ADDI   A, 1               ; i++
            JUMP   Outer              ; jump to the beginning of the outer loop
 End:    NOOP`;
+
+   let newText = SS.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+
+function pong(){
+   reset();
+   let SS=`.data
+   empty   BYTE   0,  0, 0, 0    ; the first four 7-segs are not used
+   display BYTE   64, 0, 0, 4    ; the second 4 are the display
+   
+   shape   BYTE   64, 8, 64, 1    ; the three ball shapes (up=1, middle=64, down=8)
+   
+   incDec  BYTE   1               ; could be 1 or -1
+   switch  BYTE   0, 0, 3         ; array for screen bounds (elements 0 and 2) and 
+   .code
+           NOOP
+           NOOP
+           LOADI  A, 0                    ; initial ball hpos (@ left)
+           LOADI  B, 0                    ; initial ball vpos
+           LOADI  D, 4                    ; start with the paddle down
+           STORE  [switch+1], D
+Loop:   LOAD   C, [display+3]          ; erase the paddle
+           LOAD   D, [switch+1]
+EraseP: SUB    C, D
+           STORE  [display+3], C
+Read:   INPUTD [switch+1]              ; read switch input
+           LOAD   D, [switch+1]
+           SUBI   D, 64                   ; switch 6 = ?
+           BRE    Up
+Down:   LOADI  D, 4                    ; update paddle position
+           JUMP   DrawP
+Up:     LOADI  D, 2                                
+DrawP:  STORE  [switch+1], D
+           ADD    C, D                    ; C hold the previous value
+           STORE  [display+3], C          ; draw the paddle
+EraseB: LOADF  C, [display+A]          ; load the contents of the 7-seg that shows the ball
+           LOADF  D, [shape+B]            ; load the ball shape (up, middle, or down)
+           SUB    C, D
+           STOREF [display+A], C          ; erase the ball
+Vpos:   ADDI   B, 1                    ; update the vertical position of the ball
+           LOADI  D, 4
+           CMP    B, D
+           BRNE   Hpos
+           LOADI  B, 0                    ; set it back to 0 is it exceeded the bounds of the shape array        
+Hpos:   LOAD   D, [incDec]             ; update the horizontal position of the ball
+           ADD    A, D
+           LOADF  D, [switch+D+1]         ; pick element 0 or 2 depending on incDec
+           CMP    A, D
+           BRNE   DrawB
+RevDir: LOADI  D, 0                    ; reverse the direction of the ball
+           LOAD   C, [incDec]
+           SUB    D, C
+           STORE  [incDec], D             ; incDec = -incDec
+DrawB:  LOADF  C, [display+A]          ; load the 7-seg in which the ball will be drawn
+           LOADF  D, [shape+B]            ; read the current shape of the ball
+           ADD    C, D                                
+           STOREF [display+A], C          ; draw the ball
+Check:  LOADI  D, 5                    ; check if the paddle missed the ball (7-seg codes 5 and 10)
+           LOAD   C, [display+3]
+           CMP    C, D
+           BRE    Print
+           SHIFTL D                       ; D = 5*2 = 10
+           CMP    C, D
+           BRE    Print                   ; Game Over. Print 'End'
+           LOADI  D, 1                    ; delay loop to slow down the animation
+Delay:  SUBI   D, 1
+           BRNE   Delay
+           JUMP   Loop
+Print:  LOADI  C, 121                  ; E
+           STORE  [display+0], C
+           LOADI  C, 84                   ; n
+           STORE  [display+1], C
+           LOADI  C, 94                   ; d                                 
+           STORE  [display+2], C
+Exit:   NOOP                           ; infinite loop for Game Over
+           JUMP   Exit
+           NOOP
+           NOOP
+           NOOP`;
 
    let newText = SS.split("\n");
    removeComments(newText);
