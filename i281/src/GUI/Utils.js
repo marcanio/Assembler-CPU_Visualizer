@@ -1,6 +1,8 @@
 import * as Constants from "./constants.js"
 export function toggle_arrow_visablitity(checkbox) {
 	let arrows = [];
+	let text = [];
+	let subscripts = [];
 	arrows.push(document.getElementById(Constants.IMEM_C1_ID));
 	arrows.push(document.getElementById(Constants.MUX_C2_ID));
 	arrows.push(document.getElementById(Constants.PC_VALUE_C3_ID));
@@ -19,9 +21,50 @@ export function toggle_arrow_visablitity(checkbox) {
 	arrows.push(document.getElementById(Constants.MUX_C16_ID));
 	arrows.push(document.getElementById(Constants.DMEM_C17_ID));
 	arrows.push(document.getElementById(Constants.MUX_C18_ID));
+	
+	text.push(document.getElementById("arrow1"));
+	text.push(document.getElementById("arrow2"));
+	text.push(document.getElementById("arrow3"));
+	text.push(document.getElementById("arrow4"));
+	text.push(document.getElementById("arrow5"));
+	text.push(document.getElementById("arrow6"));
+	text.push(document.getElementById("arrow7"));
+	text.push(document.getElementById("arrow8"));
+	text.push(document.getElementById("arrow9"));
+	text.push(document.getElementById("arrow10"));
+	text.push(document.getElementById("arrow11"));
+	text.push(document.getElementById("arrow12"));
+	text.push(document.getElementById("arrow13"));
+	text.push(document.getElementById("arrow14"));
+	text.push(document.getElementById("arrow15"));
+	text.push(document.getElementById("arrow16"));
+	text.push(document.getElementById("arrow17"));
+	text.push(document.getElementById("arrow18"));
+
+	subscripts.push(document.getElementById("arrowsub1"));
+	subscripts.push(document.getElementById("arrowsub2"));
+	subscripts.push(document.getElementById("arrowsub3"));
+	subscripts.push(document.getElementById("arrowsub4"));
+	subscripts.push(document.getElementById("arrowsub5"));
+	subscripts.push(document.getElementById("arrowsub6"));
+	subscripts.push(document.getElementById("arrowsub7"));
+	subscripts.push(document.getElementById("arrowsub8"));
+	subscripts.push(document.getElementById("arrowsub9"));
+	subscripts.push(document.getElementById("arrowsub10"));
+	subscripts.push(document.getElementById("arrowsub11"));
+	subscripts.push(document.getElementById("arrowsub12"));
+	subscripts.push(document.getElementById("arrowsub13"));
+	subscripts.push(document.getElementById("arrowsub14"));
+	subscripts.push(document.getElementById("arrowsub15"));
+	subscripts.push(document.getElementById("arrowsub16"));
+	subscripts.push(document.getElementById("arrowsub17"));
+	subscripts.push(document.getElementById("arrowsub18"));
+
 
 	const val = (checkbox.target.checked) ? "hidden" : "visible";
 	arrows.forEach( elem => elem.style.visibility = val);
+	text.forEach( elem => elem.style.visibility = val);
+	subscripts.forEach( elem => elem.style.visibility = val);
 
 }
 
