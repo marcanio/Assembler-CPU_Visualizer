@@ -17,6 +17,10 @@ export default class ArrowSVG {
             TPOS = [-30, 30];
         else if (text_pos.toLowerCase() === "right")
             TPOS = [25, 30];
+        else if (text_pos.toLowerCase() === "leftup")
+            TPOS = [-30, 20];
+        else if (text_pos.toLowerCase() === "rightup")
+            TPOS = [25, 20];
         else 
             TPOS = [0, -10];
         let sub_offset = i < 10 ? 12 : 16;

@@ -148,6 +148,7 @@ window.addEventListener("load", function() {
 	const RIGHT = "right";
 	const LEFT = "left";
 	const TOP_RIGHT = "rightup";
+	const TOP_LEFT = "leftup";
 	const FAR_LEFT = "farleft";
 	const TWO_DIGIT_LEFT = "twodigitleft";
 	const SINGLE_ARROW_LEFT = "singleLeft";
@@ -221,10 +222,10 @@ window.addEventListener("load", function() {
 	var imem_c1 = new ArrowSVG(Constants.IMEM_C1_ID, 1, RIGHT, Constants.IMEM_C1_OFFSET);
 	var mux_c2 = new ArrowSVG(Constants.MUX_C2_ID, 2, RIGHT, Constants.MUX_C2_OFFSET);
 	var pc_value_c3 = new ArrowSVG(Constants.PC_VALUE_C3_ID, 3, RIGHT, Constants.PC_VALUE_C3_OFFSET);
-	var read_a_c4 = new ArrowSVG(Constants.READ_A_C4_ID, 4, LEFT, Constants.READ_A_C4_OFFSET);
-	var read_a_c5 = new LongArrowSVG(Constants.READ_A_C5_ID, 5, RIGHT, Constants.READ_A_C5_OFFSET);
-	var read_b_c6 = new ArrowSVG(Constants.READ_B_C6_ID, 6, LEFT, Constants.READ_B_C6_OFFSET);
-	var read_b_c7 = new LongArrowSVG(Constants.READ_B_C7_ID, 7, RIGHT, Constants.READ_B_C7_OFFSET);
+	var read_a_c4 = new ArrowSVG(Constants.READ_A_C4_ID, 4, TOP_LEFT, Constants.READ_A_C4_OFFSET);
+	var read_a_c5 = new LongArrowSVG(Constants.READ_A_C5_ID, 5, TOP_RIGHT, Constants.READ_A_C5_OFFSET);
+	var read_b_c6 = new ArrowSVG(Constants.READ_B_C6_ID, 6, TOP_LEFT, Constants.READ_B_C6_OFFSET);
+	var read_b_c7 = new LongArrowSVG(Constants.READ_B_C7_ID, 7, TOP_RIGHT, Constants.READ_B_C7_OFFSET);
 	var reg_file_c8 = new ArrowSVG(Constants.REG_FILE_C8_ID, 8, LEFT, Constants.REG_FILE_C8_OFFSET);
 	var reg_file_c9 = new ArrowSVG(Constants.REG_FILE_C9_ID, 9, RIGHT, Constants.REG_FILE_C9_OFFSET);
 	var reg_file_c10 = new ArrowSVG(Constants.REG_FILE_C10_ID, 10, RIGHT, Constants.REG_FILE_C10_OFFSET);
