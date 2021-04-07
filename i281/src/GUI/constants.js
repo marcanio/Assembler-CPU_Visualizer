@@ -14,11 +14,11 @@ export const MUX4_POlYGON = [0, 0, MUX_WIDTH, MUX_MIN_HEIGHT, MUX_WIDTH, MUX_MAX
 export const ALU_POLYGON = [0,0, 138,55, 138,275, 0,330, 0,220, 55, 193, 55,138, 0,110 ];
 export const FLAGS_POLYGON = [0,0, FLAGS_WIDTH,0, FLAGS_WIDTH,FLAGS_HIEGHT, 0,FLAGS_HIEGHT];
 export const CODE_MEM_POLYGON = [0,0, CODE_MEM_WIDTH,0, CODE_MEM_WIDTH,CODE_MEM_HEIGHT, 0,CODE_MEM_HEIGHT];
-export const DATA_MEM_POLYGON = [0,0, 350,0, 350,650, 0,650];
+export const DATA_MEM_POLYGON = [0,0, 350,0, 350,680, 0,680];
 export const OPCODE_DECODER_POLYGON = [0,0, 200,0, 200,100, 0,100];
 export const CONTROL_POLYGON = [0,0, 750,0, 750,100, 0,100];
 export const REGISTER_FILE_POLYGON = [0,0, REGISTER_FILE_WIDTH,0, REGISTER_FILE_WIDTH,REGISTER_FILE_HEIGHT, 0,REGISTER_FILE_HEIGHT];
-export const PC_VALUE_POLYGON = [0,0, 200,0, 200,150, 0,150];
+export const PC_VALUE_POLYGON = [0,0, 200,0, 200,120, 0,120];
 export const PC_UPDATE_POLYGON = [0,0, 200,0, 200,150, 0,150];
 export const ARROW = [5,0, 10,0, 10, 40, 15, 40, 7.5,60, 0,40, 5,40];
 export const LONGARROW = [5,0, 10,0, 10,56, 15,56, 7.5,76, 0,56, 5,56];
@@ -28,10 +28,10 @@ export const IMEM_BOX = [0, 0, 270, 0, 270, 30, 0, 30];
 
 export const MUX_FALSE = [20, 40];
 export const MUX_TRUE = [20, 145];
-export const MUX_A = [20, 40];
-export const MUX_B = [20, 70];
-export const MUX_C = [20, 100];
-export const MUX_D = [20, 130];
+export const MUX_A = [10, 25];
+export const MUX_B = [10, 60];
+export const MUX_C = [10, 95];
+export const MUX_D = [10, 130];
 
 export const CONTROL_TPOS = [750/2, 30];
 export const FLAG_TPOS = [70, 30];
@@ -50,8 +50,8 @@ var change = 10;
 export const OPCODE_DECODER_OFFSET = [850, 100];
 export const CONTROL_OFFSET = [1300, 100];
 export const REGISTER_FILE_OFFSET = [640, 405];
-export const PC_VALUE_OFFSET = [1050, 1150];
-export const PC_UPDATE_OFFSET = [600, 1150];
+export const PC_VALUE_OFFSET = [1050, 1170];
+export const PC_UPDATE_OFFSET = [600, 1160];
 export const DATA_MEM_OFFSET = [1800, 825];
 
 export const INTERSECT_1_POS = [CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH + 60, CODE_MEM_OFFSET[1] + 25];
@@ -62,14 +62,19 @@ export const INTERSECT_5_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2]+ 480, MUX1_OFFSE
 export const INTERSECT_6_POS = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 60, REGISTER_FILE_OFFSET[1] + 400];
 export const INTERSECT_7_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 60, MUX1_OFFSET[1] + 87];
 export const INTERSECT_8_POS = [MUX1_OFFSET[0] + MUX_POLYGON[2] + 60, MUX1_OFFSET[1] + 85 + ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 15) ];
-export const INTERSECT_9_POS = [ MUX2_OFFSET[0] - 100, MUX2_OFFSET[1] + MUX_TRUE[1] - 10];
+export const INTERSECT_9_POS = [ MUX2_OFFSET[0] - 100, MUX2_OFFSET[1] + MUX_TRUE[1] - 15];
 
 export const READ_A_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 65];
 export const READ_B_MUX_OFFSET = [REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH * 0.75, REGISTER_FILE_OFFSET[1] + 315];
 
 
-export const MUX_FALSE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.23, "l", 72,48]
-export const MUX_TRUE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.77, "l", 72,-48]
+export const MUX_FALSE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.23, "l", 72,48];
+export const MUX_TRUE_WIRE = ["M", 0, MUX_MAX_HEIGHT*.77, "l", 72,-48];
+
+export const MUX_A_WIRE = ["M", 0, MUX_MAX_HEIGHT*.15, "l", MUX_WIDTH, 60 ];
+export const MUX_B_WIRE = ["M", 0, MUX_MAX_HEIGHT*.385, "l", MUX_WIDTH, 20 ];
+export const MUX_C_WIRE = ["M", 0, MUX_MAX_HEIGHT*.62, "l", MUX_WIDTH, -20];
+export const MUX_D_WIRE = ["M", 0, MUX_MAX_HEIGHT*.85, "l", MUX_WIDTH, -60];
 
 export const MUX_ALU_WIRE = [0, 0, ALU_OFFSET[0] - (MUX0_OFFSET[0] + MUX_POLYGON[2]), 0];
 export const ALU_RESULT_WIRE = [0, 0, MUX1_OFFSET[0] - (ALU_OFFSET[0] + ALU_POLYGON[2]), 0];
@@ -78,12 +83,12 @@ export const OPCODE_DECODER_CONTROL_WIRE = [0, 0, CONTROL_OFFSET[0] - (OPCODE_DE
 export const ALU_FLAGS_WIRE = ["M", ALU_OFFSET[0] + ALU_POLYGON[2], ALU_OFFSET[1] + 100, "l", 70, 0,  0, -105 , "L", FLAGS_OFFSET[0], FLAGS_OFFSET[1] + FLAGS_HIEGHT/2 ];
 export const FLAGS_CONTROL_WIRE = ["M", FLAGS_OFFSET[0] + FLAGS_POLYGON[2], FLAGS_OFFSET[1] + FLAGS_HIEGHT/2, "l", 30,0, 0,-130 ,-525, 0, 0, -200, 45, 0 ];
 export const MUX_IMEM_WIRE = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2]+ 400, MUX1_OFFSET[1] + 100, "l", 0, -(MUX1_OFFSET[1] + 100) , -(MUX1_OFFSET[0] + 350 + MUX_WIDTH), 0, 0, 200, 50, 0 ];
-export const MUX_REG_FILE_WIRE = ["M", MUX3_OFFSET[0] + MUX_POLYGON[2], MUX3_OFFSET[1] + 85, "l", 25,0, 0,-(MUX3_OFFSET[1] - REGISTER_FILE_OFFSET[1] + 190), -(MUX3_OFFSET[0] - REGISTER_FILE_OFFSET[0] + 50 + MUX_WIDTH), 0, 0, 200, 25, 0 ];
+export const MUX_REG_FILE_WIRE = ["M", MUX3_OFFSET[0] + MUX_POLYGON[2], MUX3_OFFSET[1] + 85, "l", 25,0, 0,-(MUX3_OFFSET[1] - REGISTER_FILE_OFFSET[1] + 180), -(MUX3_OFFSET[0] - REGISTER_FILE_OFFSET[0] + 50 + MUX_WIDTH), 0, 0, 240, 25, 0 ];
 export const MUX2_DMEM_WIRE = ["M", MUX2_OFFSET[0] + MUX_POLYGON[2], MUX2_OFFSET[1] + 85, "l", (DATA_MEM_OFFSET[0] - MUX2_OFFSET[0] - MUX_WIDTH), 0];
 export const MUX1_DMEM_WIRE1 = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", 25, 0, 0, ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) - 75) , (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0];
 export const MUX1_DMEM_WIRE2 = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", 25, 0, 0, ((DATA_MEM_OFFSET[1] - MUX1_OFFSET[1]) + 0) , (DATA_MEM_OFFSET[0]  - MUX1_OFFSET[0] - MUX_WIDTH - 25), 0];
 export const MUX1_MUX3_WIRE = ["M", MUX1_OFFSET[0] + MUX_POLYGON[2], MUX1_OFFSET[1] + 100, "l", (MUX3_OFFSET[0] - MUX1_OFFSET[0] - MUX_WIDTH), 0];
-export const DMEM_MUX3_WIRE = ["M", DATA_MEM_OFFSET[0] + DATA_MEM_POLYGON[2], DATA_MEM_OFFSET[1] + 100, "l", 25,0, 0,-((DATA_MEM_OFFSET[1] - MUX3_OFFSET[1]) - 30) , (MUX3_OFFSET[0]  - DATA_MEM_OFFSET[0] - DATA_MEM_POLYGON[2] - 25), 0];
+export const DMEM_MUX3_WIRE = ["M", DATA_MEM_OFFSET[0] + DATA_MEM_POLYGON[2], DATA_MEM_OFFSET[1] + 100, "l", 50,0, 0,-((DATA_MEM_OFFSET[1] - MUX3_OFFSET[1]) - 30) , (MUX3_OFFSET[0]  - DATA_MEM_OFFSET[0] - DATA_MEM_POLYGON[2] - 50), 0];
 export const IMEM_MUX2_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -50, 0, 0, 1200 , (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 100), 0, 0, -400, 150, 0 ];
 export const READ_B_MUX2_WIRE = ["M", REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH, REGISTER_FILE_OFFSET[1] + 200, "l", 25, 0, 0, 100 , (MUX2_OFFSET[0] - (REGISTER_FILE_OFFSET[0] + REGISTER_FILE_WIDTH + 25)), 0];
 export const IMEM_PC_UPDATE_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 300, "l", -25,0, 0,(PC_UPDATE_OFFSET[1] - CODE_MEM_HEIGHT/2 - CODE_MEM_OFFSET[1]), (PC_UPDATE_OFFSET[0] - CODE_MEM_OFFSET[0] + 25),0];
@@ -91,7 +96,7 @@ export const IMEM_IN_PC_VAL_MUX_WIRE = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET
 export const IMEM_OUT_PC_UPDATE_WIRE = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1] + 25, "l", 15, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 25 - 25) ,  0, 50, 35, 0];
 export const IMEM_MUX0_WIRE = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1] + 25, "l", 15, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 25 - 100) , (MUX0_OFFSET[0] - (CODE_MEM_WIDTH + CODE_MEM_OFFSET[0] + 100 )), 0, 0, -250, 85, 0];
 export const IMEM_MUX1_WIRE = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1] + 25, "l", 15, 0, 0, (PC_UPDATE_OFFSET[1] - CODE_MEM_OFFSET[1] - 25 - 100) , (MUX1_OFFSET[0] - (CODE_MEM_WIDTH + CODE_MEM_OFFSET[0] + 100 )), 0, 0, -300, 85, 0];
-export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + MUX_TRUE[1] - 10, "l", 200, 0] ;
+export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + MUX_TRUE[1] - 15, "l", 200, 0] ;
 
     //IMEM segments
     export const CODE_MEM_OUT_0 = ["M", CODE_MEM_OFFSET[0] + CODE_MEM_WIDTH, CODE_MEM_OFFSET[1]+25, "l", 0,0,60,0]
@@ -100,15 +105,15 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
 
     export const MUX_JUNCTION = ["M", INTERSECT_2_POS[0], INTERSECT_2_POS[1], "l", 605,0]
 
-    export const TO_MUX0 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 0,-170, 45,0 ]
-    export const TO_MUX1 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 405,0, 0,-255, 40,0]
+    export const TO_MUX0 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 0,-180, 45,0 ]
+    export const TO_MUX1 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 405,0, 0,-265, 40,0]
 
     export const TO_PC_UPDATE = ["M", INTERSECT_1_POS[0],125+825, "l", 0,250, 50,0]
     //END IMEM segments
 
     export const IMEM_OUT_TO_MUXES_SEGS = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"];
     //IMEM MUX2 SEGMENTS
-    export const IMEM_MUX2_JUNCTION = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -70,0, 0,1200, (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 30),0, 0,-340]
+    export const IMEM_MUX2_JUNCTION = ["M", CODE_MEM_OFFSET[0], CODE_MEM_OFFSET[1] + 200, "l", -85,0, 0,1200, (MUX2_OFFSET[0]- CODE_MEM_OFFSET[0] - 15),0, 0,-340]
     //END IMEM MUX2 SEGMENTS
 
     //IMEM OUT BOTTOM SEGMENTS
@@ -118,11 +123,11 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
     //END IMEM OUT BOTTOM SEGMENTS
     
     //READ_A SEGMENTS
-    export const READ_A_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-22,REGISTER_FILE_OFFSET[1]+150, "l", 350,0]
+    export const READ_A_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-23,REGISTER_FILE_OFFSET[1]+150, "l", 351,0]
     //END READ_A_SEGMENTS
 
     //READ_B_SEGMENTS
-    export const READ_B_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-22, REGISTER_FILE_OFFSET[1]+400, "l", 75,0]
+    export const READ_B_OUT = ["M", REGISTER_FILE_OFFSET[0]+REGISTER_FILE_WIDTH-23, REGISTER_FILE_OFFSET[1]+400, "l", 76,0]
     export const B_OUT_TO_MUX0 = ["M", INTERSECT_6_POS[0], INTERSECT_6_POS[1], "l", 0,-65, 120,0]
     export const B_OUT_TO_MUX2 = ["M", INTERSECT_6_POS[0], INTERSECT_6_POS[1], "l", 0,260, 520,0]
     //END READ_B SEGMENTS
@@ -196,8 +201,12 @@ export const MUX_D_TEXT = "D";
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"5px"};
 export const THIN_BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
+export const THIN_WIRE_STYLE = {"stroke":"black", "stroke-width":"4px", "fill":"none"};
+
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
+export const SMALL_TEXT_STYLE = "font-family: Courier; font-size: 22px; text-anchor:middle;fill:black; ";
+
 export const ARIAL_TEXT_STYLE = "font-family: Arial; font-size: 24px; text-anchor:middle;fill:black; ";
 
 export const COMPONENT_NAME_TEXT_STYLE = "font-family: Arial; font-size: 30px; text-anchor:middle;fill:black; ";

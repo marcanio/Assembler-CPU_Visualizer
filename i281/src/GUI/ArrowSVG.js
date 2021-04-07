@@ -17,12 +17,18 @@ export default class ArrowSVG {
             TPOS = [-30, 30];
         else if (text_pos.toLowerCase() === "right")
             TPOS = [25, 30];
+        else if (text_pos.toLowerCase() === "leftup")
+            TPOS = [-30, 20];
+        else if (text_pos.toLowerCase() === "rightup")
+            TPOS = [25, 20];
         else 
             TPOS = [0, -10];
 
+        let sub_offset = i < 10 ? 12 : 16;
+
         this.arrow = new PolygonSVG(arrow_id, Constants.ARROW, Constants.ARROW_STYLE, offset);
 		this.text = new TextSVG(TPOS[0], TPOS[1], "arrow" + i, "c", LABEL_TEXT_STYLE, offset);
-        this.subscript = new TextSVG(TPOS[0] + 16, TPOS[1] + 10, "arrowsub" + i, i, SUBSCRIPT_TEXT_STYLE, offset);
+        this.subscript = new TextSVG(TPOS[0] + sub_offset, TPOS[1] + 10, "arrowsub" + i, i, SUBSCRIPT_TEXT_STYLE, offset);
 
 	}
     

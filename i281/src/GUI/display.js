@@ -20,42 +20,17 @@ import BussInfoSVG from "./BusInfoSVG.js";
 import LongArrowSVG from "./LongArrowSVG.js"
 import ALULongArrowSVG from "./ALULongArrowSVG.js"
 import {CPU} from "../simulator/cpu.js";
+import * as Utils from "./Utils.js";
 
 function init() {
-	//const btn = document.getElementById("btn");
-	//btn.onclick = compute;
-	show_arrows.onchange = toggle_arrow_visablitity;
+	 
+	show_arrows.onchange = Utils.toggle_arrow_visablitity;
+	show_bus_info.onchange = Utils.toggle_bus_info_visablitity;
 	document.getElementById("modal").onclick = () => {
 		modal.style.visibility = "hidden";
 		document.getElementById("modal_content").style.visibility = "hidden";
 
 	}
-}
-
-function toggle_arrow_visablitity(checkbox) {
-	let arrows = [];
-	arrows.push(document.getElementById(Constants.IMEM_C1_ID));
-	arrows.push(document.getElementById(Constants.MUX_C2_ID));
-	arrows.push(document.getElementById(Constants.PC_VALUE_C3_ID));
-	arrows.push(document.getElementById(Constants.READ_A_C4_ID));
-	arrows.push(document.getElementById(Constants.READ_A_C5_ID));
-	arrows.push(document.getElementById(Constants.READ_B_C6_ID));
-	arrows.push(document.getElementById(Constants.READ_B_C7_ID));
-	arrows.push(document.getElementById(Constants.REG_FILE_C8_ID));
-	arrows.push(document.getElementById(Constants.REG_FILE_C9_ID));
-	arrows.push(document.getElementById(Constants.REG_FILE_C10_ID));
-	arrows.push(document.getElementById(Constants.MUX_C11_ID));
-	arrows.push(document.getElementById(Constants.ALU_C12_ID));
-	arrows.push(document.getElementById(Constants.ALU_C13_ID));
-	arrows.push(document.getElementById(Constants.FLAGS_C14_ID));
-	arrows.push(document.getElementById(Constants.MUX_C15_ID));
-	arrows.push(document.getElementById(Constants.MUX_C16_ID));
-	arrows.push(document.getElementById(Constants.DMEM_C17_ID));
-	arrows.push(document.getElementById(Constants.MUX_C18_ID));
-
-	const val = (checkbox.target.checked) ? "hidden" : "visible";
-	arrows.forEach( elem => elem.style.visibility = val);
-
 }
 
 window.addEventListener("load", function() {
@@ -162,10 +137,10 @@ window.addEventListener("load", function() {
 
 
 	var pc_update_true_wire = new PolygonSVG(Constants.PC_UPDATE_TRUE_WIRE_ID, [...Constants.PC_UPDATE_MUX_WIRE], Constants.WIRE_STYLE);
-	pc_update_true_wire.translate(Constants.PC_UPDATE_MUX_TRUE_WIRE_OFFSET[0], Constants.PC_UPDATE_MUX_TRUE_WIRE_OFFSET[1]+5);
+	pc_update_true_wire.translate(Constants.PC_UPDATE_MUX_TRUE_WIRE_OFFSET[0], Constants.PC_UPDATE_MUX_TRUE_WIRE_OFFSET[1] - 5);
 
 	var pc_update_false_wire = new PolygonSVG(Constants.PC_UPDATE_FALSE_WIRE_ID, [...Constants.PC_UPDATE_MUX_WIRE], Constants.WIRE_STYLE);
-	pc_update_false_wire.translate(Constants.PC_UPDATE_MUX_FALSE_WIRE_OFFSET[0], Constants.PC_UPDATE_MUX_FALSE_WIRE_OFFSET[1]-10);
+	pc_update_false_wire.translate(Constants.PC_UPDATE_MUX_FALSE_WIRE_OFFSET[0], Constants.PC_UPDATE_MUX_FALSE_WIRE_OFFSET[1]-20);
 
 	//var mux_pc_val_wire = new PolygonSVG(Constants.MUX_PC_VAL_WIRE_ID, Constants.MUX_PC_VALUE_WIRE, Constants.WIRE_STYLE);
 	//mux_pc_val_wire.translate(Constants.MUX_PC_VALUE_WIRE_OFFSET[0], Constants.MUX_PC_VALUE_WIRE_OFFSET[1]);
@@ -173,25 +148,28 @@ window.addEventListener("load", function() {
 	const RIGHT = "right";
 	const LEFT = "left";
 	const TOP_RIGHT = "rightup";
-
+	const TOP_LEFT = "leftup";
+	const FAR_LEFT = "farleft";
+	const TWO_DIGIT_LEFT = "twodigitleft";
+	const SINGLE_ARROW_LEFT = "singleLeft";
 	/* Bus Infomation */
-	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1st", [535, 140], 16, LEFT);
-	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", LEFT);
-	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 250], "8 low", RIGHT);
+	var imem_opcode_info1 = new BussInfoSVG("imem_opcode_info1", [535, 140], 16, TWO_DIGIT_LEFT);
+	var imem_opcode_info2 = new BussInfoSVG("imem_opcode_info2", [650, 140], "8 high", TOP_RIGHT);
+	var imem_out_info3 = new BussInfoSVG("imem_out_info3", [Constants.INTERSECT_1_POS[0] + 15, 250], "8 low", TOP_RIGHT);
 
-	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1100, 140], 27, LEFT);
-	var flags_control_info = new BussInfoSVG("flags_control_info", [1270, 250], 4, LEFT);
+	var opcode_control_info = new BussInfoSVG("opcode_control_info", [1175, 140], 27, LEFT);
+	var flags_control_info = new BussInfoSVG("flags_control_info", [1270, 250], 4, FAR_LEFT);
 
 	var imem_in_top = new BussInfoSVG("imem_in_top", [65, 185], 6, LEFT);
-	var imem_in_middle = new BussInfoSVG("imem_in_middle", [75, 315], 16, LEFT);
+	var imem_in_middle = new BussInfoSVG("imem_in_middle", [60, 315], 16, TWO_DIGIT_LEFT);
 	var imem_in_bottom = new BussInfoSVG("imem_in_bottom", [85, 415], 6, LEFT);
 
 	var mux0_out_info = new BussInfoSVG("mux0_out", [1325, 800], 8, LEFT);
 	var mux1_out_info = new BussInfoSVG("mux1_out", [1715, 715], 8, LEFT);
 	var mux2_out_info = new BussInfoSVG("mux2_out", [1725, 1125], 8, LEFT);
-	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 500], 8, LEFT);
+	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 500],8, FAR_LEFT);
 	var alu_in_top_info = new BussInfoSVG("alu_in_top_info", [1325, 570], 8, LEFT);
-	var alu_out_top_info = new BussInfoSVG("alu_out_top_info", [1573, 550], 8, LEFT);
+	var alu_out_top_info = new BussInfoSVG("alu_out_top_info", [1573, 550], 8, FAR_LEFT);
 	var alu_out_bottom_info = new BussInfoSVG("alu_out_bottom_info", [1550, 670], 8, LEFT);
 
 	var mux4_out_info = new BussInfoSVG("mux4_out_info", [1020 , 1250], 6, LEFT);
@@ -199,30 +177,31 @@ window.addEventListener("load", function() {
 	var mux1_intermediate_info = new BussInfoSVG("mux1_intermediate_info", [1900, 715], 8, LEFT);
 
 	var mux3_in_top_info = new BussInfoSVG("mux3_in_top_info", [2220, 715], 8, LEFT);
-	var mux3_in_bottom_info = new BussInfoSVG("mux3_in_bottom_info", [2220, 805], 8, LEFT);
+	var mux3_in_bottom_info = new BussInfoSVG("mux3_in_bottom_info", [2215, 875], 8, FAR_LEFT);
 
 	var pc_update_in_info = new BussInfoSVG("pc_update_in_info", [Constants.INTERSECT_1_POS[0] + 15, 1100], "6 low", TOP_RIGHT);
-	var pc_update_in_bottom_info = new BussInfoSVG("pc_update_in_bottom_info", [Constants.INTERSECT_1_POS[0] + 40, 1285], "6", LEFT);
+	var pc_update_in_bottom_info = new BussInfoSVG("pc_update_in_bottom_info", [Constants.INTERSECT_1_POS[0] + 40, 1295], "6", LEFT);
 
 	
-	var dmem_in_top_info = new BussInfoSVG("test", [1785, 910], 4, LEFT);
-	var dmem_in_bottom_info = new BussInfoSVG("test", [1785, 990], 4, LEFT);
+	var dmem_in_top_info = new BussInfoSVG("dmem_in_top_info", [1785, 910], 4, LEFT);
+	var dmem_in_bottom_info = new BussInfoSVG("dmem_in_bottom_info", [1785, 990], 4, LEFT);
 	
-	var pc_logic_out_top_info = new BussInfoSVG("test", [850, 1205], 6, LEFT);
-	var pc_logic_out_bottom_info = new BussInfoSVG("test", [850, 1295], 6, LEFT);
-	var pc_val_out_info = new BussInfoSVG("test", [1300, 1240], 6, LEFT);
+	var pc_logic_out_top_info = new BussInfoSVG("pc_logic_out_top_info", [850, 1205], 6, LEFT);
+	var pc_logic_out_bottom_info = new BussInfoSVG("pc_logic_out_bottom_info", [850, 1295], 6, LEFT);
+	var pc_val_out_info = new BussInfoSVG("pc_val_out_info", [1300, 1250], 6, LEFT);
 
 	var mux0_in_top_info = new BussInfoSVG("mux0_in_top_info", [1150, 755], 8, LEFT);
-	var mux0_in_bottom_info = new BussInfoSVG("mux0_in_bottom_info", [1170, 875], 8, LEFT);
+	var mux0_in_bottom_info = new BussInfoSVG("mux0_in_bottom_info", [1170, 875], 8, FAR_LEFT);
 	
-	var mux1_in_bottom_info = new BussInfoSVG("mux1_in_bottom_info", [1575, 875], 8, LEFT);
+	var mux1_in_bottom_info = new BussInfoSVG("mux1_in_bottom_info", [1575, 875], 8, FAR_LEFT);
 	var mux2_in_top_info = new BussInfoSVG("mux2_in_top_info", [1575, 1080], 8, LEFT);
 	var mux2_in_bottom_info = new BussInfoSVG("mux2_in_bottom_info", [1575, 1170], 8, LEFT);
 	
-	var switches_info = new BussInfoSVG("switches_info", [1450, 1175], 16, LEFT);
+	var switches_info = new BussInfoSVG("switches_info", [1450, 1170], 16, TWO_DIGIT_LEFT);
 
 	var mux_junction_info = new BussInfoSVG("mux_junct_info", [Constants.INTERSECT_2_POS[0] + 150, Constants.INTERSECT_2_POS[1] + 15], 8, LEFT);
 	var mux_dmem_info = new BussInfoSVG("mux_dmem_info", [Constants.INTERSECT_7_POS[0] + 15, Constants.INTERSECT_7_POS[1] + 100], "4 low", TOP_RIGHT);
+	var imem_mux_info = new BussInfoSVG("imem_mux_info", [1515, 1300], 16, "twodigitleftvertical");
 
 
 	/*
@@ -243,10 +222,10 @@ window.addEventListener("load", function() {
 	var imem_c1 = new ArrowSVG(Constants.IMEM_C1_ID, 1, RIGHT, Constants.IMEM_C1_OFFSET);
 	var mux_c2 = new ArrowSVG(Constants.MUX_C2_ID, 2, RIGHT, Constants.MUX_C2_OFFSET);
 	var pc_value_c3 = new ArrowSVG(Constants.PC_VALUE_C3_ID, 3, RIGHT, Constants.PC_VALUE_C3_OFFSET);
-	var read_a_c4 = new ArrowSVG(Constants.READ_A_C4_ID, 4, LEFT, Constants.READ_A_C4_OFFSET);
-	var read_a_c5 = new LongArrowSVG(Constants.READ_A_C5_ID, 5, RIGHT, Constants.READ_A_C5_OFFSET);
-	var read_b_c6 = new ArrowSVG(Constants.READ_B_C6_ID, 6, LEFT, Constants.READ_B_C6_OFFSET);
-	var read_b_c7 = new LongArrowSVG(Constants.READ_B_C7_ID, 7, RIGHT, Constants.READ_B_C7_OFFSET);
+	var read_a_c4 = new ArrowSVG(Constants.READ_A_C4_ID, 4, TOP_LEFT, Constants.READ_A_C4_OFFSET);
+	var read_a_c5 = new LongArrowSVG(Constants.READ_A_C5_ID, 5, TOP_RIGHT, Constants.READ_A_C5_OFFSET);
+	var read_b_c6 = new ArrowSVG(Constants.READ_B_C6_ID, 6, TOP_LEFT, Constants.READ_B_C6_OFFSET);
+	var read_b_c7 = new LongArrowSVG(Constants.READ_B_C7_ID, 7, TOP_RIGHT, Constants.READ_B_C7_OFFSET);
 	var reg_file_c8 = new ArrowSVG(Constants.REG_FILE_C8_ID, 8, LEFT, Constants.REG_FILE_C8_OFFSET);
 	var reg_file_c9 = new ArrowSVG(Constants.REG_FILE_C9_ID, 9, RIGHT, Constants.REG_FILE_C9_OFFSET);
 	var reg_file_c10 = new ArrowSVG(Constants.REG_FILE_C10_ID, 10, RIGHT, Constants.REG_FILE_C10_OFFSET);
@@ -386,6 +365,7 @@ window.addEventListener("load", function() {
 	switches_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	mux_junction_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	mux_dmem_info.get_all_nodes().forEach(x => svg.appendChild(x));
+	imem_mux_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	svg.appendChild(flag_control_wire.node);
 	//svg.appendChild(mux_imem_wire.node);
 	svg.appendChild(mux_reg_file_wire.node);
