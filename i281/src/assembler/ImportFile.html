@@ -15,15 +15,23 @@
     <link rel="stylesheet" href="assembler/ImportFile.css" />
   </head>
   <body>
-    <div>
+    
       <div class="container fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+        <nav class="navbar navbar-dark bg-dark shadow-lg navbar-right">
           <a class="navbar-brand" href="#" onClick="window.location.reload();"
-            >i281 Assembler</a
-          >
+            >i281 Assembler</a>
+          
+              <input
+                    type="button"
+                    data-toggle="modal" 
+                    data-target="#aboutModal"
+                    class="btn btn-link"
+                    value="About Us"
+                    style="color: white; text-decoration: none;"
+                  />
 
           <div class="" id="navbarNavDropdown">
-            <ul class="navbar-nav navbar-right">
+            <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -32,11 +40,13 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  style="font-size: large; color: white;"
                   >Examples</a
                 >
                 <ul
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
+                  style="position: absolute;"
                 >
                   <li class="dropdown">
                     <a class="dropdown-item" href="#">Arithmetic</a>
@@ -182,17 +192,18 @@
                   <a class="dropdown-item" onclick="Switch()"
                     >Switch Statement</a
                   >
+                  <a class="dropdown-item" onclick="pong()">Pong</a>
                 </ul>
               </li>
             </ul>
           </div>
-        </nav>
+        
       </div>
 
       <main class="container p-3 my-3 border">
         <section class="jumbotron text-center">
           <h1 class="display-4 mb-4" id="banner">Enter your Assembly below</h1>
-
+        
           <div class="button-box col-lg-12">
             <!--If page keeps reloading add "?#" to the end of the link. <a href="?#"> </a>-->
             <button
@@ -202,15 +213,9 @@
             >
               Import a file
             </button>
-            <button
-              class="btn btn-primary btn-lg shadow-lg"
-              onclick="ShowTextbox()"
-              id="textInputButton"
-            >
-              Enter text
-            </button>
+           
           </div>
-
+          
           <form class="mb-4">
             <div style="display: none" id="fileDiv">
               <div class="fileWords p-5" id="inputField">
@@ -236,7 +241,7 @@
                   id="downloadButton"
                   class="dropdown-item"
                   onclick="downloadMachineFile()"
-                  value="Download Machine code"
+                  value="Download All Machine Code"
                 />
 
                 <input
@@ -244,7 +249,7 @@
                   id="downloadLow"
                   class="dropdown-item"
                   onclick="downloadUserCodeLow()"
-                  value="Download Low"
+                  value="Download Verilog Low"
                 />
 
                 <input
@@ -252,7 +257,15 @@
                   id="downloadHigh"
                   class="dropdown-item"
                   onclick="downloadUserCodeHigh()"
-                  value="Download High"
+                  value="Download Verilog High"
+                />
+
+                <input
+                  type="button"
+                  id="downloadAssembly"
+                  class="dropdown-item"
+                  onclick="downloadAssemblyCode()"
+                  value="Download Assembly Code"
                 />
                 </div>
                 
@@ -262,7 +275,7 @@
                   class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="toggleSyntaxHighlight()"
-                  value="Syntax highlight: OFF"
+                  value="Syntax highlighting: OFF"
                 />
                 <input
                 type="button"
@@ -282,6 +295,7 @@
               <table
                 id="assemblyTable"
                 class="table table-striped text-left"
+                style="font-weight: bold;"
               ></table>
             </div>
 
@@ -290,12 +304,43 @@
               <table
                 id="machineTable"
                 class="table table-striped text-left"
+                style="font-weight: bold;"
               ></table>
             </div>
           </div>
         </section>
+   
       </main>
-    </div>
+      
+      <div class="modal" id="aboutModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">About Us</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <p>i281 CPU Simulator by:</p>
+              <p>Eric Marcanio: Assembler</p>
+              <p>Aiman Priester: Verilog Conversion</p>
+              <p>Bryce Snell: JS CPU</p>
+              <p>Colby McKinley: CPU Visualizer </p>
+              <p>Brady Kolosik: CPU Visualizer</p>
+              <p>Jacob Betsworth: FPGA GUI</p>
+              <p>i281 CPU design by: Kyung-Tae J. Kim, Alexander Stoytchev</p>
+              <p>Project supervisor: Alexander Stoytchev</p>
+              <p>Iowa State University Ames, IA 50011 U.S.A.</p>
+        </div>
+      
+         
+      
+          </div>
+        </div>
+      </div>
     <div class="modal" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -312,8 +357,8 @@
         <thead>
           <tr>
             <th>Address</th>
-            <th>Data Memory</th>
-            <th>Variable</th>
+            <th>Value</th>
+            <th>Comment</th>
           </tr>
         </thead>
        

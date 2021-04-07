@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"
-http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
 
 <html lang="en">
 <head>
@@ -9,25 +7,44 @@ http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
     <link rel="stylesheet" href="./GUI/index.css">
  
     <script src="./GUI/display.js" type="module"></script>
-
-    
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=.5"
+http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+crossorigin="anonymous"
+/>
     
 </head>
-    <h1>i281 CPU</h1>
-    <h1 id="assembly_inst">inst</h1>
 
-
-  <body>
-    <h1>i281 CPU</h1>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between">
+  <a class="navbar-brand" href="#">i281 CPU</a>
+  <div class="navbar-nav">
+   
+      <div style="overflow: hidden;color: white;font-weight: bold;">
+        <p style="float: left;">Current Instruction:&nbsp</p>
+        <p style="float: right;"id="assembly_inst"></p>
+      </div>
+      
+   
+  </div>
+  <div class="navbar-nav justify-content-end" >
+  
+    <a class="nav-item nav-link" href="#"onclick="window.history.back()" style="color: white;">Go to Assembler</a>
+  </div>
+</nav>
+  <body >
+   
+    
+   
     <div id="modal" class="modal">
       <div id="modal_content" class="modal-content">
       </div>
     </div>
-    <button onclick="high()">User Code</button>
-    <button onclick="low()">Bios Code</button>
-    <button onclick="test()">Cycle</button>
+    
 
-    <svg id="canvas" height="1600" width="3400">
+    <svg id="canvas" viewbox="0 0 3250 1500">
              <!-- Display 1 x -->
              <line id="topT1" x1="2445" y1="20" x2="2475" y2="20" style="stroke:lightgrey;stroke-width: 8;"/>
              <line id="topL1" x1="2435" y1="25" x2="2435" y2="65" style="stroke: lightgrey;stroke-width: 8;"/>
@@ -212,115 +229,115 @@ http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
              <polygon id="topR8T" points="3110,25 3115,20 3120,25" style="fill: lightgrey;" />
              <polygon id="topR8B" points="3110,65 3115,70 3120,65" style="fill: lightgrey;" />
 
-     <foreignObject x="2420" y="130" width="900px" height="200px" id = "switchCanv">
-       <div switchGroup>
+     <foreignObject x="2420" y="130" width="900px" height="300px" id = "switchCanv">
+       <div>
            <element id="switchGroup">
                <label class="switch">
-                   <input type="checkbox" id="bit00">
+                   <input type="checkbox" id="bit00" onchange="switchChange('bit00','bit0In')">
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 17</span>
                    </label>
                
                    <label class="switch">
-                   <input type="checkbox" id="bit01">
+                   <input type="checkbox" id="bit01" onchange="switchChange('bit01','bit1In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 16</span>
                    </label>
                </el>
            <element id="switchGroup">
                <label class="switch">
-                   <input type="checkbox" id="bit02">
+                   <input type="checkbox" id="bit02" onchange="switchChange('bit02','bit2In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 15</span>
                    </label>
                
                    <label class="switch">
-                   <input type="checkbox" id="bit03">
+                   <input type="checkbox" id="bit03" onchange="switchChange('bit03','bit3In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 14</span>
                    </label>
                    
                    <label class="switch">
-                   <input type="checkbox" id="bit04">
+                   <input type="checkbox" id="bit04" onchange="switchChange('bit04','bit4In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 13</span>
                    </label>
                    
                    <label class="switch">
-                   <input type="checkbox" id="bit05">
+                   <input type="checkbox" id="bit05" onchange="switchChange('bit05','bit5In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 12</span>
                    </label>
                 
                    <label class="switch">
-                   <input type="checkbox" id="bit06">
+                   <input type="checkbox" id="bit06" onchange="switchChange('bit06','bit6In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 11</span>
                    </label>
                    
                    <label class="switch">
-                   <input type="checkbox" id="bit07">
+                   <input type="checkbox" id="bit07" onchange="switchChange('bit07','bit7In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 10</span>
                    </label>
    
                    <label class="switch">
-                   <input type="checkbox" id="bit08"> 
+                   <input type="checkbox" id="bit08" onchange="switchChange('bit08','bit8In')">> 
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 9</span>
                    </label>
                
                    <label class="switch">
-                   <input type="checkbox" id="bit09">
+                   <input type="checkbox" id="bit09" onchange="switchChange('bit09','bit9In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 8</span>
                    </label>
                </el>
            <element id="switchGroup">
                <label class="switch">
-                   <input type="checkbox" id="bit10"> 
+                   <input type="checkbox" id="bit10" onchange="switchChange('bit10','bit10In')">> 
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 7</span>
                    </label>
                    
                   <label class="switch">
-                   <input type="checkbox" id="bit11">
+                   <input type="checkbox" id="bit11" onchange="switchChange('bit11','bit11In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 6</span>
                    </label>
                
                    <label class="switch">
-                   <input type="checkbox" id="bit12">
+                   <input type="checkbox" id="bit12" onchange="switchChange('bit12','bit12In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 5</span>
                    </label>
                        
                    <label class="switch">
-                   <input type="checkbox" id="bit13">
+                   <input type="checkbox" id="bit13" onchange="switchChange('bit13','bit13In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 4</span>
                    </label>
                        
                    <label class="switch">
-                   <input type="checkbox" id="bit14">
+                   <input type="checkbox" id="bit14" onchange="switchChange('bit14','bit14In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 3</span>
                    </label>
                        
                    <label class="switch">
-                   <input type="checkbox" id="bit15">
+                   <input type="checkbox" id="bit15" onchange="switchChange('bit15','bit15In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 2</span>
                    </label>
                            
                    <label class="switch">
-                   <input type="checkbox" id="bit16">
+                   <input type="checkbox" id="bit16" onchange="switchChange('bit16','bit16In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 1</span>
                    </label>  
                        
                    <label class="switch">
-                   <input type="checkbox" id="bit17">
+                   <input type="checkbox" id="bit17" onchange="switchChange('bit17','bit17In')">>
                    <span class="slider"></span>
                    <span class="tooltiptext">Switch 0</span>
                    </label>
@@ -329,32 +346,30 @@ http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
 
        <ul id="wrapper">
          <element id="wrapper">
-             <input type="text" maxlength = "1" id="bit0In" oninput="switchKeystroke(this,'bit00')" name="0In" value="0">
-             <input type="text" maxlength = "1" id="bit1In" oninput="switchKeystroke(this,'bit01')" name="1In" value="0">
+             <input type="text" maxlength = "1" id="bit0In" oninput="switchKeystroke('bit0In','bit00')" name="0In" value="0">
+             <input type="text" maxlength = "1" id="bit1In" oninput="switchKeystroke('bit1In','bit01')" name="1In" value="0">
          </element>
          <element id="wrapper">
-             <input type="text" maxlength = "1" id="bit2In" oninput="switchKeystroke(this,'bit02')" name="2In" value="0">
-             <input type="text" maxlength = "1" id="bit3In" oninput="switchKeystroke(this,'bit03')" name="3In" value="0">
-             <input type="text" maxlength = "1" id="bit4In" oninput="switchKeystroke(this,'bit04')" name="4In" value="0">
-             <input type="text" maxlength = "1" id="bit5In" oninput="switchKeystroke(this,'bit05')" name="5In" value="0">
-             <input type="text" maxlength = "1" id="bit6In" oninput="switchKeystroke(this,'bit06')" name="6In" value="0">
-             <input type="text" maxlength = "1" id="bit7In" oninput="switchKeystroke(this,'bit07')" name="7In" value="0">
-             <input type="text" maxlength = "1" id="bit8In" oninput="switchKeystroke(this,'bit08')" name="8In" value="0">
-             <input type="text" maxlength = "1" id="bit9In" oninput="switchKeystroke(this,'bit09')" name="9In" value="0">
+             <input type="text" maxlength = "1" id="bit2In" oninput="switchKeystroke('bit2In','bit02')" name="2In" value="0">
+             <input type="text" maxlength = "1" id="bit3In" oninput="switchKeystroke('bit3In','bit03')" name="3In" value="0">
+             <input type="text" maxlength = "1" id="bit4In" oninput="switchKeystroke('bit4In','bit04')" name="4In" value="0">
+             <input type="text" maxlength = "1" id="bit5In" oninput="switchKeystroke('bit5In','bit05')" name="5In" value="0">
+             <input type="text" maxlength = "1" id="bit6In" oninput="switchKeystroke('bit6In','bit06')" name="6In" value="0">
+             <input type="text" maxlength = "1" id="bit7In" oninput="switchKeystroke('bit7In','bit07')" name="7In" value="0">
+             <input type="text" maxlength = "1" id="bit8In" oninput="switchKeystroke('bit8In','bit08')" name="8In" value="0">
+             <input type="text" maxlength = "1" id="bit9In" oninput="switchKeystroke('bit9In','bit09')" name="9In" value="0">
          </element>
          <element id="wrapper">
-             <input type="text" maxlength = "1" id="bit10In" oninput="switchKeystroke(this,'bit10')"  name="10In" value="0">
-             <input type="text" maxlength = "1" id="bit11In" oninput="switchKeystroke(this,'bit11')" name="11In" value="0">
-             <input type="text" maxlength = "1" id="bit12In" oninput="switchKeystroke(this,'bit12')" name="12In" value="0">
-             <input type="text" maxlength = "1" id="bit13In" oninput="switchKeystroke(this,'bit13')" name="13In" value="0">
-             <input type="text" maxlength = "1" id="bit14In" oninput="switchKeystroke(this,'bit14')" name="14In" value="0">
-             <input type="text" maxlength = "1" id="bit15In" oninput="switchKeystroke(this,'bit15')" name="15In" value="0">
-             <input type="text" maxlength = "1" id="bit16In" oninput="switchKeystroke(this,'bit16')" name="16In" value="0">
-             <input type="text" maxlength = "1" id="bit17In" oninput="switchKeystroke(this,'bit17')" name="17In" value="0">
+             <input type="text" maxlength = "1" id="bit10In" oninput="switchKeystroke('bit10In','bit10')"  name="10In" value="0">
+             <input type="text" maxlength = "1" id="bit11In" oninput="switchKeystroke('bit11In','bit11')" name="11In" value="0">
+             <input type="text" maxlength = "1" id="bit12In" oninput="switchKeystroke('bit12In','bit12')" name="12In" value="0">
+             <input type="text" maxlength = "1" id="bit13In" oninput="switchKeystroke('bit13In','bit13')" name="13In" value="0">
+             <input type="text" maxlength = "1" id="bit14In" oninput="switchKeystroke('bit14In','bit14')" name="14In" value="0">
+             <input type="text" maxlength = "1" id="bit15In" oninput="switchKeystroke('bit15In','bit15')" name="15In" value="0">
+             <input type="text" maxlength = "1" id="bit16In" oninput="switchKeystroke('bit16In','bit16')" name="16In" value="0">
+             <input type="text" maxlength = "1" id="bit17In" oninput="switchKeystroke('bit17In','bit17')" name="17In" value="0">
          </element>
      </ul>
-
-
    </foreignObject>
 
      <foreignObject x="2420" y="330" width="320px" height="150px" id = "switchCanv">
@@ -385,24 +400,29 @@ http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
    </foreignObject>
 
    <foreignObject x="2800" y="350" width="500px" height="100px" id = "switchCanvSpeed">
-       <input type="range" min="1" max="100" value="50" class="speed" id="speedSld">
+       <input type="range" min="1" max="10" value="5" class="speed" id="speedSld" onchange="autoMode()">
          <p style="font-family:'Courier New';font-size:xx-large;font-weight:bold">Speed:<span id="SimSpeed"></span></p>
    </foreignObject>
 
-   <foreignObject x="2420" y="500" width="700px" height="200px" id = "Menu">
+   <foreignObject x="2800" y="450" width="300px" height="150px" id="SliderMenu">
+    <input type="checkbox" id="auto_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
+    <label for="auto_on" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Auto Mode on</label>
+   </foreignObject>
+
+   <foreignObject x="2420" y="600" width="700px" height="200px" id = "Menu">
     <br>
+    <div>
+      <div style="float: left;">
     <input type="checkbox" id="show_arrows" style="height: 25px;width: 25px;">
     <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Hide Arrows</label>
+  </div>
+  <div style="float: right;">
     <input type="checkbox" id="show_bus_info" style="height: 25px;width: 25px;">
     <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
-    <br>
-    <button id="goto_assembler" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;" onclick="location.href='./ImportFile.html'">Assembler</button>
-    <button id="goto_altera_board" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;">Altera Board</button>
-    <br>
+  </div>
+    </div>
 
-    <input type="text" style="font-size: x-large;font-family:'Courier New', Courier, monospace;" id="instruction">
-    <label type="text" style="font-size: x-large;font-family:'Courier New', Courier, monospace;" id="result"></label>
-    <p id="counter" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;">0</p>
+    
    </foreignObject>
 
     </svg> 
@@ -499,7 +519,141 @@ http-equiv="X-UA-Compatible"  X-Content-Type-Options="nosniff"/>
     }
         
       }
+      
+function getRelevantBox(swNum)
+{
+    switch(swNum)
+    {
+        case "bit00":
+            return "bit0In";
+            break;
+        case "bit01":
+            return "bit1In";
+            break;
+        case "bit02":
+            return "bit2In";
+            break;
+        case "bit03":
+            return "bit3In";
+            break; 
+        case "bit04":
+            return "bit4In";
+            break;
+        case "bit05":
+            return "bit5In";
+            break;
+        case "bit06":
+            return "bit6In";
+            break;
+        case "bit07":
+            return "bit7In";
+            break;
+        case "bit08":
+            return "bit8In";
+            break; 
+        case "bit09":
+            return "bit9In";
+            break;    
+        case "bit10":
+            return "bit10In";
+            break;
+        case "bit11":
+            return "bit11In";
+            break;
+        case "bit12":
+            return "bit12In";
+            break;
+        case "bit13":
+            return "bit13In";
+            break; 
+        case "bit14":
+            return "bit14In";
+            break;        
+        case "bit15":
+            return "bit15In";
+            break;
+        case "bit16":
+            return "bit16In";
+            break; 
+        case "bit17":
+            return "bit17In";
+            break;     
+        default:
+            break;          
+    }    
+}    
+
+function switchChange(actSw,swNum){
+    var ch = document.getElementById(actSw).checked;
+    
+    if(ch)
+    {
+        document.getElementById(swNum).value = '1';
+    }
+    else
+    {
+        document.getElementById(swNum).value = '0';
+    }
+    //sevenSegUpdate(actSw);
+}
+
+function switchKeystroke(swNum, actSw){
+    var text = document.getElementById(swNum).value;
+    if(text == "1")
+    {
+        document.getElementById(actSw).checked = true;
+    }
+    else
+    {
+        document.getElementById(actSw).checked = false;
+    }
+    //sevenSegUpdate(actSw);
+}
+
+var currTime = 0;
+
+
+function autoMode()
+{
+  var mode = auto_on.checked;
+  if(mode)
+  {
+    if(currTime == 0)
+    {
+      currTime = setInterval(test, (11 - document.getElementById("speedSld").value) * 100);
+    }
+    else
+    {
+      clearInterval(currTime);
+      currTime = setInterval(test, (11 - document.getElementById("speedSld").value) * 100);
+    }
+  }
+  else
+  {
+    if(currTime != 0)
+    {
+      clearInterval(currTime);
+    }
+  }
+}
+
 
     </script>
+   <script
+   src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+   crossorigin="anonymous"
+   ></script>
+   <script
+   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+   crossorigin="anonymous"
+   ></script>
+   <script
+   src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+   crossorigin="anonymous"
+   ></script>
   </body>
 </html>
+
