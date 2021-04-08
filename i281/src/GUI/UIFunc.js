@@ -1,14 +1,5 @@
 import {CPU} from "../simulator/cpu.js";
 
-document.addEventListener("DOMContentLoaded", function (){
-    startListen();
-}
-)
-
-function startListen(){     
-    uiMode();
-}
-
 
 var slider = document.getElementById("speedSld");
 var output = document.getElementById("SimSpeed");
@@ -1050,11 +1041,7 @@ function memView(){
 }
 
 function regView(){
-    var regHolder = cpu.registers.registers;
-
-    //alert("regView");
-
-    var currentRegVal;
+    var regHolder;
 
     var topLine;
     var topL;
@@ -1297,10 +1284,20 @@ function regView(){
 
         if(i > 3)
         {
+            regHolder = cpu.registers.registers
             var bit3 = regHolder[i-4][4] == '1'
             var bit2 = regHolder[i-4][5] == '1'
             var bit1 = regHolder[i-4][6] == '1'
             var bit0 = regHolder[i-4][7] == '1'
+        }
+        else
+        {
+            regHolder = cpu.dMem.registers;
+            var bit3 = regHolder[3-i][4] == '1'
+            var bit2 = regHolder[3-i][5] == '1'
+            var bit1 = regHolder[3-i][6] == '1'
+            var bit0 = regHolder[3-i][7] == '1'
+        }
             if(bit3)//8 case in here (8,9,A,B,C,D,E,F)
             {
                 if(bit2)
@@ -1744,31 +1741,6 @@ function regView(){
                     }
                 }
             }
-        }
-        else{
-            topLine.style.stroke = 'lightgrey';
-            topL.style.stroke = 'lightgrey';
-            topR.style.stroke = 'lightgrey';
-            midLine.style.stroke = 'lightgrey';
-            botL.style.stroke = 'lightgrey';
-            botR.style.stroke = 'lightgrey';
-            botLine.style.stroke = 'lightgrey';
-            
-            topLineTriL.style.fill = 'lightgrey';
-            topLineTriR.style.fill = 'lightgrey';
-            topLTriB.style.fill = 'lightgrey';
-            topLTriT.style.fill = 'lightgrey';
-            topRTriB.style.fill = 'lightgrey';
-            topRTriT.style.fill = 'lightgrey';
-            midLineTriL.style.fill = 'lightgrey';
-            midLineTriR.style.fill = 'lightgrey';
-            botLTriB.style.fill = 'lightgrey';
-            botLTriT.style.fill = 'lightgrey';
-            botRTriB.style.fill = 'lightgrey';
-            botRTriT.style.fill = 'lightgrey';
-            botLineTriL.style.fill = 'lightgrey';
-            botLineTriR.style.fill = 'lightgrey';
-        }
     }
 }
 
