@@ -157,7 +157,7 @@ function assignDataVariable(code) {
     if (innerString.localeCompare(",") == 0) {
       arrayNames.push(varibleName);
       continue;
-    } else if (innerString.localeCompare("?") >= 0) {
+    } else if (innerString.localeCompare("?") == 0) {
       dataLocation++;
       dataValues.push(0);
       varibleNames.push(varibleName);
@@ -449,7 +449,7 @@ function mainMethod() {
   formattedVariables = formatVariables();
   saveData();
   fillDataMemoryTable();
-  console.log(withoutComments);
+  console.log(valueMapping);
   
 
 }
