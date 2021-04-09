@@ -423,21 +423,5 @@ window.addEventListener("load", function() {
 	svg.appendChild(junction_to_pc_update.node)
 	svg.appendChild(junction_to_pc.node)
 
-	document.getElementById("bios").addEventListener("click", bios, false);
-	document.getElementById("usr").addEventListener("click", usr, false);
-	document.getElementById
-	//document.getElementById("pushin1").addEventListener("click", test, false);
 	code_mem.switchToUser();
-	cpu.pc.currentPC=31;
-	document.getElementById("")
 });
-
-function bios(){
-	code_mem.switchToBios();
-	cpu.pc.currentPC=0;
-}
-
-function usr(){
-	code_mem.switchToUser();
-	cpu.pc.currentPC=31;
-}
