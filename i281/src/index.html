@@ -18,6 +18,7 @@ crossorigin="anonymous"
     
 </head>
 
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between">
   <a class="navbar-brand" href="#">i281 CPU</a>
   <div class="navbar-nav">
@@ -38,11 +39,17 @@ crossorigin="anonymous"
    
     
    
+=======
+  <body>
+>>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
     <div id="modal" class="modal">
       <div id="modal_content" class="modal-content">
       </div>
     </div>
+<<<<<<< HEAD
     
+=======
+>>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
 
     <svg id="canvas" viewbox="0 0 3250 1550">
              <!-- Display 1 x -->
@@ -438,7 +445,10 @@ crossorigin="anonymous"
     </label>
     <label type="text" style="font-size: x-large;font-family:'Courier New', Courier, monospace;" id="result"></label>
 
+<<<<<<< HEAD
 >>>>>>> push before merge master into here
+=======
+>>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
    </foreignObject>
 
     </svg> 
@@ -523,8 +533,7 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
           var asm = cpu.instructions[cur-32];
           var prevasm = cpu.instructions[prev-32];
-          console.log(asm);
-          console.log(prevasm);
+          
           if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
             document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
             document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
@@ -613,7 +622,7 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+prev+"_imm").setAttribute("font-weight", "normal");
         }
       }
-      
+
       function pad(n, width, z) {
 		    z = z || '0';
 		    n = n + '';
@@ -758,7 +767,6 @@ function autoMode()
     }
   }
 }
-
 
   function bios(){
     if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){

@@ -427,6 +427,7 @@ window.addEventListener("load", function() {
 	document.getElementById("usr").addEventListener("click", usr, false);
 	document.getElementById
 	//document.getElementById("pushin1").addEventListener("click", test, false);
+<<<<<<< HEAD
 	code_mem.switchToUser();
 	cpu.pc.currentPC=31;
 	document.getElementById("")
@@ -440,4 +441,19 @@ function bios(){
 function usr(){
 	code_mem.switchToUser();
 	cpu.pc.currentPC=31;
+=======
+	code_mem.switchToUser();
+	cpu.pc.currentPC=31;
+	document.getElementById("")
+});
+
+function bios(){
+	code_mem.switchToBios();
+	cpu.pc.currentPC=0;
+}
+
+function usr(){
+	code_mem.switchToUser();
+	cpu.pc.currentPC=31;
+>>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
 }

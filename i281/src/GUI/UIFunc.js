@@ -5,6 +5,10 @@ var slider = document.getElementById("speedSld");
 var output = document.getElementById("SimSpeed");
 output.innerHTML = slider.value;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
 slider.oninput = function() {
     output.innerHTML = this.value;
 }
