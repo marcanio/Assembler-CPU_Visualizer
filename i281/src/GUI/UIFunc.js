@@ -14,6 +14,7 @@ slider.oninput = function() {
 
 document.getElementById("speedSld").addEventListener("change", segTimer);
 document.getElementById("auto_on").addEventListener("change", segTimer);
+document.getElementById("game_on").addEventListener("change", segTimer);
 
 var segTime = 0;
 
@@ -21,6 +22,28 @@ var segTime = 0;
 function segTimer()
 {
   var mode = document.getElementById("auto_on").checked;
+  var gaming = document.getElementById("game_on").checked;
+  if(gaming)
+  {
+    if(segTime == 0)
+    {
+      segTime = setInterval(uiMode, 100);
+      return;
+    }
+    else
+    {
+      clearInterval(segTime);
+      segTime = setInterval(uiMode, 100);
+      return;
+    }
+  }
+  else
+  {
+    if(segTime != 0)
+    {
+      clearInterval(segTime);
+    }
+  }
   if(mode)
   {
     if(segTime == 0)

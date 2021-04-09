@@ -376,7 +376,7 @@ crossorigin="anonymous"
        <label class="push">
            <input type="button" id="push1">
            <span class="pushin" id="pushin1" onclick="test()"></span>
-           <span class="tooltiptext">Push Button 1, key u</span>
+           <span class="tooltiptext">Cycle, key u</span>
        </label>
        <label class="push">
            <input type="button" id="push2">
@@ -617,9 +617,24 @@ function autoMode()
   var gaming = game_on.checked;
   if(gaming)
   {
-    clearInterval(currTime);
-    currTime = setInterval(test, 100);
-    return;
+    if(currTime == 0)
+    {
+      currTime = setInterval(test, 100);
+      return;
+    }
+    else
+    {
+      clearInterval(currTime);
+      currTime = setInterval(test, 100);
+      return;
+    }
+  }
+  else
+  {
+    if(currTime != 0)
+    {
+      clearInterval(currTime);
+    }
   }
   if(mode)
   {
