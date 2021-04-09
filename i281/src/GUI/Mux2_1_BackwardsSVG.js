@@ -33,7 +33,7 @@ export default class Mux2_1SVG {
 		var t =  document.getElementById(this.mux_id+"_true_wire");
 		var f = document.getElementById(this.mux_id+"_false_wire");
 		
-		if(val==1){
+		if(val==0){
 		t.style.visibility = "hidden";
 		f.style.visibility = "visible"
 		}
