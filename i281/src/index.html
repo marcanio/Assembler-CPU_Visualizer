@@ -423,7 +423,6 @@ crossorigin="anonymous"
     
     <br>
     <button id="goto_assembler" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;" onclick="location.href='./index.html'">Reset</button>
-    <button id="goto_altera_board" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;">Altera Board</button>
     <br>
     <span id="radioSpan">Start PC at:</span>
     <label for="usr" id="usrTxt">
@@ -464,7 +463,6 @@ crossorigin="anonymous"
         let curInst = cpu.pc.currentPC;
         console.log(cpu.pc.currentPC);
         let controls = cpu.control.c;
-        //highlightTest(controls);
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
         console.log(dmem);
@@ -484,7 +482,7 @@ crossorigin="anonymous"
           switchToUser();
         }
         highlightSyntax(cur, prev)
-
+        highlightTest(controls, cur)
         for(var i=1; i<controls.length; i++){
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           //console.log(controls[i]);
@@ -616,7 +614,7 @@ crossorigin="anonymous"
 	  }
     function highlightTest(controls, cur){
       if(cur>31){
-        var imemOutWires = ["imem_out","imem_to_junction","to_mux_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
+        var imemOutWires = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
         var pcOutWires = ["junction_to_pc", "junction_to_pc_update", "imem_pc_val_mux_wire"];
         for(var i=0; i<imemOutWires.length; i++){
             document.getElementById(imemOutWires[i]).style.stroke="black";
@@ -628,7 +626,7 @@ crossorigin="anonymous"
         asm=cpu.instructions[cur-32];
         if(asm[0]=="JUMP"){
           for(var i=0; i<imemOutWires.length; i++){
-            document.getElementById(imemOutWires[j]).style.stroke="purple";
+            document.getElementById(imemOutWires[i]).style.stroke="purple";
           }
           if(controls[2]==1){
             document.getElementById("mux_pc_val_wire").style.stroke="purple";
