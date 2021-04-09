@@ -18,7 +18,6 @@ crossorigin="anonymous"
     
 </head>
 
-<<<<<<< HEAD
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between">
   <a class="navbar-brand" href="#">i281 CPU</a>
   <div class="navbar-nav">
@@ -39,17 +38,11 @@ crossorigin="anonymous"
    
     
    
-=======
-  <body>
->>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
     <div id="modal" class="modal">
       <div id="modal_content" class="modal-content">
       </div>
     </div>
-<<<<<<< HEAD
     
-=======
->>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
 
     <svg id="canvas" viewbox="0 0 3250 1550">
              <!-- Display 1 x -->
@@ -424,12 +417,10 @@ crossorigin="anonymous"
   <div style="float: right;">
     <input type="checkbox" id="show_bus_info" style="height: 25px;width: 25px;">
     <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
-<<<<<<< HEAD
   </div>
     </div>
 
     
-=======
     <br>
     <button id="goto_assembler" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;" onclick="location.href='./index.html'">Reset</button>
     <button id="goto_altera_board" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;">Altera Board</button>
@@ -445,10 +436,6 @@ crossorigin="anonymous"
     </label>
     <label type="text" style="font-size: x-large;font-family:'Courier New', Courier, monospace;" id="result"></label>
 
-<<<<<<< HEAD
->>>>>>> push before merge master into here
-=======
->>>>>>> 363e463b4f5cdd2684189cbbda9d9af407a91973
    </foreignObject>
 
     </svg> 
@@ -533,7 +520,7 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
           var asm = cpu.instructions[cur-32];
           var prevasm = cpu.instructions[prev-32];
-          
+
           if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
             document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
             document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
