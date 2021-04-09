@@ -417,10 +417,28 @@ crossorigin="anonymous"
   <div style="float: right;">
     <input type="checkbox" id="show_bus_info" style="height: 25px;width: 25px;">
     <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
+<<<<<<< HEAD
   </div>
     </div>
 
     
+=======
+    <br>
+    <button id="goto_assembler" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;" onclick="location.href='./index.html'">Reset</button>
+    <button id="goto_altera_board" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;">Altera Board</button>
+    <br>
+    <span id="radioSpan">Start PC at:</span>
+    <label for="usr" id="usrTxt">
+      <input type="radio" id="usr" name="codeStart" checked="chkd" onclick="usr()" />
+      32 (User Space)
+    </label>
+    <label for="bios" id="biosTxt">
+      <input type="radio" id="bios" name="codeStart" onclick="bios()"/>
+      0 (Bios Space)
+    </label>
+    <label type="text" style="font-size: x-large;font-family:'Courier New', Courier, monospace;" id="result"></label>
+
+>>>>>>> push before merge master into here
    </foreignObject>
 
     </svg> 
@@ -450,21 +468,44 @@ crossorigin="anonymous"
         console.log(cpu.pc.currentPC);
         let controls = cpu.control.c;
         highlightTest(controls);
-
+        let registers = cpu.registers.registers;
+        let dmem = cpu.dMem.registers;
+        console.log(dmem);
+        if(cpu.pc.currentPC>0 || cpu.pc.currentPC>31){
+          document.getElementById("radioSpan").style.visibility="hidden";
+          document.getElementById("usr").style.visibility="hidden";
+          document.getElementById("bios").style.visibility="hidden";
+          document.getElementById("usrTxt").style.visibility="hidden";
+          document.getElementById("biosTxt").style.visibility="hidden";
+        }
         if(cpu.pc.currentPC>31){
-          document.getElementById("assembly_inst").innerHTML= (cpu.instructions[cpu.pc.currentPC-32]);
+          document.getElementById("assembly_inst").innerHTML= (cpu.instructions[cpu.pc.currentPC-32][0]+ " "+ cpu.instructions[cpu.pc.currentPC-32][1]+ " " + cpu.instructions[cpu.pc.currentPC-32][2]);
         }
         var cur = cpu.pc.getPC();
         var prev = cpu.pc.getPreviousPC();
-        
-        console.log(cur)
-        console.log(prev);
+        if (cur>31 && prev < 31){
+          switchToUser();
+        }
+
         highlightSyntax(cur, prev)
 
         for(var i=1; i<controls.length; i++){
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           //console.log(controls[i]);
         }
+        
+        for(var i=0; i<registers.length; i++){
+          document.getElementById("reg_"+i).innerHTML = registers[i];
+        }
+
+        for(var i=0; i<dmem.length; i++){
+          document.getElementById("dmem_val"+i).innerHTML = dmem[i];
+        }
+
+        document.getElementById("carry_flag").innerHTML = cpu.alu.carry;
+        document.getElementById("zero_flag").innerHTML = cpu.alu.zero;
+        document.getElementById("overflow_flag").innerHTML = cpu.alu.overflow;
+        document.getElementById("parity_flag").innerHTML = cpu.alu.negative;
 
         mux0.select(controls[11]);
         mux1.select(controls[15]);
@@ -556,6 +597,7 @@ crossorigin="anonymous"
             document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
             document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
           }
+
         }
 
         if(prev > 31){
@@ -717,6 +759,25 @@ function autoMode()
   }
 }
 
+
+  function bios(){
+    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
+      code_mem.switchToBios();
+      //document.getElementById("pc_val_id").innerHTML
+      cpu.pc.currentPC=0;
+    }
+  }
+
+  function usr(){
+    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
+      code_mem.switchToUser();
+      cpu.pc.currentPC=31;
+    }
+  }
+
+  function switchToUser(){
+    code_mem.switchToUser();
+  }
 
     </script>
    <script
