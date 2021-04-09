@@ -464,7 +464,7 @@ crossorigin="anonymous"
         let curInst = cpu.pc.currentPC;
         console.log(cpu.pc.currentPC);
         let controls = cpu.control.c;
-        highlightTest(controls);
+        //highlightTest(controls);
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
         console.log(dmem);
@@ -483,7 +483,6 @@ crossorigin="anonymous"
         if (cur>31 && prev < 31){
           switchToUser();
         }
-
         highlightSyntax(cur, prev)
 
         for(var i=1; i<controls.length; i++){
@@ -615,19 +614,35 @@ crossorigin="anonymous"
 		    n = n + '';
 		    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 	  }
-    function highlightTest(controls){
-      var wires = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"]
-      var i;
-      for(i=0; i<wires.length; i++){
-        document.getElementById(wires[i]).style.stroke = "purple";
-      }
-      if (controls[15]==1){
-        console.log("hello")
-        document.getElementById("mux1_true_wire").style.stroke = "purple";
-      }
-      var otherWires = ["mux1_out", "mux1_out_to_dmem_junction", "junction_to_dmem_a", "junction_to_dmem_b"]
-      for(i=0; i<otherWires.length; i++){
-        document.getElementById(otherWires[i]).style.stroke = "purple"
+    function highlightTest(controls, cur){
+      if(cur>31){
+        var imemOutWires = ["imem_out","imem_to_junction","to_mux_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
+        var pcOutWires = ["junction_to_pc", "junction_to_pc_update", "imem_pc_val_mux_wire"];
+        for(var i=0; i<imemOutWires.length; i++){
+            document.getElementById(imemOutWires[i]).style.stroke="black";
+          }
+          document.getElementById("mux_pc_val_wire").style.stroke="black";
+            for(var i=0; i<pcOutWires.length; i++){
+              document.getElementById(pcOutWires[i]).style.stroke="black";
+            }
+        asm=cpu.instructions[cur-32];
+        if(asm[0]=="JUMP"){
+          for(var i=0; i<imemOutWires.length; i++){
+            document.getElementById(imemOutWires[j]).style.stroke="purple";
+          }
+          if(controls[2]==1){
+            document.getElementById("mux_pc_val_wire").style.stroke="purple";
+            for(var i=0; i<pcOutWires.length; i++){
+              document.getElementById(pcOutWires[i]).style.stroke="purple";
+            }
+          }
+          else{
+            document.getElementById("mux_pc_val_wire").style.stroke="red";
+            for(var i=0; i<pcOutWires.length; i++){
+              document.getElementById(pcOutWires[i]).style.stroke="red";
+            }
+          }
+        }
       }
     }
       
@@ -758,8 +773,8 @@ function autoMode()
   function bios(){
     if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
       code_mem.switchToBios();
-      //document.getElementById("pc_val_id").innerHTML
       cpu.pc.currentPC=0;
+      document.getElementById("pc_val_id").innerHTML = pad((cpu.pc.currentPC).toString(2), 6)
     }
   }
 
@@ -767,6 +782,7 @@ function autoMode()
     if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
       code_mem.switchToUser();
       cpu.pc.currentPC=31;
+      document.getElementById("pc_val_id").innerHTML = pad((cpu.pc.currentPC).toString(2), 6)
     }
   }
 
