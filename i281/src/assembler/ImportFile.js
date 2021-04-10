@@ -449,7 +449,7 @@ function mainMethod() {
   formattedVariables = formatVariables();
   saveData();
   fillDataMemoryTable();
-  console.log(valueMapping);
+  console.log(branchDest);
   
 
 }
@@ -640,13 +640,15 @@ function parseLOADF(code) {
   machineCode += getRegisterName(code[6]);
 
   if (code[7].localeCompare("+") == 0) {
-    let offset = code[8];
+    let offset = parseInt(code[8]);
+    console.log(typeof(offset));
+    console.log(typeof(valueMapping.get(dataValue)));
     let newOffset = valueMapping.get(dataValue) + offset;
     warnAddressOutOfBounds(newOffset);
     machineCode += convertStringToBinary(newOffset);
     getRightBracket(code[9]);
   } else if (code[7].localeCompare("-") == 0) {
-    let offset = code[8];
+    let offset =  parseInt(code[8]);
     let newOffset = valueMapping.get(dataValue) - offset;
     warnAddressOutOfBounds(newOffset);
     machineCode += convertStringToBinary(newOffset);
@@ -795,6 +797,7 @@ function parseINPUTDF(code){
 
 function parseSTOREF(code) {
   let temp = "";
+ 
   getLeftBracket(code[1]);
   let dataValue = code[2];
   getPlus(code[3]);
@@ -805,24 +808,30 @@ function parseSTOREF(code) {
     let newOffset = valueMapping.get(dataValue) + offset;
     warnAddressOutOfBounds(newOffset);
     temp += convertStringToBinary(newOffset);
+
     getRightBracket(code[7]);
-    getComma[8];
-    machineCode += getRegisterName(code[9]);
+      getComma(code[8]);
+      machineCode += getRegisterName(code[9]);
   } else if (next.localeCompare("-") == 0) {
     let offset = parseInt(code[6]);
     let newOffset = valueMapping.get(dataValue) - offset;
     warnAddressOutOfBounds(newOffset);
     temp += convertStringToBinary(newOffset);
+
     getRightBracket(code[7]);
-    getComma[8];
-    machineCode += getRegisterName(code[9]);
+      getComma(code[8]);
+      machineCode += getRegisterName(code[9]);
+    
   } else if (next.localeCompare("]") == 0) {
     temp += convertStringToBinary(valueMapping.get(dataValue));
     getComma(code[6]);
     machineCode += getRegisterName(code[7]);
+
   } else {
     errorMessage("Expecting +,- or ]");
   }
+
+
 
   machineCode += temp;
   machineCode += "\n";
@@ -1047,9 +1056,18 @@ function parseCodeSegment(code) {
     lineNumber++;
     let lineScanner = code[i].split(" ");
     lineScanner = removeEmpty(lineScanner);
+    for(let j = 0; j < 10; j++ ){
+      if(lineScanner[j]){
+        lineScanner[j] = lineScanner[j].replace(/^\s+|\s+$/g, '');
+      }else{
+        break;
+      }
+    }
 
     let opcode = lineScanner[0];
-    opcode = opcode.replace(/^\s+|\s+$/g, '');
+    //opcode = opcode.replace(/^\s+|\s+$/g, '');
+  
+
     if (opcode.localeCompare("NOOP") == 0) {
       getOpCodeBits("NOOP");
       parseNOOP();
@@ -1141,6 +1159,7 @@ function parseCodeSegment(code) {
  * Allowed registers A, B, C, D
  */
 function getRegisterName(register) {
+  register = register.replace(/^\s+|\s+$/g, '');
   if (register.localeCompare("A") == 0) {
     return "00_";
   } else if (register.localeCompare("B") == 0) {
