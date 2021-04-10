@@ -16,8 +16,9 @@ let mem = [];
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
 				
-const UP_ARROW =  [5,0, 10,0, 10, -14, 15, -14, 8,-32, 0,-14, 5,-14];
-const DOWN_ARROW =  [5,0, 10,0, 10, 14, 15, 14, 8,32, 0,14, 5,14];
+const UP_ARROW =  [2,0, 13,0, 13,-14, 20, -14, 8,-32, -5,-14, 2,-14];
+const DOWN_ARROW =  [2,0, 13,0, 13,14, 20, 14, 8,32, -5,14, 2,14];
+
 
 export default class IMEM_SVG {
 	constructor() {
@@ -43,11 +44,11 @@ export default class IMEM_SVG {
 			mem.push(bios);
 			mem.push(user);
 		}
-		this.label = new TextSVG(238, 1375, "imem_label", "Instruction Memory", Constants.ARIAL_TEXT_STYLE);
-		this.upper_mem_box =  new PolygonSVG('up_box', [0,0, 40,0, 40,45, 0,45] , Constants.THIN_BLOCK_STYLE, [388, 1342.5],this.switchToBios);
-		this.up_arrow = new PolygonSVG("up_arrow", [...UP_ARROW], Constants.ARROW_STYLE, [400, 1345 + 37], this.switchToBios);
-		this.low_mem_box =  new PolygonSVG('bottom_box', [0,0, 40,0, 40,45, 0,45] , Constants.THIN_BLOCK_STYLE, [438, 1342.5], this.switchToUser);
-		this.down_arrow = new PolygonSVG("up_arrow", [...DOWN_ARROW], Constants.ARROW_STYLE, [450, 1345 + 4], this.switchToUser);
+		this.label = new TextSVG(238, 1375, "imem_label", "Instruction Memory", Constants.COMPONENT_NAME_TEXT_STYLE);
+		this.upper_mem_box =  new PolygonSVG('up_box', [0,0, 45,0, 45,45, 0,45] , Constants.THIN_BLOCK_STYLE, [380, 1342.5],this.switchToBios);
+		this.up_arrow = new PolygonSVG("up_arrow", [...UP_ARROW], Constants.ARROW_STYLE, [395, 1345 + 37], this.switchToBios);
+		this.low_mem_box =  new PolygonSVG('bottom_box', [0,0, 45,0, 45,45, 0,45] , Constants.THIN__GRAY_BLOCK_STYLE, [435, 1342.5], this.switchToUser);
+		this.down_arrow = new PolygonSVG("down_arrow", [...DOWN_ARROW], Constants.ARROW_GRAY_STYLE, [450, 1345 + 4], this.switchToUser);
 
 	}
 
@@ -80,6 +81,7 @@ export default class IMEM_SVG {
 		res.push(this.down_arrow.get_node());
 		return res;
 	}
+	
 	switchToUser(){
 		for(var i=0; i<32; i++){
 			document.getElementById("imem_val"+i).style.visibility = "hidden";
@@ -87,7 +89,14 @@ export default class IMEM_SVG {
 			document.getElementById("imem_addr"+(i)).style.visibility = "hidden";
 			document.getElementById("imem_addr"+(i+32)).style.visibility = "visible";
 		}
+		document.getElementById("up_box").style.stroke = "black";
+		document.getElementById("up_arrow").style.fill = "black";
 
+		document.getElementById("bottom_box").style.stroke = "gray";
+		document.getElementById("down_arrow").style.fill = "gray";
+
+		
+		
 	}
 	switchToBios(){
 		for(var i=0; i<32; i++){
@@ -97,6 +106,14 @@ export default class IMEM_SVG {
 			document.getElementById("imem_addr"+(i)).style.visibility = "visible";
 			document.getElementById("imem_addr"+(i+32)).style.visibility = "hidden";
 		}
+
+		document.getElementById("up_box").style.stroke = "gray";
+		document.getElementById("up_arrow").style.fill = "gray";
+
+		document.getElementById("bottom_box").style.stroke = "black";
+		document.getElementById("down_arrow").style.fill = "black";
+
+
 	}
 
 }
