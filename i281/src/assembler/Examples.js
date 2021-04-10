@@ -667,3 +667,155 @@ Exit:   NOOP                           ; infinite loop for Game Over
    document.getElementById("fileDiv").style.display = "block";
    mainMethod();
 }
+
+function biosSwitches(){
+   reset();
+   let SS=`.data
+   zero       BYTE   0                           ; zero address
+   empty      BYTE   ?,?,?,?,?,?,?,?,?,?,?,?,?   ; not used
+   clen       BYTE   ?                           ; number of code lines
+   dlen       BYTE   ?                           ; number of data bytes
+   .code
+              NOOP                 ; this is at address 000000 in binary
+              LOADI   A, 12        ; letter C for code
+clenRead:  INPUTD  [clen]       ; enter the number of code lines
+              LOAD    C, [clen]    ; store the input value in register C
+              LOADI   B, 32        ; max size of code memory is 32
+              CMP     C, B         ; compare clen with 32 
+              BRG     Error        ; if clen > 32 go to Error
+              LOADI   A, 13        ; letter D for data
+dlenRead:  INPUTD  [dlen]       ; enter the number of data bytes
+              LOAD    D, [dlen]    ; store the input value in register D
+              LOADI   B, 16        ; max size of data memory is 16
+              CMP     D, B         ; compare dlen with 16
+              BRG     Error        ; if dlen > 16 go to Error
+CodeInit:  LOADI   B, 0         ; clear register B, or i=0
+              LOADI   A, 12        ; letter C for code
+CodeEntry: CMP     B, C         ; enter the code, one line at a time
+              BRGE    DataInit     ; exit loop if all code lines are in
+              INPUTCF [zero+B+32]  ; input SW15 ... SW0 into CMEM[i]
+              ADDI    B, 1         ; i++
+              JUMP    CodeEntry    ; go to the next iteration
+DataInit:  LOADI   B, 0         ; i=0
+              STORE   [clen], B    ; clear clen in the data memory
+              STORE   [dlen], B    ; clear dlen in the data memory
+              LOADI   A, 13        ; letter D for data
+DataEntry: CMP     B, D         ; Enter the data, one byte at a time
+              BRGE    UserCode     ; exit loop if all data bytes are in 
+              INPUTDF [zero+B]     ; input SW7 ... SW0 into DMEM[i]
+              ADDI    B, 1         ; i++
+              JUMP    DataEntry    ; go to the next iteration
+Error:     LOADI   A, 14        ; letter E for error
+              JUMP    Error        ; infinite loop
+UserCode:  NOOP
+   ; The user program starts here at address 32 (or 100000 in binary)
+   
+   ; Register allocation:
+   ; A: letter C or D
+   ; B: csize or dsize or i 
+   ; C: clen
+   ; D: dlen`;
+
+   let newText = SS.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function segmentBanner(){
+   reset();
+   let SS=`.data
+   display  BYTE  0,  0,   0,  0,  0,  0,  0,  0   ; the display   
+   text     BYTE  4, 59, 127,  6                   ; "i281" in 7-segment encoding
+   incDec   BYTE  1                                ; could be 1 or -1
+   minMax   BYTE  0,  0,  4                        ; array for screen bounds
+   .code
+            LOADI  A, 0              ; position of the text on the screen
+Loop:    LOAD   B, [text+0]
+            STOREF [display+A+0], B
+            LOAD   B, [text+1]
+            STOREF [display+A+1], B
+            LOAD   B, [text+2]
+            STOREF [display+A+2], B
+            LOAD   B, [text+3]
+            STOREF [display+A+3], B
+            LOADI  D, 15             ; loop for 15 iterations to slow down the animation
+Delay:   SUBI   D, 1
+            BRNE   Delay
+            STOREF [display+A+0], D  ; erase the text; D is zero at this time
+            STOREF [display+A+1], D
+            STOREF [display+A+2], D
+            STOREF [display+A+3], D
+            LOAD   D, [incDec]
+            ADD    A, D
+            LOADF  D, [minMax+D+1]   ; pick element 0 or 2 depending on incDec
+            CMP    A, D
+            BRE    RevDir
+            JUMP   Loop
+RevDir:  LOADI  D, 0
+            LOAD   C, [incDec]
+            SUB    D, C              ; incDec = 0 - incDec
+            STORE  [incDec], D       
+            JUMP   Loop`;
+
+   let newText = SS.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function segmentLeftRight(){
+   reset();
+   let SS=`.data
+   empty    BYTE  0,  0,  0,  0  ; the first four 7-segs are not used
+   display  BYTE  0,  0,  0,  0  ; the second four are the display
+   shape    BYTE  64, 8, 64,  1  ; ball shapes (up=1, middle=64, down=8)
+   incDec   BYTE  1              ; could be 1 or -1
+   minMax   BYTE  0,  0,  3      ; array for screen bounds
+   .code
+            LOADI  A, 0              ; ball hpos
+            LOADI  B, 0              ; ball vpos=shape[0] (in this case middle)
+Loop:    LOADF  C, [shape+B]      ; load the ball shape (up, middle, or down)
+            STOREF [display+A], C    ; draw the ball at position A on the screen
+            LOADI  D, 15             ; loop for 15 iterations to slow down the animation
+Delay:   SUBI   D, 1
+            BRNE   Delay
+            STOREF [display+A], D    ; erase the ball; D is zero at this time
+            LOAD   D, [incDec]
+            ADD    A, D
+            LOADF  D, [minMax+D+1]   ; pick element 0 or 2 depending on incDec
+            CMP    A, D
+            BRE    RevDir
+            JUMP   Loop
+RevDir:  LOADI  D, 0
+            LOAD   C, [incDec]
+            SUB    D, C
+            STORE  [incDec], D       ; incDec = -incDec
+            JUMP   Loop`;
+
+   let newText = SS.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
+function segmentUpDown(){
+   reset();
+   let SS=`.data
+   empty   BYTE   0, 0, 0, 0   ; the first 4 7-segs are not used
+   display BYTE   0, 0, 0, 0   ; the second 4 are the display
+   switch  BYTE   0            ; holds the state of the input switch 
+   .code
+Start:  INPUTD [switch]
+           LOAD   C, [switch]
+           SUBI   C, 64          ; switch 6 = ?
+           BRE    Up
+Down:   LOADI  D, 4
+           STORE  [display+3], D
+           JUMP   Start
+Up:     LOADI  D, 2
+           STORE  [display+3], D
+           JUMP   Start`;
+
+   let newText = SS.split("\n");
+   removeComments(newText);
+   document.getElementById("fileDiv").style.display = "block";
+   mainMethod();
+}
