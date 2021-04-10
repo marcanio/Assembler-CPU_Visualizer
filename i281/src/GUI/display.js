@@ -279,6 +279,33 @@ window.addEventListener("load", function() {
 	var intersect_8 = new CircleSVG("testid", Constants.INTERSECT_8_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
 	var intersect_9 = new CircleSVG("testid", Constants.INTERSECT_9_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
 
+	var imem_red_write_enable_text = new TextSVG(400, 50, "imem_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+	var imem_red_write_select_text = new TextSVG(120, 40, "imem_red_write_select_text", "Write Select", Constants.RED_ARIAL_STYLE);
+	var imem_red_input_text = new TextSVG(50, 280, "imem_red_input_text", "Input", Constants.RED_ARIAL_STYLE);
+	var imem_red_read_selection_text = new TextSVG(140, 1450, "imem_red_read_selection_text", "Read Select", Constants.RED_ARIAL_STYLE);
+
+	var regfile_red_write_enable_text = new TextSVG(980, 340, "regfile_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+	var regfile_red_write_select_text = new TextSVG(760, 340, "regfile_red_write_select_text", "Write Select", Constants.RED_ARIAL_STYLE);
+	var regfile_red_input_text = new TextSVG(600, 580, "regfile_red_input_text", "Input", Constants.RED_ARIAL_STYLE);
+	var regfile_red_read_port0_select_text = new TextSVG(1100, 420, "regfile_red_read_port0_select_text", "Port0 Read Select", Constants.RED_ARIAL_STYLE);
+	var regfile_red_read_port1_select_text = new TextSVG(1060, 660, "regfile_red_read_port1_select_text", "Port1 Read Select", Constants.RED_ARIAL_STYLE);
+	var regfile_red_write_back_mux_text = new TextSVG(2280, 620, "regfile_red_write_back_mux_text", "REG Writeback Mux", Constants.RED_ARIAL_STYLE);
+
+	var alu_red_select_text = new TextSVG(1420, 440, "alu_red_select_text", "ALU Select", Constants.RED_ARIAL_STYLE);
+	var alu_red_result_text = new TextSVG(1760, 580, "alu_red_result_text", "ALU Result Mux", Constants.RED_ARIAL_STYLE);
+	var alu_red_source_text = new TextSVG(1300, 660, "alu_red_source_text", "ALU Source Mux", Constants.RED_ARIAL_STYLE);
+
+	var flags_red_write_enable_text = new TextSVG(1680, 385, "flags_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+
+	var pc_red_mux_text = new TextSVG(950, 1100, "pc_red_mux_text", "PC MUX", Constants.RED_ARIAL_STYLE);
+	var pc_red_write_enable_text = new TextSVG(1160, 1100, "pc_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+
+	var dmem_red_write_select_text = new TextSVG(1710, 950, "dmem_red_write_select_text", "Write Select", Constants.RED_ARIAL_STYLE);
+	var dmem_red_read_select_text = new TextSVG(1710, 870, "dmem_red_read_select_text", "Read Select", Constants.RED_ARIAL_STYLE);
+	var dmem_red_input_mux_text = new TextSVG(1680, 1220, "dmem_red_input_mux_text", "DMEM Input Mux", Constants.RED_ARIAL_STYLE);
+	var dmem_red_write_enable_text = new TextSVG(1980, 760, "dmem_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+
+
 	var svg = document.getElementById("canvas");
 
 	svg.appendChild(mux_pc_val_wire.node);
@@ -424,4 +451,31 @@ window.addEventListener("load", function() {
 	svg.appendChild(junction_to_pc.node)
 
 	code_mem.switchToUser();
+
+	svg.appendChild(imem_red_write_enable_text.get_node());
+	svg.appendChild(imem_red_write_select_text.get_node());
+	svg.appendChild(imem_red_input_text.get_node());
+	svg.appendChild(imem_red_read_selection_text.get_node());
+
+	svg.appendChild(regfile_red_write_enable_text.get_node());
+	svg.appendChild(regfile_red_write_select_text.get_node());
+	svg.appendChild(regfile_red_input_text.get_node());
+	svg.appendChild(regfile_red_read_port0_select_text.get_node());
+	svg.appendChild(regfile_red_read_port1_select_text.get_node());
+	svg.appendChild(regfile_red_write_back_mux_text.get_node());
+
+	svg.appendChild(alu_red_select_text.get_node());
+	svg.appendChild(alu_red_result_text.get_node());
+	svg.appendChild(alu_red_source_text.get_node());
+
+	svg.appendChild(flags_red_write_enable_text.get_node());
+	svg.appendChild(pc_red_mux_text.get_node());
+	svg.appendChild(pc_red_write_enable_text.get_node());
+
+	svg.appendChild(dmem_red_write_select_text.get_node());
+	svg.appendChild(dmem_red_read_select_text.get_node());
+	svg.appendChild(dmem_red_input_mux_text.get_node());
+	svg.appendChild(dmem_red_write_enable_text.get_node());
+
+
 });

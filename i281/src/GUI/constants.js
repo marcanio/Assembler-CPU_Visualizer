@@ -211,6 +211,7 @@ export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:mi
 export const SMALL_TEXT_STYLE = "font-family: Courier; font-size: 22px; text-anchor:middle;fill:black; ";
 
 export const ARIAL_TEXT_STYLE = "font-family: Arial; font-size: 24px; text-anchor:middle;fill:black; ";
+export const RED_ARIAL_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:red; ";
 
 export const COMPONENT_NAME_TEXT_STYLE = "font-family: Arial; font-size: 30px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";
