@@ -49,15 +49,20 @@ export class CPU {
      */
     setup() {
         // Initialize the register files
-        // TODO this may be unneeded for the iMem after we get code from Eric
-        this.iMem.initialize();
-        this.dMem.initialize();
         this.registers.initialize();
         this.flags.initialize();
         
-        this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
-        this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
-        this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
+        if (sessionStorage.getItem("instructionMemory") === null) {
+            this.bubbleSortDefault()
+        }
+
+        else {
+            this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
+            this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+            this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
+        }
+        
+
     }
 
     /**
@@ -173,5 +178,190 @@ export class CPU {
         
         // Update pc
         this.pc.process(opcode, controlSignals[2]);
+    }
+
+
+    bubbleSortDefault() {
+        this.iMem = [
+            "0000000000000000",
+            "1110000000011110",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0011000000000000",
+            "1000110000001000",
+            "0011010000000000",
+            "1101001100000000",
+            "1111001100001110",
+            "1000110000001000",
+            "0110110000000000",
+            "1101011100000000",
+            "1111001100001000",
+            "1001100100000000",
+            "1001110100000001",
+            "1101111000000000",
+            "1111001100000010",
+            "1011110100000000",
+            "1011100100000001",
+            "0101010000000001",
+            "1110000011110100",
+            "0101000000000001",
+            "1110000011101110",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000",
+            "0000000000000000"
+        ]
+
+        this.dMem = [
+            "00000111",
+            "00000011",
+            "00000010",
+            "00000001",
+            "00000110",
+            "00000100",
+            "00000101",
+            "00001000",
+            "00000111",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000"
+        ]
+
+        this.instructions = [
+            [
+                "LOADI",
+                "A",
+                "0"
+            ],
+            [
+                "LOAD",
+                "D",
+                "[last]"
+            ],
+            [
+                "LOADI",
+                "B",
+                "0"
+            ],
+            [
+                "CMP",
+                "A",
+                "D"
+            ],
+            [
+                "BRGE",
+                "End"
+            ],
+            [
+                "LOAD",
+                "D",
+                "[last]"
+            ],
+            [
+                "SUB",
+                "D",
+                "A"
+            ],
+            [
+                "CMP",
+                "B",
+                "D"
+            ],
+            [
+                "BRGE",
+                "Iinc"
+            ],
+            [
+                "LOADF",
+                "C",
+                "[array+B]"
+            ],
+            [
+                "LOADF",
+                "D",
+                "[array+B+1]"
+            ],
+            [
+                "CMP",
+                "D",
+                "C"
+            ],
+            [
+                "BRGE",
+                "Jinc"
+            ],
+            [
+                "STOREF",
+                "[array+B]",
+                "D"
+            ],
+            [
+                "STOREF",
+                "[array+B+1]",
+                "C"
+            ],
+            [
+                "ADDI",
+                "B",
+                "1"
+            ],
+            [
+                "JUMP",
+                "Inner"
+            ],
+            [
+                "ADDI",
+                "A",
+                "1"
+            ],
+            [
+                "JUMP",
+                "Outer"
+            ],
+            [
+                "NOOP"
+            ]
+        ]
     }
 };
