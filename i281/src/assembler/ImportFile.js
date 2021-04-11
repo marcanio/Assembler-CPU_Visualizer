@@ -1567,11 +1567,16 @@ function saveData(){
   let tempMachineCode = machineCode.replace(/\_/g, "");
   let savedMachineCode = tempMachineCode.split("\n");
   savedMachineCode = savedMachineCode.filter(function(e){return e}); 
-  let fixedsavedMachineCode = new Array(32);
+  let fixedsavedMachineCode = new Array(savedMachineCode.length);
   let savedDataMemory = new Array(16);
 
-  //Add 0's to fill the code memory up with 32 instructions
-  for(let i = 0; i <fixedsavedMachineCode.length; i++ ){
+  //Add 0's to fill the code memory up with length of instructions
+  let iMemLength = 32;
+  if (fixedsavedMachineCode.length > 32) {
+    iMemLength = 64;
+  }
+
+  for(let i = 0; i < iMemLength; i++ ){
     if(i < savedMachineCode.length){
       fixedsavedMachineCode[i] = savedMachineCode[i];
     }else{
@@ -1602,6 +1607,15 @@ function saveData(){
 
   let saveBios = createBios();
 
+  let instructionMemory = new Array(64);
+
+  if (fixedsavedMachineCode.length > 32) {
+    instructionMemory = fixedsavedMachineCode;
+  }
+
+  else {
+    instructionMemory = saveBios.concat(fixedsavedMachineCode);
+  }
 
   //console.log(savedInstructions);
   //console.log(fixedsavedMachineCode);
@@ -1614,7 +1628,7 @@ function saveData(){
  
   sessionStorage.setItem("savedBios", JSON.stringify(saveBios));
 
-   
+  sessionStorage.setItem("instructionMemory", JSON.stringify(instructionMemory));
 }
 
 
