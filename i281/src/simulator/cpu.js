@@ -182,7 +182,7 @@ export class CPU {
 
 
     bubbleSortDefault() {
-        this.iMem = [
+        this.iMem.registers = [
             "0000000000000000",
             "1110000000011110",
             "0000000000000000",
@@ -249,7 +249,7 @@ export class CPU {
             "0000000000000000"
         ]
 
-        this.dMem = [
+        this.dMem.registers = [
             "00000111",
             "00000011",
             "00000010",
