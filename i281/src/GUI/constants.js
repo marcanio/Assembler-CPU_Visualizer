@@ -200,14 +200,18 @@ export const MUX_D_TEXT = "D";
 
 export const BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"5px"};
 export const THIN_BLOCK_STYLE = {"fill":"none", "stroke":"black", "stroke-width":"3px"};
+export const THIN__GRAY_BLOCK_STYLE = {"fill":"none", "stroke":"gray", "stroke-width":"3px"};
 export const WIRE_STYLE = {"stroke":"black", "stroke-width":"5px", "fill":"none"};
 export const THIN_WIRE_STYLE = {"stroke":"black", "stroke-width":"4px", "fill":"none"};
 
 export const ARROW_STYLE = {"fill":"black", "stroke":"black", "stroke-width":"1px"};
+export const ARROW_GRAY_STYLE = {"fill":"gray", "stroke":"gray", "stroke-width":"1px"};
+
 export const TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:black; ";
 export const SMALL_TEXT_STYLE = "font-family: Courier; font-size: 22px; text-anchor:middle;fill:black; ";
 
 export const ARIAL_TEXT_STYLE = "font-family: Arial; font-size: 24px; text-anchor:middle;fill:black; ";
+export const RED_ARIAL_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:red; visibility:hidden;";
 
 export const COMPONENT_NAME_TEXT_STYLE = "font-family: Arial; font-size: 30px; text-anchor:middle;fill:black; ";
 export const BLUE_TEXT_STYLE = "font-family: Courier; font-size: 24px; text-anchor:middle;fill:blue; ";

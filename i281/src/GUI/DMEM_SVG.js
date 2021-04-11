@@ -90,7 +90,7 @@ export default class DMEM_SVG {
 			var cur = new TextSVG(VAL[0]+10, (BETWEEN_DIST * (i+1)), "dmem_val"+i, dmemdata[i], Constants.TEXT_STYLE, Constants.DATA_MEM_OFFSET);
 			mem.push(cur)
 		}
-		this.label = new TextSVG(1974, 1480, "dmem_label", "Data Memory", Constants.ARIAL_TEXT_STYLE);
+		this.label = new TextSVG(1974, 1480, "dmem_label", "Data Memory", Constants.COMPONENT_NAME_TEXT_STYLE);
 
 	}
 

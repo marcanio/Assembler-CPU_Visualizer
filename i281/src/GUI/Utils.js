@@ -145,7 +145,35 @@ export function toggle_bus_info_visablitity(checkbox) {
 	info.push(document.getElementById("imem_mux_info"));
     info.push(document.getElementById("imem_mux_infotext"));
 
-	const val = (checkbox.target.checked) ? "hidden" : "visible";
+	const val = (!checkbox.target.checked) ? "hidden" : "visible";
+	info.forEach( elem => elem.style.visibility = val);
+
+}
+
+
+export function toggle_description_visablitity(checkbox) {
+	let info = [];
+	info.push(document.getElementById("imem_red_write_enable_text"));
+    info.push(document.getElementById("imem_red_write_select_text"));
+	info.push(document.getElementById("imem_red_input_text"));
+    info.push(document.getElementById("imem_red_read_selection_text"));
+	info.push(document.getElementById("regfile_red_write_enable_text"));
+    info.push(document.getElementById("regfile_red_write_select_text"));
+	info.push(document.getElementById("regfile_red_input_text"));
+    info.push(document.getElementById("regfile_red_read_port0_select_text"));
+	info.push(document.getElementById("regfile_red_read_port1_select_text"));
+    info.push(document.getElementById("regfile_red_write_back_mux_text"));
+	info.push(document.getElementById("alu_red_select_text"));
+    info.push(document.getElementById("alu_red_result_text"));
+	info.push(document.getElementById("alu_red_source_text"));
+    info.push(document.getElementById("flags_red_write_enable_text"));
+	info.push(document.getElementById("pc_red_mux_text"));
+    info.push(document.getElementById("pc_red_write_enable_text"));
+	info.push(document.getElementById("dmem_red_write_select_text"));
+    info.push(document.getElementById("dmem_red_read_select_text"));
+	info.push(document.getElementById("dmem_red_input_mux_text"));
+    info.push(document.getElementById("dmem_red_write_enable_text"));
+	const val = (!checkbox.target.checked) ? "hidden" : "visible";
 	info.forEach( elem => elem.style.visibility = val);
 
 }
