@@ -46,13 +46,10 @@ export default class Mux4_1SVG {
 
 	select(val) {
 		this.selected = val;
-		//console.log("in the mux after selecting "+this.selected);
 		var a =  document.getElementById(this.a_wire_id);
 		var b = document.getElementById(this.b_wire_id);
 		var c = document.getElementById(this.c_wire_id);
-		var d = document.getElementById(this.d_wire_id);
-
-		
+		var d = document.getElementById(this.d_wire_id);		
 		if(val===3) {
 			a.style.visibility = "hidden";
 			b.style.visibility = "hidden";

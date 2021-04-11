@@ -44,7 +44,6 @@ export default class Mux2_1SVG {
 
 	select(val) {
 		this.selected = val
-		//console.log("in the mux after selecting "+this.selected);
 		var t =  document.getElementById(this.mux_id+"_true_wire");
 		var f = document.getElementById(this.mux_id+"_false_wire");
 		

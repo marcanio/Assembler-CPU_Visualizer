@@ -1,7 +1,6 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
-import {CPU} from "../simulator/cpu.js"
 
 const PC_TPOS = [100, 30];
 const PC_VAL = [100, 75];

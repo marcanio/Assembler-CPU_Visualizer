@@ -2,10 +2,6 @@ import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
 
-
-const FLAGS_DIST_BETWEEN = 30;
-const BOX = [0, 0, 120, 0, 120, 40, 0, 40];
-const BOX_OFFSET = [Constants.FLAGS_OFFSET[0] + Constants.FLAG_VPOS[0] + 15, Constants.FLAGS_OFFSET[1] + Constants.FLAG_VPOS[1] - 28];
 const LABEL_TEXT_STYLE = "font-family: Times New Roman; font-size: 28px; text-anchor:middle;fill:black; ";
 const SUBSCRIPT_TEXT_STYLE = "font-family: Times New Roman; font-size: 20px; text-anchor:middle;fill:black; ";
 
