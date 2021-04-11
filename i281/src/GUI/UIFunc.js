@@ -1,14 +1,5 @@
 import {CPU} from "../simulator/cpu.js";
 
-document.addEventListener("DOMContentLoaded", function (){
-    startListen();
-}
-)
-
-function startListen(){     
-    uiMode();
-}
-
 
 var slider = document.getElementById("speedSld");
 var output = document.getElementById("SimSpeed");
@@ -23,6 +14,7 @@ slider.oninput = function() {
 
 document.getElementById("speedSld").addEventListener("change", segTimer);
 document.getElementById("auto_on").addEventListener("change", segTimer);
+document.getElementById("game_on").addEventListener("change", segTimer);
 
 var segTime = 0;
 
@@ -30,6 +22,28 @@ var segTime = 0;
 function segTimer()
 {
   var mode = document.getElementById("auto_on").checked;
+  var gaming = document.getElementById("game_on").checked;
+  if(gaming)
+  {
+    if(segTime == 0)
+    {
+      segTime = setInterval(uiMode, 100);
+      return;
+    }
+    else
+    {
+      clearInterval(segTime);
+      segTime = setInterval(uiMode, 100);
+      return;
+    }
+  }
+  else
+  {
+    if(segTime != 0)
+    {
+      clearInterval(segTime);
+    }
+  }
   if(mode)
   {
     if(segTime == 0)
@@ -385,7 +399,7 @@ function memView(){
     {
         switch(i)
         {
-            case 7:
+            case 0:
             {
                 topLine = document.getElementById("topT1");
                 topL = document.getElementById("topL1");
@@ -411,7 +425,7 @@ function memView(){
                 botRTriB = document.getElementById("botR1B");
                 break;
             }
-            case 6:
+            case 1:
             {
                 topLine = document.getElementById("topT2");
                 topL = document.getElementById("topL2");
@@ -437,7 +451,7 @@ function memView(){
                 botRTriB = document.getElementById("botR2B");
                 break;
             }
-            case 5:
+            case 2:
             {
                 topLine = document.getElementById("topT3");
                 topL = document.getElementById("topL3");
@@ -463,7 +477,7 @@ function memView(){
                 botRTriB = document.getElementById("botR3B");
                 break;
             }
-            case 4:
+            case 3:
             {
                 topLine = document.getElementById("topT4");
                 topL = document.getElementById("topL4");
@@ -489,7 +503,7 @@ function memView(){
                 botRTriB = document.getElementById("botR4B");
                 break;
             }
-            case 3:
+            case 4:
             {
                 topLine = document.getElementById("topT5");
                 topL = document.getElementById("topL5");
@@ -515,7 +529,7 @@ function memView(){
                 botRTriB = document.getElementById("botR5B");
                 break;
             }
-            case 2:
+            case 5:
             {
                 topLine = document.getElementById("topT6");
                 topL = document.getElementById("topL6");
@@ -541,7 +555,7 @@ function memView(){
                 botRTriB = document.getElementById("botR6B");
                 break;
             }
-            case 1:
+            case 6:
             {
                 topLine = document.getElementById("topT7");
                 topL = document.getElementById("topL7");
@@ -567,7 +581,7 @@ function memView(){
                 botRTriB = document.getElementById("botR7B");
                 break;
             }
-            case 0:
+            case 7:
             {
                 topLine = document.getElementById("topT8");
                 topL = document.getElementById("topL8");
@@ -1050,11 +1064,9 @@ function memView(){
 }
 
 function regView(){
-    var regHolder = cpu.registers.registers;
+    var regHolder;
 
-    //alert("regView");
-
-    var currentRegVal;
+    var j = 0;
 
     var topLine;
     var topL;
@@ -1297,10 +1309,21 @@ function regView(){
 
         if(i > 3)
         {
+            regHolder = cpu.registers.registers
             var bit3 = regHolder[i-4][4] == '1'
             var bit2 = regHolder[i-4][5] == '1'
             var bit1 = regHolder[i-4][6] == '1'
             var bit0 = regHolder[i-4][7] == '1'
+        }
+        else
+        {
+            regHolder = cpu.dMem.registers;
+            var bit3 = regHolder[j][4] == '1'
+            var bit2 = regHolder[j][5] == '1'
+            var bit1 = regHolder[j][6] == '1'
+            var bit0 = regHolder[j][7] == '1'
+            j = j+1;
+        }
             if(bit3)//8 case in here (8,9,A,B,C,D,E,F)
             {
                 if(bit2)
@@ -1744,31 +1767,6 @@ function regView(){
                     }
                 }
             }
-        }
-        else{
-            topLine.style.stroke = 'lightgrey';
-            topL.style.stroke = 'lightgrey';
-            topR.style.stroke = 'lightgrey';
-            midLine.style.stroke = 'lightgrey';
-            botL.style.stroke = 'lightgrey';
-            botR.style.stroke = 'lightgrey';
-            botLine.style.stroke = 'lightgrey';
-            
-            topLineTriL.style.fill = 'lightgrey';
-            topLineTriR.style.fill = 'lightgrey';
-            topLTriB.style.fill = 'lightgrey';
-            topLTriT.style.fill = 'lightgrey';
-            topRTriB.style.fill = 'lightgrey';
-            topRTriT.style.fill = 'lightgrey';
-            midLineTriL.style.fill = 'lightgrey';
-            midLineTriR.style.fill = 'lightgrey';
-            botLTriB.style.fill = 'lightgrey';
-            botLTriT.style.fill = 'lightgrey';
-            botRTriB.style.fill = 'lightgrey';
-            botRTriT.style.fill = 'lightgrey';
-            botLineTriL.style.fill = 'lightgrey';
-            botLineTriR.style.fill = 'lightgrey';
-        }
     }
 }
 

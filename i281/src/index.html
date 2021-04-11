@@ -372,11 +372,11 @@ crossorigin="anonymous"
      </ul>
    </foreignObject>
 
-     <foreignObject x="2420" y="330" width="320px" height="150px" id = "switchCanv">
+     <foreignObject x="2420" y="330" width="350px" height="270px" id = "switchCanv">
        <label class="push">
            <input type="button" id="push1">
            <span class="pushin" id="pushin1" onclick="test()"></span>
-           <span class="tooltiptext">Push Button 1, key u</span>
+           <span class="tooltiptext">Cycle, key u</span>
        </label>
        <label class="push">
            <input type="button" id="push2">
@@ -393,10 +393,6 @@ crossorigin="anonymous"
            <span class="pushin" id="pushin4"></span>
            <span class="tooltiptext">Push Button 4, key p</span>
        </label>
-
-       <div style="clear: both;">
-               <a style="font-family:'Courier New';font-size:x-large">Step</a>
-       </div>
    </foreignObject>
 
    <foreignObject x="2800" y="350" width="500px" height="100px" id = "switchCanvSpeed">
@@ -404,9 +400,11 @@ crossorigin="anonymous"
          <p style="font-family:'Courier New';font-size:xx-large;font-weight:bold">Speed:<span id="SimSpeed"></span></p>
    </foreignObject>
 
-   <foreignObject x="2800" y="450" width="300px" height="150px" id="SliderMenu">
+   <foreignObject x="2800" y="450" width="280px" height="150px" id="SliderMenu">
     <input type="checkbox" id="auto_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
     <label for="auto_on" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Auto Mode on</label>
+    <input type="checkbox" id="game_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
+    <label for="game_on" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Game Mode on</label>
    </foreignObject>
 
    <foreignObject x="2420" y="600" width="700px" height="200px" id = "Menu">
@@ -617,6 +615,28 @@ var currTime = 0;
 function autoMode()
 {
   var mode = auto_on.checked;
+  var gaming = game_on.checked;
+  if(gaming)
+  {
+    if(currTime == 0)
+    {
+      currTime = setInterval(test, 100);
+      return;
+    }
+    else
+    {
+      clearInterval(currTime);
+      currTime = setInterval(test, 100);
+      return;
+    }
+  }
+  else
+  {
+    if(currTime != 0)
+    {
+      clearInterval(currTime);
+    }
+  }
   if(mode)
   {
     if(currTime == 0)
