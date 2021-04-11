@@ -14,7 +14,11 @@ export default class Mux4_1SVG {
 		this.b_wire = new PathSVG(mux_id+"_"+b_id, Constants.MUX_B_WIRE, Constants.THIN_WIRE_STYLE, offset);
 		this.c_wire = new PathSVG (mux_id+"_"+c_id, Constants.MUX_C_WIRE, Constants.THIN_WIRE_STYLE, offset);
 		this.d_wire = new PathSVG(mux_id+"_"+d_id, Constants.MUX_D_WIRE, Constants.THIN_WIRE_STYLE, offset);
-		this.selected = 0;
+		this.a_wire_id = mux_id+"_"+a_id;
+		this.b_wire_id = mux_id+"_"+b_id;
+		this.c_wire_id = mux_id+"_"+c_id;
+		this.d_wire_id = mux_id+"_"+d_id;
+		this.selected = -1;
 	}
     
 	get_all_nodes() {
@@ -38,6 +42,39 @@ export default class Mux4_1SVG {
 	set_selected(val) {
 		this.selected = val;
 		// TODO: highlight selected value
+	}
+
+	select(val) {
+		this.selected = val;
+		//console.log("in the mux after selecting "+this.selected);
+		var a =  document.getElementById(this.a_wire_id);
+		var b = document.getElementById(this.b_wire_id);
+		var c = document.getElementById(this.c_wire_id);
+		var d = document.getElementById(this.d_wire_id);
+
+		
+		if(val===3) {
+			a.style.visibility = "hidden";
+			b.style.visibility = "hidden";
+			c.style.visibility = "hidden";
+			d.style.visibility = "visible";
+		} else if (val === 2) {
+			a.style.visibility = "hidden";
+			b.style.visibility = "hidden";
+			c.style.visibility = "visible";
+			d.style.visibility = "hidden";
+		} else if (val === 1) {
+			a.style.visibility = "hidden";
+			b.style.visibility = "visible";
+			c.style.visibility = "hidden";
+			d.style.visibility = "hidden";
+		}
+		else{
+			a.style.visibility = "visible";
+			b.style.visibility = "hidden";
+			c.style.visibility = "hidden";
+			d.style.visibility = "hidden";
+		}
 	}
     
 
