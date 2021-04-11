@@ -4,9 +4,6 @@ import PolygonSVG from "./PolygonSVG.js";
 
 const TPOS = [95, 170];
 
-const FLAGS_DIST_BETWEEN = 30;
-const BOX = [0, 0, 120, 0, 120, 40, 0, 40];
-const BOX_OFFSET = [Constants.FLAGS_OFFSET[0] + Constants.FLAG_VPOS[0] + 15, Constants.FLAGS_OFFSET[1] + Constants.FLAG_VPOS[1] - 28];
 export default class ALU_SVG {
 	constructor() {
         this.alu = new PolygonSVG(Constants.ALU_ID, Constants.ALU_POLYGON, Constants.BLOCK_STYLE, Constants.ALU_OFFSET);

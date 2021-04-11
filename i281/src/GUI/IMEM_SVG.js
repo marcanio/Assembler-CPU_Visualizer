@@ -1,8 +1,6 @@
 import * as Constants from "./constants.js";
 import TextSVG from "./TextSVG.js";
 import PolygonSVG from "./PolygonSVG.js";
-import * as Inst from "./instructions.js";
-import {CPU} from "../simulator/cpu.js";
 
 const ADDR = [50, 0];
 const VAL = [350/2, -24];
@@ -64,7 +62,6 @@ export default class IMEM_SVG {
 
 		for(var i=0; i<addr.length; i++){
 			res.push(addr[i].get_node());
-			//console.log(addr[i].get_node())
 		}
 
 		for(var i=0; i<box.length; i++){
