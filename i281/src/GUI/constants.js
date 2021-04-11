@@ -251,7 +251,7 @@ export const OPCODE_DECODER_ID = "opcode_decoder";
 export const CARRY_FLAG_ID = "carry_flag";
 export const ZERO_FLAG_ID = "zero_flag";
 export const OVERFLOW_FLAG_ID = "overflow_flag";
-export const PARITY_FLAG_ID = "parity_flag";
+export const NEGATIVE_FLAG_ID = "negative_flag";
 
 export const SWITCHES_ID = "swtiches";
 
@@ -370,10 +370,11 @@ export const READ_B_MUX_B_ID = "read_b_b";
 export const READ_B_MUX_C_ID = "read_b_c";
 export const READ_B_MUX_D_ID = "read_b_d";
 
-export const REG_A_ID = "reg_a";
-export const REG_B_ID = "reg_a";
-export const REG_C_ID = "reg_a";
-export const REG_D_ID = "reg_a";
+//changed for indexing purposes
+export const REG_A_ID = "reg_0"; //a
+export const REG_B_ID = "reg_1"; //b
+export const REG_C_ID = "reg_2"; //c
+export const REG_D_ID = "reg_3"; //d
 
 export const REG_A_LABEL_ID = "reg_a_lbl";
 export const REG_B_LABEL_ID = "reg_b_lbl";

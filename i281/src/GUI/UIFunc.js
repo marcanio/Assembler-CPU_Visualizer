@@ -399,7 +399,7 @@ function memView(){
     {
         switch(i)
         {
-            case 0:
+            case 7:
             {
                 topLine = document.getElementById("topT1");
                 topL = document.getElementById("topL1");
@@ -425,7 +425,7 @@ function memView(){
                 botRTriB = document.getElementById("botR1B");
                 break;
             }
-            case 1:
+            case 6:
             {
                 topLine = document.getElementById("topT2");
                 topL = document.getElementById("topL2");
@@ -451,7 +451,7 @@ function memView(){
                 botRTriB = document.getElementById("botR2B");
                 break;
             }
-            case 2:
+            case 5:
             {
                 topLine = document.getElementById("topT3");
                 topL = document.getElementById("topL3");
@@ -477,7 +477,7 @@ function memView(){
                 botRTriB = document.getElementById("botR3B");
                 break;
             }
-            case 3:
+            case 4:
             {
                 topLine = document.getElementById("topT4");
                 topL = document.getElementById("topL4");
@@ -503,7 +503,7 @@ function memView(){
                 botRTriB = document.getElementById("botR4B");
                 break;
             }
-            case 4:
+            case 3:
             {
                 topLine = document.getElementById("topT5");
                 topL = document.getElementById("topL5");
@@ -529,7 +529,7 @@ function memView(){
                 botRTriB = document.getElementById("botR5B");
                 break;
             }
-            case 5:
+            case 2:
             {
                 topLine = document.getElementById("topT6");
                 topL = document.getElementById("topL6");
@@ -555,7 +555,7 @@ function memView(){
                 botRTriB = document.getElementById("botR6B");
                 break;
             }
-            case 6:
+            case 1:
             {
                 topLine = document.getElementById("topT7");
                 topL = document.getElementById("topL7");
@@ -581,7 +581,7 @@ function memView(){
                 botRTriB = document.getElementById("botR7B");
                 break;
             }
-            case 7:
+            case 0:
             {
                 topLine = document.getElementById("topT8");
                 topL = document.getElementById("topL8");
