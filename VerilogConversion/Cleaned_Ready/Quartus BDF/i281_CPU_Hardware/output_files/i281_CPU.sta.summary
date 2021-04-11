@@ -1,0 +1,209 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -14.701
+TNS   : -2136.227
+
+Type  : Slow 1200mV 85C Model Setup 'Auto_Clock'
+Slack : -12.406
+TNS   : -1728.843
+
+Type  : Slow 1200mV 85C Model Setup 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : -2.307
+TNS   : -5.644
+
+Type  : Slow 1200mV 85C Model Setup 'Board_Clock'
+Slack : -2.295
+TNS   : -7.368
+
+Type  : Slow 1200mV 85C Model Hold 'Auto_Clock'
+Slack : -0.909
+TNS   : -1.818
+
+Type  : Slow 1200mV 85C Model Hold 'Board_Clock'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -1.777
+TNS   : -307.172
+
+Type  : Slow 1200mV 85C Model Recovery 'Auto_Clock'
+Slack : -0.658
+TNS   : -113.585
+
+Type  : Slow 1200mV 85C Model Removal 'Auto_Clock'
+Slack : 0.921
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : 2.119
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Auto_Clock'
+Slack : -3.000
+TNS   : -225.305
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Board_Clock'
+Slack : -3.000
+TNS   : -14.565
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -1.285
+TNS   : -230.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : -1.285
+TNS   : -11.565
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_4_16_and_64:inst4|inst2'
+Slack : -1.285
+TNS   : -2.570
+
+Type  : Slow 1200mV 0C Model Setup 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -13.407
+TNS   : -1945.326
+
+Type  : Slow 1200mV 0C Model Setup 'Auto_Clock'
+Slack : -11.302
+TNS   : -1572.246
+
+Type  : Slow 1200mV 0C Model Setup 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : -2.037
+TNS   : -4.377
+
+Type  : Slow 1200mV 0C Model Setup 'Board_Clock'
+Slack : -2.029
+TNS   : -5.928
+
+Type  : Slow 1200mV 0C Model Hold 'Auto_Clock'
+Slack : -0.770
+TNS   : -1.540
+
+Type  : Slow 1200mV 0C Model Hold 'Board_Clock'
+Slack : 0.352
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -1.540
+TNS   : -266.192
+
+Type  : Slow 1200mV 0C Model Recovery 'Auto_Clock'
+Slack : -0.593
+TNS   : -102.361
+
+Type  : Slow 1200mV 0C Model Removal 'Auto_Clock'
+Slack : 0.869
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : 1.886
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Auto_Clock'
+Slack : -3.000
+TNS   : -225.305
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Board_Clock'
+Slack : -3.000
+TNS   : -14.565
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -1.285
+TNS   : -230.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : -1.285
+TNS   : -11.565
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_4_16_and_64:inst4|inst2'
+Slack : -1.285
+TNS   : -2.570
+
+Type  : Fast 1200mV 0C Model Setup 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -7.418
+TNS   : -1075.614
+
+Type  : Fast 1200mV 0C Model Setup 'Auto_Clock'
+Slack : -5.645
+TNS   : -766.333
+
+Type  : Fast 1200mV 0C Model Setup 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : -0.621
+TNS   : -0.621
+
+Type  : Fast 1200mV 0C Model Setup 'Board_Clock'
+Slack : -0.600
+TNS   : -0.653
+
+Type  : Fast 1200mV 0C Model Hold 'Auto_Clock'
+Slack : -0.610
+TNS   : -1.220
+
+Type  : Fast 1200mV 0C Model Hold 'Board_Clock'
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -0.584
+TNS   : -100.625
+
+Type  : Fast 1200mV 0C Model Recovery 'Auto_Clock'
+Slack : 0.088
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Auto_Clock'
+Slack : 0.344
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : 1.070
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Auto_Clock'
+Slack : -3.000
+TNS   : -207.460
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Board_Clock'
+Slack : -3.000
+TNS   : -12.540
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_512:inst|inst9'
+Slack : -1.000
+TNS   : -179.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_512:inst2|inst9'
+Slack : -1.000
+TNS   : -9.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock_dividers:inst4|Clock_divider_4_16_and_64:inst4|inst2'
+Slack : -1.000
+TNS   : -2.000
+
+------------------------------------------------------------
