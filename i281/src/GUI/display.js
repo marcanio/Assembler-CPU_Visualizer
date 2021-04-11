@@ -24,8 +24,9 @@ import * as Utils from "./Utils.js";
 
 function init() {
 	 
-	show_arrows.onchange = Utils.toggle_arrow_visablitity;
+	//show_arrows.onchange = Utils.toggle_arrow_visablitity;
 	show_bus_info.onchange = Utils.toggle_bus_info_visablitity;
+	show_description.onchange = Utils.toggle_description_visablitity;
 	document.getElementById("modal").onclick = () => {
 		modal.style.visibility = "hidden";
 		document.getElementById("modal_content").style.visibility = "hidden";
