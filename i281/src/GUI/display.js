@@ -44,6 +44,8 @@ window.addEventListener("load", function() {
 
 	cpu.setup();
 
+	let started = 0
+	window.started = started;
 	//
 
 	var mux_alu_wire = new PolygonSVG(Constants.MUX_ALU_WIRE_ID, Constants.MUX_ALU_WIRE, Constants.BLOCK_STYLE);

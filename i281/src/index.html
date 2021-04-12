@@ -457,8 +457,9 @@ crossorigin="anonymous"
     <script>
       function test(){
         cpu.singleCycle();
+        console.log("hello");
         let curInst = cpu.pc.currentPC;
-        let controls = cpu.control.c;
+        let controls = cpu.getNextControl();
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
         if(cpu.pc.currentPC>0 || cpu.pc.currentPC>31){
@@ -468,6 +469,7 @@ crossorigin="anonymous"
           document.getElementById("usrTxt").style.visibility="hidden";
           document.getElementById("biosTxt").style.visibility="hidden";
         }
+        console.log()
         if(cpu.pc.currentPC>31){
           let curAsm = cpu.instructions[cpu.pc.getPC()-32]
           console.log(curAsm);
@@ -486,7 +488,6 @@ crossorigin="anonymous"
         }
 
         highlightSyntax(cur, prev)
-        highlightTest(controls, cur)
 
         for(var i=1; i<controls.length; i++){
           if(controls[i]==1){
@@ -513,12 +514,14 @@ crossorigin="anonymous"
         document.getElementById("overflow_flag").innerHTML = cpu.alu.overflow;
         document.getElementById("negative_flag").innerHTML = cpu.alu.negative;
 
+        read_a_mux.select(addHelper(controls[4], controls[5]))
+        read_b_mux.select(addHelper(controls[6], controls[7]));
         mux0.select(controls[11]);
         mux1.select(controls[15]);
         mux2.select(controls[16]);
         mux3.select(controls[18]);
         mux4.select(controls[2]);
-
+        highlightTest(controls, cur)
 
         document.getElementById("pc_val_id").innerHTML = pad((cpu.pc.currentPC).toString(2), 6);
       }
@@ -623,22 +626,73 @@ crossorigin="anonymous"
 		    n = n + '';
 		    return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 	    }
+      function addHelper(x, y){
+        let bin = x.toString()+y.toString()
+        if(bin=="00") return 0
+        else if(bin=="01") return 1;
+        else if(bin=="10") return 2;
+        else if(bin=="11") return 3;
+        else return -1
+      }
 
       function highlightTest(controls, cur){
       if(cur>31){
-        var imemOutWires = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
+        var jumpPath = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
+
+        var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_out", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
+
+        var loadPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_out", "mux1_out_to_dmem_junction", "junction_to_dmem_a"]
+
+        var loadWritePath = ["dmem_mux3_wire", "mux3_true_wire", "mux_reg_file_wire"]
+        
         var pcOutWires = ["junction_to_pc", "junction_to_pc_update", "imem_pc_val_mux_wire"];
-        for(var i=0; i<imemOutWires.length; i++){
-            document.getElementById(imemOutWires[i]).style.stroke="black";
+
+        var readBPath = ["read_b_out", "b_to_mux0", "mux0_false_wire", "mux_alu_wire"]
+
+        var aluWritebackPath = ["alu_result_wire", "mux1_false_wire","mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire", "mux_reg_file_wire"];
+
+        var addiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_0", "mux0_true_wire", "mux_alu_wire"]
+
+        for(var i=0; i<jumpPath.length; i++){
+            document.getElementById(jumpPath[i]).style.stroke="black";
           }
           document.getElementById("mux_pc_val_wire").style.stroke="black";
-            for(var i=0; i<pcOutWires.length; i++){
-              document.getElementById(pcOutWires[i]).style.stroke="black";
-            }
+        for(var i=0; i<pcOutWires.length; i++){
+            document.getElementById(pcOutWires[i]).style.stroke="black";
+        }
+        for (var i=0; i<loadiPath.length; i++){
+          document.getElementById(loadiPath[i]).style.stroke="black";
+        }
+        for (var i=0; i<loadPath.length; i++){
+          document.getElementById(loadPath[i]).style.stroke="black";
+        }
+        for (var i=0; i<loadWritePath.length; i++){
+          document.getElementById(loadWritePath[i]).style.stroke="black";
+        }
+        for (var i=0; i<readBPath.length; i++){
+          document.getElementById(readBPath[i]).style.stroke="black";
+        }
+        for (var i=0; i<aluWritebackPath.length; i++){
+          document.getElementById(aluWritebackPath[i]).style.stroke="black";
+        }
+        for (var i=0; i<addiPath.length; i++){
+          document.getElementById(addiPath[i]).style.stroke="black";
+        }
+        document.getElementById("alu_flag_wire").style.stroke="black";
+        document.getElementById("read_a_out").style.stroke="black";
+        document.getElementById("negative_flag").style.stroke="black";
+        document.getElementById("negative_flag").setAttribute("font-weight", "normal");
+
+        for(var i=0; i<4; i++){
+          document.getElementById("reg_"+i).style.fill="black";
+          document.getElementById("reg_"+i).setAttribute("font-weight", "normal");
+          document.getElementById("reg_"+i+"_box").style.stroke="black";
+        }
+          
         asm=cpu.instructions[cur-32];
-        if(asm[0]=="JUMP"){
-          for(var i=0; i<imemOutWires.length; i++){
-            document.getElementById(imemOutWires[i]).style.stroke="purple";
+        if(asm[0]=="JUMP"|| asm[0]=="BRG"){
+          for(var i=0; i<jumpPath.length; i++){
+            document.getElementById(jumpPath[i]).style.stroke="purple";
           }
           if(controls[2]==1){
             document.getElementById("mux_pc_val_wire").style.stroke="purple";
@@ -652,6 +706,65 @@ crossorigin="anonymous"
               document.getElementById(pcOutWires[i]).style.stroke="red";
             }
           }
+        }
+        if(asm[0]=="LOADI" || asm[0]=="LOADP"){
+          for(var i=0; i<loadiPath.length; i++){
+            document.getElementById(loadiPath[i]).style.stroke="purple";
+          }
+          var writeReg = addHelper(controls[8], controls[9])
+          document.getElementById("reg_"+writeReg).style.fill="purple";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+        }
+        if(asm[0]=="LOAD"){
+          for(var i=0; i<loadPath.length; i++){
+            document.getElementById(loadPath[i]).style.stroke="purple";
+          }
+          for(var i=0; i<loadWritePath.length; i++){
+            document.getElementById(loadWritePath[i]).style.stroke="orange";
+          }
+          var writeReg = addHelper(controls[8], controls[9]);
+          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+        }
+        if(asm[0]=="CMP"){
+          var reg1=addHelper(controls[4], controls[5])
+          var reg2=addHelper(controls[6], controls[7])
+          document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
+          document.getElementById("reg_"+reg2+"_box").style.stroke="green";
+          document.getElementById("read_a_out").style.stroke="blue";
+          for(var i = 0; i<readBPath.length; i++){
+            document.getElementById(readBPath[i]).style.stroke="green";
+          }
+          document.getElementById("alu_flag_wire").style.stroke="red";
+          document.getElementById("negative_flag").style.stroke="red";
+          document.getElementById("negative_flag").setAttribute("font-weight", "bold");
+        }
+        if(asm[0]=="ADD"){
+          var reg1=addHelper(controls[4], controls[5])
+          var reg2=addHelper(controls[6], controls[7])
+          document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
+          document.getElementById("reg_"+reg2+"_box").style.stroke="green";
+          document.getElementById("read_a_out").style.stroke="blue";
+          for(var i = 0; i<readBPath.length; i++){
+            document.getElementById(readBPath[i]).style.stroke="green";
+          }
+          for(var i=0; i<aluWritebackPath.length; i++){
+            document.getElementById(aluWritebackPath[i]).style.stroke="orange";
+          }
+          var writeReg = addHelper(controls[8], controls[9]);
+          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+        }
+        if(asm[0]=="ADDI"){
+          for(var i=0; i<addiPath.length; i++){
+            document.getElementById(addiPath[i]).style.stroke="purple";
+          }
+          for(var i=0; i<aluWritebackPath.length; i++){
+            document.getElementById(aluWritebackPath[i]).style.stroke="orange";
+          }
+          var writeReg = addHelper(controls[8], controls[9]);
+          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
       }
     }
