@@ -125,7 +125,7 @@ window.addEventListener("load", function() {
 	//END IMEM MUX2 SEGMENTS
 
 	//MUX1 SEGMENTS
-	var mux1_out = new PathSVG("mux1_out", Constants.MUX1_OUT, Constants.WIRE_STYLE)
+	var mux1_out = new PathSVG("mux1_out_wire", Constants.MUX1_OUT, Constants.WIRE_STYLE)
 	var mux1_out_to_mux3_imem_junction = new PathSVG("mux1_out_to_mux3", Constants.MUX1_OUT_TO_MUX3_IMEM_JUNCTION, Constants.WIRE_STYLE)
 	var mux1_out_to_dmem_junction = new PathSVG("mux1_out_to_dmem_junction", Constants.MUX1_OUT_TO_DMEM_JUNCTION, Constants.WIRE_STYLE)
 	var junction_to_dmem_a = new PathSVG("junction_to_dmem_a", Constants.JUNCTION_TO_DMEM_A, Constants.WIRE_STYLE)

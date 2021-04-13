@@ -32,6 +32,7 @@ crossorigin="anonymous"
   <div class="navbar-nav justify-content-end" >
   
     <a class="nav-item nav-link" href="#"onclick="window.history.back()" style="color: white;">Go to Assembler</a>
+    <a class="nav-item nav-link" href="#"onclick="window.history.back()" style="color: white;">Reset</a>
   </div>
 </nav>
   <body >
@@ -639,9 +640,9 @@ crossorigin="anonymous"
       if(cur>31){
         var jumpPath = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
 
-        var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_out", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
+        var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_out_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
 
-        var loadPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_out", "mux1_out_to_dmem_junction", "junction_to_dmem_a"]
+        var loadPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_out_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_a"]
 
         var loadWritePath = ["dmem_mux3_wire", "mux3_true_wire", "mux_reg_file_wire"]
         

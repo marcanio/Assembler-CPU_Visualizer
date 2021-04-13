@@ -140,7 +140,8 @@ export class CPU {
         // MEMORY
         // ====================
         //Get switch values
-        this.switchInput[0] = document.getElementById("bit17").checked;
+        if(document.getElementById("bit17").checked) this.switchInput[0] = 1;
+        else this.switchInput[0] = 0;
         this.switchInput[1] = document.getElementById("bit16").checked;   
         this.switchInput[2] = document.getElementById("bit15").checked;
         this.switchInput[3] = document.getElementById("bit14").checked;
