@@ -293,6 +293,7 @@ function mainMethod() {
   //Show download buttons
   document.getElementById("dropdownMenuButton").style.display = "block";
   document.getElementById("toggleSyntax").style.display = "block";
+  document.getElementById("toggleInputFile").style.display = "block";
   document.getElementById("navigateCPU").style.display = "block";
 
   let count = 0;
@@ -359,7 +360,7 @@ function mainMethod() {
     //Add line numbers
     if (eachLine.length == 3) {
       eachLine[3] = eachLine[2];
-      eachLine[2] = eachLine[1];
+      eachLine[2] = eachLine[1] + ",";
       eachLine[1] = eachLine[0];
       eachLine[0] = AssemblyLine + "&nbsp &nbsp &nbsp &nbsp";
     } else if (eachLine.length == 2) {
@@ -449,8 +450,8 @@ function mainMethod() {
   formattedVariables = formatVariables();
   saveData();
   fillDataMemoryTable();
-  console.log(branchDest);
-  
+  //console.log(branchDest);
+  console.log(dataValues);
 
 }
 function formatInput() {
@@ -500,7 +501,17 @@ function downloadMachineFile() {
   let fileName = document.getElementById("fileInput").value;
   fileName = fileName.split(".")[0];
   fileName += ".asm";
-  let tempmachineCode = machineCode.replace(/\_/g, "");
+  let tempmachineCode = "";
+  //Data memory
+  tempmachineCode += "DMEM\n";
+  for(let i =0; i < dataValues.length; i++){
+    tempmachineCode += convertStringToBinary(dataValues[i]) + "\n";
+  }
+  //Code memory
+  tempmachineCode += "IMEM\n";
+  tempmachineCode += machineCode;
+
+  
   element.setAttribute(
     "href",
     "data:text/plain;charset=utf-8," + encodeURIComponent(tempmachineCode)
@@ -1362,7 +1373,7 @@ function toggleSyntaxHighlight() {
         newMachineCol += machineCol.substring(10, machineCol.length);
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
-      } else if(firstCol.localeCompare("STOREF") == 0 ||firstCol.localeCompare("STORE") == 0){
+      } else if(firstCol.localeCompare("STOREF") == 0){
         //Assembly code
         Assemblytable.rows[i].cells[3].style.color = "blue";
         let plusLocation = Assemblytable.rows[i].cells[2].innerHTML.indexOf("+") + 1;
@@ -1420,6 +1431,23 @@ function toggleSyntaxHighlight() {
         newMachineCol += "</span>";
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
 
+      }else if(firstCol.localeCompare("STORE") == 0){
+        //Assembly code
+        Assemblytable.rows[i].cells[2].style.color = "purple";
+        Assemblytable.rows[i].cells[3].style.color = "blue";
+        //Machine Code
+        let newMachineCol = '<span style="color:red">';
+        newMachineCol += machineCol.substring(0, 4);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, 5);
+        newMachineCol += '<span style="color:blue">';
+        newMachineCol += machineCol.substring(5, 7);
+        newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(7, 11);
+        newMachineCol += '<span style="color:purple">';
+        newMachineCol += machineCol.substring(11, machineCol.length);
+        newMachineCol += "</span>";
+        machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       }
     }
   } else {
@@ -1476,7 +1504,7 @@ for (i = 16; machineCodeFormatted.length - 1 > i && i < 32; i++) {
 for (; i < 32; i++) {
   output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
 }
-
+  output += "endmodule";
   return output;
 }
 
@@ -1509,6 +1537,7 @@ function createUserCodeLow(){
   for (; i < 16; i++) {
     output += "assign b" + i + "I[15:0] = 16'b0000_00_00_00000000;\n";
   }
+  output += "endmodule";
   return output;
 }
 
@@ -1542,6 +1571,7 @@ function createUserData(){
       output += "assign b" + i + "I[7:0] = 8'b00000000;\n"
     }
   }
+  output += "endmodule";
   return output;
 }
 
