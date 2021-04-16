@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>i281 Assembler</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -12,7 +13,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assembler/ImportFile.css" />
+    <link rel="stylesheet" href="./ImportFile.css" />
   </head>
   <body>
     
@@ -26,7 +27,7 @@
                     data-toggle="modal" 
                     data-target="#aboutModal"
                     class="btn btn-link"
-                    value="About Us"
+                    value="About"
                     style="color: white; text-decoration: none;"
                   />
 
@@ -299,11 +300,19 @@
                   value="Syntax highlighting: OFF"
                 />
                 <input
+                  type="button"
+                  id="toggleInputFile"
+                  class="btn btn-primary mr-1 mb-3"
+                  style="display: none"
+                  onclick="window.location.reload();"
+                  value="Load New File"
+                />
+                <input
                 type="button"
                 id="navigateCPU"
                 class="btn btn-success mr-1 mb-3"
                 style="display: none"
-                onclick="location.href='./index.html'"
+                onclick="location.href='../index.html'"
                 value="Go to CPU &#8594;"
               />
               </div>
@@ -346,13 +355,14 @@
             <!-- Modal body -->
             <div class="modal-body">
               <p>i281 CPU Simulator by:</p>
-              <p>Eric Marcanio: Assembler</p>
-              <p>Aiman Priester: Verilog Conversion</p>
-              <p>Bryce Snell: JS CPU</p>
-              <p>Colby McKinley: CPU Visualizer </p>
-              <p>Brady Kolosik: CPU Visualizer</p>
-              <p>Jacob Betsworth: FPGA GUI</p>
-              <p>i281 CPU design by: Kyung-Tae J. Kim, Alexander Stoytchev</p>
+              <p>&nbsp&nbsp Eric Marcanio: Assembler</p>
+              <p>&nbsp&nbsp Aiman Priester: Verilog Conversion</p>
+              <p>&nbsp&nbsp Bryce Snell: JS CPU</p>
+              <p>&nbsp&nbsp Colby McKinley: CPU Visualizer </p>
+              <p>&nbsp&nbsp Brady Kolosik: CPU Visualizer</p>
+              <p>&nbsp&nbsp Jacob Betsworth: FPGA GUI</p>
+              <p>i281 CPU design by: Kyung-Tae J. Kim & Alexander Stoytchev</p>
+              <p></p>
               <p>Project supervisor: Alexander Stoytchev</p>
               <p>Iowa State University Ames, IA 50011 U.S.A.</p>
         </div>
@@ -406,7 +416,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="./assembler/ImportFile.js" type="text/javascript"></script>
-    <script src="./assembler/Examples.js" type="text/javascript"></script>
+    <script src="./ImportFile.js" type="text/javascript"></script>
+    <script src="./Examples.js" type="text/javascript"></script>
   </body>
 </html>

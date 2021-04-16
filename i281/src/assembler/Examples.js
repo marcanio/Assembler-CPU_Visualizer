@@ -22,11 +22,11 @@ function Arithmetic2(){
    y        BYTE        3
    z        BYTE        ?
    .code
-           LOAD  A, [x]
-           LOAD  B, [y]
-           MOVE  C, A        ; z=x;
-           ADD   C, B        ; z+=y;
-           STORE [z], C`;
+   LOAD  A, [x]
+   LOAD  B, [y]
+   MOVE  C, A        ; z=x;
+   ADD   C, B        ; z+=y;
+   STORE [z], C`;
 
    let newText = A1.split("\n");
    removeComments(newText);
@@ -39,13 +39,13 @@ function Multiplication(){
    x        BYTE        3
    z        BYTE        ?
    .code
-           LOAD    A, [x]
-           MOVE    C, A        ; z=x;
-           MOVE    B, A        ; B=x;
-           SHIFTL  B           ; B=2x
-           SHIFTL  B           ; B=4x
-           ADD     C, B        ; C=4x+x
-           STORE   [z], C      ; update the memory for z`;
+   LOAD    A, [x]
+   MOVE    C, A        ; z=x;
+   MOVE    B, A        ; B=x;
+   SHIFTL  B           ; B=2x
+   SHIFTL  B           ; B=4x
+   ADD     C, B        ; C=4x+x
+   STORE   [z], C      ; update the memory for z`;
 
    let newText = A1.split("\n");
    removeComments(newText);
@@ -58,15 +58,15 @@ function MultiplicationWithLoop(){
    x        BYTE        3
    z        BYTE        ?
    .code
-           LOAD  A, [x]
-           LOADI C, 0        ; z=0
-           LOADI B, 0        ; i=0
-           LOADI D, 5        ; sentinel value
+   LOAD  A, [x]
+   LOADI C, 0        ; z=0
+   LOADI B, 0        ; i=0
+   LOADI D, 5        ; sentinel value
 For:    CMP   B, D        ; i<5?
-           BRGE  End         ; if(i>=5), exit for loop
-           ADD   C, A        ; z+=x
-           ADDI  B, 1        ; i++
-           JUMP  For         ; jump to For loop
+   BRGE  End         ; if(i>=5), exit for loop
+   ADD   C, A        ; z+=x
+   ADDI  B, 1        ; i++
+   JUMP  For         ; jump to For loop
 End:    STORE [z], C      ; update the z value in memory`;
 
    let newText = A1.split("\n");
@@ -105,15 +105,15 @@ function ArrayPlusFive(){
    array   BYTE    1, 2, 3, 4
    N       BYTE    4
    .code
-           LOADI  A, 0               ; i = 0
+   LOADI  A, 0               ; i = 0
 For:    LOAD   D, [N]             ; D <- N
-           CMP    A, D               ; i < N ?
-           BRGE   End                ; if no, exit the for loop
-           LOADF  C, [array + A]     ; load array[i]
-           ADDI   C, 5               ; add 5
-           STOREF [array + A], C     ; store the result back to memory
+   CMP    A, D               ; i < N ?
+   BRGE   End                ; if no, exit the for loop
+   LOADF  C, [array + A]     ; load array[i]
+   ADDI   C, 5               ; add 5
+   STOREF [array + A], C     ; store the result back to memory
 Iinc:   ADDI   A, 1               ; i++
-           JUMP   For                ; repeat the for loop
+   JUMP   For                ; repeat the for loop
 End:    NOOP`;
 
    let newText = A1.split("\n");
@@ -269,13 +269,13 @@ function DoLoop(){
    N       BYTE      5
    sum     BYTE      ?
    .code
-           LOADI A, 0           ; i = 0
-           LOADI B, 0           ; sum=0
-           LOAD  D, [N]         ; register D = N
+   LOADI A, 0           ; i = 0
+   LOADI B, 0           ; sum=0
+   LOAD  D, [N]         ; register D = N
 Do:     ADDI  A, 1           ; i++
-           ADD   B, A           ; sum+=i
-           CMP   D, A           ; N > i ? (register ordering is swapped)
-           BRG   Do             ; if true, jump to Do
+   ADD   B, A           ; sum+=i
+   CMP   D, A           ; N > i ? (register ordering is swapped)
+   BRG   Do             ; if true, jump to Do
 End:    STORE [sum], B       ; store sum to memory`;
 
    let newText = A1.split("\n");
@@ -290,14 +290,14 @@ function ForLoop(){
    i        BYTE    ?
    sum      BYTE    ?
    .code
-           LOADI  B, 0        ; sum=0
-           LOADI  A, 1        ; i=1
-           LOAD   D, [N]      ; register D = N
+   LOADI  B, 0        ; sum=0
+   LOADI  A, 1        ; i=1
+   LOAD   D, [N]      ; register D = N
 Loop:   CMP    A, D        ; i<=N ?
-           BRG    End         ; exit if i>N
+   BRG    End         ; exit if i>N
 Add:    ADD    B, A        ; sum+=i
-           ADDI   A,1         ; i++
-           JUMP   Loop        ; next iteration
+   ADDI   A,1         ; i++
+   JUMP   Loop        ; next iteration
 End:    STORE  [sum], B    ; update the memory for sum`;
 
    let newText = A1.split("\n");
