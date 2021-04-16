@@ -23,7 +23,7 @@ export default class BussInfoSVG {
 		else if (text_orientation.toLowerCase() === "twodigitleftvertical")
 			TPOS = [-35, 10];
 		else if(text_orientation.toLowerCase() === "farleftlow")
-            TPOS = [-27, 20];
+            TPOS = [-30, 10];
         else if (text_orientation.toLowerCase() === "right")
             TPOS = [20, 20];
 		else if (text_orientation.toLowerCase() === "rightup")

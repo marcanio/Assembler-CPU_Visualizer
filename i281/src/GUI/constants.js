@@ -108,7 +108,7 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
     export const TO_MUX0 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 0,-180, 45,0 ]
     export const TO_MUX1 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 405,0, 0,-265, 40,0]
 
-    export const TO_PC_UPDATE = ["M", INTERSECT_1_POS[0],125+825, "l", 0,250, 50,0]
+    export const TO_PC_UPDATE = ["M", INTERSECT_1_POS[0],125+825, "l", 0,240, 50,0]
     //END IMEM segments
 
     export const IMEM_OUT_TO_MUXES_SEGS = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"];
