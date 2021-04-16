@@ -459,7 +459,14 @@ crossorigin="anonymous"
       function test(){
         cpu.singleCycle();
         console.log("hello");
-        let curInst = cpu.pc.currentPC;
+
+        var cur = cpu.pc.getPC();
+        var prev = cpu.pc.getPreviousPC();
+
+        if(cur-32>cpu.instructions.length){
+          return;
+        }
+
         let controls = cpu.getNextControl();
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
@@ -470,21 +477,19 @@ crossorigin="anonymous"
           document.getElementById("usrTxt").style.visibility="hidden";
           document.getElementById("biosTxt").style.visibility="hidden";
         }
-        console.log()
         if(cpu.pc.currentPC>31){
           let curAsm = cpu.instructions[cpu.pc.getPC()-32]
           console.log(curAsm);
-          console.log(curAsm.length)
-          let build = "";
-          for(var i=0; i<curAsm.length; i++){
-            console.log(curAsm[i]);
-            build+=curAsm[i]+" ";
+          if(curAsm!=null){
+            let build = "";
+            for(var i=0; i<curAsm.length; i++){
+              console.log(curAsm[i]);
+              build+=curAsm[i]+" ";
+            }
+            document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
           }
-          document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
         }
-        var cur = cpu.pc.getPC();
-        var prev = cpu.pc.getPreviousPC();
-        if (cur>31 && prev < 31){
+        if (cur>31){
           switchToUser();
         }
 
@@ -529,10 +534,18 @@ crossorigin="anonymous"
 
       function highlightSyntax(cur, prev){
         if(cur > 31){
-          document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
-          document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
           var asm = cpu.instructions[cur-32];
           var prevasm = cpu.instructions[prev-32];
+
+          if(asm==null){
+
+            console.log("prog done");
+            return;
+          }
+      
+          document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
+
            
           if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
             document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
@@ -640,17 +653,25 @@ crossorigin="anonymous"
       if(cur>31){
         var jumpPath = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
 
-        var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_out_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
+        var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_output_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
 
-        var loadPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_out_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_a"]
+        var loadPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_output_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_a"]
 
+        var loadFImmPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_0", "mux0_true_wire", "mux_alu_wire"]
+
+        var loadFALUOutPath = ["alu_result_wire", "mux1_false_wire", "mux1_output_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_a"];
+
+        var storePath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_output_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_b"]
+
+        var storeALUPath = ["read_b_out", "b_to_mux2", "mux2_false_wire", "mux2_dmem_wire"]
+        
         var loadWritePath = ["dmem_mux3_wire", "mux3_true_wire", "mux_reg_file_wire"]
         
         var pcOutWires = ["junction_to_pc", "junction_to_pc_update", "imem_pc_val_mux_wire"];
 
         var readBPath = ["read_b_out", "b_to_mux0", "mux0_false_wire", "mux_alu_wire"]
 
-        var aluWritebackPath = ["alu_result_wire", "mux1_false_wire","mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire", "mux_reg_file_wire"];
+        var aluWritebackPath = ["alu_result_wire", "mux1_false_wire", "mux1_output_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire", "mux_reg_file_wire"];
 
         var addiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_0", "mux0_true_wire", "mux_alu_wire"]
 
@@ -679,6 +700,18 @@ crossorigin="anonymous"
         for (var i=0; i<addiPath.length; i++){
           document.getElementById(addiPath[i]).style.stroke="black";
         }
+        for (var i=0; i<storePath.length; i++){
+          document.getElementById(storePath[i]).style.stroke="black";
+        }
+        for (var i=0; i<storeALUPath.length; i++){
+          document.getElementById(storeALUPath[i]).style.stroke="black";
+        }
+        for (var i=0; i<loadFALUOutPath.length; i++){
+          document.getElementById(loadFALUOutPath[i]).style.stroke="black";
+        }
+        for (var i=0; i<loadFImmPath.length; i++){
+          document.getElementById(loadFImmPath[i]).style.stroke="black";
+        }
         document.getElementById("alu_flag_wire").style.stroke="black";
         document.getElementById("read_a_out").style.stroke="black";
         document.getElementById("negative_flag").style.stroke="black";
@@ -691,7 +724,12 @@ crossorigin="anonymous"
         }
           
         asm=cpu.instructions[cur-32];
-        if(asm[0]=="JUMP"|| asm[0]=="BRG"){
+
+        if(asm==null){
+          return;
+        }
+
+        if(asm[0]=="JUMP"|| asm[0]=="BRG"|| asm[0]=="BRZ" || asm[0]=="BRNE" || asm[0]=="BRNZ" || asm[0]=="BRGE"){
           for(var i=0; i<jumpPath.length; i++){
             document.getElementById(jumpPath[i]).style.stroke="purple";
           }
@@ -727,6 +765,33 @@ crossorigin="anonymous"
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
+        if(asm[0]=="LOADF"){
+          var readReg = addHelper(controls[4], controls[5]);
+          var writeReg = addHelper(controls[8], controls[9]);
+          document.getElementById("reg_"+readReg+"_box").style.stroke = "green";
+          document.getElementById("read_a_out").style.stroke="green";
+          document.getElementById("reg_"+writeReg).style.stroke="orange";
+          for(var i=0; i<loadFImmPath.length; i++){
+            document.getElementById(loadFImmPath[i]).style.stroke="purple";
+          }
+          for(var i=0; i<loadFALUOutPath.length; i++){
+            document.getElementById(loadFALUOutPath[i]).style.stroke="cyan"
+          }
+          for(var i=0; i<loadWritePath.length; i++){
+            document.getElementById(loadWritePath[i]).style.stroke="orange";
+          }
+        }
+        if(asm[0]=="STORE"){
+          var readReg = addHelper(controls[6], controls[7]);
+          document.getElementById("reg_"+readReg+"_box").style.stroke=="blue";
+          for(var i=0; i<storeALUPath.length; i++){
+            document.getElementById(storeALUPath[i]).style.stroke="green";
+          }
+          for(var i=0; i<storePath.length; i++){
+            document.getElementById(storePath[i]).style.stroke="purple";
+          }
+          
+        }
         if(asm[0]=="CMP"){
           var reg1=addHelper(controls[4], controls[5])
           var reg2=addHelper(controls[6], controls[7])
@@ -740,7 +805,7 @@ crossorigin="anonymous"
           document.getElementById("negative_flag").style.stroke="red";
           document.getElementById("negative_flag").setAttribute("font-weight", "bold");
         }
-        if(asm[0]=="ADD"){
+        if(asm[0]=="ADD" || asm[0]=="SUB"){
           var reg1=addHelper(controls[4], controls[5])
           var reg2=addHelper(controls[6], controls[7])
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
@@ -756,16 +821,41 @@ crossorigin="anonymous"
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
-        if(asm[0]=="ADDI"){
+        if(asm[0]=="ADDI" || asm[0]=="SUBI"){
           for(var i=0; i<addiPath.length; i++){
             document.getElementById(addiPath[i]).style.stroke="purple";
           }
           for(var i=0; i<aluWritebackPath.length; i++){
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
           }
+          var reg1 = addHelper(controls[4], controls[5]);
           var writeReg = addHelper(controls[8], controls[9]);
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+          document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
+          document.getElementById("read_a_out").style.stroke="blue";
+        }
+        if(asm[0]=="MOVE"){
+          var writeReg = addHelper(controls[8], controls[9]);
+          var reg1 = addHelper(controls[4], controls[5]);
+          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+          document.getElementById("reg_"+reg1+"_box").style.stroke="green";
+          document.getElementById("read_a_out").style.stroke="green";
+          for(var i=0; i<aluWritebackPath.length; i++){
+            document.getElementById(aluWritebackPath[i]).style.stroke="orange";
+          }
+        }
+        if(asm[0]=="SHIFTL"||asm[0]=="SHIFTR"){
+          var writeReg = addHelper(controls[8], controls[9]);
+          var readReg = addHelper(controls[4], controls[5]);
+          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+          document.getElementById("reg_"+readReg+"_box").style.stroke="blue";
+          document.getElementById("read_a_out").style.stroke="blue";
+          for(var i=0; i<aluWritebackPath.length; i++){
+            document.getElementById(aluWritebackPath[i]).style.stroke="orange";
+          }
         }
       }
     }
@@ -947,4 +1037,3 @@ function autoMode()
    ></script>
   </body>
 </html>
-

@@ -234,8 +234,8 @@ export class CPU {
         this.alu.setOps(aluOpA, aluOpB);
         this.alu.process(this.control.get('c12c13'));
         
-        // Update flags
-        this.flags.setWriteEnable(controlSignals[14]);
+        // don't Update flags
+        this.flags.setWriteEnable(0);
         this.flags.setRegister(0, this.alu.carry);
         this.flags.setRegister(1, this.alu.overflow);
         this.flags.setRegister(2, this.alu.negative);
