@@ -14,7 +14,7 @@ export default class ArrowSVG {
         else if (text_pos.toLowerCase() === "right")
             TPOS = [25, 30];
         else if (text_pos.toLowerCase() === "leftup")
-            TPOS = [-30, 20];
+            TPOS = [-25, 20];
         else if (text_pos.toLowerCase() === "rightup")
             TPOS = [25, 20];
         else 

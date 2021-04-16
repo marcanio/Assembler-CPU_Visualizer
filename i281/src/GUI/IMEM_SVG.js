@@ -197,6 +197,14 @@ export default class IMEM_SVG {
 			document.getElementById("imem_addr"+(i)).style.visibility = "hidden";
 			document.getElementById("imem_addr"+(i+32)).style.visibility = "visible";
 		}
+
+		document.getElementById("up_box").style.stroke = "black";
+		document.getElementById("up_arrow").style.fill = "black";
+
+		document.getElementById("bottom_box").style.stroke = "gray";
+		document.getElementById("down_arrow").style.fill = "gray";
+
+
 	}
 
 	switchToBios(){
@@ -209,5 +217,11 @@ export default class IMEM_SVG {
 			document.getElementById("imem_addr"+(i)).style.visibility = "visible";
 			document.getElementById("imem_addr"+(i+32)).style.visibility = "hidden";
 		}
+		document.getElementById("up_box").style.stroke = "gray";
+		document.getElementById("up_arrow").style.fill = "gray";
+
+		document.getElementById("bottom_box").style.stroke = "black";
+		document.getElementById("down_arrow").style.fill = "black";
+
 	}
 }
