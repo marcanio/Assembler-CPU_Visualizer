@@ -40,24 +40,25 @@ export default class RegisterFileSVG {
     
 		this.read_a_mux = new Mux4_1SVG(Constants.READ_A_MUX_ID, Constants.READ_A_MUX_A_ID, Constants.READ_A_MUX_B_ID, Constants.READ_A_MUX_C_ID, Constants.READ_A_MUX_D_ID, Constants.READ_A_MUX_OFFSET);
 		this.read_b_mux = new Mux4_1SVG(Constants.READ_B_MUX_ID, Constants.READ_B_MUX_A_ID, Constants.READ_B_MUX_B_ID, Constants.READ_B_MUX_C_ID, Constants.READ_B_MUX_D_ID, Constants.READ_B_MUX_OFFSET);
-	
+		window.read_a_mux = this.read_a_mux;
+		window.read_b_mux = this.read_b_mux;
 		this.read_a_int = new CircleSVG("testid",  [REG_A_BOX_OFFSET[0] + 140 + 55, REG_A_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
 		this.a_to_read_a = new PathSVG("path_a", ["M", REG_A_BOX_OFFSET[0] + 140, REG_A_BOX_OFFSET[1]+15, "l", 105,0], Constants.THIN_WIRE_STYLE);
 		this.a_to_read_b = new PathSVG("path_a", ["M", REG_A_BOX_OFFSET[0] + 140 + 55, REG_A_BOX_OFFSET[1]+15, "l", 0, 250, 50,0], Constants.THIN_WIRE_STYLE);
 		
-		this.read_b_cir =  new CircleSVG("testid",  [REG_B_BOX_OFFSET[0] + 140 + 37.5, REG_B_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
+		this.read_b_cir =  new CircleSVG("path_b_circle",  [REG_B_BOX_OFFSET[0] + 140 + 37.5, REG_B_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
 		this.b_to_int = new PathSVG("path_b", ["M", REG_B_BOX_OFFSET[0] + 140, REG_B_BOX_OFFSET[1]+15, "l", 40,0], Constants.THIN_WIRE_STYLE);
 		this.b_to_read_a = new PathSVG("path_b", ["M", REG_B_BOX_OFFSET[0] + 140 + 37.5, REG_B_BOX_OFFSET[1]+15, "l", 0, -84, 65,0], Constants.THIN_WIRE_STYLE);
 		this.b_to_read_b = new PathSVG("path_b", ["M", REG_B_BOX_OFFSET[0] + 140 + 37.5, REG_B_BOX_OFFSET[1]+15, "l", 0, 166, 65,0], Constants.THIN_WIRE_STYLE);
 
-		this.read_c_cir =  new CircleSVG("testid",  [REG_C_BOX_OFFSET[0] + 140 + 20, REG_C_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
+		this.read_c_cir =  new CircleSVG("path_c_circle",  [REG_C_BOX_OFFSET[0] + 140 + 20, REG_C_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
 		this.c_to_int = new PathSVG("path_c", ["M", REG_C_BOX_OFFSET[0] + 140, REG_C_BOX_OFFSET[1]+15, "l", 20,0], Constants.THIN_WIRE_STYLE);
 		this.c_to_read_a = new PathSVG("path_c", ["M", REG_C_BOX_OFFSET[0] + 140 + 20, REG_C_BOX_OFFSET[1]+15, "l", 0, -167, 85,0], Constants.THIN_WIRE_STYLE);
 		this.c_to_read_b = new PathSVG("path_c", ["M", REG_C_BOX_OFFSET[0] + 140 + 20, REG_C_BOX_OFFSET[1]+15, "l", 0, 83, 85,0], Constants.THIN_WIRE_STYLE);
 
-		this.read_d_int = new CircleSVG("testid",  [REG_D_BOX_OFFSET[0] + 140 + 70, REG_D_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
-		this.d_to_read_a = new PathSVG("path_d", ["M", REG_D_BOX_OFFSET[0] + 140 + 70, REG_D_BOX_OFFSET[1]+15, "l", 0, -250, 35,0], Constants.THIN_WIRE_STYLE);
-		this.d_to_read_b = new PathSVG("path_ad", ["M", REG_D_BOX_OFFSET[0] + 140, REG_D_BOX_OFFSET[1]+15, "l", 105, 0], Constants.THIN_WIRE_STYLE);
+		this.read_d_int = new CircleSVG("path_d_circle",  [REG_D_BOX_OFFSET[0] + 140 + 75, REG_D_BOX_OFFSET[1]+15] , 5, Constants.INTERSECT_STYLE);
+		this.d_to_read_a = new PathSVG("path_d", ["M", REG_D_BOX_OFFSET[0] + 140 + 75, REG_D_BOX_OFFSET[1]+15, "l", 0, -250, 30,0], Constants.THIN_WIRE_STYLE);
+		this.d_to_read_b = new PathSVG("path_ad", ["M", REG_D_BOX_OFFSET[0] + 145, REG_D_BOX_OFFSET[1]+15, "l", 100, 0], Constants.THIN_WIRE_STYLE);
 
 	}
     

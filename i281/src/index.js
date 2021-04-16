@@ -10,7 +10,7 @@ http.createServer(function (request, response) {
 
     var filePath = './src' + request.url;
     if (filePath == './src/') {
-        filePath = './src/index.html';
+        filePath = './src/assembler/ImportFile.html';
     }
     /*
 	var filePath = "./src" + request.url;

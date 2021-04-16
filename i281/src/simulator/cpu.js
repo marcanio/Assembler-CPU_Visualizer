@@ -151,7 +151,7 @@ export class CPU {
 
         // Update dmem input mux
         this.dmemInputMux.setSource(0, this.registers.getRegister(c6c7));
-        this.dmemInputMux.setSource(1, this.switchInput.join('').substring(8));
+        this.dmemInputMux.setSource(1, this.switchInput);
         this.dmemInputMux.setState(controlSignals[16]);
 
         // Update dmem
@@ -161,11 +161,6 @@ export class CPU {
         // ====================
         // WRITEBACK
         // ====================
-
-        // Update the iMem if someone thinks they want to do that...
-        this.iMem.setWriteEnable(controlSignals[1]);
-        let iMemUserInput = this.switchInput.join('');
-        this.iMem.setRegister(parseInt(aluResultMuxOutput.substring(2), 2), iMemUserInput);  // Only the lower 6 bits are used for the address
 
         // Update the final mux
         this.regWritebackMux.setSource(0, aluResultMuxOutput);
@@ -181,7 +176,6 @@ export class CPU {
         // Update pc
         this.pc.process(opcode, controlSignals[2]);
     }
-
 
     bubbleSortDefault() {
         this.iMem.registers = [
