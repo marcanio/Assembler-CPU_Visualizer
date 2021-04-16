@@ -104,11 +104,11 @@
 }
 
 .slider:checked {
-  background-color: rgb(0, 247, 194);
+  background-color: black;
 }
 
 .switch:focus {
-  background-color: rgb(0, 247, 194);
+  background-color: black;
 }
 
 .slider:before {
@@ -126,7 +126,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider:before {
-  background-color: rgb(0, 247, 194);
+  background-color: black;
 }
 
 input:checked + .slider:before {

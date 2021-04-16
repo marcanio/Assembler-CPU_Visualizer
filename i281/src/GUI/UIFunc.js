@@ -291,10 +291,19 @@ function getRelevantBox(swNum)
     }    
 }    
 
+var initTool = 0;
 
 function uiMode(){
     var viewSw = document.getElementById("bit01");
     var gameSw = document.getElementById("bit00");
+
+    if(initTool == 0)
+    {
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+          })
+          initTool = initTool +1;
+    }
 
     if(gameSw.checked)//Game Mode
     {
