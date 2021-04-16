@@ -140,15 +140,72 @@ export class CPU {
         // MEMORY
         // ====================
         //Get switch values
-        if(document.getElementById("bit17").checked) this.switchInput[0] = 1;
-        else this.switchInput[0] = 0;
-        this.switchInput[1] = document.getElementById("bit16").checked;   
-        this.switchInput[2] = document.getElementById("bit15").checked;
-        this.switchInput[3] = document.getElementById("bit14").checked;
-        this.switchInput[4] = document.getElementById("bit13").checked;
-        this.switchInput[5] = document.getElementById("bit12").checked;
-        this.switchInput[6] = document.getElementById("bit11").checked;
-        this.switchInput[7] = document.getElementById("bit10").checked;
+        if(document.getElementById("bit17").checked)
+        {
+            this.switchInput[0] = '1';
+        }
+        else
+        {
+            this.switchInput[0] = '0';
+        }
+
+        if(document.getElementById("bit16").checked)
+        {
+            this.switchInput[1] = '1';
+        }
+        else
+        {
+            this.switchInput[1] = '0';
+        }
+
+        if(document.getElementById("bit15").checked)
+        {
+            this.switchInput[2] = '1';
+        }
+        else
+        {
+            this.switchInput[2] = '0';
+        }
+        if(document.getElementById("bit14").checked)
+        {
+            this.switchInput[3] = '1';
+        }
+        else
+        {
+            this.switchInput[3] = '0';
+        }
+        if(document.getElementById("bit13").checked)
+        {
+            this.switchInput[4] = '1';
+        }
+        else
+        {
+            this.switchInput[4] = '0';
+        }
+        if(document.getElementById("bit12").checked)
+        {
+            this.switchInput[5] = '1';
+        }
+        else
+        {
+            this.switchInput[5] = '0';
+        }
+        if(document.getElementById("bit11").checked)
+        {
+            this.switchInput[6] = '1';
+        }
+        else
+        {
+            this.switchInput[6] = '0';
+        }
+        if(document.getElementById("bit10").checked)
+        {
+            this.switchInput[7] = '1';
+        }
+        else
+        {
+            this.switchInput[7] = '0';
+        }
 
         // Calculate dmem address
         let dmemAddr = parseInt(aluResultMuxOutput.substring(4,8),2);

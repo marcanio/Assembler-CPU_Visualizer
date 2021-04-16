@@ -173,6 +173,7 @@ export function toggle_description_visablitity(checkbox) {
     info.push(document.getElementById("dmem_red_read_select_text"));
 	info.push(document.getElementById("dmem_red_input_mux_text"));
     info.push(document.getElementById("dmem_red_write_enable_text"));
+	info.push(document.getElementById("dmem_red_input_text"));
 	const val = (!checkbox.target.checked) ? "hidden" : "visible";
 	info.forEach( elem => elem.style.visibility = val);
 
