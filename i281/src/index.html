@@ -457,17 +457,17 @@ crossorigin="anonymous"
 
     <script>
       function test(){
-        cpu.singleCycle();
-        console.log("hello");
-
         var cur = cpu.pc.getPC();
         var prev = cpu.pc.getPreviousPC();
+        document.getElementById("pc_val_id").innerHTML = pad((cur).toString(2), 6);
+        cpu.singleCycle();
+        console.log("hello");
 
         if(cur-32>cpu.instructions.length){
           return;
         }
 
-        let controls = cpu.getNextControl();
+        let controls = cpu.control.c;
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
         if(cpu.pc.currentPC>0 || cpu.pc.currentPC>31){
@@ -478,7 +478,7 @@ crossorigin="anonymous"
           document.getElementById("biosTxt").style.visibility="hidden";
         }
         if(cpu.pc.currentPC>31){
-          let curAsm = cpu.instructions[cpu.pc.getPC()-32]
+          let curAsm = cpu.instructions[cur-32]
           console.log(curAsm);
           if(curAsm!=null){
             let build = "";
@@ -529,7 +529,6 @@ crossorigin="anonymous"
         mux4.select(controls[2]);
         highlightTest(controls, cur)
 
-        document.getElementById("pc_val_id").innerHTML = pad((cpu.pc.currentPC).toString(2), 6);
       }
 
       function highlightSyntax(cur, prev){
@@ -718,7 +717,7 @@ crossorigin="anonymous"
         document.getElementById("negative_flag").setAttribute("font-weight", "normal");
 
         for(var i=0; i<4; i++){
-          document.getElementById("reg_"+i).style.fill="black";
+          document.getElementById("reg_"+i).style.stroke="black";
           document.getElementById("reg_"+i).setAttribute("font-weight", "normal");
           document.getElementById("reg_"+i+"_box").style.stroke="black";
         }
