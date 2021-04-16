@@ -167,7 +167,7 @@ window.addEventListener("load", function() {
 
 	var mux0_out_info = new BussInfoSVG("mux0_out", [1325, 800], 8, LEFT);
 	var mux1_out_info = new BussInfoSVG("mux1_out", [1715, 715], 8, LEFT);
-	var mux2_out_info = new BussInfoSVG("mux2_out", [1725, 1125], 8, LEFT);
+	var mux2_out_info = new BussInfoSVG("mux2_out", [1745, 1125], 8, LEFT);
 	var mux3_out_info = new BussInfoSVG("mux3_out", [2360, 500],8, FAR_LEFT);
 	var alu_in_top_info = new BussInfoSVG("alu_in_top_info", [1325, 570], 8, LEFT);
 	var alu_out_top_info = new BussInfoSVG("alu_out_top_info", [1573, 550], 8, FAR_LEFT);
@@ -258,6 +258,7 @@ window.addEventListener("load", function() {
 	var dmem_red_read_select_text = new TextSVG(1733, 870, "dmem_red_read_select_text", "Read Select", Constants.RED_ARIAL_STYLE);
 	var dmem_red_input_mux_text = new TextSVG(1640, 1220, "dmem_red_input_mux_text", "DMEM Input Mux", Constants.RED_ARIAL_STYLE);
 	var dmem_red_write_enable_text = new TextSVG(1980, 760, "dmem_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+	var dmem_red_input_text = new TextSVG(1720, 1080, "dmem_red_input_text", "Input", Constants.RED_ARIAL_STYLE);
 
 
 	var svg = document.getElementById("canvas");
@@ -427,6 +428,7 @@ window.addEventListener("load", function() {
 	svg.appendChild(dmem_red_read_select_text.get_node());
 	svg.appendChild(dmem_red_input_mux_text.get_node());
 	svg.appendChild(dmem_red_write_enable_text.get_node());
+	svg.appendChild(dmem_red_input_text.get_node());
 
 
 });
