@@ -140,21 +140,18 @@ export class CPU {
         // MEMORY
         // ====================
         //Get switch values
-        this.switchInput[0] = document.getElementById("bit17").checked;
-        this.switchInput[1] = document.getElementById("bit16").checked;   
-        this.switchInput[2] = document.getElementById("bit15").checked;
-        this.switchInput[3] = document.getElementById("bit14").checked;
-        this.switchInput[4] = document.getElementById("bit13").checked;
-        this.switchInput[5] = document.getElementById("bit12").checked;
-        this.switchInput[6] = document.getElementById("bit11").checked;
-        this.switchInput[7] = document.getElementById("bit10").checked;
+        // TODO make sure Jacob didn't fix this on his side 
+        // TODO if Jacob fixes that offset issue please remove the +2 below it will cause problems
+        for(i=0; i<16; i++) {
+            this.switchInput[i] = document.getElementById(`bit${(i+2).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})}`).checked ? 1 : 0;
+        }
 
         // Calculate dmem address
         let dmemAddr = parseInt(aluResultMuxOutput.substring(4,8),2);
 
         // Update dmem input mux
         this.dmemInputMux.setSource(0, this.registers.getRegister(c6c7));
-        this.dmemInputMux.setSource(1, this.switchInput);
+        this.dmemInputMux.setSource(1, this.switchInput.join('').substring(8));
         this.dmemInputMux.setState(controlSignals[16]);
 
         // Update dmem
@@ -164,6 +161,11 @@ export class CPU {
         // ====================
         // WRITEBACK
         // ====================
+
+        // Update the iMem if someone thinks they want to do that...
+        this.iMem.setWriteEnable(controlSignals[1]);
+        let iMemUserInput = this.switchInput.join('');
+        this.iMem.setRegister(parseInt(aluResultMuxOutput.substring(2), 2), iMemUserInput);  // Only the lower 6 bits are used for the address
 
         // Update the final mux
         this.regWritebackMux.setSource(0, aluResultMuxOutput);
