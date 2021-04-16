@@ -12,6 +12,19 @@ export default class TextSVG {
 		this.node.appendChild(document.createTextNode(txt_val));
 		this.node.setAttribute(Constants.ID_ATTR, id);
 		this.node.setAttribute(Constants.STYLE_ATTR, style);
+		var opcodeEnable = id.search("opcode");
+		if(opcodeEnable != -1)
+		{
+			this.node.setAttribute("data-toggle", "tooltip");
+			this.node.setAttribute("title", getOpcode(txt_val));
+		}
+		var flagEnable = id.search("flag");
+		if(flagEnable != -1)
+		{
+			this.node.setAttribute("data-toggle", "tooltip");
+			this.node.setAttribute("title", id);
+		}
+
 		if(offset)
 			this.translate(offset[0], offset[1]);
 	}
@@ -36,5 +49,45 @@ export default class TextSVG {
 		this.node.setAttributeNS(null,"x", this.x);	
 		this.node.setAttributeNS(null,"y", this.y);		
 
+	}
+}
+
+
+function getOpcode(txt_val)
+{
+	switch(txt_val)
+	{
+		case "0000":
+			return "NOOP";
+		case "0001":
+			return "INPUT";
+		case "0010":
+			return "MOVE";
+		case "0011":
+			return "LOADI/LOADP";
+		case "0100":
+			return "ADD";
+		case "0101":
+			return "ADDI";
+		case "0110":
+			return "SUB";
+		case "0111":
+			return "SUBI";		
+		case "1000":
+			return "LOAD";
+		case "1001":
+			return "LOADF";
+		case "1010":
+			return "STORE";
+		case "1011":
+			return "STOREF";
+		case "1100":
+			return "SHIFT";
+		case "1101":
+			return "CMP";
+		case "1110":
+			return "JUMP";
+		case "1111":
+			return "BRANCH";		
 	}
 }
