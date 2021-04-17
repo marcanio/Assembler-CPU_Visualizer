@@ -288,38 +288,38 @@ export class CPU {
 
         this.instructions = [
 
-            ["NOOP"]
-            ["JUMP", "30"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
-            ["NOOP"]
+            ["NOOP"],
+            ["JUMP", "30"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
             [
                 "LOADI",
                 "A",
