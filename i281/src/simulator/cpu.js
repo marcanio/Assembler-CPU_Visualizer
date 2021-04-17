@@ -40,6 +40,8 @@ export class CPU {
 
         this.switchInput = Array(8);  // TODO these are not defined should come from Jacob.
         
+        this.progName; //This is for the name of the program/file
+
         this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
     }
 
@@ -55,7 +57,6 @@ export class CPU {
         if (sessionStorage.getItem("instructionMemory") === null) {
             this.bubbleSortDefault()
         }
-
         else {
             let fullInstructions = new Array(32)
             var userInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
@@ -71,15 +72,17 @@ export class CPU {
                 }
             }
             fullInstructions = fullInstructions.concat(userInstructions);
-            
-            console.log(fullInstructions);
 
             this.instructions = fullInstructions;
             this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
             this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
         }
-        
-
+        if(sessionStorage.getItem("fileName")==null){
+            this.progName="BubbleSort";
+        }
+        else{
+            this.progName=sessionStorage.getItem("fileName");
+        }
     }
 
     /**

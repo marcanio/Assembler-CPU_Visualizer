@@ -432,5 +432,5 @@ window.addEventListener("load", function() {
 	svg.appendChild(dmem_red_write_enable_text.get_node());
 	svg.appendChild(dmem_red_input_text.get_node());
 	cpu.pc.currentPC=32;
-
+	document.getElementById("progName").innerHTML = cpu.progName;
 });
