@@ -156,6 +156,13 @@ export class CPU {
         this.dMem.setWriteEnable(controlSignals[17]);
         this.dMem.setRegister(dmemAddr, this.dmemInputMux.getOutput());     
 
+        // Calculate imem address
+        let imemAddr = parseInt(aluResultMuxOutput.substring(2), 2);
+
+        // Update imem
+        this.iMem.setWriteEnable(controlSignals[1]);
+        this.iMem.setRegister(imemAddr, this.switchInput.join(''));
+
         // ====================
         // WRITEBACK
         // ====================
