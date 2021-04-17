@@ -469,7 +469,6 @@ crossorigin="anonymous"
         var prev = cpu.pc.getPreviousPC();
         document.getElementById("pc_val_id").innerHTML = pad((cur).toString(2), 6);
         cpu.singleCycle();
-        console.log("hello");
 
         if(cur-32>cpu.instructions.length){
           return;
@@ -487,11 +486,9 @@ crossorigin="anonymous"
         }
         if(cpu.pc.currentPC>31){
           let curAsm = cpu.instructions[cur-32]
-          console.log(curAsm);
           if(curAsm!=null){
             let build = "";
             for(var i=0; i<curAsm.length; i++){
-              console.log(curAsm[i]);
               build+=curAsm[i]+" ";
             }
             document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
