@@ -39,8 +39,8 @@ crossorigin="anonymous"
   </div>
   <div class="navbar-nav justify-content-end" >
   
-    <a class="nav-item nav-link" href="#"onclick="window.history.back()" style="color: white;">Go to Assembler</a>
-    <a class="nav-item nav-link" href="#"onclick="window.history.back()" style="color: white;">Reset</a>
+    <a class="nav-item nav-link" href="./assembler/ImportFile.html" style="color: white;">Go to Assembler</a>
+    <a class="nav-item nav-link" href="index.html" style="color: white;">Reset</a>
   </div>
 </nav>
   <body >
@@ -769,7 +769,7 @@ crossorigin="anonymous"
             document.getElementById(loadWritePath[i]).style.stroke="orange";
           }
           var writeReg = addHelper(controls[8], controls[9]);
-          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).style.stroke="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="LOADF"){
@@ -825,7 +825,7 @@ crossorigin="anonymous"
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
           }
           var writeReg = addHelper(controls[8], controls[9]);
-          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).style.stroke="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="ADDI" || asm[0]=="SUBI"){
@@ -837,7 +837,7 @@ crossorigin="anonymous"
           }
           var reg1 = addHelper(controls[4], controls[5]);
           var writeReg = addHelper(controls[8], controls[9]);
-          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).style.stroke="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("read_a_out").style.stroke="blue";
@@ -845,7 +845,7 @@ crossorigin="anonymous"
         if(asm[0]=="MOVE"){
           var writeReg = addHelper(controls[8], controls[9]);
           var reg1 = addHelper(controls[4], controls[5]);
-          document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).style.stroke="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
           document.getElementById("reg_"+reg1+"_box").style.stroke="green";
           document.getElementById("read_a_out").style.stroke="green";
@@ -878,7 +878,7 @@ crossorigin="anonymous"
   function usr(){
     if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
       code_mem.switchToUser();
-      cpu.pc.currentPC=31;
+      cpu.pc.currentPC=32;
     }
   }
 
