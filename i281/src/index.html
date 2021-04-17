@@ -470,7 +470,7 @@ crossorigin="anonymous"
         document.getElementById("pc_val_id").innerHTML = pad((cur).toString(2), 6);
         cpu.singleCycle();
 
-        if(cur-32>cpu.instructions.length){
+        if(cur>cpu.instructions.length){
           return;
         }
 
@@ -484,16 +484,14 @@ crossorigin="anonymous"
           document.getElementById("usrTxt").style.visibility="hidden";
           document.getElementById("biosTxt").style.visibility="hidden";
         }
-        if(cpu.pc.currentPC>31){
-          let curAsm = cpu.instructions[cur-32]
-          if(curAsm!=null){
-            let build = "";
-            for(var i=0; i<curAsm.length; i++){
-              build+=curAsm[i]+" ";
-            }
-            document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
+        let curAsm = cpu.instructions[cur]
+        if(curAsm!=null){
+          let build = "";
+          for(var i=0; i<curAsm.length; i++){
+            build+=curAsm[i]+" ";
           }
-        }
+          document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
+          }
         if (cur>31){
           switchToUser();
         }
@@ -537,96 +535,92 @@ crossorigin="anonymous"
       }
 
       function highlightSyntax(cur, prev){
-        if(cur > 31){
-          var asm = cpu.instructions[cur-32];
-          var prevasm = cpu.instructions[prev-32];
+        var asm = cpu.instructions[cur];
+        var prevasm = cpu.instructions[prev];
 
-          if(asm==null){
-
-            console.log("prog done");
-            return;
-          }
+        if(asm==null){
+          console.log("prog done");
+          return;
+        }
       
-          document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
-          document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
+        document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
+        document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
 
            
-          if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "black";
+        if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "black";
 
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="LOADI" || asm[0]=="SUBI" || asm[0]=="ADDI" || asm[0]=="LOAD"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "black";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="LOADI" || asm[0]=="SUBI" || asm[0]=="ADDI" || asm[0]=="LOAD"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
 
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="STOREF" || asm[0]=="STORE"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="STOREF" || asm[0]=="STORE"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
 
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="JUMP"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="JUMP"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="BRE" || asm[0]=="BRNE" || asm[0]=="BRG" || asm[0]=="BRGE" || asm[0]=="INPUTD"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="LOADF"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="SHIFTR" || asm[0]=="SHIFTL"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
             document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
 
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="BRE" || asm[0]=="BRNE" || asm[0]=="BRG" || asm[0]=="BRGE" || asm[0]=="INPUTD"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="NOOP"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
 
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="LOADF"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="SHIFTR" || asm[0]=="SHIFTL"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="NOOP"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
         }
 
-        if(prev > 31){
+        if(prev!=-1){
           document.getElementById("imem_val"+prev+"_opcode").style.fill = "black";
           document.getElementById("imem_val"+prev+"_opcode").setAttribute("font-weight", "normal");
 
@@ -654,7 +648,7 @@ crossorigin="anonymous"
       }
 
       function highlightTest(controls, cur){
-      if(cur>31){
+      if(true){
         var jumpPath = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
 
         var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_output_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
@@ -727,7 +721,7 @@ crossorigin="anonymous"
           document.getElementById("reg_"+i+"_box").style.stroke="black";
         }
           
-        asm=cpu.instructions[cur-32];
+        asm=cpu.instructions[cur];
 
         if(asm==null){
           return;
@@ -865,15 +859,16 @@ crossorigin="anonymous"
     }
 
     function bios(){
-    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
+    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==32){
       code_mem.switchToBios();
+      console.log("in bios")
       //document.getElementById("pc_val_id").innerHTML
       cpu.pc.currentPC=0;
     }
   }
 
   function usr(){
-    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
+    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==32){
       code_mem.switchToUser();
       cpu.pc.currentPC=32;
     }

@@ -8,7 +8,7 @@
 export class PC {
     constructor(maxPC) {
         this.currentPC = 0;
-		this.lastPC = 0;
+		this.lastPC = -1;
 		this.step = 1;
 		this.maxPC = maxPC;
     }
