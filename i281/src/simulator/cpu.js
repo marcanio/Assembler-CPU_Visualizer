@@ -57,8 +57,25 @@ export class CPU {
         }
 
         else {
+            let fullInstructions = new Array(32)
+            var userInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+
+            for(var i=0; i<32; i++){
+                if(i==1){
+                    let inst = ["JUMP", "30"];
+                    fullInstructions[i]=inst;
+                }
+                else{
+                    let inst = ["NOOP"];
+                    fullInstructions[i]=inst;
+                }
+            }
+            fullInstructions = fullInstructions.concat(userInstructions);
+            
+            console.log(fullInstructions);
+
+            this.instructions = fullInstructions;
             this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
-            this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
             this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
         }
         
@@ -270,6 +287,39 @@ export class CPU {
         ]
 
         this.instructions = [
+
+            ["NOOP"]
+            ["JUMP", "30"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
+            ["NOOP"]
             [
                 "LOADI",
                 "A",

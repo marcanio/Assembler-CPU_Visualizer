@@ -9,7 +9,7 @@ let addr = []
 let box = []
 let mem = [];
 let usrCodeids = [];
-
+let biosCodeids = [];
 
 const BOX_OFFSET = [Constants.CODE_MEM_OFFSET[0] + VAL[0] - 60, Constants.CODE_MEM_OFFSET[1] + VAL[1]];
 const BETWEEN_DIST = 38;
@@ -39,116 +39,32 @@ export default class IMEM_SVG {
 			var cur = new PolygonSVG("imem_box"+i, [...Constants.IMEM_BOX], Constants.THIN_BLOCK_STYLE, [BOX_OFFSET[0]-5, BOX_OFFSET[1] + (BETWEEN_DIST * (i+1))])
 			box.push(cur)
 		}
-		
-		for(var i=0; i<32; i++){
-			var bios = new TextSVG(242, (BETWEEN_DIST * (i+1)), "imem_val"+(i), code[i], Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-			var opcode = new TextSVG(150, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_opcode", code[i+32].substring(0,4), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-			//var test = new TextSVG(150+86, (BETWEEN_DIST*(i+1)), "imem_test"+(i+32), "00000000", Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-			if(i<asm.length){
-				if(asm[i][0]=="ADD" || asm[i][0]=="SUB" || asm[i][0]=="MOVE" || asm[i][0]=="CMP"){ //two registers here
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var rem = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(rem);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="LOADI" || asm[i][0]=="SUBI" || asm[i][0]=="ADDI" || asm[i][0]=="LOAD"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="STOREF" || asm[i][0]=="STORE"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="JUMP"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="BRE" || asm[i][0]=="BRNE" || asm[i][0]=="BRG" || asm[i][0]=="BRGE" || asm[i][0]=="INPUTD"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="LOADF"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="SHIFTR" || asm[i][0]=="SHIFTL"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
-				else if(asm[i][0]=="NOOP"){
-					var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-					mem.push(reg1);
-					mem.push(reg2);
-					mem.push(imm);
-					usrCodeids.push("imem_val"+(i+32)+"_reg1");
-					usrCodeids.push("imem_val"+(i+32)+"_reg2");
-					usrCodeids.push("imem_val"+(i+32)+"_imm");
-				}
+		var j=0;
+		for(var i=0; i<code.length; i++){
+			var opcode = new TextSVG(150, (BETWEEN_DIST * (j+1)), "imem_val"+i+"_opcode", code[i].substring(0,4), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+
+			var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (j+1)), "imem_val"+i+"_reg1", code[i].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+			var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (j+1)), "imem_val"+i+"_reg2", code[i].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+
+			var rem = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (j+1)), "imem_val"+i+"_imm", code[i].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
+			mem.push(reg1);
+			mem.push(reg2);
+			mem.push(rem);
+			mem.push(opcode);
+			if(i<32){
+				biosCodeids.push("imem_val"+i+"_opcode");
+				biosCodeids.push("imem_val"+i+"_reg1");
+				biosCodeids.push("imem_val"+i+"_reg2");
+				biosCodeids.push("imem_val"+i+"_imm");
 			}
 			else{
-				var reg1 = new TextSVG(150+44, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg1", code[i+32].substring(4,6), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-				var reg2 = new TextSVG(150+44+30, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_reg2", code[i+32].substring(6,8), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-				var imm = new  TextSVG(150+44+30+74, (BETWEEN_DIST * (i+1)), "imem_val"+(i+32)+"_imm", code[i+32].substring(8,16), Constants.TEXT_STYLE, Constants.CODE_MEM_OFFSET);
-				mem.push(reg1);
-				mem.push(reg2);
-				mem.push(imm);
-				usrCodeids.push("imem_val"+(i+32)+"_reg1");
-				usrCodeids.push("imem_val"+(i+32)+"_reg2");
-				usrCodeids.push("imem_val"+(i+32)+"_imm");
-				
+				usrCodeids.push("imem_val"+i+"_opcode");
+				usrCodeids.push("imem_val"+i+"_reg1");
+				usrCodeids.push("imem_val"+i+"_reg2");
+				usrCodeids.push("imem_val"+i+"_imm");
 			}
-			usrCodeids.push("imem_val"+(i+32)+"_opcode");
-			mem.push(bios);
-			mem.push(opcode);
+			j++;
+			if(j==32) j=0;
 		}
 
 		this.label = new TextSVG(238, 1375, "imem_label", "Instruction Memory", Constants.COMPONENT_NAME_TEXT_STYLE);
@@ -190,14 +106,15 @@ export default class IMEM_SVG {
 	
 	switchToUser(){
 		for(var i=0; i<32; i++){
-			document.getElementById("imem_val"+i).style.visibility = "hidden";
-			for(var j=0; j<usrCodeids.length; j++){
-				document.getElementById(usrCodeids[j]).style.visibility = "visible";
-			}
 			document.getElementById("imem_addr"+(i)).style.visibility = "hidden";
 			document.getElementById("imem_addr"+(i+32)).style.visibility = "visible";
 		}
-
+		for(var i=0; i<biosCodeids.length; i++){
+			document.getElementById(biosCodeids[i]).style.visibility="hidden";
+		}
+		for(var i=0; i<usrCodeids.length; i++){
+			document.getElementById(usrCodeids[i]).style.visibility = "visible";
+		}
 		document.getElementById("up_box").style.stroke = "black";
 		document.getElementById("up_arrow").style.fill = "black";
 
@@ -209,13 +126,14 @@ export default class IMEM_SVG {
 
 	switchToBios(){
 		for(var i=0; i<32; i++){
-			console.log("imem_val"+i)
-			document.getElementById("imem_val"+i).style.visibility = "visible";
-			for(var j=0; j<usrCodeids.length; j++){
-				document.getElementById(usrCodeids[j]).style.visibility = "hidden";
-			}
 			document.getElementById("imem_addr"+(i)).style.visibility = "visible";
 			document.getElementById("imem_addr"+(i+32)).style.visibility = "hidden";
+		}
+		for(var i=0; i<biosCodeids.length; i++){
+			document.getElementById(biosCodeids[i]).style.visibility="visible";
+		}
+		for(var i=0; i<usrCodeids.length; i++){
+			document.getElementById(usrCodeids[i]).style.visibility = "hidden";
 		}
 		document.getElementById("up_box").style.stroke = "gray";
 		document.getElementById("up_arrow").style.fill = "gray";
