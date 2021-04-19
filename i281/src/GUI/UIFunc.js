@@ -15,6 +15,9 @@ slider.oninput = function() {
 document.getElementById("speedSld").addEventListener("change", segTimer);
 document.getElementById("auto_on").addEventListener("change", segTimer);
 document.getElementById("game_on").addEventListener("change", segTimer);
+document.getElementById("bit01").addEventListener("change", segTimer);
+document.getElementById("game_on").addEventListener("change", uiMode);
+
 
 var segTime = 0;
 
@@ -22,6 +25,7 @@ var segTime = 0;
 function segTimer()
 {
   var mode = document.getElementById("auto_on").checked;
+
   var gaming = document.getElementById("game_on").checked;
   if(gaming)
   {
@@ -49,12 +53,13 @@ function segTimer()
     if(segTime == 0)
     {
       segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);//1-10 seconds
+
     }
     else
     {
       clearInterval(segTime);
-      segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);//1-10 seconds
-      
+      segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);
+      return;
     }
   }
   else
@@ -88,6 +93,9 @@ document.getElementById("bit17").addEventListener("keydown", arrowWork);
 document.getElementById("push1").addEventListener("click", uiMode);
 document.getElementById("bit00").addEventListener("change", uiMode);
 document.getElementById("bit01").addEventListener("change", uiMode);
+document.getElementById("bit0In").addEventListener("onkeypress", uiMode);
+document.getElementById("bit1In").addEventListener("onkeypress", uiMode);
+
 
 function arrowWork(event)
 {
@@ -228,91 +236,28 @@ function arrowWork(event)
         //sevenSegUpdate(this);
 }
 
-function getRelevantBox(swNum)
-{
-    switch(swNum)
-    {
-        case bit00:
-            return "bit0In";
-            break;
-        case bit01:
-            return "bit1In";
-            break;
-        case bit02:
-            return "bit2In";
-            break;
-        case bit03:
-            return "bit3In";
-            break; 
-        case bit04:
-            return "bit4In";
-            break;
-        case bit05:
-            return "bit5In";
-            break;
-        case bit06:
-            return "bit6In";
-            break;
-        case bit07:
-            return "bit7In";
-            break;
-        case bit08:
-            return "bit8In";
-            break; 
-        case bit09:
-            return "bit9In";
-            break;    
-        case bit10:
-            return "bit10In";
-            break;
-        case bit11:
-            return "bit11In";
-            break;
-        case bit12:
-            return "bit12In";
-            break;
-        case bit13:
-            return "bit13In";
-            break; 
-        case bit14:
-            return "bit14In";
-            break;        
-        case bit15:
-            return "bit15In";
-            break;
-        case bit16:
-            return "bit16In";
-            break; 
-        case bit17:
-            return "bit17In";
-            break;     
-        default:
-            break;          
-    }    
-}    
-
 var initTool = 0;
 
 function uiMode(){
     var viewSw = document.getElementById("bit01");
-    var gameSw = document.getElementById("bit00");
+    var regSw = document.getElementById("bit00");
 
     if(initTool == 0)
     {
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
           })
-          initTool = initTool +1;
+          initTool = initTool + 1;
     }
 
-    if(gameSw.checked)//Game Mode
+    if(regSw.checked)//Game Mode
     {
-        gameView();
+        regView();
     }
     else{//View Mode, ignored if we are in game mode
         if(viewSw.checked)
         {
-            regView();
+            gameView();
         }
         else
         {
@@ -2114,5 +2059,3 @@ function gameView(){
             }
         }        
     }
-
-
