@@ -40,6 +40,8 @@ export class CPU {
 
         this.switchInput = Array(8);  // TODO these are not defined should come from Jacob.
         
+        this.progName; //This is for the name of the program/file
+
         this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
     }
 
@@ -52,17 +54,48 @@ export class CPU {
         this.registers.initialize();
         this.flags.initialize();
         
+        if(sessionStorage.getItem("fileName")==null){
+            this.progName="BubbleSort";
+        }
+        else{
+            this.progName=sessionStorage.getItem("fileName");
+        }
+
         if (sessionStorage.getItem("instructionMemory") === null) {
             this.bubbleSortDefault()
         }
-
         else {
-            this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
-            this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+            let fullInstructions = new Array(32)
+            var userInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+
+            for(var i=0; i<32; i++){
+                if(i==1){
+                    let inst = ["JUMP", "30"];
+                    fullInstructions[i]=inst;
+                }
+                else{
+                    let inst = ["NOOP"];
+                    fullInstructions[i]=inst;
+                }
+            }
+            fullInstructions = fullInstructions.concat(userInstructions);
+
+            this.instructions = fullInstructions;
+
+            if(this.progName=="BiosSwitches"){
+                var machineCode = JSON.parse(sessionStorage.getItem("instructionMemory")).slice(32)
+                var asmInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));
+                for(var i=0; i<32; i++){
+                    machineCode.push("0000000000000000")
+                    asmInstructions.push(["NOOP"])
+                }
+                this.iMem.registers=machineCode;
+                this.instructions=asmInstructions;
+            }
+
+            else this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
             this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
         }
-        
-
     }
 
     /**
@@ -270,6 +303,39 @@ export class CPU {
         ]
 
         this.instructions = [
+
+            ["NOOP"],
+            ["JUMP", "30"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
             [
                 "LOADI",
                 "A",

@@ -26,23 +26,29 @@ crossorigin="anonymous"
 
 </head>
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark justify-content-between">
-  <a class="navbar-brand" href="#">i281 CPU</a>
-  <div class="navbar-nav">
-   
-      <div style="overflow: hidden;color: white;font-weight: bold;">
-        <p style="float: left;">Current Instruction:&nbsp</p>
-        <p style="float: right;"id="assembly_inst"></p>
-      </div>
-      
-   
-  </div>
-  <div class="navbar-nav justify-content-end" >
-  
-    <a class="nav-item nav-link" href="./assembler/ImportFile.html" style="color: white;">Go to Assembler</a>
-    <a class="nav-item nav-link" href="index.html" style="color: white;">Reset</a>
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark " role="navigation">
+  <div class="container-fluid"> 
+      <ul class="nav navbar-nav navbar-left">
+        <div style="overflow: hidden;color: white;font-weight: bold;">
+          <li><a style="float: left; text-align: left;">Current Instruction:&nbsp</a><a style="float: right; text-align: left;"id="assembly_inst"></a></li>
+         
+        </div>
+      </ul>
+      <ul class="nav navbar-nav navbar-center">
+        <div style="overflow: hidden;color: white;font-weight: bold;">
+          <li><a style = "float: left;" >i281 CPU Running:&nbsp</a><a style = "float: right;" id="progName">test</a></li>
+          </div>
+          
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-item nav-link" href="./assembler/ImportFile.html" style="color: white;">Go to Assembler</a></li>
+          <li><a class="nav-item nav-link" href="index.html" style="color: white;">Reset</a></li>
+      </ul>
   </div>
 </nav>
+
   <body >
    
     
@@ -381,7 +387,7 @@ crossorigin="anonymous"
      </ul>
    </foreignObject>
 
-     <foreignObject x="2420" y="330" width="350px" height="270px" id = "switchCanv">
+     <foreignObject x="2420" y="330" width="350px" height="300px" id = "switchCanv">
        <label class="push">
            <input type="button" id="push1">
            <span class="pushin" id="pushin1" onclick="test()"></span>
@@ -416,26 +422,32 @@ crossorigin="anonymous"
     <label for="game_on" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Game Mode on</label>
    </foreignObject>
 
-   <foreignObject x="2420" y="600" width="700px" height="200px" id = "Menu">
+   <foreignObject x="2420" y="600" width="700px" height="500px" id = "Menu">
     <br>
     <div>
       <div style="float: left;">
-        <input type="checkbox" id="show_description" style="height: 25px;width: 25px;">
+        <input type="checkbox" id="show_description" style="height: 24px;width: 24px;">
         <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Description</label>
         <br>
-        <span id="radioSpan">Start PC at:</span>
-        <label for="usr" id="usrTxt">
-          <input type="radio" id="usr" name="codeStart" checked="chkd" onclick="usr()" />
+        <input type="checkbox" id="bHighlight" style="height: 24px;width: 24px;" checked="chkd">
+        <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Highlighting</label>
+  </div>
+  <div style="float: left;">
+    <input type="checkbox" id="show_bus_info" style="height: 24px;width: 24px;"checked="chkd">
+    <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
+    <br>
+    <input type="checkbox" id="sHighlight" style="height: 24px;width: 24px;" checked="chkd">
+    <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Syntax Highlighting</label>
+    <br>
+    <span id="radioSpan" style="font-size: xx-large;">Start PC at:</span>
+        <label for="usr" id="usrTxt" style="font-size: 20px;">
+          <input type="radio" id="usr" name="codeStart" checked="chkd" onclick="usr()" style="height: 24px; width: 24px" />
             32 (User Space)
         </label>
-        <label for="bios" id="biosTxt">
-            <input type="radio" id="bios" name="codeStart" onclick="bios()"/>
+        <label for="bios" id="biosTxt" style="font-size: 20px;">
+            <input type="radio" id="bios" name="codeStart" onclick="bios()" style="height: 24px; width: 24px"/>
              0 (Bios Space)
          </label>
-  </div>
-  <div style="float: right;">
-    <input type="checkbox" id="show_bus_info" style="height: 25px;width: 25px;">
-    <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
   </div>
  
     </div>
@@ -470,7 +482,7 @@ crossorigin="anonymous"
         document.getElementById("pc_val_id").innerHTML = pad((cur).toString(2), 6);
         cpu.singleCycle();
 
-        if(cur-32>cpu.instructions.length){
+        if(cur>cpu.instructions.length){
           return;
         }
 
@@ -484,18 +496,19 @@ crossorigin="anonymous"
           document.getElementById("usrTxt").style.visibility="hidden";
           document.getElementById("biosTxt").style.visibility="hidden";
         }
-        if(cpu.pc.currentPC>31){
-          let curAsm = cpu.instructions[cur-32]
-          if(curAsm!=null){
-            let build = "";
-            for(var i=0; i<curAsm.length; i++){
-              build+=curAsm[i]+" ";
-            }
-            document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
+        let curAsm = cpu.instructions[cur]
+        if(curAsm!=null){
+          let build = "";
+          for(var i=0; i<curAsm.length; i++){
+            build+=curAsm[i]+" ";
           }
-        }
+          document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
+          }
         if (cur>31){
           switchToUser();
+          /* TODO: 
+             Add some special case; if cpu.progName="biosSwitches" then update code_mem with new user entered code.
+          */
         }
 
         highlightSyntax(cur, prev)
@@ -505,11 +518,23 @@ crossorigin="anonymous"
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           document.getElementById("c"+i+"val").style.fill="red";
           document.getElementById("c"+i+"val").setAttribute("font-weight", "bold");
+
+          document.getElementById("control_c"+i).style.fill = "red";
+          document.getElementById("control_c"+i).style.stroke = "red";
+
+          document.getElementById("c"+i).style.fill="red"
+          document.getElementById("c"+i).style.stroke="red"
         }
         else{
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           document.getElementById("c"+i+"val").style.fill="black";
           document.getElementById("c"+i+"val").setAttribute("font-weight", "normal");
+
+          document.getElementById("control_c"+i).style.fill = "black";
+          document.getElementById("control_c"+i).style.stroke = "black";
+
+          document.getElementById("c"+i).style.fill="black"
+          document.getElementById("c"+i).style.stroke="black"
         }
       }
         for(var i=0; i<registers.length; i++){
@@ -537,96 +562,16 @@ crossorigin="anonymous"
       }
 
       function highlightSyntax(cur, prev){
-        if(cur > 31){
-          var asm = cpu.instructions[cur-32];
-          var prevasm = cpu.instructions[prev-32];
+        var asm = cpu.instructions[cur];
+        var prevasm = cpu.instructions[prev];
 
-          if(asm==null){
-
-            console.log("prog done");
-            return;
-          }
-      
-          document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
-          document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
-
-           
-          if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "black";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="LOADI" || asm[0]=="SUBI" || asm[0]=="ADDI" || asm[0]=="LOAD"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "black";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="STOREF" || asm[0]=="STORE"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="JUMP"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="BRE" || asm[0]=="BRNE" || asm[0]=="BRG" || asm[0]=="BRGE" || asm[0]=="INPUTD"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="LOADF"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="SHIFTR" || asm[0]=="SHIFTL"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-          else if(asm[0]=="NOOP"){
-            document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-            document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
-
-            document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-            document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
-          }
-
+        if(asm==null){
+          console.log("prog done");
+          return;
         }
 
-        if(prev > 31){
+        
+        if(prev!=-1){
           document.getElementById("imem_val"+prev+"_opcode").style.fill = "black";
           document.getElementById("imem_val"+prev+"_opcode").setAttribute("font-weight", "normal");
 
@@ -638,6 +583,85 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+prev+"_reg2").setAttribute("font-weight", "normal");
           document.getElementById("imem_val"+prev+"_imm").setAttribute("font-weight", "normal");
       }
+
+      if(document.getElementById("sHighlight").checked==false) return;
+
+        document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
+        document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
+
+           
+        if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "black";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="LOADI" || asm[0]=="SUBI" || asm[0]=="ADDI" || asm[0]=="LOAD"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="STOREF" || asm[0]=="STORE"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="JUMP"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="BRE" || asm[0]=="BRNE" || asm[0]=="BRG" || asm[0]=="BRGE" || asm[0]=="INPUTD"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "black";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="LOADF"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="SHIFTR" || asm[0]=="SHIFTL"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+            document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="NOOP"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
     }
       function pad(n, width, z) {
 		    z = z || '0';
@@ -654,7 +678,7 @@ crossorigin="anonymous"
       }
 
       function highlightTest(controls, cur){
-      if(cur>31){
+      if(true){
         var jumpPath = ["imem_out","imem_to_junction", "to_update_logic", "pc_update_false_wire", "mux4_false_wire"]
 
         var loadiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux_reg_file_wire", "mux1_output_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire"];
@@ -664,6 +688,8 @@ crossorigin="anonymous"
         var loadFImmPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_0", "mux0_true_wire", "mux_alu_wire"]
 
         var loadFALUOutPath = ["alu_result_wire", "mux1_false_wire", "mux1_output_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_a"];
+
+        var storefReadPath = ["alu_result_wire", "mux1_false_wire", "mux1_output_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_b"]
 
         var storePath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_1", "mux1_true_wire", "mux1_output_wire", "mux1_out_to_dmem_junction", "junction_to_dmem_b"]
 
@@ -678,6 +704,8 @@ crossorigin="anonymous"
         var aluWritebackPath = ["alu_result_wire", "mux1_false_wire", "mux1_output_wire", "mux1_out_to_mux3", "junction_to_mux3", "mux3_false_wire", "mux_reg_file_wire"];
 
         var addiPath = ["imem_out", "imem_to_junction", "to_mux_junction", "to_mux_0", "mux0_true_wire", "mux_alu_wire"]
+
+        var codeMemWritebackPath = ["alu_result_wire", "mux1_false_wire", "mux1_output_wire", "mux1_out_to_mux3", "junction_to_imem"];
 
         for(var i=0; i<jumpPath.length; i++){
             document.getElementById(jumpPath[i]).style.stroke="black";
@@ -716,18 +744,27 @@ crossorigin="anonymous"
         for (var i=0; i<loadFImmPath.length; i++){
           document.getElementById(loadFImmPath[i]).style.stroke="black";
         }
+        for(var i=0; i<storefReadPath.length; i++){
+            document.getElementById(storefReadPath[i]).style.stroke="black";
+          }
         document.getElementById("alu_flag_wire").style.stroke="black";
         document.getElementById("read_a_out").style.stroke="black";
-        document.getElementById("negative_flag").style.stroke="black";
+        document.getElementById("negative_flag").style.fill="black";
         document.getElementById("negative_flag").setAttribute("font-weight", "normal");
-
+        document.getElementById("switches_mux1_wire").style.stroke="black";
+        document.getElementById("imem_mux2_junction").style.stroke="black";
         for(var i=0; i<4; i++){
-          document.getElementById("reg_"+i).style.stroke="black";
+          document.getElementById("reg_"+i).style.fill="black";
           document.getElementById("reg_"+i).setAttribute("font-weight", "normal");
           document.getElementById("reg_"+i+"_box").style.stroke="black";
         }
+        for(var i=0; i<16; i++){
+          document.getElementById("dmem_val"+i).style.fill="black";
+          document.getElementById("dmem_val"+i).setAttribute("font-weight", "normal");
+        }
+        if(document.getElementById("bHighlight").checked==false) return;
           
-        asm=cpu.instructions[cur-32];
+        asm=cpu.instructions[cur];
 
         if(asm==null){
           return;
@@ -766,7 +803,7 @@ crossorigin="anonymous"
             document.getElementById(loadWritePath[i]).style.stroke="orange";
           }
           var writeReg = addHelper(controls[8], controls[9]);
-          document.getElementById("reg_"+writeReg).style.stroke="orange";
+          document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="LOADF"){
@@ -774,7 +811,7 @@ crossorigin="anonymous"
           var writeReg = addHelper(controls[8], controls[9]);
           document.getElementById("reg_"+readReg+"_box").style.stroke = "green";
           document.getElementById("read_a_out").style.stroke="green";
-          document.getElementById("reg_"+writeReg).style.stroke="orange";
+          document.getElementById("reg_"+writeReg).style.fill="orange";
           for(var i=0; i<loadFImmPath.length; i++){
             document.getElementById(loadFImmPath[i]).style.stroke="purple";
           }
@@ -784,6 +821,9 @@ crossorigin="anonymous"
           for(var i=0; i<loadWritePath.length; i++){
             document.getElementById(loadWritePath[i]).style.stroke="orange";
           }
+          var test=parseInt(cpu.alu.result,2);
+          document.getElementById("dmem_val"+test).style.fill="orange";
+          document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="STORE"){
           var readReg = addHelper(controls[6], controls[7]);
@@ -794,7 +834,25 @@ crossorigin="anonymous"
           for(var i=0; i<storePath.length; i++){
             document.getElementById(storePath[i]).style.stroke="purple";
           }
-          
+        }
+        if(asm[0]=="STOREF"){
+          var valueReg = addHelper(controls[6], controls[7]);
+          var offsetReg = addHelper(controls[4], controls[5]);
+          for(var i=0; i<loadFImmPath.length; i++){
+            document.getElementById(loadFImmPath[i]).style.stroke="purple";
+          }
+          document.getElementById("reg_"+offsetReg+"_box").style.stroke="green";
+          document.getElementById("read_a_out").style.stroke="green";
+          for(var i=0; i<storefReadPath.length; i++){
+            document.getElementById(storefReadPath[i]).style.stroke="cyan";
+          }
+          document.getElementById("reg_"+valueReg+"_box").style.stroke="blue";
+          for(var i=0; i<storeALUPath.length; i++){
+            document.getElementById(storeALUPath[i]).style.stroke="blue";
+          }
+          var test=parseInt(cpu.alu.result,2);
+          document.getElementById("dmem_val"+test).style.fill="cyan";
+          document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="CMP"){
           var reg1=addHelper(controls[4], controls[5])
@@ -806,7 +864,7 @@ crossorigin="anonymous"
             document.getElementById(readBPath[i]).style.stroke="green";
           }
           document.getElementById("alu_flag_wire").style.stroke="red";
-          document.getElementById("negative_flag").style.stroke="red";
+          document.getElementById("negative_flag").style.fill="red";
           document.getElementById("negative_flag").setAttribute("font-weight", "bold");
         }
         if(asm[0]=="ADD" || asm[0]=="SUB"){
@@ -822,7 +880,7 @@ crossorigin="anonymous"
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
           }
           var writeReg = addHelper(controls[8], controls[9]);
-          document.getElementById("reg_"+writeReg).style.stroke="orange";
+          document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="ADDI" || asm[0]=="SUBI"){
@@ -834,7 +892,7 @@ crossorigin="anonymous"
           }
           var reg1 = addHelper(controls[4], controls[5]);
           var writeReg = addHelper(controls[8], controls[9]);
-          document.getElementById("reg_"+writeReg).style.stroke="orange";
+          document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("read_a_out").style.stroke="blue";
@@ -842,7 +900,7 @@ crossorigin="anonymous"
         if(asm[0]=="MOVE"){
           var writeReg = addHelper(controls[8], controls[9]);
           var reg1 = addHelper(controls[4], controls[5]);
-          document.getElementById("reg_"+writeReg).style.stroke="orange";
+          document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
           document.getElementById("reg_"+reg1+"_box").style.stroke="green";
           document.getElementById("read_a_out").style.stroke="green";
@@ -861,19 +919,42 @@ crossorigin="anonymous"
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
           }
         }
+        if(asm[0]=="INPUTD"){
+          for(var i=0; i<loadPath.length; i++){
+            document.getElementById(loadPath[i]).style.stroke="purple";
+          }
+          document.getElementById("switches_mux1_wire").style.stroke="cyan"
+          document.getElementById("mux2_true_wire").style.stroke="cyan";
+          document.getElementById("mux2_dmem_wire").style.stroke="cyan";
+        }
+        if(asm[0]=="INPUTCF"){
+          for(var i=0; i<addiPath.length; i++){
+            document.getElementById(addiPath[i]).style.stroke="purple";
+          }
+          for(var i=0; i<codeMemWritebackPath.length; i++){
+            document.getElementById(codeMemWritebackPath[i]).style.stroke="cyan"
+          }
+          var readReg = addHelper(controls[4], controls[5]);
+          document.getElementById("reg_"+readReg+"_box").style.stroke="blue";
+          document.getElementById("read_a_out").style.stroke="blue";
+          document.getElementById("switches_mux1_wire").style.stroke="orange";
+          document.getElementById("imem_mux2_junction").style.stroke="orange";
+        }
+        if(asm[0]=="NOOP") return;
       }
     }
 
     function bios(){
-    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
+    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==32){
       code_mem.switchToBios();
+      console.log("in bios")
       //document.getElementById("pc_val_id").innerHTML
       cpu.pc.currentPC=0;
     }
   }
 
   function usr(){
-    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==31){
+    if (cpu.pc.currentPC==0 || cpu.pc.currentPC==32){
       code_mem.switchToUser();
       cpu.pc.currentPC=32;
     }

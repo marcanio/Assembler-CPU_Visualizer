@@ -150,6 +150,11 @@ input:checked + .slider:before {
   width: 0;
   height: 0;
 }
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+}
 
 .pushin {
   position: absolute;
