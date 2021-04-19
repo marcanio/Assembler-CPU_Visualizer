@@ -225,17 +225,17 @@ window.addEventListener("load", function() {
 	var dmem_c17 = new ArrowSVG(Constants.DMEM_C17_ID, 17, RIGHT, Constants.DMEM_C17_OFFSET);
 	var mux_c18 = new ArrowSVG(Constants.MUX_C18_ID, 18, RIGHT, Constants.MUX_C18_OFFSET);
 	
-	var intersect_1 = new CircleSVG("testid", Constants.INTERSECT_1_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_2 = new CircleSVG("testid", Constants.INTERSECT_2_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_3 = new CircleSVG("testid", Constants.INTERSECT_3_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_4 = new CircleSVG("testid", Constants.INTERSECT_4_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_5 = new CircleSVG("testid", Constants.INTERSECT_5_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_6 = new CircleSVG("testid", Constants.INTERSECT_6_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_7 = new CircleSVG("testid", Constants.INTERSECT_7_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_8 = new CircleSVG("testid", Constants.INTERSECT_8_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
-	var intersect_9 = new CircleSVG("testid", Constants.INTERSECT_9_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_1 = new CircleSVG("intersect_1", Constants.INTERSECT_1_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_2 = new CircleSVG("intersect_2", Constants.INTERSECT_2_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_3 = new CircleSVG("intersect_3", Constants.INTERSECT_3_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_4 = new CircleSVG("intersect_4", Constants.INTERSECT_4_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_5 = new CircleSVG("intersect_5", Constants.INTERSECT_5_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_6 = new CircleSVG("intersect_6", Constants.INTERSECT_6_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_7 = new CircleSVG("intersect_7", Constants.INTERSECT_7_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_8 = new CircleSVG("intersect_8", Constants.INTERSECT_8_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
+	var intersect_9 = new CircleSVG("intersect_9", Constants.INTERSECT_9_POS, Constants.INTERSECT_RADIUS, Constants.INTERSECT_STYLE);
 
-	var imem_red_write_enable_text = new TextSVG(400, 50, "imem_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+	var imem_red_write_enable_text = new TextSVG(405, 55, "imem_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
 	var imem_red_write_select_text = new TextSVG(120, 50, "imem_red_write_select_text", "Write Select", Constants.RED_ARIAL_STYLE);
 	var imem_red_input_text = new TextSVG(50, 280, "imem_red_input_text", "Input", Constants.RED_ARIAL_STYLE);
 	var imem_red_read_selection_text = new TextSVG(140, 1450, "imem_red_read_selection_text", "Read Select", Constants.RED_ARIAL_STYLE);
@@ -251,9 +251,9 @@ window.addEventListener("load", function() {
 	var alu_red_result_text = new TextSVG(1760, 580, "alu_red_result_text", "ALU Result Mux", Constants.RED_ARIAL_STYLE);
 	var alu_red_source_text = new TextSVG(1280, 640, "alu_red_source_text", "ALU Source Mux", Constants.RED_ARIAL_STYLE);
 
-	var flags_red_write_enable_text = new TextSVG(1680, 385, "flags_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
+	var flags_red_write_enable_text = new TextSVG(1683, 400, "flags_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
 
-	var pc_red_mux_text = new TextSVG(950, 1100, "pc_red_mux_text", "PC MUX", Constants.RED_ARIAL_STYLE);
+	var pc_red_mux_text = new TextSVG(950, 1100, "pc_red_mux_text", "PC Mux", Constants.RED_ARIAL_STYLE);
 	var pc_red_write_enable_text = new TextSVG(1160, 1100, "pc_red_write_enable_text", "Write Enable", Constants.RED_ARIAL_STYLE);
 
 	var dmem_red_write_select_text = new TextSVG(1733, 950, "dmem_red_write_select_text", "Write Select", Constants.RED_ARIAL_STYLE);
