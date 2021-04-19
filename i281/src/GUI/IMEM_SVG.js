@@ -26,7 +26,7 @@ export default class IMEM_SVG {
 
 		var code = cpu.iMem.registers;
 
-		console.log(code);
+		//console.log(code);
 
 		for(var i=0; i<32; i++){
 			var bios = new TextSVG(ADDR[0], ADDR[1] + (BETWEEN_DIST * (i+1)), "imem_addr"+(i), this.pad((i).toString(2), 6), Constants.BLUE_TEXT_STYLE, Constants.CODE_MEM_OFFSET)

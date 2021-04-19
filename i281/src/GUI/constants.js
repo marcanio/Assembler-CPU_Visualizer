@@ -108,7 +108,7 @@ export const SWITCHES_MUX1_WIRE = ["M", MUX2_OFFSET[0] - 200, MUX2_OFFSET[1] + M
     export const TO_MUX0 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 0,-180, 45,0 ]
     export const TO_MUX1 = ["M", CODE_MEM_OFFSET[0]+CODE_MEM_WIDTH+15+650,INTERSECT_2_POS[1], "l", 405,0, 0,-265, 40,0]
 
-    export const TO_PC_UPDATE = ["M", INTERSECT_1_POS[0],125+825, "l", 0,240, 50,0]
+    export const TO_PC_UPDATE = ["M", INTERSECT_1_POS[0],125+885, "l", 0,180, 50,0]
     //END IMEM segments
 
     export const IMEM_OUT_TO_MUXES_SEGS = ["imem_out","imem_to_junction","to_mux_junction","to_mux_0","to_update_logic", "to_mux_1"];
@@ -407,24 +407,24 @@ export const CONTROL_C16 = "control_c16";
 export const CONTROL_C17 = "control_c17";
 export const CONTROL_C18 = "control_c18";
 
-export const IMEM_C1_ID = "imem_c1";
-export const MUX_C2_ID = "mux_c2";
-export const PC_VALUE_C3_ID = "pc_value_c3";
-export const READ_A_C4_ID = "read_a_c4";
-export const READ_A_C5_ID = "read_a_c5";
-export const READ_B_C6_ID = "read_b_c6";
-export const READ_B_C7_ID = "read_b_c7";
-export const REG_FILE_C8_ID = "reg_file_c8";
-export const REG_FILE_C9_ID = "reg_file_c9";
-export const REG_FILE_C10_ID = "reg_file_c10";
-export const MUX_C11_ID = "mux_c11";
-export const ALU_C12_ID = "alu_c12";
-export const ALU_C13_ID = "alu_c13";
-export const FLAGS_C14_ID  = "flags_c14";
-export const MUX_C15_ID = "mux_c15";
-export const MUX_C16_ID = "mux_c16";
-export const DMEM_C17_ID = "dmem_c17";
-export const MUX_C18_ID = "mux_c18";
+export const IMEM_C1_ID = "c1";
+export const MUX_C2_ID = "c2";
+export const PC_VALUE_C3_ID = "c3";
+export const READ_A_C4_ID = "c4";
+export const READ_A_C5_ID = "c5";
+export const READ_B_C6_ID = "c6";
+export const READ_B_C7_ID = "c7";
+export const REG_FILE_C8_ID = "c8";
+export const REG_FILE_C9_ID = "c9";
+export const REG_FILE_C10_ID = "c10";
+export const MUX_C11_ID = "c11";
+export const ALU_C12_ID = "c12";
+export const ALU_C13_ID = "c13";
+export const FLAGS_C14_ID  = "c14";
+export const MUX_C15_ID = "c15";
+export const MUX_C16_ID = "c16";
+export const DMEM_C17_ID = "c17";
+export const MUX_C18_ID = "c18";
 
 export const READ_A_WIRE_ID = "read_a_wire";
 export const READ_B_WIRE_ID = "read_b_wire";

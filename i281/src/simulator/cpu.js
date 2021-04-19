@@ -54,6 +54,13 @@ export class CPU {
         this.registers.initialize();
         this.flags.initialize();
         
+        if(sessionStorage.getItem("fileName")==null){
+            this.progName="BubbleSort";
+        }
+        else{
+            this.progName=sessionStorage.getItem("fileName");
+        }
+
         if (sessionStorage.getItem("instructionMemory") === null) {
             this.bubbleSortDefault()
         }
@@ -74,14 +81,20 @@ export class CPU {
             fullInstructions = fullInstructions.concat(userInstructions);
 
             this.instructions = fullInstructions;
-            this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
+
+            if(this.progName=="BiosSwitches"){
+                var machineCode = JSON.parse(sessionStorage.getItem("instructionMemory")).slice(32)
+                var asmInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));
+                for(var i=0; i<32; i++){
+                    machineCode.push("0000000000000000")
+                    asmInstructions.push(["NOOP"])
+                }
+                this.iMem.registers=machineCode;
+                this.instructions=asmInstructions;
+            }
+
+            else this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
             this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
-        }
-        if(sessionStorage.getItem("fileName")==null){
-            this.progName="BubbleSort";
-        }
-        else{
-            this.progName=sessionStorage.getItem("fileName");
         }
     }
 

@@ -432,5 +432,10 @@ window.addEventListener("load", function() {
 	svg.appendChild(dmem_red_write_enable_text.get_node());
 	svg.appendChild(dmem_red_input_text.get_node());
 	cpu.pc.currentPC=32;
+	if(cpu.progName=="BiosSwitches"){
+		cpu.pc.currentPC=0;
+		code_mem.switchToBios();
+		document.getElementById("bios").checked=true;
+	}
 	document.getElementById("progName").innerHTML = cpu.progName;
 });
