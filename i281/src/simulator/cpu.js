@@ -38,7 +38,7 @@ export class CPU {
 
         this.regWritebackMux = new Multiplexer(2);
 
-        this.switchInput = Array(8);  // TODO these are not defined should come from Jacob.
+        this.switchInput = Array(16);
         
         this.progName; //This is for the name of the program/file
 

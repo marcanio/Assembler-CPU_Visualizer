@@ -1134,13 +1134,13 @@ function autoMode()
   {
     if(currTime == 0)
     {
-      currTime = setInterval(test, 100);
+      currTime = setInterval(test, 15);
       return;
     }
     else
     {
       clearInterval(currTime);
-      currTime = setInterval(test, 100);
+      currTime = setInterval(test, 15);
       return;
     }
   }

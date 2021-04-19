@@ -49,13 +49,13 @@ export class PC {
 
 		// Add branch offset
 		if(branchControl == 1) {
-			let offsetInt = ~~parseInt(offset, 2);  // This should be explained. parseInt converts the offset to decimal. The ~~ makes it signed
+			let offsetInt = ~~parseInt(offset, 2);  // This should be explained. parseInt converts the offset to decimal. The ~~ makes it signed		
 			this.currentPC += offsetInt;
 		}
 		
 		// This handles loop logic
 		if(this.currentPC > this.maxPC - 1) {
-			this.currentPC = 0;
+			this.currentPC = this.currentPC - 64;
 		}
     }
 };
