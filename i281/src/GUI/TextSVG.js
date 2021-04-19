@@ -12,17 +12,33 @@ export default class TextSVG {
 		this.node.appendChild(document.createTextNode(txt_val));
 		this.node.setAttribute(Constants.ID_ATTR, id);
 		this.node.setAttribute(Constants.STYLE_ATTR, style);
-		var opcodeEnable = id.search("opcode");
-		if(opcodeEnable != -1)
-		{
-			this.node.setAttribute("data-toggle", "tooltip");
-			this.node.setAttribute("title", getOpcode(txt_val));
+
+		var asm = cpu.instructions;
+		if(typeof id !== 'undefined'){
+			var IMEMEnable = id.search("imem_val");
+			if(IMEMEnable != -1)
+			{
+				var hold = id.split("_");
+				var spot = hold[1].split("val"); //Should hold the asm spot - 32
+				if(asm[spot[1] - 32] !== undefined){
+					this.node.setAttribute("data-toggle", "tooltip");
+					this.node.setAttribute("data-original-title", asm[spot[1] - 32]);
+				}
+			}
 		}
+
 		var flagEnable = id.search("flag");
 		if(flagEnable != -1)
 		{
 			this.node.setAttribute("data-toggle", "tooltip");
-			this.node.setAttribute("title", id);
+			var real = id.split("_")
+			this.node.setAttribute("title", real[0]);
+		}
+		var ALUen = id.search("ALU")
+		if(ALUen != -1)
+		{
+			this.node.setAttribute("data-toggle", "tooltip");
+			this.node.setAttribute("title", txt_val);
 		}
 
 		if(offset)
