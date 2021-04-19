@@ -512,6 +512,7 @@ crossorigin="anonymous"
           for(var i=0; i<curAsm.length; i++){
             build+=curAsm[i]+" ";
           }
+          holder = build;
           document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
           }
         if (cur>31){
