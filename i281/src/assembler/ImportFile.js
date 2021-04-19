@@ -564,6 +564,25 @@ function downloadUserCodeHigh() {
 
   document.body.removeChild(element);
 }
+
+function downloadData(){
+  let fileName = "User_Data.v";
+  let element = document.createElement("a");
+ 
+  let output = createUserData();
+
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(output)
+  );
+  element.setAttribute("download", fileName);
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
 //------------------------------Instrcutions--------------------------------------------------
 
 function parseNOOP() {
@@ -1781,6 +1800,11 @@ let tableMachine = document.getElementById("machineTable");
 for(let i = tableMachine.rows.length - 1; i >= 0; i--)
 {
   tableMachine.deleteRow(i);
+}
+let tableData = document.getElementById("dataTable");
+for(let i = tableData.rows.length - 1; i >= 1; i--)
+{
+  tableData.deleteRow(i);
 }
 
 }
