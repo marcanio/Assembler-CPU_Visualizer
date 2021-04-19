@@ -40,7 +40,8 @@ export default class RegisterFileSVG {
     
 		this.read_a_mux = new Mux4_1SVG(Constants.READ_A_MUX_ID, Constants.READ_A_MUX_A_ID, Constants.READ_A_MUX_B_ID, Constants.READ_A_MUX_C_ID, Constants.READ_A_MUX_D_ID, Constants.READ_A_MUX_OFFSET);
 		this.read_b_mux = new Mux4_1SVG(Constants.READ_B_MUX_ID, Constants.READ_B_MUX_A_ID, Constants.READ_B_MUX_B_ID, Constants.READ_B_MUX_C_ID, Constants.READ_B_MUX_D_ID, Constants.READ_B_MUX_OFFSET);
-	
+		window.read_a_mux = this.read_a_mux;
+		window.read_b_mux = this.read_b_mux;
 		this.read_a_int = new CircleSVG("path_a_circle",  [REG_A_BOX_OFFSET[0] + 140 + 55, REG_A_BOX_OFFSET[1]+15] , 7, Constants.INTERSECT_STYLE);
 		this.a_to_read_a = new PathSVG("path_a", ["M", REG_A_BOX_OFFSET[0] + 140, REG_A_BOX_OFFSET[1]+15, "l", 105,0], Constants.THIN_WIRE_STYLE);
 		this.a_to_read_b = new PathSVG("path_a", ["M", REG_A_BOX_OFFSET[0] + 140 + 55, REG_A_BOX_OFFSET[1]+15, "l", 0, 250, 50,0], Constants.THIN_WIRE_STYLE);

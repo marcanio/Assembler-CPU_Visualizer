@@ -40,6 +40,8 @@ export class CPU {
 
         this.switchInput = Array(8);  // TODO these are not defined should come from Jacob.
         
+        this.progName; //This is for the name of the program/file
+
         this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
     }
 
@@ -52,17 +54,48 @@ export class CPU {
         this.registers.initialize();
         this.flags.initialize();
         
+        if(sessionStorage.getItem("fileName")==null){
+            this.progName="BubbleSort";
+        }
+        else{
+            this.progName=sessionStorage.getItem("fileName");
+        }
+
         if (sessionStorage.getItem("instructionMemory") === null) {
             this.bubbleSortDefault()
         }
-
         else {
-            this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
-            this.instructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+            let fullInstructions = new Array(32)
+            var userInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
+
+            for(var i=0; i<32; i++){
+                if(i==1){
+                    let inst = ["JUMP", "30"];
+                    fullInstructions[i]=inst;
+                }
+                else{
+                    let inst = ["NOOP"];
+                    fullInstructions[i]=inst;
+                }
+            }
+            fullInstructions = fullInstructions.concat(userInstructions);
+
+            this.instructions = fullInstructions;
+
+            if(this.progName=="BiosSwitches"){
+                var machineCode = JSON.parse(sessionStorage.getItem("instructionMemory")).slice(32)
+                var asmInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));
+                for(var i=0; i<32; i++){
+                    machineCode.push("0000000000000000")
+                    asmInstructions.push(["NOOP"])
+                }
+                this.iMem.registers=machineCode;
+                this.instructions=asmInstructions;
+            }
+
+            else this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
             this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
         }
-        
-
     }
 
     /**
@@ -140,26 +173,28 @@ export class CPU {
         // MEMORY
         // ====================
         //Get switch values
-        this.switchInput[0] = document.getElementById("bit17").checked;
-        this.switchInput[1] = document.getElementById("bit16").checked;   
-        this.switchInput[2] = document.getElementById("bit15").checked;
-        this.switchInput[3] = document.getElementById("bit14").checked;
-        this.switchInput[4] = document.getElementById("bit13").checked;
-        this.switchInput[5] = document.getElementById("bit12").checked;
-        this.switchInput[6] = document.getElementById("bit11").checked;
-        this.switchInput[7] = document.getElementById("bit10").checked;
+        for(i=0; i<16; i++) {
+            this.switchInput[i] = document.getElementById(`bit${(i+2).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})}`).checked ? 1 : 0;
+        }
 
         // Calculate dmem address
         let dmemAddr = parseInt(aluResultMuxOutput.substring(4,8),2);
 
         // Update dmem input mux
         this.dmemInputMux.setSource(0, this.registers.getRegister(c6c7));
-        this.dmemInputMux.setSource(1, this.switchInput);
+        this.dmemInputMux.setSource(1, this.switchInput.join('').substring(8));
         this.dmemInputMux.setState(controlSignals[16]);
 
         // Update dmem
         this.dMem.setWriteEnable(controlSignals[17]);
         this.dMem.setRegister(dmemAddr, this.dmemInputMux.getOutput());     
+
+        // Calculate imem address
+        let imemAddr = parseInt(aluResultMuxOutput.substring(2), 2);
+
+        // Update imem
+        this.iMem.setWriteEnable(controlSignals[1]);
+        this.iMem.setRegister(imemAddr, this.switchInput.join(''));
 
         // ====================
         // WRITEBACK
@@ -179,7 +214,6 @@ export class CPU {
         // Update pc
         this.pc.process(opcode, controlSignals[2]);
     }
-
 
     bubbleSortDefault() {
         this.iMem.registers = [
@@ -269,6 +303,39 @@ export class CPU {
         ]
 
         this.instructions = [
+
+            ["NOOP"],
+            ["JUMP", "30"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
+            ["NOOP"],
             [
                 "LOADI",
                 "A",

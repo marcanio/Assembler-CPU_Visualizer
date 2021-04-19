@@ -13,6 +13,7 @@ function Arithmetic1(){
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Arithmetic1");
    mainMethod();
 }
 function Arithmetic2(){
@@ -31,6 +32,7 @@ function Arithmetic2(){
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Arithmetic2");
    mainMethod();
 }
 function Multiplication(){
@@ -50,6 +52,7 @@ function Multiplication(){
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Multiplication");
    mainMethod();
 }
 function MultiplicationWithLoop(){
@@ -72,6 +75,7 @@ End:    STORE [z], C      ; update the z value in memory`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "MultiplicationWithLoop");
    mainMethod();
 }
 
@@ -97,6 +101,7 @@ function Arrays(){
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Arrays");
    mainMethod();
 }
 function ArrayPlusFive(){
@@ -119,6 +124,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "ArrayPlusFive");
    mainMethod();
 }
 
@@ -140,6 +146,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfEqual");
    mainMethod();
 }
 function IfGreater(){
@@ -159,6 +166,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfGreater");
    mainMethod();
 }
 function IfGreaterThanOrEqual(){
@@ -178,6 +186,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfGreaterThanOrEqual");
    mainMethod();
 }
 function IfLess(){
@@ -197,6 +206,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfLess");
    mainMethod();
 }
 function IfLessThanOrEqual(){
@@ -216,6 +226,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfLessThanOrEqual");
    mainMethod();
 }
 function IfNotEqual(){
@@ -235,6 +246,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfNotEqual");
    mainMethod();
 }
 function IfWith2Conditions(){
@@ -259,6 +271,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "IfWith2Conditions");
    mainMethod();
 }
 
@@ -281,6 +294,7 @@ End:    STORE [sum], B       ; store sum to memory`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "DoLoop");
    mainMethod();
 }
 function ForLoop(){
@@ -303,6 +317,7 @@ End:    STORE  [sum], B    ; update the memory for sum`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "ForLoop");
    mainMethod();
 }
 function ForLoopUnrolling(){
@@ -322,6 +337,7 @@ function ForLoopUnrolling(){
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "ForLoopUnrolling");
    mainMethod();
 }
 function WhileLoop(){
@@ -343,6 +359,7 @@ End:    STORE [sum], B     ; store sum to memory`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "WhileLoop");
    mainMethod();
 }
 
@@ -384,6 +401,7 @@ End:       NOOP                     ; Do nothing`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "BinarySearch");
    mainMethod();
 }
 function LinearSearch(){
@@ -416,6 +434,7 @@ End:    NOOP`;
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "LinearSearch");
    mainMethod();
 }
 
@@ -435,6 +454,7 @@ function Struct(){
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Struct");
    mainMethod();
 }
 
@@ -472,6 +492,7 @@ End:     STORE   [y], B
    let newText = A1.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Switch");
    mainMethod();
 }
 
@@ -509,6 +530,7 @@ End:    NOOP`;
    let newText = BB.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "BubbleSort");
    mainMethod();
    
 }
@@ -542,6 +564,7 @@ End:        NOOP`;
  let newText = IS.split("\n");
  removeComments(newText);
  document.getElementById("fileDiv").style.display = "block";
+ sessionStorage.setItem("fileName", "InsertionSort");
  mainMethod();
 
 }
@@ -583,6 +606,7 @@ End:    NOOP`;
    let newText = SS.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "SelectionSort");
    mainMethod();
 }
 
@@ -665,6 +689,7 @@ Exit:   NOOP                           ; infinite loop for Game Over
    let newText = SS.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "Pong");
    mainMethod();
 }
 
@@ -719,6 +744,7 @@ UserCode:  NOOP
    let newText = SS.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "BiosSwitches");
    mainMethod();
 }
 function segmentBanner(){
@@ -760,6 +786,7 @@ RevDir:  LOADI  D, 0
    let newText = SS.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "SegmentBanner");
    mainMethod();
 }
 function segmentLeftRight(){
@@ -794,6 +821,7 @@ RevDir:  LOADI  D, 0
    let newText = SS.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "SegmentLeftRight");
    mainMethod();
 }
 function segmentUpDown(){
@@ -817,5 +845,6 @@ Up:     LOADI  D, 2
    let newText = SS.split("\n");
    removeComments(newText);
    document.getElementById("fileDiv").style.display = "block";
+   sessionStorage.setItem("fileName", "SegmentUpDown");
    mainMethod();
 }

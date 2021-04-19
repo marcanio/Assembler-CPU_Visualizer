@@ -79,7 +79,8 @@ window.onload = function () {
 
   fileInput.addEventListener("change", function (e) {
     let file = fileInput.files[0];
-
+   
+    sessionStorage.setItem("fileName", file.name);
     let reader = new FileReader();
     //Pass each line to the remove comments function
     reader.onload = function (e) {
@@ -451,8 +452,11 @@ function mainMethod() {
   saveData();
   fillDataMemoryTable();
   //console.log(branchDest);
-  console.log(dataValues);
-
+  //console.log(dataValues);
+  //console.log(sessionStorage.getItem("fileName"));
+  sessionStorage.setItem("savedVariable", formattedVariables);
+  console.log( sessionStorage.getItem("savedVariable"));
+  
 }
 function formatInput() {
   let inputP = document.getElementById("textInput");

@@ -104,11 +104,11 @@
 }
 
 .slider:checked {
-  background-color: rgb(0, 247, 194);
+  background-color: black;
 }
 
 .switch:focus {
-  background-color: rgb(0, 247, 194);
+  background-color: black;
 }
 
 .slider:before {
@@ -126,7 +126,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider:before {
-  background-color: rgb(0, 247, 194);
+  background-color: black;
 }
 
 input:checked + .slider:before {
@@ -149,6 +149,11 @@ input:checked + .slider:before {
   opacity: 0;
   width: 0;
   height: 0;
+}
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
 }
 
 .pushin {

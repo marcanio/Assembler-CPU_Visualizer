@@ -44,6 +44,8 @@ window.addEventListener("load", function() {
 
 	cpu.setup();
 
+	let started = 0
+	window.started = started;
 	//
 
 	var mux_alu_wire = new PolygonSVG(Constants.MUX_ALU_WIRE_ID, Constants.MUX_ALU_WIRE, Constants.BLOCK_STYLE);
@@ -123,7 +125,7 @@ window.addEventListener("load", function() {
 	//END IMEM MUX2 SEGMENTS
 
 	//MUX1 SEGMENTS
-	var mux1_out = new PathSVG("mux1_out", Constants.MUX1_OUT, Constants.WIRE_STYLE)
+	var mux1_out = new PathSVG("mux1_output_wire", Constants.MUX1_OUT, Constants.WIRE_STYLE)
 	var mux1_out_to_mux3_imem_junction = new PathSVG("mux1_out_to_mux3", Constants.MUX1_OUT_TO_MUX3_IMEM_JUNCTION, Constants.WIRE_STYLE)
 	var mux1_out_to_dmem_junction = new PathSVG("mux1_out_to_dmem_junction", Constants.MUX1_OUT_TO_DMEM_JUNCTION, Constants.WIRE_STYLE)
 	var junction_to_dmem_a = new PathSVG("junction_to_dmem_a", Constants.JUNCTION_TO_DMEM_A, Constants.WIRE_STYLE)
@@ -429,6 +431,11 @@ window.addEventListener("load", function() {
 	svg.appendChild(dmem_red_input_mux_text.get_node());
 	svg.appendChild(dmem_red_write_enable_text.get_node());
 	svg.appendChild(dmem_red_input_text.get_node());
-
-
+	cpu.pc.currentPC=32;
+	if(cpu.progName=="BiosSwitches"){
+		cpu.pc.currentPC=0;
+		code_mem.switchToBios();
+		document.getElementById("bios").checked=true;
+	}
+	document.getElementById("progName").innerHTML = cpu.progName;
 });
