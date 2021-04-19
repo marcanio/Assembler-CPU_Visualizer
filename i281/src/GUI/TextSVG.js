@@ -20,9 +20,9 @@ export default class TextSVG {
 			{
 				var hold = id.split("_");
 				var spot = hold[1].split("val"); //Should hold the asm spot - 32
-				if(asm[spot[1] - 32] !== undefined){
+				if(asm[spot[1]] !== undefined){
 					this.node.setAttribute("data-toggle", "tooltip");
-					this.node.setAttribute("data-original-title", asm[spot[1] - 32]);
+					this.node.setAttribute("data-original-title", asm[spot[1]]);
 				}
 			}
 		}
