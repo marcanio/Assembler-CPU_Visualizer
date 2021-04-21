@@ -25,6 +25,17 @@ export default class TextSVG {
 					this.node.setAttribute("data-original-title", asm[spot[1]]);
 				}
 			}
+			var DMEMEnable = id.search("dmem_val");
+			if(DMEMEnable!=-1){
+				var hold = id.split("_");
+				var spot = hold[1].split("val");
+				var comments = sessionStorage.getItem("savedVariable").split(",");
+				console.log(comments[spot[1]]);
+				if(comments[spot[1]]!=null){
+					this.node.setAttribute("data-toggle", "tooltip");
+					this.node.setAttribute("data-original-title", comments[spot[1]]);
+				}
+			}
 		}
 
 		var flagEnable = id.search("flag");
