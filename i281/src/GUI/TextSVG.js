@@ -27,9 +27,9 @@ export default class TextSVG {
 			}
 			var DMEMEnable = id.search("dmem_val");
 			if(DMEMEnable!=-1){
+				var comments = cpu.dMemComments;
 				var hold = id.split("_");
 				var spot = hold[1].split("val");
-				var comments = sessionStorage.getItem("savedVariable").split(",");
 				console.log(comments[spot[1]]);
 				if(comments[spot[1]]!=null){
 					this.node.setAttribute("data-toggle", "tooltip");
