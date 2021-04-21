@@ -11,6 +11,7 @@ let varibleNames = new Array();
 let printBranch = 0;
 let savedInstructions = new Array();
 let formattedVariables;
+let errorTableCount = 0;
 
 let machineCode = "";
 
@@ -1224,6 +1225,34 @@ function getOpCodeBits(instruction) {
  * Takes in the error as input and outputs to the user what line the error is occuring on
  */
 function errorMessage(error) {
+  document.getElementById("dropdownMenuButton").style.display = "none";
+  document.getElementById("toggleSyntax").style.display = "none";
+  document.getElementById("banner").innerHTML = "Assembly Failed";
+  document.getElementById("navigateCPU").style.display = "none";
+  document.getElementById("assemblyTable").style.display = "none";
+  document.getElementById("machineTable").style.display = "none";
+  document.getElementById("displayAssemblytext").style.display = "none";
+  document.getElementById("displayMachinetext").style.display = "none";
+  document.getElementById("displayErrorText").innerHTML = "<b>Errors:</b><br>";
+  document.getElementById("ErrorTable").style.display ="block";
+  let errorTable = document.getElementById("ErrorTable");
+
+  if(errorTableCount == 0){
+    let errorRow = errorTable.insertRow(errorTableCount);
+    errorTableCount ++;
+    let errorCell1 = errorRow.insertCell(0);
+    let errorCell2 = errorRow.insertCell(1);
+    errorCell1.innerHTML = "Line Number";
+    errorCell2.innerHTML = "Error";
+  }
+
+  
+  let errorRow = errorTable.insertRow(errorTableCount);
+  errorTableCount ++;
+  let errorCell1 = errorRow.insertCell(0);
+  let errorCell2 = errorRow.insertCell(1);
+  errorCell1.innerHTML = lineNumber;
+  errorCell2.innerHTML = error;
   alert(error + " on line " + lineNumber);
 }
 
@@ -1264,7 +1293,7 @@ function toggleSyntaxHighlight() {
   let toggle = document.getElementById("toggleSyntax").value;
   let Assemblytable = document.getElementById("assemblyTable");
   let machineTable = document.getElementById("machineTable");
-
+ 
   if (toggle.localeCompare("Syntax highlighting: OFF") == 0) {
     document.getElementById("toggleSyntax").value = "Syntax highlighting: ON";
 
@@ -1785,6 +1814,7 @@ printBranch = 0;
 savedInstructions = new Array();
 formattedVariables = "";
 machineCode = "";
+errorTableCount = 0;
 
 
 let tableAssembly = document.getElementById("assemblyTable");
@@ -1806,5 +1836,17 @@ for(let i = tableData.rows.length - 1; i >= 1; i--)
 {
   tableData.deleteRow(i);
 }
+
+let tableError = document.getElementById("ErrorTable");
+for(let i = tableError.rows.length - 1; i >= 1; i--)
+{
+  tableError.deleteRow(i);
+}
+document.getElementById("ErrorTable").style.display = "none";
+document.getElementById("assemblyTable").style.display = "block";
+  document.getElementById("machineTable").style.display = "block";
+  document.getElementById("displayAssemblytext").style.display = "block";
+  document.getElementById("displayMachinetext").style.display = "block";
+  document.getElementById("displayErrorText").innerHTML = "";
 
 }
