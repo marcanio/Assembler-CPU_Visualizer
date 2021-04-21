@@ -265,8 +265,8 @@ function uiMode(){
             }
             
         }
-    }
 }
+
 
 document.addEventListener("keydown", pushButtonKey)
 
