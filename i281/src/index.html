@@ -810,6 +810,7 @@ crossorigin="anonymous"
           document.getElementById("dmem_val"+i).setAttribute("font-weight", "normal");
         }
         if(document.getElementById("bHighlight").checked==false) return;
+        if(document.getElementById("game_on").checked==true) return;
           
         asm=cpu.instructions[cur];
 
@@ -869,6 +870,7 @@ crossorigin="anonymous"
             document.getElementById(loadWritePath[i]).style.stroke="orange";
           }
           var test=parseInt(cpu.alu.result,2);
+          console.log(test);
           document.getElementById("dmem_val"+test).style.fill="orange";
           document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
         }
