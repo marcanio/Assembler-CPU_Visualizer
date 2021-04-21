@@ -43,6 +43,8 @@ export class CPU {
         this.progName; //This is for the name of the program/file
 
         this.instructions; // These will be the instructions, just make it an array, indexed at 0. That will make them line up with the iMem.
+
+        this.dMemComments;
     }
 
     /**
@@ -64,6 +66,9 @@ export class CPU {
         if (sessionStorage.getItem("instructionMemory") === null) {
             this.bubbleSortDefault()
         }
+        if (sessionStorage.getItem("savedVariable")==null){
+            this.dMemComments = ["array[0]","array[1]","array[2]","array[3]","array[4]","array[5]","array[6]","array[7]","last","temp"];
+        }
         else {
             let fullInstructions = new Array(32)
             var userInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
@@ -78,6 +83,7 @@ export class CPU {
                     fullInstructions[i]=inst;
                 }
             }
+
             fullInstructions = fullInstructions.concat(userInstructions);
 
             this.instructions = fullInstructions;
@@ -95,6 +101,7 @@ export class CPU {
 
             else this.iMem.registers = JSON.parse(sessionStorage.getItem("instructionMemory"));  // Load bios from assembler
             this.dMem.registers = JSON.parse(sessionStorage.getItem("savedDataMemory")); // Load dMem from assembler
+            this.dMemComments = sessionStorage.getItem("savedVariable").split(",");
         }
     }
 
