@@ -19,7 +19,7 @@ export default class TextSVG {
 			if(IMEMEnable != -1)
 			{
 				var hold = id.split("_");
-				var spot = hold[1].split("val"); //Should hold the asm spot - 32
+				var spot = hold[1].split("val"); //Should hold the asm spot
 				if(asm[spot[1]] !== undefined){
 					this.node.setAttribute("data-toggle", "tooltip");
 					this.node.setAttribute("data-original-title", asm[spot[1]]);

@@ -17,6 +17,8 @@ document.getElementById("auto_on").addEventListener("change", segTimer);
 document.getElementById("game_on").addEventListener("change", segTimer);
 document.getElementById("bit01").addEventListener("change", segTimer);
 document.getElementById("game_on").addEventListener("change", uiMode);
+document.getElementById("regCheck").addEventListener("change", uiMode);
+document.getElementById("RunBtn").addEventListener("click", segTimer);
 
 
 var segTime = 0;
@@ -31,13 +33,13 @@ function segTimer()
   {
     if(segTime == 0)
     {
-      segTime = setInterval(uiMode, 100);
+      segTime = setInterval(uiMode, 15);
       return;
     }
     else
     {
       clearInterval(segTime);
-      segTime = setInterval(uiMode, 100);
+      segTime = setInterval(uiMode, 15);
       return;
     }
   }
@@ -52,13 +54,13 @@ function segTimer()
   {
     if(segTime == 0)
     {
-      segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);//1-10 seconds
+      segTime = setInterval(uiMode, (101 - document.getElementById("speedSld").value) * 30);//1-10 seconds
 
     }
     else
     {
       clearInterval(segTime);
-      segTime = setInterval(uiMode, document.getElementById("speedSld").value * 100);
+      segTime = setInterval(uiMode, (101 - document.getElementById("speedSld").value) * 30);
       return;
     }
   }
@@ -89,8 +91,6 @@ document.getElementById("bit13").addEventListener("keydown", arrowWork);
 document.getElementById("bit14").addEventListener("keydown", arrowWork);
 document.getElementById("bit15").addEventListener("keydown", arrowWork);
 document.getElementById("bit16").addEventListener("keydown", arrowWork);
-document.getElementById("bit17").addEventListener("keydown", arrowWork);
-document.getElementById("push1").addEventListener("click", uiMode);
 document.getElementById("bit00").addEventListener("change", uiMode);
 document.getElementById("bit01").addEventListener("change", uiMode);
 document.getElementById("bit0In").addEventListener("onkeypress", uiMode);
@@ -250,18 +250,20 @@ function uiMode(){
           initTool = initTool + 1;
     }
 
-    if(regSw.checked)//Game Mode
+    if(viewSw.checked)
     {
-        regView();
-    }
-    else{//View Mode, ignored if we are in game mode
-        if(viewSw.checked)
-        {
             gameView();
-        }
-        else
-        {
-            memView();
+    }
+    else
+    {
+            if(regSw.checked)//Game Mode
+            {
+                regView();
+            }
+            else{
+                memView();
+            }
+            
         }
     }
 }
@@ -309,16 +311,6 @@ function pushButtonKey(event){
 
 function goBack(id){
     document.getElementById(id).style.backgroundColor = "";
-}
-
-
-
-function msgChk(id){
-    alert(id)
-}
-
-function Pong(){
-
 }
 
 function memView(){
