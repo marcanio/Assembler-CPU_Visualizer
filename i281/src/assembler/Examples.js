@@ -751,7 +751,7 @@ function segmentBanner(){
    reset();
    let SS=`.data
    display  BYTE  0,  0,   0,  0,  0,  0,  0,  0   ; the display   
-   text     BYTE  4, 59, 127,  6                   ; "i281" in 7-segment encoding
+   text     BYTE  4, 91, 127,  6                   ; "i281" in 7-segment encoding
    incDec   BYTE  1                                ; could be 1 or -1
    minMax   BYTE  0,  0,  4                        ; array for screen bounds
    .code

@@ -503,7 +503,7 @@ function downloadAssemblyCode(){
 
 function downloadMachineFile() {
   let element = document.createElement("a");
-  let fileName = document.getElementById("fileInput").value;
+  let fileName = "MachineCode";
   fileName = fileName.split(".")[0];
   fileName += ".asm";
   let tempmachineCode = "";
@@ -1253,7 +1253,7 @@ function errorMessage(error) {
   let errorCell2 = errorRow.insertCell(1);
   errorCell1.innerHTML = lineNumber;
   errorCell2.innerHTML = error;
-  alert(error + " on line " + lineNumber);
+  //alert(error + " on line " + lineNumber);
 }
 
 //---------------------------Display options for the html page--------------------------
@@ -1848,5 +1848,6 @@ document.getElementById("assemblyTable").style.display = "block";
   document.getElementById("displayAssemblytext").style.display = "block";
   document.getElementById("displayMachinetext").style.display = "block";
   document.getElementById("displayErrorText").innerHTML = "";
+  document.getElementById("toggleSyntax").value = "Syntax highlighting: OFF";
 
 }
