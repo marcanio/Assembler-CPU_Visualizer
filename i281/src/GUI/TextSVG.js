@@ -21,10 +21,20 @@ export default class TextSVG {
 				var hold = id.split("_");
 				var spot = hold[1].split("val"); //Should hold the asm spot
 				if(asm[spot[1]] !== undefined){
+					let build = "";
+          			for(var i=0; i<asm[spot[1]].length; i++){
+            			if(asm[spot[1]].length==3 && i==1){
+              				build+=asm[spot[1]][i]+", ";
+            			}
+            			else{ 
+              				build+=asm[spot[1]][i]+" ";
+            			}
+					}
 					this.node.setAttribute("data-toggle", "tooltip");
-					this.node.setAttribute("data-original-title", asm[spot[1]]);
+					this.node.setAttribute("data-original-title", build);
 				}
 			}
+
 			var DMEMEnable = id.search("dmem_val");
 			if(DMEMEnable!=-1){
 				var comments = cpu.dMemComments;

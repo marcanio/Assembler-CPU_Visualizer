@@ -498,13 +498,6 @@ crossorigin="anonymous"
         let controls = cpu.control.c;
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
-        // if(cpu.pc.currentPC>0 || cpu.pc.currentPC>31){
-        //   document.getElementById("radioSpan").style.visibility="hidden";
-        //   document.getElementById("usr").style.visibility="hidden";
-        //   document.getElementById("bios").style.visibility="hidden";
-        //   document.getElementById("usrTxt").style.visibility="hidden";
-        //   document.getElementById("biosTxt").style.visibility="hidden";
-        // }
         let curAsm = cpu.instructions[cur]
         if(curAsm!=null){
           let build = "";
@@ -516,9 +509,6 @@ crossorigin="anonymous"
           }
         if (cur>31){
           switchToUser();
-          /* TODO: 
-             Add some special case; if cpu.progName="biosSwitches" then update code_mem with new user entered code.
-          */
         }
         
         // Turn off while in game mode
@@ -808,6 +798,8 @@ crossorigin="anonymous"
         for(var i=0; i<16; i++){
           document.getElementById("dmem_val"+i).style.fill="black";
           document.getElementById("dmem_val"+i).setAttribute("font-weight", "normal");
+
+          document.getElementById("dmem_box"+i).style.stroke="black";
         }
         if(document.getElementById("bHighlight").checked==false) return;
         if(document.getElementById("game_on").checked==true) return;
@@ -853,6 +845,8 @@ crossorigin="anonymous"
           var writeReg = addHelper(controls[8], controls[9]);
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+          var readAddr = parseInt(document.getElementById("imem_val"+i+"_imm").innerHTML, 2);
+          document.getElementById("dmem_box"+readAddr).style.stroke="purple";
         }
         if(asm[0]=="LOADF"){
           var readReg = addHelper(controls[4], controls[5]);
@@ -900,8 +894,7 @@ crossorigin="anonymous"
             document.getElementById(storeALUPath[i]).style.stroke="blue";
           }
           var test=parseInt(cpu.alu.result,2);
-          document.getElementById("dmem_val"+test).style.fill="cyan";
-          document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
+          document.getElementById("dmem_box"+test).style.stroke="blue";
         }
         if(asm[0]=="CMP"){
           var reg1=addHelper(controls[4], controls[5])
