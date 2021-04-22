@@ -19,6 +19,7 @@ document.getElementById("bit01").addEventListener("change", segTimer);
 document.getElementById("game_on").addEventListener("change", uiMode);
 document.getElementById("regCheck").addEventListener("change", uiMode);
 document.getElementById("RunBtn").addEventListener("click", segTimer);
+document.getElementById("StepBtn").addEventListener("click", uiMode);
 
 
 var segTime = 0;
