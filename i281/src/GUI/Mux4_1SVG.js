@@ -10,14 +10,14 @@ export default class Mux4_1SVG {
 		this.b_text = new TextSVG(Constants.MUX_B[0],Constants.MUX_B[1], b_id, Constants.MUX_B_TEXT, Constants.SMALL_TEXT_STYLE, offset);
 		this.c_text = new TextSVG(Constants.MUX_C[0],Constants.MUX_C[1], c_id, Constants.MUX_C_TEXT, Constants.SMALL_TEXT_STYLE, offset);
 		this.d_text = new TextSVG(Constants.MUX_D[0],Constants.MUX_D[1], d_id, Constants.MUX_D_TEXT, Constants.SMALL_TEXT_STYLE, offset);
-		this.a_wire = new PathSVG (mux_id+"_"+a_id, Constants.MUX_A_WIRE, Constants.THIN_WIRE_STYLE, offset);
-		this.b_wire = new PathSVG(mux_id+"_"+b_id, Constants.MUX_B_WIRE, Constants.THIN_WIRE_STYLE, offset);
-		this.c_wire = new PathSVG (mux_id+"_"+c_id, Constants.MUX_C_WIRE, Constants.THIN_WIRE_STYLE, offset);
-		this.d_wire = new PathSVG(mux_id+"_"+d_id, Constants.MUX_D_WIRE, Constants.THIN_WIRE_STYLE, offset);
-		this.a_wire_id = mux_id+"_"+a_id;
-		this.b_wire_id = mux_id+"_"+b_id;
-		this.c_wire_id = mux_id+"_"+c_id;
-		this.d_wire_id = mux_id+"_"+d_id;
+		this.a_wire = new PathSVG (mux_id+"_sel"+0, Constants.MUX_A_WIRE, Constants.THIN_WIRE_STYLE, offset);
+		this.b_wire = new PathSVG(mux_id+"_sel"+1, Constants.MUX_B_WIRE, Constants.THIN_WIRE_STYLE, offset);
+		this.c_wire = new PathSVG (mux_id+"_sel"+2, Constants.MUX_C_WIRE, Constants.THIN_WIRE_STYLE, offset);
+		this.d_wire = new PathSVG(mux_id+"_sel"+3, Constants.MUX_D_WIRE, Constants.THIN_WIRE_STYLE, offset);
+		this.a_wire_id = mux_id+"_sel"+0;
+		this.b_wire_id = mux_id+"_sel"+1;
+		this.c_wire_id = mux_id+"_sel"+2;
+		this.d_wire_id = mux_id+"_sel"+3;
 		this.selected = -1;
 	}
     

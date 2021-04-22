@@ -491,24 +491,35 @@ crossorigin="anonymous"
         document.getElementById("pc_val_id").innerHTML = pad((cur).toString(2), 6);
         cpu.singleCycle();
 
-        if(cur>cpu.instructions.length){
-          return;
-        }
+        console.log(cur)
+        console.log(cpu.instructions.length)
+        console.log(cpu.instructions);
 
         let controls = cpu.control.c;
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
         let curAsm = cpu.instructions[cur]
+        if(curAsm==null && cpu.progName!="biosSwitches"){ 
+          window.alert("Program finished.")
+          return;
+        }
         if(curAsm!=null){
           let build = "";
           for(var i=0; i<curAsm.length; i++){
-            build+=curAsm[i]+" ";
+            if(curAsm.length==3 && i==1){
+              build+=curAsm[i]+", ";
+            }
+            else{ 
+              build+=curAsm[i]+" ";
+            }
           }
+          
           holder = build;
           document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
           }
         if (cur>31){
           switchToUser();
+          document.getElementById("codeStart").disabled="true";
         }
         
         // Turn off while in game mode
@@ -548,7 +559,7 @@ crossorigin="anonymous"
       }  
 
         for(var i=1; i<controls.length; i++){
-          if(controls[i]==1){
+          if(controls[i]==1 && document.getElementById("bHighlight").checked==true){
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           document.getElementById("c"+i+"val").style.fill="red";
           document.getElementById("c"+i+"val").setAttribute("font-weight", "bold");
@@ -794,6 +805,12 @@ crossorigin="anonymous"
           document.getElementById("reg_"+i).style.fill="black";
           document.getElementById("reg_"+i).setAttribute("font-weight", "normal");
           document.getElementById("reg_"+i+"_box").style.stroke="black";
+
+          document.getElementById(i+"_out").style.stroke="black";
+          document.getElementById("read_a_mux_sel"+i).style.stroke="black";
+          document.getElementById("read_b_mux_sel"+i).style.stroke="black";
+          document.getElementById(i+"_out_to_read_a").style.stroke="black";
+          document.getElementById(i+"_out_to_read_b").style.stroke="black"; 
         }
         for(var i=0; i<16; i++){
           document.getElementById("dmem_val"+i).style.fill="black";
@@ -845,7 +862,7 @@ crossorigin="anonymous"
           var writeReg = addHelper(controls[8], controls[9]);
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
-          var readAddr = parseInt(document.getElementById("imem_val"+i+"_imm").innerHTML, 2);
+          var readAddr = parseInt(document.getElementById("imem_val"+cur+"_imm").innerHTML, 2);
           document.getElementById("dmem_box"+readAddr).style.stroke="purple";
         }
         if(asm[0]=="LOADF"){
@@ -853,6 +870,12 @@ crossorigin="anonymous"
           var writeReg = addHelper(controls[8], controls[9]);
           document.getElementById("reg_"+readReg+"_box").style.stroke = "green";
           document.getElementById("read_a_out").style.stroke="green";
+
+          document.getElementById(readReg+"_out").style.stroke="green";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
+
           document.getElementById("reg_"+writeReg).style.fill="orange";
           for(var i=0; i<loadFImmPath.length; i++){
             document.getElementById(loadFImmPath[i]).style.stroke="purple";
@@ -868,8 +891,15 @@ crossorigin="anonymous"
           document.getElementById("dmem_val"+test).style.fill="orange";
           document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
         }
+
         if(asm[0]=="STORE"){
           var readReg = addHelper(controls[6], controls[7]);
+
+          document.getElementById(readReg+"_out").style.stroke="green";
+          var bSelected = read_b_mux.get_selected();
+          document.getElementById(bSelected+"_out_to_read_b").style.stroke="green";
+          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="green";
+
           document.getElementById("reg_"+readReg+"_box").style.stroke=="blue";
           for(var i=0; i<storeALUPath.length; i++){
             document.getElementById(storeALUPath[i]).style.stroke="green";
@@ -877,10 +907,24 @@ crossorigin="anonymous"
           for(var i=0; i<storePath.length; i++){
             document.getElementById(storePath[i]).style.stroke="purple";
           }
+          var addr = parseInt(document.getElementById("imem_val"+cur+"_imm").innerHTML,2);
+          document.getElementById("dmem_box"+addr).style.stroke="purple"
         }
+
         if(asm[0]=="STOREF"){
           var valueReg = addHelper(controls[6], controls[7]);
           var offsetReg = addHelper(controls[4], controls[5]);
+
+          document.getElementById(offsetReg+"_out").style.stroke="green";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
+
+          document.getElementById(valueReg+"_out").style.stroke="blue";
+          var bSelected = read_b_mux.get_selected();
+          document.getElementById(bSelected+"_out_to_read_b").style.stroke="blue";
+          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="blue";
+
           for(var i=0; i<loadFImmPath.length; i++){
             document.getElementById(loadFImmPath[i]).style.stroke="purple";
           }
@@ -896,12 +940,26 @@ crossorigin="anonymous"
           var test=parseInt(cpu.alu.result,2);
           document.getElementById("dmem_box"+test).style.stroke="blue";
         }
+
         if(asm[0]=="CMP"){
           var reg1=addHelper(controls[4], controls[5])
           var reg2=addHelper(controls[6], controls[7])
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("reg_"+reg2+"_box").style.stroke="green";
+
+          
           document.getElementById("read_a_out").style.stroke="blue";
+          document.getElementById(reg1+"_out").style.stroke="blue";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+
+          document.getElementById(reg2+"_out").style.stroke="green";
+          var bSelected = read_b_mux.get_selected();
+          document.getElementById(bSelected+"_out_to_read_b").style.stroke="green";
+          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="green";
+
+
           for(var i = 0; i<readBPath.length; i++){
             document.getElementById(readBPath[i]).style.stroke="green";
           }
@@ -909,12 +967,25 @@ crossorigin="anonymous"
           document.getElementById("negative_flag").style.fill="red";
           document.getElementById("negative_flag").setAttribute("font-weight", "bold");
         }
+
         if(asm[0]=="ADD" || asm[0]=="SUB"){
           var reg1=addHelper(controls[4], controls[5])
           var reg2=addHelper(controls[6], controls[7])
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("reg_"+reg2+"_box").style.stroke="green";
           document.getElementById("read_a_out").style.stroke="blue";
+
+          document.getElementById("read_a_out").style.stroke="blue";
+          document.getElementById(reg1+"_out").style.stroke="blue";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+
+          document.getElementById(reg2+"_out").style.stroke="green";
+          var bSelected = read_b_mux.get_selected();
+          document.getElementById(bSelected+"_out_to_read_b").style.stroke="green";
+          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="green";
+
           for(var i = 0; i<readBPath.length; i++){
             document.getElementById(readBPath[i]).style.stroke="green";
           }
@@ -938,7 +1009,13 @@ crossorigin="anonymous"
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("read_a_out").style.stroke="blue";
+
+          document.getElementById(reg1+"_out").style.stroke="blue";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
         }
+
         if(asm[0]=="MOVE"){
           var writeReg = addHelper(controls[8], controls[9]);
           var reg1 = addHelper(controls[4], controls[5]);
@@ -946,21 +1023,34 @@ crossorigin="anonymous"
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
           document.getElementById("reg_"+reg1+"_box").style.stroke="green";
           document.getElementById("read_a_out").style.stroke="green";
+
+          document.getElementById(reg1+"_out").style.stroke="green";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
+
           for(var i=0; i<aluWritebackPath.length; i++){
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
           }
         }
         if(asm[0]=="SHIFTL"||asm[0]=="SHIFTR"){
           var writeReg = addHelper(controls[8], controls[9]);
-          var readReg = addHelper(controls[4], controls[5]);
+          var reg1 = addHelper(controls[4], controls[5]);
+
+          document.getElementById(reg1+"_out").style.stroke="blue";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
-          document.getElementById("reg_"+readReg+"_box").style.stroke="blue";
+          document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("read_a_out").style.stroke="blue";
           for(var i=0; i<aluWritebackPath.length; i++){
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
           }
         }
+
         if(asm[0]=="INPUTD"){
           for(var i=0; i<loadPath.length; i++){
             document.getElementById(loadPath[i]).style.stroke="purple";
@@ -976,12 +1066,19 @@ crossorigin="anonymous"
           for(var i=0; i<codeMemWritebackPath.length; i++){
             document.getElementById(codeMemWritebackPath[i]).style.stroke="cyan"
           }
-          var readReg = addHelper(controls[4], controls[5]);
-          document.getElementById("reg_"+readReg+"_box").style.stroke="blue";
+          var reg1 = addHelper(controls[4], controls[5]);
+
+          document.getElementById(reg1+"_out").style.stroke="blue";
+          var aSelected = read_a_mux.get_selected();
+          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+
+          document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("read_a_out").style.stroke="blue";
           document.getElementById("switches_mux1_wire").style.stroke="orange";
           document.getElementById("imem_mux2_junction").style.stroke="orange";
         }
+
         if(asm[0]=="NOOP") return;
       }
     }
