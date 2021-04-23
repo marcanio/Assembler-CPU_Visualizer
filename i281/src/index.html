@@ -934,8 +934,8 @@ crossorigin="anonymous"
             document.getElementById(loadWritePath[i]).style.stroke="orange";
           }
           var test=parseInt(cpu.alu.result,2);
-          console.log(test);
           document.getElementById("dmem_val"+test).style.fill="orange";
+          docume.getElementById("dmem_box"+test).style.stroke="cyan";
           document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
         }
 
