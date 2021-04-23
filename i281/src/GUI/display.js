@@ -91,7 +91,7 @@ window.addEventListener("load", function() {
 	var mux2_dmem_wire = new PathSVG(Constants.MUX2_DMEM_WIRE_ID, Constants.MUX2_DMEM_WIRE, Constants.WIRE_STYLE);
 	var dmem_mux3_wire = new PathSVG(Constants.DMEM_MUX3_WIRE_ID, Constants.DMEM_MUX3_WIRE, Constants.WIRE_STYLE);
 	var imem_in_pc_update_wire = new PathSVG(Constants.IMEM_IN_PC_UPDATE_MUX_WIRE_ID, Constants.IMEM_IN_PC_UPDATE_MUX_WIRE, Constants.WIRE_STYLE);
-	var mux_pc_val_wire = new PathSVG(Constants.MUX_PC_VAL_WIRE_ID, Constants.MUX_PC_VAL_WIRE, Constants.WIRE_STYLE);
+	var mux_pc_val_wire = new PathSVG("mux4_out", Constants.MUX_PC_VAL_WIRE, Constants.WIRE_STYLE);
 
 
 	//IMEM WIRE SEGMENTS

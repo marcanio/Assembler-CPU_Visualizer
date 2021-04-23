@@ -517,6 +517,9 @@ crossorigin="anonymous"
           holder = build;
           document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
           }
+        if(cur<32){
+          code_mem.switchToBios();
+        }
         if (cur>31){
           switchToUser();
           document.getElementById("codeStart").disabled="true";
@@ -801,6 +804,8 @@ crossorigin="anonymous"
         document.getElementById("negative_flag").setAttribute("font-weight", "normal");
         document.getElementById("switches_mux1_wire").style.stroke="black";
         document.getElementById("imem_mux2_junction").style.stroke="black";
+        document.getElementById("mux4_true_wire").style.stroke="black";
+            document.getElementById("mux4_out").style.stroke="black";
         for(var i=0; i<4; i++){
           document.getElementById("reg_"+i).style.fill="black";
           document.getElementById("reg_"+i).setAttribute("font-weight", "normal");
@@ -839,6 +844,8 @@ crossorigin="anonymous"
           }
           else{
             document.getElementById("mux_pc_val_wire").style.stroke="red";
+            document.getElementById("mux4_true_wire").style.stroke="red";
+            document.getElementById("mux4_out").style.stroke="red";
             for(var i=0; i<pcOutWires.length; i++){
               document.getElementById(pcOutWires[i]).style.stroke="red";
             }

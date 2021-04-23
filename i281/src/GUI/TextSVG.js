@@ -21,7 +21,7 @@ export default class TextSVG {
 				var hold = id.split("_");
 				var spot = hold[1].split("val"); //Should hold the asm spot
 				if(asm[spot[1]] !== undefined){
-					let build = "";
+					let build = "	";
           			for(var i=0; i<asm[spot[1]].length; i++){
             			if(asm[spot[1]].length==3 && i==1){
               				build+=asm[spot[1]][i]+", ";
@@ -44,6 +44,7 @@ export default class TextSVG {
 				if(comments[spot[1]]!=null){
 					this.node.setAttribute("data-toggle", "tooltip");
 					this.node.setAttribute("data-original-title", comments[spot[1]]);
+					this.node.setAttribute("data-placement","right")
 				}
 			}
 		}
