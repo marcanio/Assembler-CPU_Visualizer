@@ -238,3 +238,7 @@ input:checked + .slider:before {
 .switch:hover .tooltiptext {
   visibility: visible;
 }
+
+.tooltip-inner{
+  font-size: small;
+}
