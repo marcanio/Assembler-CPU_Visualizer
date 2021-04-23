@@ -239,6 +239,6 @@ input:checked + .slider:before {
   visibility: visible;
 }
 
-.tooltip-inner{
+.tooltip-inner {
   font-size: small;
 }
