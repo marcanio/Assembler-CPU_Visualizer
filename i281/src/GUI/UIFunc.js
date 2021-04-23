@@ -9,9 +9,6 @@ slider.oninput = function() {
     output.innerHTML = this.value;
 }
 
-
-
-
 document.getElementById("speedSld").addEventListener("change", segTimer);
 document.getElementById("auto_on").addEventListener("change", segTimer);
 document.getElementById("game_on").addEventListener("change", segTimer);
@@ -20,9 +17,12 @@ document.getElementById("game_on").addEventListener("change", uiMode);
 document.getElementById("regCheck").addEventListener("change", uiMode);
 document.getElementById("RunBtn").addEventListener("click", segTimer);
 document.getElementById("StepBtn").addEventListener("click", uiMode);
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
 var segTime = 0;
-
 
 function segTimer()
 {
@@ -265,52 +265,6 @@ function uiMode(){
             }
             
         }
-}
-
-
-document.addEventListener("keydown", pushButtonKey)
-
-function pushButtonKey(event){
-    //alert(event.keyCode);
-    if(event.keyCode == 75)
-    {
-        //document.getElementById("push1").focus();
-        document.getElementById("push1").click();
-        document.getElementById("push2").click();
-        document.getElementById("pushin1").style.backgroundColor = "green";
-        document.getElementById("pushin2").style.backgroundColor = "green";
-        setTimeout(goBack, 100, "pushin1");
-        setTimeout(goBack, 100, "pushin2");
-    }
-    if(event.keyCode == 85)
-    {
-        document.getElementById("push1").click();
-        test();
-        document.getElementById("pushin1").style.backgroundColor = "green";
-        setTimeout(goBack, 100, "pushin1");
-    }
-    else if(event.keyCode == 73)
-    {
-        document.getElementById("push2").click();
-        document.getElementById("pushin2").style.backgroundColor = "green";
-        setTimeout(goBack, 100, "pushin2");
-    }
-    else if(event.keyCode == 79)
-    {
-        document.getElementById("push3").click();
-        document.getElementById("pushin3").style.backgroundColor = "green";
-        setTimeout(goBack, 100, "pushin3");
-    }
-    else if(event.keyCode == 80)
-    {
-        document.getElementById("push4").click();
-        document.getElementById("pushin4").style.backgroundColor = "green";
-        setTimeout(goBack, 100, "pushin4");
-    }
-}
-
-function goBack(id){
-    document.getElementById(id).style.backgroundColor = "";
 }
 
 function memView(){

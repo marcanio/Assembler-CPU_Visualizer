@@ -1477,10 +1477,11 @@ function toggleSyntaxHighlight() {
         newMachineCol += '<span style="color:blue">';
         newMachineCol += machineCol.substring(5, 7);
         newMachineCol += "</span>";
-        newMachineCol += machineCol.substring(7, 8);
+        newMachineCol += machineCol.substring(7, 9);
         newMachineCol += '<span style="color:red">';
-        newMachineCol += machineCol.substring(8, machineCol.length);
+        newMachineCol += machineCol.substring(9, 10);
         newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(10, machineCol.length);
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
 
       }else if(firstCol.localeCompare("STORE") == 0){

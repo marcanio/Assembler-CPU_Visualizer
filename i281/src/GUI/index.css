@@ -174,7 +174,7 @@ input:checked + .slider:before {
 .speed {
   -webkit-appearance: none;
   width: 700px;
-  height: 45px;
+  height: 30px;
   background: darkgrey;
   outline-color: black;
   outline-width: 1px;
@@ -186,8 +186,8 @@ input:checked + .slider:before {
 .speed::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 30px;
   background: black;
   cursor: pointer;
 }
@@ -197,22 +197,6 @@ input:checked + .slider:before {
   height: 25px;
   background: black;
   cursor: pointer;
-}
-
-.push .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  height: auto;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  font-family: "Courier New", Courier, monospace;
-  font-size: x-large;
-  position: absolute;
-  z-index: 10;
-  top: 100%;
 }
 
 .push:hover .tooltiptext {
@@ -237,4 +221,8 @@ input:checked + .slider:before {
 
 .switch:hover .tooltiptext {
   visibility: visible;
+}
+
+.tooltip-inner{
+  font-size: small;
 }
