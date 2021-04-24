@@ -18,7 +18,6 @@ document.getElementById("regCheck").addEventListener("change", uiMode);
 document.getElementById("RunBtn").addEventListener("click", segTimer);
 document.getElementById("StepBtn").addEventListener("click", uiMode);
 
-
 var segTime = 0;
 
 function segTimer()

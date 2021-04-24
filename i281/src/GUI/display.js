@@ -46,6 +46,15 @@ window.addEventListener("load", function() {
 
 	let started = 0
 	window.started = started;
+
+	let prevCarry = cpu.alu.carry;
+	let prevOverflow = cpu.alu.overflow;
+	let prevNegative = cpu.alu.negative;
+	let prevZero = cpu.alu.zero;
+	window.prevCarry=prevCarry;
+	window.prevOverflow=prevOverflow;
+	window.prevNegative=prevNegative;
+	window.prevZero=prevZero;
 	//
 
 	var mux_alu_wire = new PolygonSVG(Constants.MUX_ALU_WIRE_ID, Constants.MUX_ALU_WIRE, Constants.BLOCK_STYLE);
@@ -91,7 +100,7 @@ window.addEventListener("load", function() {
 	var mux2_dmem_wire = new PathSVG(Constants.MUX2_DMEM_WIRE_ID, Constants.MUX2_DMEM_WIRE, Constants.WIRE_STYLE);
 	var dmem_mux3_wire = new PathSVG(Constants.DMEM_MUX3_WIRE_ID, Constants.DMEM_MUX3_WIRE, Constants.WIRE_STYLE);
 	var imem_in_pc_update_wire = new PathSVG(Constants.IMEM_IN_PC_UPDATE_MUX_WIRE_ID, Constants.IMEM_IN_PC_UPDATE_MUX_WIRE, Constants.WIRE_STYLE);
-	var mux_pc_val_wire = new PathSVG(Constants.MUX_PC_VAL_WIRE_ID, Constants.MUX_PC_VAL_WIRE, Constants.WIRE_STYLE);
+	var mux_pc_val_wire = new PathSVG("mux4_out", Constants.MUX_PC_VAL_WIRE, Constants.WIRE_STYLE);
 
 
 	//IMEM WIRE SEGMENTS
@@ -347,23 +356,14 @@ window.addEventListener("load", function() {
 	mux_junction_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	mux_dmem_info.get_all_nodes().forEach(x => svg.appendChild(x));
 	imem_mux_info.get_all_nodes().forEach(x => svg.appendChild(x));
+
 	svg.appendChild(flag_control_wire.node);
-	//svg.appendChild(mux_imem_wire.node);
 	svg.appendChild(mux_reg_file_wire.node);
 	svg.appendChild(mux2_dmem_wire.node);
-	//svg.appendChild(mux1_dmem_wire1.node);
-	//svg.appendChild(mux1_dmem_wire2.node);
-	//svg.appendChild(mux1_mux3_wire.node);
 	svg.appendChild(dmem_mux3_wire.node);
-	//svg.appendChild(imem_mux2_wire.node);
-	//svg.appendChild(read_b_mux2_wire.node);
 	svg.appendChild(imem_in_pc_update_wire.node);
-	//svg.appendChild(imem_out_pc_update_wire.node);
-	//svg.appendChild(imem_mux0_wire.node);
-	//svg.appendChild(imem_mux1_wire.node);
 	svg.appendChild(switches_mux1_wire.node);
 	svg.appendChild(switches_text.node);
-	//svg.appendChild(pc_udpate_text.node);
 
 	
 	svg.appendChild(imem_out_0_wire.node);
@@ -390,15 +390,6 @@ window.addEventListener("load", function() {
 	svg.appendChild(junction_to_mux3.node);
 
 	
-	svg.appendChild(intersect_1.node);
-	svg.appendChild(intersect_2.node);
-	svg.appendChild(intersect_3.node);
-	svg.appendChild(intersect_4.node);
-	svg.appendChild(intersect_5.node);
-	svg.appendChild(intersect_6.node);
-	svg.appendChild(intersect_7.node);
-	svg.appendChild(intersect_8.node);
-	svg.appendChild(intersect_9.node);
 
 	svg.appendChild(imem_pc_val_pc_update_junction.node);
 	svg.appendChild(junction_to_pc_update.node)
@@ -431,8 +422,22 @@ window.addEventListener("load", function() {
 	svg.appendChild(dmem_red_input_mux_text.get_node());
 	svg.appendChild(dmem_red_write_enable_text.get_node());
 	svg.appendChild(dmem_red_input_text.get_node());
+
+
+	svg.appendChild(intersect_1.node);
+	svg.appendChild(intersect_2.node);
+	svg.appendChild(intersect_3.node);
+	svg.appendChild(intersect_4.node);
+	svg.appendChild(intersect_5.node);
+	svg.appendChild(intersect_6.node);
+	svg.appendChild(intersect_7.node);
+	svg.appendChild(intersect_8.node);
+	svg.appendChild(intersect_9.node);
+
 	cpu.pc.currentPC=32;
-	if(cpu.progName=="BiosSwitches" || cpu.progName=="Pong"){
+
+	console.log(cpu.instructions.length);
+	if(cpu.instructions.length-32>cpu.instructions.length || cpu.progName=="BiosSwitches"){
 		cpu.pc.currentPC=0;
 		code_mem.switchToBios();
 		document.getElementById("codeStart").checked=false;
