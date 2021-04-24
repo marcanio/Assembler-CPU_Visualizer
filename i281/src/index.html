@@ -952,9 +952,8 @@ crossorigin="anonymous"
           document.getElementById("read_a_out").style.stroke="green";
 
           document.getElementById(readReg+"_out").style.stroke="green";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
+          document.getElementById(readReg+"_out_to_read_a").style.stroke="green";
+          document.getElementById("read_a_mux_sel"+readReg).style.stroke="green";
 
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg+"_box").style.stroke="blue";
@@ -977,9 +976,8 @@ crossorigin="anonymous"
           var readReg = addHelper(controls[6], controls[7]);
 
           document.getElementById(readReg+"_out").style.stroke="green";
-          var bSelected = read_b_mux.get_selected();
-          document.getElementById(bSelected+"_out_to_read_b").style.stroke="green";
-          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="green";
+          document.getElementById(readReg+"_out_to_read_b").style.stroke="green";
+          document.getElementById("read_b_mux_sel"+readReg).style.stroke="green";
 
           document.getElementById("reg_"+readReg+"_box").style.stroke=="blue";
           for(var i=0; i<storeALUPath.length; i++){
@@ -997,14 +995,12 @@ crossorigin="anonymous"
           var offsetReg = addHelper(controls[4], controls[5]);
 
           document.getElementById(offsetReg+"_out").style.stroke="green";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
+          document.getElementById(offsetReg+"_out_to_read_a").style.stroke="green";
+          document.getElementById("read_a_mux_sel"+offsetReg).style.stroke="green";
 
           document.getElementById(valueReg+"_out").style.stroke="blue";
-          var bSelected = read_b_mux.get_selected();
-          document.getElementById(bSelected+"_out_to_read_b").style.stroke="blue";
-          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="blue";
+          document.getElementById(valueReg+"_out_to_read_b").style.stroke="blue";
+          document.getElementById("read_b_mux_sel"+valueReg).style.stroke="blue";
 
           for(var i=0; i<loadFImmPath.length; i++){
             document.getElementById(loadFImmPath[i]).style.stroke="purple";
@@ -1031,14 +1027,12 @@ crossorigin="anonymous"
           
           document.getElementById("read_a_out").style.stroke="blue";
           document.getElementById(reg1+"_out").style.stroke="blue";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+          document.getElementById(reg1+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+reg1).style.stroke="blue";
 
           document.getElementById(reg2+"_out").style.stroke="green";
-          var bSelected = read_b_mux.get_selected();
-          document.getElementById(bSelected+"_out_to_read_b").style.stroke="green";
-          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="green";
+          document.getElementById(reg2+"_out_to_read_b").style.stroke="green";
+          document.getElementById("read_b_mux_sel"+reg2).style.stroke="green";
 
 
           for(var i = 0; i<readBPath.length; i++){
@@ -1056,14 +1050,12 @@ crossorigin="anonymous"
 
           document.getElementById("read_a_out").style.stroke="blue";
           document.getElementById(reg1+"_out").style.stroke="blue";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+          document.getElementById(reg1+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+reg1).style.stroke="blue";
 
           document.getElementById(reg2+"_out").style.stroke="green";
-          var bSelected = read_b_mux.get_selected();
-          document.getElementById(bSelected+"_out_to_read_b").style.stroke="green";
-          document.getElementById("read_b_mux_sel"+bSelected).style.stroke="green";
+          document.getElementById(reg2+"_out_to_read_b").style.stroke="green";
+          document.getElementById("read_b_mux_sel"+reg2).style.stroke="green";
 
           for(var i = 0; i<readBPath.length; i++){
             document.getElementById(readBPath[i]).style.stroke="green";
@@ -1104,9 +1096,8 @@ crossorigin="anonymous"
           document.getElementById("reg_"+reg1+"_box").style.stroke="green";
           document.getElementById("read_a_out").style.stroke="green";
           document.getElementById(reg1+"_out").style.stroke="green";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
+          document.getElementById(reg1+"_out_to_read_a").style.stroke="green";
+          document.getElementById("read_a_mux_sel"+reg1).style.stroke="green";
 
           for(var i=0; i<aluWritebackPath.length; i++){
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
