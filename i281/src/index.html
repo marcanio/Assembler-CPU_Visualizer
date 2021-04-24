@@ -432,29 +432,31 @@ crossorigin="anonymous"
          <p style="font-family:'Courier New';font-size:xx-large;font-weight:bold">Speed:<span id="SimSpeed"></span></p>
    </foreignObject>
 
-   <foreignObject x="2830" y="450" width="350px" height="250px" id = "Menu">
+   <foreignObject x="2830" y="450" width="370px" height="300px" id = "Menu">
     <br>
-    <div>
-      <div style="float: left;">
-        <input type="checkbox" id="show_description" style="height: 24px;width: 24px;">
-        <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Description</label>
-        <br>
-        <input type="checkbox" id="bHighlight" style="height: 24px;width: 24px;" checked="chkd">
-        <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus HGL</label>
+    <div style="float: left;">
+      <input type="checkbox" id="show_description" style="height: 24px;width: 24px;">
+      <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Description</label>
+      <br>
+      <input type="checkbox" id="show_bus_info" style="height: 24px;width: 24px;">
+      <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
   </div>
   <div style="float: left;">
-    <input type="checkbox" id="show_bus_info" style="height: 24px;width: 24px;">
-    <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
-    <br>
     <input type="checkbox" id="sHighlight" style="height: 24px;width: 24px;" checked="chkd">
-    <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Syntax HGL</label>
+    <label for="show_arrows" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Syntax HGL</label>
+    <br>
+    <input type="checkbox" id="bHighlight" style="height: 24px;width: 24px;" checked="chkd">
+    <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Datapath</label>
+    <br>
+    <input type="checkbox" id="show_control_path" style="height: 24px; width: 24px;" checked="chkd">
+    <label for="show_control_path" style="font-size: xx-large; font-Family:'Courier New', Courier, monospace;"> Show Control Path</label>
     <br>
   </div>
  
     </div>
    </foreignObject>
 
-   <foreignObject x="2480" y="450" width="350px" height="250px" id = "Menu2">
+   <foreignObject x="2480" y="450" width="370px" height="300px" id = "Menu2">
      <br>
       <div style:"float: left;">
         <input type="checkbox" id="auto_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
@@ -468,20 +470,14 @@ crossorigin="anonymous"
         <br>
         <input type="checkbox" id="codeStart" style="height: 25px;width: 25px;" checked="chkd" onchange="PCstart()"> 
         <label for="codeStart" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Start PC @ 32</label>
-        <!-- <span id="radioSpan" style="font-size: xx-large;">Start PC at:</span>
-        <label for="usr" id="usrTxt" style="font-size: 20px;">
-          <input type="radio" id="usr" name="codeStart" checked="chkd" onclick="usr()" style="height: 24px; width: 24px" />
-            32 (User Space)
-        </label>
-        <label for="bios" id="biosTxt" style="font-size: 20px;">
-            <input type="radio" id="bios" name="codeStart" onclick="bios()" style="height: 24px; width: 24px"/>
-             0 (Bios Space)
-         </label> -->
+        <br>
+        <input type="checkbox" id="stop_at_end" style="height: 24px; width: 24px;" checked="chkd">
+        <label for="stop_at_end" style="font-size: xx-large; font-Family:'Courier New', Courier, monospace;"> Stop At End</label>
       </div>
    </foreignObject>
 
 
-   <foreignObject x="2480" y="750" width="700px" height="200px" id="btnMenu">
+   <foreignObject x="2480" y="770" width="700px" height="200px" id="btnMenu">
     <input type="button" class="btn btn-primary" id="RunBtn" 
     value="RUN" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; padding: 20px 35px; font-size:xx-large; border-color:black; margin: 10px;"
     onclick="Run()">
@@ -500,21 +496,6 @@ crossorigin="anonymous"
   </foreignObject> 
 
     </svg> 
-    <!-- Menu -->
-    <!-- <br>
-    <input type="checkbox" id="show_arrows">
-    <label for="show_arrows"> Hide Arrows</label>
-    <input type="checkbox" id="show_bus_info">
-    <label for="show_bus_info"> Show Bus Width</label>
-    <br>
-    <button id="goto_assembler" onclick="location.href='./ImportFile.html'">Assembler</button>
-    <button id="goto_altera_board">Altera Board</button>
-    <br>
-
-    <input type="text" id="instruction">
-    <label type="text" id="result"></label>
-    <p id="counter">0</p> -->
-
     
     <script src="./GUI/UIFunc.js" type="module"></script> 
 
@@ -525,6 +506,10 @@ crossorigin="anonymous"
           }, 500);
 
       function test(){
+        if(started==0){
+          started=1;
+          document.getElementById("codeStart").disabled="true";
+        }
         var holder;
         var cur = cpu.pc.getPC();
         var prev = cpu.pc.getPreviousPC();
@@ -539,8 +524,16 @@ crossorigin="anonymous"
         let registers = cpu.registers.registers;
         let dmem = cpu.dMem.registers;
         let curAsm = cpu.instructions[cur]
+
+        highlightSyntax(cur, prev);
+        highlightTest(controls, cur);
+
         if(curAsm==null && cpu.progName!="biosSwitches"){ 
-          window.alert("Program finished.")
+          if(document.getElementById("stop_at_end").checked==true){
+            window.alert("Program finished.");
+          }
+          document.getElementById("auto_on").checked=false;
+          document.getElementById("assembly_inst").innerHTML="NOOP"
           return;
         }
         if(curAsm!=null){
@@ -565,10 +558,6 @@ crossorigin="anonymous"
           document.getElementById("codeStart").disabled="true";
         }
         
-        // Turn off while in game mode
-        //if(document.getElementById("game_on").checked == false){
-          highlightSyntax(cur, prev);
-        //}
         
 
         var ADDcheck = holder.search("ADD");
@@ -633,10 +622,12 @@ crossorigin="anonymous"
           document.getElementById("dmem_val"+i).innerHTML = dmem[i];
         }
 
-        document.getElementById("carry_flag").innerHTML = cpu.alu.carry;
-        document.getElementById("zero_flag").innerHTML = cpu.alu.zero;
-        document.getElementById("overflow_flag").innerHTML = cpu.alu.overflow;
-        document.getElementById("negative_flag").innerHTML = cpu.alu.negative;
+
+        var curFlags = [];
+        curFlags.push("carry "+cpu.alu.carry)
+        curFlags.push(cpu.alu.zero)
+        curFlags.push(cpu.alu.overflow)
+        curFlags.push(cpu.alu.negative)
 
         read_a_mux.select(addHelper(controls[4], controls[5]))
         read_b_mux.select(addHelper(controls[6], controls[7]));
@@ -646,20 +637,51 @@ crossorigin="anonymous"
         mux3.select(controls[18]);
         mux4.select(controls[2]);
 
-        //Turn off while in game mode
-        //if(document.getElementById("game_on").checked == false){
-          highlightTest(controls, cur)
-        //}
+        if(controls[14]==1){
+          document.getElementById("carry_flag").innerHTML = cpu.alu.carry;
+          document.getElementById("zero_flag").innerHTML = cpu.alu.zero;
+          document.getElementById("overflow_flag").innerHTML = cpu.alu.overflow;
+          document.getElementById("negative_flag").innerHTML = cpu.alu.negative;
+          document.getElementById("alu_flag_wire").style.stroke="red";
+          if(prevCarry!=cpu.alu.carry){
+            document.getElementById("carry_flag").style.fill="red";
+            document.getElementById("carry_flag").setAttribute("font-weight", "bold");
+          }
+          if(prevZero!=cpu.alu.zero){
+            document.getElementById("zero_flag").style.fill="red";
+            document.getElementById("zero_flag").setAttribute("font-weight", "bold");
+          }
+          if(prevOverflow!=cpu.alu.overflow){
+            document.getElementById("overflow_flag").style.fill="red";
+            document.getElementById("overflow_flag").setAttribute("font-weight", "bold");
+          }
+          if(prevNegative!=cpu.alu.negative){
+            document.getElementById("negative_flag").style.fill="red";
+            document.getElementById("negative_flag").setAttribute("font-weight", "bold");
+          }
+          prevCarry=cpu.alu.carry;
+          prevZero=cpu.alu.zero;
+          prevOverflow=cpu.alu.overflow;
+          prevNegative=cpu.alu.negative;
+        }
+        else{
+          document.getElementById("carry_flag").style.fill="black";
+          document.getElementById("carry_flag").setAttribute("font-weight", "normal");
+
+          document.getElementById("zero_flag").style.fill="black";
+          document.getElementById("zero_flag").setAttribute("font-weight", "normal");
+
+          document.getElementById("negative_flag").style.fill="black";
+          document.getElementById("negative_flag").setAttribute("font-weight", "normal");
+
+          document.getElementById("zero_flag").style.fill="black";
+          document.getElementById("zero_flag").setAttribute("font-weight", "normal");
+        }
       }
 
       function highlightSyntax(cur, prev){
         var asm = cpu.instructions[cur];
         var prevasm = cpu.instructions[prev];
-
-        if(asm==null){
-          console.log("prog done");
-          return;
-        }
 
         
         if(prev!=-1){
@@ -680,8 +702,11 @@ crossorigin="anonymous"
         document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
         document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
 
+        if(asm==null){
+          return;
+        }
            
-        if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="MOVE" || asm[0]=="CMP"){
+        else if(asm[0]=="ADD" || asm[0]=="SUB" || asm[0]=="CMP"){
           document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
           document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
           document.getElementById("imem_val"+cur+"_imm").style.fill = "black";
@@ -700,6 +725,15 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
         }
         else if(asm[0]=="STOREF" || asm[0]=="STORE"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+        }
+        else if(asm[0]=="MOVE"){
           document.getElementById("imem_val"+cur+"_reg1").style.fill = "blue";
           document.getElementById("imem_val"+cur+"_reg2").style.fill = "green";
           document.getElementById("imem_val"+cur+"_imm").style.fill = "purple";
@@ -745,13 +779,10 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
         }
         else if(asm[0]=="NOOP"){
-          document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
-          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
-          document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
-
-          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "bold");
-          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "bold");
-          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "bold");
+          return;
+        }
+        else {
+          return;
         }
     }
       function pad(n, width, z) {
@@ -897,6 +928,7 @@ crossorigin="anonymous"
           }
           var writeReg = addHelper(controls[8], controls[9])
           document.getElementById("reg_"+writeReg).style.fill="purple";
+          document.getElementById("reg_"+writeReg+"_box").style.stroke="blue";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
         }
         if(asm[0]=="LOAD"){
@@ -909,6 +941,7 @@ crossorigin="anonymous"
           var writeReg = addHelper(controls[8], controls[9]);
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+          document.getElementById("reg_"+writeReg+"_box").style.stroke="blue";
           var readAddr = parseInt(document.getElementById("imem_val"+cur+"_imm").innerHTML, 2);
           document.getElementById("dmem_box"+readAddr).style.stroke="purple";
         }
@@ -924,6 +957,7 @@ crossorigin="anonymous"
           document.getElementById("read_a_mux_sel"+aSelected).style.stroke="green";
 
           document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg+"_box").style.stroke="blue";
           for(var i=0; i<loadFImmPath.length; i++){
             document.getElementById(loadFImmPath[i]).style.stroke="purple";
           }
@@ -935,7 +969,7 @@ crossorigin="anonymous"
           }
           var test=parseInt(cpu.alu.result,2);
           document.getElementById("dmem_val"+test).style.fill="orange";
-          docume.getElementById("dmem_box"+test).style.stroke="cyan";
+          document.getElementById("dmem_box"+test).style.stroke="cyan";
           document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold");
         }
 
@@ -985,7 +1019,8 @@ crossorigin="anonymous"
             document.getElementById(storeALUPath[i]).style.stroke="blue";
           }
           var test=parseInt(cpu.alu.result,2);
-          document.getElementById("dmem_box"+test).style.stroke="blue";
+          document.getElementById("dmem_box"+test).style.stroke="cyan";
+          document.getElementById("dmem_val"+test).style.stroke="blue";
         }
 
         if(asm[0]=="CMP"){
@@ -993,7 +1028,6 @@ crossorigin="anonymous"
           var reg2=addHelper(controls[6], controls[7])
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
           document.getElementById("reg_"+reg2+"_box").style.stroke="green";
-
           
           document.getElementById("read_a_out").style.stroke="blue";
           document.getElementById(reg1+"_out").style.stroke="blue";
@@ -1010,9 +1044,6 @@ crossorigin="anonymous"
           for(var i = 0; i<readBPath.length; i++){
             document.getElementById(readBPath[i]).style.stroke="green";
           }
-          document.getElementById("alu_flag_wire").style.stroke="red";
-          document.getElementById("negative_flag").style.fill="red";
-          document.getElementById("negative_flag").setAttribute("font-weight", "bold");
         }
 
         if(asm[0]=="ADD" || asm[0]=="SUB"){
@@ -1068,9 +1099,9 @@ crossorigin="anonymous"
           var reg1 = addHelper(controls[4], controls[5]);
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
+          document.getElementById("reg_"+writeReg+"_box").style.stroke="blue";
           document.getElementById("reg_"+reg1+"_box").style.stroke="green";
           document.getElementById("read_a_out").style.stroke="green";
-
           document.getElementById(reg1+"_out").style.stroke="green";
           var aSelected = read_a_mux.get_selected();
           document.getElementById(aSelected+"_out_to_read_a").style.stroke="green";
@@ -1078,6 +1109,10 @@ crossorigin="anonymous"
 
           for(var i=0; i<aluWritebackPath.length; i++){
             document.getElementById(aluWritebackPath[i]).style.stroke="orange";
+          }
+
+          for(var i=0; i<addiPath.length; i++){
+            document.getElementById(addiPath[i]).style.stroke="purple"
           }
         }
         if(asm[0]=="SHIFTL"||asm[0]=="SHIFTR"){

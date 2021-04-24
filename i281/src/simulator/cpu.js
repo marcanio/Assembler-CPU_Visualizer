@@ -73,21 +73,25 @@ export class CPU {
             let fullInstructions = new Array(32)
             var userInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));  // Load text for of instructions from assembler
 
-            for(var i=0; i<32; i++){
-                if(i==1){
-                    let inst = ["JUMP", "30"];
-                    fullInstructions[i]=inst;
+            if(userInstructions.length<32){
+                for(var i=0; i<32; i++){
+                    if(i==1){
+                        let inst = ["JUMP", "30"];
+                        fullInstructions[i]=inst;
+                    }
+                    else{
+                        let inst = ["NOOP"];
+                        fullInstructions[i]=inst;
+                    }
                 }
-                else{
-                    let inst = ["NOOP"];
-                    fullInstructions[i]=inst;
-                }
+                fullInstructions = fullInstructions.concat(userInstructions);
+
+                this.instructions = fullInstructions;
             }
 
-            fullInstructions = fullInstructions.concat(userInstructions);
-
-            this.instructions = fullInstructions;
-
+            else{
+                this.instructions=userInstructions;
+            }
             if(this.progName=="BiosSwitches"){
                 var machineCode = JSON.parse(sessionStorage.getItem("instructionMemory")).slice(32)
                 var asmInstructions = JSON.parse(sessionStorage.getItem("savedInstructions"));
