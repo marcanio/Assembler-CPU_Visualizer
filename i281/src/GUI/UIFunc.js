@@ -87,6 +87,7 @@ document.getElementById("bit13").addEventListener("keydown", arrowWork);
 document.getElementById("bit14").addEventListener("keydown", arrowWork);
 document.getElementById("bit15").addEventListener("keydown", arrowWork);
 document.getElementById("bit16").addEventListener("keydown", arrowWork);
+document.getElementById("bit17").addEventListener("keydown", arrowWork);
 document.getElementById("bit00").addEventListener("change", uiMode);
 document.getElementById("bit01").addEventListener("change", uiMode);
 document.getElementById("bit0In").addEventListener("onkeypress", uiMode);
@@ -95,17 +96,16 @@ document.getElementById("bit1In").addEventListener("onkeypress", uiMode);
 
 function arrowWork(event)
 {
-    //alert(2);
-        var str = "bit";
+        var str = "bit"
     if(event.keyCode == 40)//DOWN
         {
             this.checked = false;
-            document.getElementById(getRelevantBox(this)).value = '0';
+            document.getElementById(getRelevantBox(event.target.id)).value = '0';
         }
         else if(event.keyCode == 38)//UP
         { 
             this.checked = true;
-            document.getElementById(getRelevantBox(this)).value = '1';
+            document.getElementById(getRelevantBox(event.target.id)).value = '1';
         }
         else if(event.keyCode == 37)//LEFT
         {
@@ -238,14 +238,6 @@ function uiMode(){
     var viewSw = document.getElementById("bit01");
     var regSw = document.getElementById("bit00");
 
-    if(initTool == 0)
-    {
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-          })
-          initTool = initTool + 1;
-    }
-
     if(viewSw.checked)
     {
             gameView();
@@ -261,6 +253,69 @@ function uiMode(){
             }
             
         }
+}
+
+function getRelevantBox(swNum)
+{
+    switch(swNum)
+    {
+        case "bit00":
+            return "bit0In";
+            break;
+        case "bit01":
+            return "bit1In";
+            break;
+        case "bit02":
+            return "bit2In";
+            break;
+        case "bit03":
+            return "bit3In";
+            break; 
+        case "bit04":
+            return "bit4In";
+            break;
+        case "bit05":
+            return "bit5In";
+            break;
+        case "bit06":
+            return "bit6In";
+            break;
+        case "bit07":
+            return "bit7In";
+            break;
+        case "bit08":
+            return "bit8In";
+            break; 
+        case "bit09":
+            return "bit9In";
+            break;    
+        case "bit10":
+            return "bit10In";
+            break;
+        case "bit11":
+            return "bit11In";
+            break;
+        case "bit12":
+            return "bit12In";
+            break;
+        case "bit13":
+            return "bit13In";
+            break; 
+        case "bit14":
+            return "bit14In";
+            break;        
+        case "bit15":
+            return "bit15In";
+            break;
+        case "bit16":
+            return "bit16In";
+            break; 
+        case "bit17":
+            return "bit17In";
+            break;     
+        default:
+            break;          
+    }    
 }
 
 function memView(){
