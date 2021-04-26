@@ -429,69 +429,73 @@ crossorigin="anonymous"
 
    <foreignObject x="2480" y="350" width="700px" height="100px" id = "switchCanvSpeed">
        <input type="range" min="1" max="100" value="50" class="speed" id="speedSld" onchange="autoMode()">
-         <p style="font-family:'Courier New';font-size:xx-large;font-weight:bold">Speed:<span id="SimSpeed"></span></p>
+         <p style="font-family:'Arial';font-size:xx-large;font-weight:bold">Speed:<span id="SimSpeed"></span></p>
    </foreignObject>
 
    <foreignObject x="2830" y="450" width="370px" height="300px" id = "Menu">
     <br>
     <div style="float: left;">
-      <input type="checkbox" id="show_description" style="height: 24px;width: 24px;">
-      <label for="show_description" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Description</label>
+      <input type="checkbox" id="show_description" style="height: 30px;width: 30px;">
+      <label for="show_description" style="font-size: xx-large;font-family:'Arial';"> Show Description</label>
       <br>
-      <input type="checkbox" id="show_bus_info" style="height: 24px;width: 24px;">
-      <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
+      <input type="checkbox" id="show_bus_info" style="height: 30px;width: 30px;">
+      <label for="show_bus_info" style="font-size: xx-large;font-family:'Arial';"> Show Bus Width</label>
   </div>
   <div style="float: left;">
-    <input type="checkbox" id="sHighlight" style="height: 24px;width: 24px;" checked="chkd">
-    <label for="sHighlight" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Syntax HGL</label>
+    <input type="checkbox" id="sHighlight" style="height: 30px;width: 30px;" checked="chkd">
+    <label for="sHighlight" style="font-size: xx-large;font-family:'Arial';"> Show Syntax HGL</label>
     <br>
-    <input type="checkbox" id="bHighlight" style="height: 24px;width: 24px;" checked="chkd">
-    <label for="bHighlight" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Datapath</label>
+    <input type="checkbox" id="bHighlight" style="height: 30px;width: 30px;" checked="chkd">
+    <label for="bHighlight" style="font-size: xx-large;font-family:'Arial';"> Show Datapath</label>
     <br>
-    <input type="checkbox" id="show_control_path" style="height: 24px; width: 24px;" checked="chkd">
-    <label for="show_control_path" style="font-size: xx-large; font-Family:'Courier New', Courier, monospace;"> Show Control Path</label>
+    <input type="checkbox" id="show_control_path" style="height: 30px; width: 30px;" checked="chkd">
+    <label for="show_control_path" style="font-size: xx-large;font-family:'Arial';"> Show Control Path</label>
     <br>
   </div>
  
     </div>
    </foreignObject>
 
-   <foreignObject x="2480" y="450" width="370px" height="300px" id = "Menu2">
+   <foreignObject x="2480" y="450" width="350px" height="300px" id = "Menu2">
      <br>
       <div style:"float: left;">
-        <input type="checkbox" id="auto_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
-        <label for="auto_on" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Auto Mode on</label>
+        <input type="checkbox" id="auto_on" style="height: 30px;width: 30px;" onchange="autoMode()"> 
+        <label for="auto_on" style="font-size: xx-large;font-family:'Arial';"> Auto Mode on</label>
         <br>
-        <input type="checkbox" id="game_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
-        <label for="game_on" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Game Mode on</label>
+        <input type="checkbox" id="game_on" style="height: 30px;width: 30px;" onchange="autoMode()"> 
+        <label for="game_on" style="font-size: xx-large;font-family:'Arial';"> Game Mode on</label>
         <br>
-        <input type="checkbox" id="regCheck" style="height: 25px;width: 25px;" onchange="regSwitch()"> 
-        <label for="regCheck" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Register View</label>
+        <input type="checkbox" id="regCheck" style="height: 30px;width: 30px;" onchange="regSwitch()"> 
+        <label for="regCheck" style="font-size: xx-large;font-family:'Arial';"> Register View</label>
         <br>
-        <input type="checkbox" id="codeStart" style="height: 25px;width: 25px;" checked="chkd" onchange="PCstart()"> 
-        <label for="codeStart" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Start PC @ 32</label>
+        <input type="checkbox" id="codeStart" style="height: 30px;width: 30px;" checked="chkd" onchange="PCstart()"> 
+        <label for="codeStart" style="font-size: xx-large;font-family:'Arial';"> Start PC @ 32</label>
         <br>
-        <input type="checkbox" id="stop_at_end" style="height: 24px; width: 24px;" checked="chkd">
-        <label for="stop_at_end" style="font-size: xx-large; font-Family:'Courier New', Courier, monospace;"> Stop At End</label>
+        <input type="checkbox" id="stop_at_end" style="height: 30px; width: 30px;" checked="chkd">
+        <label for="stop_at_end" style="font-size: xx-large;font-family:'Arial';"> Stop At End</label>
       </div>
    </foreignObject>
 
 
    <foreignObject x="2480" y="770" width="700px" height="200px" id="btnMenu">
     <input type="button" class="btn btn-primary" id="RunBtn" 
-    value="RUN" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; padding: 20px 35px; font-size:xx-large; border-color:black; margin: 10px;"
+    value="RUN" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; 
+    padding: 20px 35px; font-size:xx-large; border-color:white; margin: 10px;border-radius: 15px;"
     onclick="Run()">
 
     <input type="button" class="btn btn-primary" id="StepBtn" 
-    value="STEP" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; padding: 20px 30px; font-size:xx-large; border-color:black; margin: 10px;"
+    value="STEP" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; 
+    padding: 20px 30px; font-size:xx-large; border-color:white; margin: 10px;border-radius: 15px;"
     onclick="Step()">
 
-    <input type="button" class="btn btn-primary" id="ResetBtn" 
-    value="RESET" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; padding: 20px 20px; font-size:xx-large; border-color:black; margin: 10px;"
+    <input type="button" class="btn btn-primary btn-lg shadow-lg" id="ResetBtn" 
+    value="RESET" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; 
+    padding: 20px 20px; font-size:xx-large; border-color:white; margin: 10px;border-radius: 15px;"
     onclick="location.href='index.html'" >
 
     <input type="button" class="btn btn-primary" id="LoadBtn" 
-    value="LOAD" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; padding: 20px 30px; font-size:xx-large; border-color:black; margin: 10px;"
+    value="LOAD" style="background-color: darkgray; font-family:Arial, Helvetica, sans-serif; 
+    padding: 20px 30px; font-size:xx-large;border-color:white; margin: 10px; border-radius: 15px;"
     onclick="location.href='./assembler/ImportFile.html'">
   </foreignObject> 
 
@@ -510,7 +514,6 @@ crossorigin="anonymous"
           started=1;
           document.getElementById("codeStart").disabled="true";
         }
-        var holder;
         var cur = cpu.pc.getPC();
         var prev = cpu.pc.getPreviousPC();
         document.getElementById("pc_val_id").innerHTML = pad((cur).toString(2), 6);
@@ -534,6 +537,7 @@ crossorigin="anonymous"
           }
           document.getElementById("auto_on").checked=false;
           document.getElementById("assembly_inst").innerHTML="NOOP"
+          clearInterval(currTime);
           return;
         }
         if(curAsm!=null){
@@ -547,7 +551,6 @@ crossorigin="anonymous"
             }
           }
           
-          holder = build;
           document.getElementById("assembly_inst").innerHTML= (build.substring(0, build.length-1));
           }
         if(cur<32){
@@ -557,16 +560,7 @@ crossorigin="anonymous"
           switchToUser();
           document.getElementById("codeStart").disabled="true";
         }
-        
-        
 
-        var ADDcheck = holder.search("ADD");
-        var SLcheck = holder.search("SHIFTL");
-        var SRcheck = holder.search("SHIFTR");
-        var SUBcheck = holder.search("SUB");
-        var CMPcheck = holder.search("CMP");
-
-      if(CMPcheck != -1 || SLcheck != -1 || SRcheck != -1 || SUBcheck != -1 || ADDcheck != -1){
         if(controls[12] == 1)
         {
           if(controls[13] == 1){
@@ -585,10 +579,6 @@ crossorigin="anonymous"
             document.getElementById("ALUTextid").setAttribute('data-original-title', "SHIFTL");
           }
         }
-      }
-      else{
-        document.getElementById("ALUTextid").setAttribute('data-original-title', "ALU operation standby");
-      }  
 
         for(var i=1; i<controls.length; i++){
           if(controls[i]==1 && document.getElementById("bHighlight").checked==true){
@@ -1254,6 +1244,10 @@ function switchChange(actSw,swNum){
           document.getElementById("game_on").checked = true;
           autoMode();
         }
+        if(actSw == "bit00")
+        {
+          document.getElementById("regCheck").checked = true;
+        }
     }
     else
     {
@@ -1262,6 +1256,10 @@ function switchChange(actSw,swNum){
         {
           document.getElementById("game_on").checked = false;
           autoMode();
+        }
+        if(actSw == "bit00")
+        {
+          document.getElementById("regCheck").checked = false;
         }
     }
 }
@@ -1323,28 +1321,6 @@ function Step(){
 function autoMode()
 {
   var mode = auto_on.checked;
-  var gaming = game_on.checked;
-  if(gaming)
-  {
-    if(currTime == 0)
-    {
-      currTime = setInterval(test, 15);
-      return;
-    }
-    else
-    {
-      clearInterval(currTime);
-      currTime = setInterval(test, 15);
-      return;
-    }
-  }
-  else
-  {
-    if(currTime != 0)
-    {
-      clearInterval(currTime);
-    }
-  }
   if(mode)
   {
     if(currTime == 0)
