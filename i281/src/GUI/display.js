@@ -437,7 +437,7 @@ window.addEventListener("load", function() {
 	cpu.pc.currentPC=32;
 
 	console.log(cpu.instructions.length);
-	if(cpu.instructions.length-32>cpu.instructions.length || cpu.progName=="BiosSwitches"){
+	if(cpu.instructions.length-32>=32 || cpu.progName=="BiosSwitches"){
 		cpu.pc.currentPC=0;
 		code_mem.switchToBios();
 		document.getElementById("codeStart").checked=false;

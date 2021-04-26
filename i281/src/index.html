@@ -946,6 +946,7 @@ crossorigin="anonymous"
           document.getElementById("read_a_mux_sel"+readReg).style.stroke="green";
 
           document.getElementById("reg_"+writeReg).style.fill="orange";
+          document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold"); //patched
           document.getElementById("reg_"+writeReg+"_box").style.stroke="blue";
           for(var i=0; i<loadFImmPath.length; i++){
             document.getElementById(loadFImmPath[i]).style.stroke="purple";
@@ -1006,7 +1007,8 @@ crossorigin="anonymous"
           }
           var test=parseInt(cpu.alu.result,2);
           document.getElementById("dmem_box"+test).style.stroke="cyan";
-          document.getElementById("dmem_val"+test).style.stroke="blue";
+          document.getElementById("dmem_val"+test).style.fill="blue";
+          document.getElementById("dmem_val"+test).setAttribute("font-weight", "bold"); 
         }
 
         if(asm[0]=="CMP"){
@@ -1031,7 +1033,6 @@ crossorigin="anonymous"
         }
 
         if(asm[0]=="ADD" || asm[0]=="SUB"){
-          //placeholder 
           var reg1=addHelper(controls[4], controls[5])
           var reg2=addHelper(controls[6], controls[7])
           document.getElementById("reg_"+reg1+"_box").style.stroke="blue";
@@ -1072,9 +1073,8 @@ crossorigin="anonymous"
           document.getElementById("read_a_out").style.stroke="blue";
 
           document.getElementById(reg1+"_out").style.stroke="blue";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+          document.getElementById(reg1+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+reg1).style.stroke="blue";
         }
 
         if(asm[0]=="MOVE"){
@@ -1102,9 +1102,8 @@ crossorigin="anonymous"
           var reg1 = addHelper(controls[4], controls[5]);
 
           document.getElementById(reg1+"_out").style.stroke="blue";
-          var aSelected = read_a_mux.get_selected();
-          document.getElementById(aSelected+"_out_to_read_a").style.stroke="blue";
-          document.getElementById("read_a_mux_sel"+aSelected).style.stroke="blue";
+          document.getElementById(reg1+"_out_to_read_a").style.stroke="blue";
+          document.getElementById("read_a_mux_sel"+reg1).style.stroke="blue";
 
           document.getElementById("reg_"+writeReg).style.fill="orange";
           document.getElementById("reg_"+writeReg).setAttribute("font-weight", "bold");
