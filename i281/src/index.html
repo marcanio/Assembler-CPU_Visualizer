@@ -1325,12 +1325,12 @@ function autoMode()
   {
     if(currTime == 0)
     {
-      currTime = setInterval(test, (101 - document.getElementById("speedSld").value) * 30);
+      currTime = setInterval(test, (101 - document.getElementById("speedSld").value) * 15);
     }
     else
     {
       clearInterval(currTime);
-      currTime = setInterval(test, (101 - document.getElementById("speedSld").value) * 30);//1-10 seconds
+      currTime = setInterval(test, (101 - document.getElementById("speedSld").value) * 15);//1-10 seconds
     }
   }
   else
