@@ -16,8 +16,6 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 crossorigin="anonymous"
 />
-    
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
 
    <script
    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -442,13 +440,13 @@ crossorigin="anonymous"
       <label for="show_bus_info" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Bus Width</label>
   </div>
   <div style="float: left;">
-    <input type="checkbox" id="sHighlight" style="height: 24px;width: 24px;" checked="chkd">
+    <input type="checkbox" id="sHighlight" style="height: 24px;width: 24px;" checked="chkd" onchange="unhighlightSyntax()">
     <label for="sHighlight" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Syntax HGL</label>
     <br>
-    <input type="checkbox" id="bHighlight" style="height: 24px;width: 24px;" checked="chkd">
+    <input type="checkbox" id="bHighlight" style="height: 24px;width: 24px;" checked="chkd" onchange="unhighlightBusses()">
     <label for="bHighlight" style="font-size: xx-large;font-family:'Courier New', Courier, monospace;"> Show Datapath</label>
     <br>
-    <input type="checkbox" id="show_control_path" style="height: 24px; width: 24px;" checked="chkd">
+    <input type="checkbox" id="show_control_path" style="height: 24px; width: 24px;" checked="chkd" onchange="unhighlightControlPath()">
     <label for="show_control_path" style="font-size: xx-large; font-Family:'Courier New', Courier, monospace;"> Show Control Path</label>
     <br>
   </div>
@@ -456,7 +454,7 @@ crossorigin="anonymous"
     </div>
    </foreignObject>
 
-   <foreignObject x="2480" y="450" width="370px" height="300px" id = "Menu2">
+   <foreignObject x="2480" y="450" width="350px" height="300px" id = "Menu2">
      <br>
       <div style:"float: left;">
         <input type="checkbox" id="auto_on" style="height: 25px;width: 25px;" onchange="autoMode()"> 
@@ -536,6 +534,15 @@ crossorigin="anonymous"
           document.getElementById("assembly_inst").innerHTML="NOOP"
           return;
         }
+        if(curAsm[0]=="INPUTCF"){
+          var val = parseInt(cpu.alu.result,2);
+          console.log(val);
+          cpu.instructions[val]=null;
+          document.getElementById("imem_val"+val+"_opcode").innerHTML=cpu.iMem.registers[val].substring(0,4);
+          document.getElementById("imem_val"+val+"_reg1").innerHTML=cpu.iMem.registers[val].substring(4,6);
+          document.getElementById("imem_val"+val+"_reg2").innerHTML=cpu.iMem.registers[val].substring(6,8);
+          document.getElementById("imem_val"+val+"_imm").innerHTML=cpu.iMem.registers[val].substring(8,16);
+        }
         if(curAsm!=null){
           let build = "";
           for(var i=0; i<curAsm.length; i++){
@@ -591,7 +598,7 @@ crossorigin="anonymous"
       }  
 
         for(var i=1; i<controls.length; i++){
-          if(controls[i]==1 && document.getElementById("bHighlight").checked==true){
+          if(controls[i]==1 && document.getElementById("show_control_path").checked==true){
           document.getElementById("c"+i+"val").innerHTML = controls[i];
           document.getElementById("c"+i+"val").style.fill="red";
           document.getElementById("c"+i+"val").setAttribute("font-weight", "bold");
@@ -696,11 +703,21 @@ crossorigin="anonymous"
           document.getElementById("imem_val"+prev+"_reg2").setAttribute("font-weight", "normal");
           document.getElementById("imem_val"+prev+"_imm").setAttribute("font-weight", "normal");
       }
-
+      if(cur==-1) return;
       if(document.getElementById("sHighlight").checked==false) return;
 
         document.getElementById("imem_val"+cur+"_opcode").style.fill = "red";
         document.getElementById("imem_val"+cur+"_opcode").setAttribute("font-weight", "bold");
+
+        if(asm==null&&cpu.progName=="BiosSwitches"){
+          document.getElementById("imem_val"+cur+"_reg1").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_reg2").style.fill = "red";
+          document.getElementById("imem_val"+cur+"_imm").style.fill = "red";
+
+          document.getElementById("imem_val"+cur+"_reg1").setAttribute("font-weight", "red");
+          document.getElementById("imem_val"+cur+"_reg2").setAttribute("font-weight", "red");
+          document.getElementById("imem_val"+cur+"_imm").setAttribute("font-weight", "red");
+        }
 
         if(asm==null){
           return;
@@ -1179,6 +1196,48 @@ crossorigin="anonymous"
   function switchToUser(){
     code_mem.switchToUser();
   }
+
+  function unhighlightSyntax(){
+    var cur = cpu.pc.getPC();
+    var prev = cpu.pc.getPreviousPC();
+    console.log(cur+" "+prev);
+    if(document.getElementById("sHighlight").checked==false)
+      highlightSyntax(-1, prev);
+    else
+    highlightSyntax(prev,0);
+  }
+
+  function unhighlightBusses(){
+    var cur = cpu.pc.getPC();
+    var prev = cpu.pc.getPreviousPC();
+    highlightTest(cpu.control.c, prev);
+  }
+
+  function unhighlightControlPath(){
+    var controls = cpu.control.c;
+    for(var i=1; i<controls.length; i++){
+      if(document.getElementById("show_control_path").checked==false){
+        document.getElementById("c"+i+"val").style.fill="black";
+        document.getElementById("c"+i+"val").setAttribute("font-weight", "normal");
+
+        document.getElementById("control_c"+i).style.fill = "black";
+        document.getElementById("control_c"+i).style.stroke = "black";
+
+        document.getElementById("c"+i).style.fill="black"
+        document.getElementById("c"+i).style.stroke="black"
+      }
+      else if(document.getElementById("show_control_path").checked==true && controls[i]==1){
+        document.getElementById("c"+i+"val").style.fill="red";
+        document.getElementById("c"+i+"val").setAttribute("font-weight", "bold");
+
+        document.getElementById("control_c"+i).style.fill = "red";
+        document.getElementById("control_c"+i).style.stroke = "red";
+
+        document.getElementById("c"+i).style.fill="red"
+        document.getElementById("c"+i).style.stroke="red"
+      }
+    }
+  }
       
 function getRelevantBox(swNum)
 {
@@ -1367,7 +1426,7 @@ function autoMode()
 }
 
     </script>
-   <script
+  <script
    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
    crossorigin="anonymous"
