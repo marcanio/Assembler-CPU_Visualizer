@@ -222,7 +222,7 @@
         
       </div>
 
-      <main class="container p-3 my-3 border">
+      <main class="container p-3 my-3 border border-0">
         <section class="jumbotron text-center">
           <h1 class="display-4 mb-4" id="banner">Load Assembly File Below</h1>
         
@@ -250,6 +250,7 @@
                   class="btn btn-primary mb-3"
                   onclick="mainMethod()"
                   id="assemblyButton"
+                  style="display: none"
                   value="Assemble!"
                 />
 
@@ -264,6 +265,22 @@
                   class="dropdown-item"
                   onclick="downloadMachineFile()"
                   value="Machine Code"
+                />
+
+                <input
+                  type="button"
+                  id="downloadBiosLow"
+                  class="dropdown-item"
+                  onclick="downloadBiosCodeLow()"
+                  value="Verilog BIOS Code Low"
+                />
+                
+                <input
+                  type="button"
+                  id="downloadBiosHigh"
+                  class="dropdown-item"
+                  onclick="downloadBiosCodeHigh()"
+                  value="Verilog BIOS Code High"
                 />
 
                 <input
@@ -304,7 +321,7 @@
                   class="btn btn-primary mr-1 mb-3"
                   style="display: none"
                   onclick="toggleSyntaxHighlight()"
-                  value="Syntax highlighting: OFF"
+                  value="Syntax Highlighting: ON"
                 />
                 <input
                   type="button"
@@ -364,7 +381,7 @@
       </main>
       
       <div class="modal fade" id="aboutModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-sm">
           <div class="modal-content">
       
             <!-- Modal Header -->
@@ -386,7 +403,9 @@
               <p>&nbsp&nbsp Kyung-Tae J. Kim</p>
               <p>&nbsp&nbsp Alexander Stoytchev</p>
               <p></p>
-              <p>Project supervisor: Alexander Stoytchev</p>
+              <p>Project supervisor: </p>
+              <p>&nbsp&nbsp Alexander Stoytchev</p>
+              <p></p>
               <p>Iowa State University Ames, IA 50011 U.S.A.</p>
             </div>
       
