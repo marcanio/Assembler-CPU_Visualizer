@@ -83,6 +83,7 @@ window.onload = function () {
    
     sessionStorage.setItem("fileName", file.name);
     let reader = new FileReader();
+    document.getElementById("assemblyButton").style.display= "block";
     //Pass each line to the remove comments function
     reader.onload = function (e) {
       //fileDisplayArea.innerText = reader.result;
@@ -188,6 +189,11 @@ function getJumps(withoutComments) {
   let codeRead = false;
   let toReturn = new Array();
   let count = 0;
+  //Take away tabs
+  for(let i =0; i < withoutComments.length; i++){
+    withoutComments[i] = withoutComments[i].replace(/\t/g, '');
+  }
+  
   for (let i = 0; i < withoutComments.length; i++) {
     let line = withoutComments[i];
     if (line.includes(".code")) {
@@ -439,7 +445,7 @@ function mainMethod() {
       y.innerHTML =
         '<a type="button" style="text-decoration-line:underline;text-decoration-color: blue;font-weight: bold;"data-toggle="modal" data-target="#myModal">' + "View Data Memory" + "</a>";
     } else if (line + 1 == codeSegmentStart) {
-      y.innerHTML = "Code Segment:" ;
+      y.innerHTML = "Instruction Memory:" ;
     } else if (line >= codeSegmentStart) {
       y.innerHTML = formatMachine[spaceing];
       spaceing++;
@@ -512,6 +518,7 @@ function downloadMachineFile() {
   for(let i =0; i < dataValues.length; i++){
     tempmachineCode += convertStringToBinary(dataValues[i]) + "\n";
   }
+  tempmachineCode += "\n";
   //Code memory
   tempmachineCode += "IMEM\n";
   tempmachineCode += machineCode;
@@ -530,6 +537,114 @@ function downloadMachineFile() {
   document.body.removeChild(element);
 }
 
+function downloadBiosCodeLow() {
+  let element = document.createElement("a");
+  let fileName = "Bios_low.v";
+
+  let output = `module BIOS_Hardcoded_Low(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);
+
+  output [15:0] b0I;
+  output [15:0] b1I;
+  output [15:0] b2I;
+  output [15:0] b3I;
+  output [15:0] b4I;
+  output [15:0] b5I;
+  output [15:0] b6I;
+  output [15:0] b7I;
+  output [15:0] b8I;
+  output [15:0] b9I;
+  output [15:0] b10I;
+  output [15:0] b11I;
+  output [15:0] b12I;
+  output [15:0] b13I;
+  output [15:0] b14I;
+  output [15:0] b15I;
+  
+  assign b0I[15:0] = 16'b0000_00_00_00000000;
+  assign b1I[15:0] = 16'b1110_00_00_00011110;
+  assign b2I[15:0] = 16'b0000_00_00_00000000;
+  assign b3I[15:0] = 16'b0000_00_00_00000000;
+  assign b4I[15:0] = 16'b0000_00_00_00000000;
+  assign b5I[15:0] = 16'b0000_00_00_00000000;
+  assign b6I[15:0] = 16'b0000_00_00_00000000;
+  assign b7I[15:0] = 16'b0000_00_00_00000000;
+  assign b8I[15:0] = 16'b0000_00_00_00000000;
+  assign b9I[15:0] = 16'b0000_00_00_00000000;
+  assign b10I[15:0] = 16'b0000_00_00_00000000;
+  assign b11I[15:0] = 16'b0000_00_00_00000000;
+  assign b12I[15:0] = 16'b0000_00_00_00000000;
+  assign b13I[15:0] = 16'b0000_00_00_00000000;
+  assign b14I[15:0] = 16'b0000_00_00_00000000;
+  assign b15I[15:0] = 16'b0000_00_00_00000000;
+  
+  endmodule`;
+
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(output)
+  );
+  element.setAttribute("download", fileName);
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+function downloadBiosCodeHigh() {
+  let element = document.createElement("a");
+  let fileName = "Bios_High.v";
+
+  let output = `module BIOS_Hardcoded_High(b0I,b1I,b2I,b3I,b4I,b5I,b6I,b7I,b8I,b9I,b10I,b11I,b12I,b13I,b14I,b15I);
+
+  output [15:0] b0I;
+  output [15:0] b1I;
+  output [15:0] b2I;
+  output [15:0] b3I;
+  output [15:0] b4I;
+  output [15:0] b5I;
+  output [15:0] b6I;
+  output [15:0] b7I;
+  output [15:0] b8I;
+  output [15:0] b9I;
+  output [15:0] b10I;
+  output [15:0] b11I;
+  output [15:0] b12I;
+  output [15:0] b13I;
+  output [15:0] b14I;
+  output [15:0] b15I;
+  
+  assign b0I[15:0] = 16'b0000_00_00_00000000;
+  assign b1I[15:0] = 16'b0000_00_00_00000000;
+  assign b2I[15:0] = 16'b0000_00_00_00000000;
+  assign b3I[15:0] = 16'b0000_00_00_00000000;
+  assign b4I[15:0] = 16'b0000_00_00_00000000;
+  assign b5I[15:0] = 16'b0000_00_00_00000000;
+  assign b6I[15:0] = 16'b0000_00_00_00000000;
+  assign b7I[15:0] = 16'b0000_00_00_00000000;
+  assign b8I[15:0] = 16'b0000_00_00_00000000;
+  assign b9I[15:0] = 16'b0000_00_00_00000000;
+  assign b10I[15:0] = 16'b0000_00_00_00000000;
+  assign b11I[15:0] = 16'b0000_00_00_00000000;
+  assign b12I[15:0] = 16'b0000_00_00_00000000;
+  assign b13I[15:0] = 16'b0000_00_00_00000000;
+  assign b14I[15:0] = 16'b0000_00_00_00000000;
+  assign b15I[15:0] = 16'b0000_00_00_00000000;
+  
+  endmodule`;
+
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(output)
+  );
+  element.setAttribute("download", fileName);
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
 function downloadUserCodeLow() {
   let element = document.createElement("a");
   let fileName = "User_Code_Low.v";
@@ -1094,6 +1209,7 @@ function parseCodeSegment(code) {
     for(let j = 0; j < 10; j++ ){
       if(lineScanner[j]){
         lineScanner[j] = lineScanner[j].replace(/^\s+|\s+$/g, '');
+        lineScanner[j] = lineScanner[j].replace(/^\t+|\t+$/g, '');
       }else{
         break;
       }
@@ -1294,8 +1410,8 @@ function toggleSyntaxHighlight() {
   let Assemblytable = document.getElementById("assemblyTable");
   let machineTable = document.getElementById("machineTable");
  
-  if (toggle.localeCompare("Syntax highlighting: OFF") == 0) {
-    document.getElementById("toggleSyntax").value = "Syntax highlighting: ON";
+  if (toggle.localeCompare("Syntax Highlighting: ON") == 0) {
+    document.getElementById("toggleSyntax").value = "Syntax Highlighting: OFF";
 
     //Table color update
     for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
@@ -1390,8 +1506,9 @@ function toggleSyntaxHighlight() {
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       } else if (firstCol.localeCompare("NOOP") == 0) {
         let newMachineCol = '<span style="color:red">';
-        newMachineCol += machineCol.substring(0, machineCol.length);
+        newMachineCol += machineCol.substring(0, 4);
         newMachineCol += "</span>";
+        newMachineCol += machineCol.substring(4, machineCol.length);
         machineTable.rows[i].cells[0].innerHTML = newMachineCol;
       } else if(firstCol.localeCompare("LOADF") == 0){
         //Assembly Code
@@ -1505,7 +1622,7 @@ function toggleSyntaxHighlight() {
     }
   } else {
     let originalMachine = machineCode.split("\n");
-    document.getElementById("toggleSyntax").value = "Syntax highlighting: OFF";
+    document.getElementById("toggleSyntax").value = "Syntax Highlighting: ON";
     let counter = 0;
 
     for (let i = codeSegmentStart; i < Assemblytable.rows.length; i++) {
@@ -1849,6 +1966,6 @@ document.getElementById("assemblyTable").style.display = "block";
   document.getElementById("displayAssemblytext").style.display = "block";
   document.getElementById("displayMachinetext").style.display = "block";
   document.getElementById("displayErrorText").innerHTML = "";
-  document.getElementById("toggleSyntax").value = "Syntax highlighting: OFF";
+  document.getElementById("toggleSyntax").value = "Syntax Highlighting: ON";
 
 }
